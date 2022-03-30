@@ -1,0 +1,79 @@
+<odoo>
+    <data>
+        <!-- Vista Árbol de Modelo Tipo de Movimiento Interno -->
+
+        <record model="ir.ui.view" id="internal_transfer_type_tree">
+            <field name="name">internal.transfer.type.tree</field>
+            <field name="model">internal.transfer.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="journal_departure_id"/>
+                    <field name="journal_entry_id"/>
+                    <field name="type"/>
+                    <field name="max_amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario de Modelo Tipo de Movimiento Interno -->
+
+        <record model="ir.ui.view" id="internal_transfer_type_form">
+            <field name="name">internal.transfer_type.form</field>
+            <field name="model">internal.transfer.type</field>
+            <field name="arch" type="xml">
+                <form string="Tipo de Movimiento Interno">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="sequence_id"/>
+                                <field name="max_amount"/>
+                            </group>
+                            <group>
+                                <field name="journal_departure_id"/>
+                                <field name="journal_entry_id"/>
+                                <field name="type"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Busqueda de Modelo Tipo de Movimiento Interno -->
+
+        <record model="ir.ui.view" id="internal_transfer_type_search">
+            <field name="name">internal.transfer.type.search</field>
+            <field name="model">internal.transfer.type</field>
+            <field name="arch" type="xml">
+                <search string="Movimiento Interno Busqueda">
+                    <field name="name"/>
+                    <field name="journal_departure_id"/>
+                    <field name="journal_entry_id"/>
+                    <field name="type"/>
+                    <field name="max_amount"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Accion para visualizar modelo Tipo Movimiento Interno -->
+
+        <record id="internal_transfer_type_action" model="ir.actions.act_window">
+            <field name="name">Tipo de Movimiento Interno</field>
+            <field name="res_model">internal.transfer.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="internal_transfer_type_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crer un nuevo tipo de movimiento interno
+                </p>
+            </field>
+        </record>
+
+        <!--Menu de Tipo Movimiento Interno-->
+
+        <menuitem id="internal_transfer_type_menu" sequence="10" parent="account.account_account_menu" action="internal_transfer_type_action"/>
+
+    </data>
+</odoo>

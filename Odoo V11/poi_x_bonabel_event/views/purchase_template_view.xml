@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="purchase_order_imports_bonabel">
+            <field name="name">purchase.order.imports.bonabel</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <button name="button_draft" position="after">
+                    <button name="conf_provee" string="Confirmación proveedor" type="object"/>
+                    <button name="conf_ped" string="Confirmar pedido" type="object"/>
+                </button>
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button"
+                            type="object"
+                            icon="fa-dashboard"
+                            helpy="vendor bills">
+                        <field string="Informe de carga" name="fields_test1" widget="statinfo"/>
+                    </button>
+                    <button class="oe_stat_button"
+                            type="object"
+                            icon="fa-folder-open"
+                            helpy="vendor bills">
+                        <field string="Carpetas" name="fields_test2" widget="statinfo"/>
+                    </button>
+                    <!--<button class="oe_stat_button"
+                            name="action_catalogo_productos"
+                            type="object"
+                            icon="fa-list-alt"
+                            help="Vendor Bills">
+                        <field string="Catalogo" name="product_count" widget="statinfo"/>
+                    </button>-->
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

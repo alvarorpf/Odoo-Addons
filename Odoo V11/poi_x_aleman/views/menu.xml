@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_account_op_root" name="Alumnos" parent="account.menu_finance" sequence="1"/>
+
+        <menuitem id="menu_account_op_conf_root" name="Colegio" parent="account.menu_finance_configuration"
+                  sequence="5"/>
+
+        <!-- MENU ACADEMIA -->
+        <menuitem id="menu_op_school_academy" name="Academia" parent="openeducat_core.menu_op_school_root"
+                  sequence="11" web_icon="poi_x_aleman,static/description/icon.png" />
+
+        <!-- MENU FAMILIA -->
+        <menuitem id="menu_op_school_family" name="Familia" parent="openeducat_core.menu_op_school_root"
+                  sequence="11"/>
+
+        <!-- MENU CONFIGURACION -->
+        <menuitem id="op_submenu_configuration" name="Configuracion" sequence="1"
+                  parent="openeducat_core.menu_op_school_config"/>
+
+        <menuitem id="menu_partner_title_contact"
+                  action="base.action_partner_title_contact"
+                  name="Titulo" parent="op_submenu_configuration"
+                  sequence="3"/>
+        <!--Submenu Academia-->
+        <menuitem id="submenu_op_school_academy_configuration" name="Academia"
+                  parent="openeducat_core.menu_op_school_config"
+                  sequence="11"/>
+        <!--Submenu Alumno-->
+        <menuitem id="submenu_op_school_student_configuration" name="Alumno"
+                  parent="openeducat_core.menu_op_school_config"
+                  sequence="11"/>
+        <!--Submenu Familia-->
+        <menuitem id="submenu_op_school_family_configuration" name="Familia"
+                  parent="openeducat_core.menu_op_school_config"
+                  sequence="11"/>
+        <!--Submenu Profesor-->
+        <menuitem id="submenu_op_school_teacher_configuration" name="Profesor"
+                  parent="openeducat_core.menu_op_school_config"
+                  sequence="11"/>
+
+        <!--Grupo para ocultar menus-->
+        <record id="hide" model="res.groups">
+            <field name="name">Menus Ocultos (No Asignar)</field>
+            <field name="comment">No Asignar.</field>
+        </record>
+
+        <menuitem id="openeducat_core.menu_op_faculty_root" sequence="20" groups="hide"/>
+        <menuitem id="openeducat_core.menu_op_student_root" sequence="25" groups="hide"/>
+        <menuitem id="openeducat_core.menu_op_general_main" name="General" groups="hide"/>
+
+
+        <!-- account_charge.xml -->
+        <menuitem id="menu_account_op_charge_type" name="Tipos de Cargos" parent="menu_account_op_conf_root"
+                  action="account_op_charge_type_action_form" sequence="1"/>
+        <menuitem id="menu_account_op_charge" name="Cargos" parent="menu_account_op_root"
+                  action="account_op_charge_action_form" sequence="1"/>
+        <menuitem id="menu_request_op_charge" name="Pago de Cargos" parent="menu_account_op_root"
+                  action="op_request_charge_action_form" sequence="10"/>
+        <menuitem id="menu_op_request_import" name="Importación de Cargos" parent="menu_account_op_root"
+                  action="op_request_import_action" sequence="11"/>
+        <!--Reportes Contables-->
+        <menuitem id="menu_report_account_cea" name="Reportes" parent="menu_account_op_root" sequence="11"/>
+
+
+        <menuitem id="openeducat_core.menu_op_course_sub" name="Clases" parent="menu_op_school_academy" sequence="30"
+            action="openeducat_core.act_open_op_course_view"/>
+
+        <!--Alumnos-->
+        <menuitem id="openeducat_core.menu_op_school_main" name="Students" parent="menu_op_school_academy"
+                  sequence="10" action="openeducat_core.act_open_op_student_view"
+                  groups="openeducat_core.group_op_faculty"/>
+        <!--Profesor-->
+        <menuitem id="openeducat_core.menu_op_faculty_main" name="Faculties"
+                  parent="menu_op_school_academy" sequence="20" action="openeducat_core.act_open_op_faculty_view"
+                  groups="openeducat_core.group_op_faculty"/>
+
+        <menuitem id="menu_op_school_period_action" name="Gestion Escolar"
+                  parent="submenu_op_school_academy_configuration"
+                  action="op_school_period_action_form"/>
+
+        <!-- menu curso nivel configuracion -->
+        <menuitem id="menu_op_course_level" parent="openeducat_core.menu_op_school_config_course"
+                  action="account_op_charge_level_action_form" sequence="100"/>
+
+        <!-- Tipos de Becas y Descuentos  -->
+        <menuitem id="menu_op_scholarship" name="Tipos de Becas/Descuentos" sequence="1"
+                  parent="submenu_op_school_academy_configuration" action="op_scholarship_action_form"/>
+
+    </data>
+</odoo>

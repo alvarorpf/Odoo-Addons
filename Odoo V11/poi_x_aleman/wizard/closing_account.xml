@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="closing_account_wiz_form" model="ir.ui.view">
+            <field name="name">closing.account.wiz.form</field>
+            <field name="model">closing.account.wiz</field>
+            <field name="arch" type="xml">
+                <form string="Cierre Contable">
+                    <group>
+                        <h4>El proceso de cierre contable realizara la revision de los cargos de todos los alumnos</h4>
+                    </group>
+                    <group>
+                        <h4>Seleccione la cuenta en la que se realizara e cierre contable</h4>
+                        <field name="account_id"/>
+                    </group>
+                    <footer>
+                        <button name="closing_account" string="Continuar" type="object"
+                                class="btn-primary"/>
+                        <button string="Cancelar" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="closing_account_wiz_action_form" model="ir.actions.act_window">
+            <field name="name">Cierre Contable</field>
+            <field name="res_model">closing.account.wiz</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_account_closing_account" name="Cierre Contable" parent="menu_account_op_root"
+                  action="closing_account_wiz_action_form" sequence="11"/>
+    </data>
+</odoo>

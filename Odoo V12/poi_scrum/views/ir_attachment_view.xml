@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_attachment_form_scrum" model="ir.ui.view">
+        <field name="name">ir.attachment.form.scrum</field>
+        <field name="model">ir.attachment</field>
+        <field name="inherit_id" ref="base.view_attachment_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <field name="datas" position="after">
+                <field name="project_stage_id"
+                       options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"
+                       groups="project.group_project_manager"/>
+                <field name="expiration_date" groups="project.group_project_manager"/>
+            </field>
+            <xpath expr="//field[@name='datas']/.." position="after">
+                <group string=" Grupo de Aprobación" groups="project.group_project_manager">
+                    <div class="o_address_format">
+                        <field name="first_approval"/>
+                        <field name="first_approval_id" class="o_address_state"/>
+                        <label for="first_approval_id" style="font-weight: bold;" string="Primer Aprobador"/>
+                        <br/>
+                        <field name="second_approval"/>
+                        <field name="second_approval_id" class="o_address_state"/>
+                        <label for="second_approval_id" style="font-weight: bold;" string="Segundo Aprobador"/>
+                        <br/>
+                        <field name="third_approval"/>
+                        <field name="third_approval_id" class="o_address_state"/>
+                        <label for="third_approval_id" style="font-weight: bold;" string="Tercer Aprobador"/>
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_attachment_tree_scrum" model="ir.ui.view">
+        <field name="name">ir.attachment.tree.scrum</field>
+        <field name="model">ir.attachment</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="Nombre del Documento"/>
+                <field name="datas_fname" string="Nombre del Archivo"/>
+                <field name="type"/>
+                <field name="create_uid"/>
+                <field name="project_stage_id"/>
+                <field name="expiration_date"/>
+                <field name="first_approval"/>
+                <field name="second_approval"/>
+                <field name="third_approval"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

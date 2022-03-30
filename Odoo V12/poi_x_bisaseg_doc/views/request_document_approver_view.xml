@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="request_document_approver_form">
+        <field name="name">request.document.approver.form</field>
+        <field name="model">request.document.approver</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="approver_id"/>
+                        <field name="enable"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="request_document_approver_tree">
+        <field name="name">request.document.approver.tree</field>
+        <field name="model">request.document.approver</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="approver_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_request_document_approver">
+        <field name="name">Aprobadores Finales</field>
+        <field name="res_model">request.document.approver</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
+
+

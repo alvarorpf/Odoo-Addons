@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="True">
+        <!--Casos de Estado-->
+        <record id="student_case_active_1" model="op.student.case">
+            <field name="name">Pago Pendiente</field>
+            <field name="apply_active" eval="True"/>
+            <field name="color">0</field>
+            <field name="apply_charge" eval="False"/>
+        </record>
+        <record id="student_case_active_2" model="op.student.case">
+            <field name="name">No Inscrito</field>
+            <field name="apply_active" eval="True"/>
+            <field name="color">0</field>
+            <field name="apply_charge" eval="True"/>
+        </record>
+        <record id="student_case_active_3" model="op.student.case">
+            <field name="name">Pre-Inscrito</field>
+            <field name="apply_active" eval="True"/>
+            <field name="color">0</field>
+            <field name="apply_charge" eval="True"/>
+        </record>
+        <record id="student_case_active_4" model="op.student.case">
+            <field name="name">Inscrito</field>
+            <field name="apply_active" eval="True"/>
+            <field name="color">0</field>
+            <field name="apply_charge" eval="True"/>
+        </record>
+        <record id="student_case_active_5" model="op.student.case">
+            <field name="name">Kinder Proxima Gestion</field>
+            <field name="apply_active" eval="True"/>
+            <field name="color">0</field>
+            <field name="apply_charge" eval="True"/>
+        </record>
+        <record id="student_case_active_6" model="op.student.case">
+            <field name="name">Inscrito Comercio</field>
+            <field name="apply_active" eval="True"/>
+            <field name="color">0</field>
+            <field name="apply_charge" eval="True"/>
+        </record>
+        <record id="student_case_active_7" model="op.student.case">
+            <field name="name">No Inscrito Comercio</field>
+            <field name="apply_active" eval="True"/>
+            <field name="color">0</field>
+            <field name="apply_charge" eval="True"/>
+        </record>
+        <record id="student_case_inactive_1" model="op.student.case">
+            <field name="name">Ex-Alumno</field>
+            <field name="apply_active" eval="False"/>
+            <field name="color">0</field>
+        </record>
+        <record id="student_case_inactive_2" model="op.student.case">
+            <field name="name">Retiro</field>
+            <field name="apply_active" eval="False"/>
+            <field name="color">0</field>
+        </record>
+        <record id="student_case_inactive_3" model="op.student.case">
+            <field name="name">Traspaso</field>
+            <field name="apply_active" eval="False"/>
+            <field name="color">0</field>
+        </record>
+        <record id="student_case_inactive_4" model="op.student.case">
+            <field name="name">Ex-Alumno Comercio</field>
+            <field name="apply_active" eval="False"/>
+            <field name="color">0</field>
+        </record>
+    </data>
+</odoo>

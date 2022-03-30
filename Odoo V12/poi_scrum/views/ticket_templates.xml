@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/poi_scrum/static/src/scss/scrum.scss"/>
+        <!-- trumbwyg -->
+           
+
+            
+            <script type="text/javascript" src="/bus/static/src/js/longpolling_bus.js"/>
+            <script type="text/javascript" src="/bus/static/src/js/crosstab_bus.js"/>
+            <script type="text/javascript" src="/bus/static/src/js/services/bus_service.js"/>
+
+            <script type="text/javascript" src="/web/static/src/js/services/crash_manager.js"/>
+            <script type="text/javascript" src="/web/static/src/js/core/misc.js"/>
+            <script type="text/javascript" src="/web/static/src/js/chrome/loading.js"/>
+           
+            <script type="text/javascript" src="/web/static/src/js/widgets/notification.js"/>
+            <script type="text/javascript" src="/web/static/src/js/services/notification_service.js"/>
+
+            <script type="text/javascript" src="/poi_scrum/static/lib/js/jquery-ui.js"/>
+            <script type="text/javascript" src="/poi_scrum/static/lib/js/router.js"/>
+
+            <script type="text/javascript" src="/poi_scrum/static/src/js/models/project.js"/>
+            <script type="text/javascript" src="/poi_scrum/static/src/js/models/task.js"/>
+            <script type="text/javascript" src="/poi_scrum/static/src/js/models/sprint.js"/>
+            <script type="text/javascript" src="/poi_scrum/static/src/js/models/user.js"/>
+            <script type="text/javascript" src="/poi_scrum/static/src/js/widget/project_list.js"/>
+            <script type="text/javascript" src="/poi_scrum/static/src/js/widget/task_list.js"/>
+            <script type="text/javascript" src="/poi_scrum/static/src/js/widget/task_view.js"/>
+            <script type="text/javascript" src="/poi_scrum/static/src/js/widget/sprint_view.js"/>
+            <script type="text/javascript" src="/poi_scrum/static/src/js/widget/kanban_view.js"/>
+            <script type="text/javascript" src="/poi_scrum/static/src/js/widget/scrum_app.js"/>
+
+        </xpath>
+    </template>
+
+    <template id="scrum_view">
+        <t t-call="website.layout">
+            <div class="container-fluid">
+                <div class="row o_scrum_app"/>
+            </div>
+        </t>
+    </template>
+
+</odoo>

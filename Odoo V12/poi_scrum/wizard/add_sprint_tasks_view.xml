@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="add_sprint_tasks" model="ir.ui.view">
+            <field name="name">add.sprint.tasks.form</field>
+            <field name="model">add.sprint.tasks</field>
+            <field name="arch" type="xml">
+                <form string="Adicionar Tareas">
+                    <group>
+                        <p>Esta operación añadira las siguientes tareas al sprint que seleccione. Desea continuar?</p>
+                    </group>
+                    <group>
+                        <field name="task_ids" widget="many2many_tags" required="1" invisible="1"/>
+                        <field name="default_sprint" widget="radio"/>
+                        <field name="sprint_id" attrs="{'required': [('default_sprint', '=', 'exist')], 'invisible': [('default_sprint', '=', 'new')]}"/>
+                        <field name="date_start" attrs="{'required': [('default_sprint', '=', 'new')],'invisible': [('default_sprint', '=', 'exist')]}"/>
+                        <field name="date_end" attrs="{'required': [('default_sprint', '=', 'new')],'invisible': [('default_sprint', '=', 'exist')]}"/>
+                        <field name="team_id" attrs="{'required': [('default_sprint', '=', 'new')],'invisible': [('default_sprint', '=', 'exist')]}"/>
+                        <field name="project_id" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_add_tasks" string="Continuar" type="object"
+                                class="btn-primary"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Adicionar tareas a Sprint"
+                    res_model="add.sprint.tasks"
+                    src_model="project.task"
+                    view_mode="form"
+                    target="new"
+                    multi="True"
+                    id="act_add_spring"
+                    groups="group_add_sprint_tasks"/>
+    </data>
+</odoo>

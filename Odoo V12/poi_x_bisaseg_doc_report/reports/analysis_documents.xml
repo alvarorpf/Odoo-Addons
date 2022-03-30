@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_analysis_documents_tree" model="ir.ui.view">
+         <field name="name">analysis.documents.report.tree</field>
+         <field name="model">analysis.documents</field>
+         <field name="arch" type="xml">
+             <tree string="Month Report">
+                 <field name="ref"/>
+                 <field name="name"/>
+                 <field name="type_id"/>
+                 <field name="process_id"/>
+                 <field name="state"/>
+                 <field name="norm_id"/>
+                 <field name="date_approved"/>
+                 <field name="date_published"/>
+                 <field name="partner_id"/>
+             </tree>
+         </field>
+    </record>
+    <record id="view_analysis_documents_pivot" model="ir.ui.view">
+         <field name="name">analysis.documents.pivot</field>
+         <field name="model">analysis.documents</field>
+         <field name="arch" type="xml">
+             <pivot string="Análisis Documentos" disable_linking="True">
+                 <field name="date_published" type="col"/>
+                 <field name="total_read" type="measure"/>
+                 <field name="total" type="measure"/>
+             </pivot>
+         </field>
+    </record>
+
+    <!--
+    <record id="view_project_month_report_search" model="ir.ui.view">
+        <field name="name">project.month.report.search</field>
+        <field name="model">project.month.report</field>
+        <field name="arch" type="xml">
+            <search string="Month Report">
+                <field name="stage_id"/>
+                <separator/>
+                <group expand="0" string="Agrupado por">
+                    <filter string="Proyecto" name="project_id" context="{'group_by':'project_id'}"/>
+                    <filter string="Etapa" name="stage_id" context="{'group_by':'stage_id'}"/>
+                    <filter name="mes" string="Fecha" context="{'group_by':'date'}"/>
+
+                </group>
+            </search>
+        </field>
+    </record>-->
+
+    <record id="action_analysis_documents" model="ir.actions.act_window">
+        <field name="name">Análisis de Documentos</field>
+        <field name="res_model">analysis.documents</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,pivot</field>
+    </record>
+
+</odoo>

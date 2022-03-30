@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="approve_refuse_document" model="ir.ui.view">
+            <field name="name">approve.refuse.document.form</field>
+            <field name="model">approve.refuse.document</field>
+            <field name="arch" type="xml">
+                <form string="Aprobar/Rechazar">
+                    <group>
+                        <p>Esta operación dara su VoBo para este documento. Desea Continuar?</p>
+                    </group>
+                    <group>
+                        <field name="approve" invisible="1"/>
+                        <field name="document_id" invisible="1"/>
+                        <field name="user_id" invisible="1"/>
+                        <field name="comment"/>
+                    </group>
+                    <footer>
+                        <button name="action_continue" string="Continuar" type="object"
+                                class="btn-primary"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

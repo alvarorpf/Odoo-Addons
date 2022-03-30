@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+    <report
+        id="report_mora_report"
+        string="Reporte de Mora"
+        model="account.op.charge"
+        report_type="qweb-pdf"
+        file="poi_x_aleman.report_mora"
+        name="poi_x_aleman.report_mora"
+        menu='False'
+    />
+
+    <record id="report_mora_paper" model="report.paperformat">
+        <field name="name">Reporte de Mora</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">5</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="report_mora_report" model="ir.actions.report">
+        <field name="paperformat_id" ref="poi_x_aleman.report_mora_paper"/>
+    </record>
+</data>
+
+<template id="report_mora">
+<t t-call="web.html_container">
+<div class="header">
+<div class="row">
+    <div class="col-xs-12 text-right">
+        Hoja:
+        <span class="page"/>
+    </div>
+</div>
+</div>
+<div class="article" style="font-size:11;font-weight: normal;">
+<div class="row">
+    <div class="col-xs-8 text-center">
+        <h5>COLEGIO ALEMÁN M.B.</h5>
+    </div>
+    <div class="col-xs-4">
+        <t t-if="year_id">
+            <strong>GESTIÓN: <span t-esc="year_id[1]"/></strong>
+        </t>
+    </div>
+    <div class="col-xs-12">
+        REPORTE DE MORA A FECHA: <span t-esc="date" t-options="{'widget': 'date'}"/> <br/>
+        EMITIDO EL:  <t t-usertime="%d/%m/%Y %H:%M:%S" />
+    </div>
+
+    <div class="col-xs-12">
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>CÓDIGO</th>
+                <th>RESPONSABLE</th>
+                <th>PADRE</th>
+                <th>TELÉFONOS</th>
+                <th>PENSIONES</th>
+                <th>MATERIALES</th>
+                <th>MORA</th>
+                <th class="text-right">$us.</th>
+            </tr>
+        </thead>
+        <tbody>
+            <t t-set="pension" t-value="0"/>
+            <t t-set="material" t-value="0"/>
+            <t t-set="mora" t-value="0"/>
+            <t t-set="total" t-value="0"/>
+            <t t-foreach="charges" t-as="c">
+            <tr>
+                <td>
+                    <span t-esc="charges[c]['code']"/>
+                </td>
+                <td>
+                    <span t-esc="charges[c]['name']"/>
+                </td>
+                <td>
+                    <span t-esc="charges[c]['parent']"/>
+                </td>
+                <td>
+                    <span t-esc="charges[c]['phone']"/>
+                </td>
+                <td class="text-right">
+                    <span t-esc="charges[c]['pension']" t-options="{'widget': 'float', 'precision': prec}"/>
+                </td>
+                <td class="text-right">
+                    <span t-esc="charges[c]['material']" t-options="{'widget': 'float', 'precision': prec}"/>
+                </td>
+                <td class="text-right">
+                    <span t-esc="charges[c]['due']" t-options="{'widget': 'float', 'precision': prec}"/>
+                </td>
+                <td class="text-right">
+                    <span t-esc="charges[c]['total']" t-options="{'widget': 'float', 'precision': prec}"/>
+                </td>
+                <t t-set="pension" t-value="pension + charges[c]['pension']"/>
+                <t t-set="material" t-value="material + charges[c]['material']"/>
+                <t t-set="mora" t-value="mora + charges[c]['due']"/>
+                <t t-set="total" t-value="total + charges[c]['total']"/>
+            </tr>
+
+            </t>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>TOTAL</b></td>
+                <td style="text-align:right">
+                    <span t-esc="pension" t-options="{'widget': 'float', 'precision': prec}"/>
+                </td>
+                <td style="text-align:right">
+                    <span t-esc="material" t-options="{'widget': 'float', 'precision': prec}"/>
+                </td>
+                <td style="text-align:right">
+                    <span t-esc="mora" t-options="{'widget': 'float', 'precision': prec}"/>
+                </td>
+                <td style="text-align:right">
+                    <span t-esc="total" t-options="{'widget': 'float', 'precision': prec}"/>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+</div>
+</t>
+</template>
+</odoo>

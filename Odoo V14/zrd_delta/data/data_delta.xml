@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="freight_transaction_sequence" model="ir.sequence">
+        <field name="name">Transaccion de Operacion</field>
+        <field name="code">sequence.operation.transaction</field>
+        <field name="prefix">OPT/</field>
+        <field name="padding">4</field>
+    </record>
+
+    <record id="transient_account_journal" model="account.journal">
+        <field name="name">Cuentas Transitorias</field>
+        <field name="code">TRA</field>
+        <field name="type">general</field>
+        <field name="sequence">100</field>
+    </record>
+</odoo>

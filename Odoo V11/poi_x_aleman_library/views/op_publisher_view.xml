@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_op_publisher_tree_inherit" model="ir.ui.view">
+            <field name="name">op.publisher.tree.inherit</field>
+            <field name="model">op.publisher</field>
+            <field name="priority" eval="8"/>
+            <field name="inherit_id" ref="openeducat_library.view_op_publisher_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//tree" position="replace">
+                        <tree string="Editorial">
+                            <field name="name" string="Nombre"/>
+                            <field name="media_ids" string=" Cantidad de Libros"/>
+                        </tree>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="view_op_publisher_form_inherit" model="ir.ui.view">
+            <field name="name">op.publisher.form.inherit</field>
+            <field name="model">op.publisher</field>
+            <field name="priority" eval="8"/>
+            <field name="inherit_id" ref="openeducat_library.view_op_publisher_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form" position="replace">
+                        <form string="Editorial">
+                            <sheet>
+                                <group>
+                                    <group>
+                                        <field name="name" string="Nombre"/>
+                                    </group>
+                                </group>
+                                <group col="4" string="Libro(s)">
+                                    <field name="media_ids" colspan="4" nolabel="1"/>
+                                </group>
+                            </sheet>
+                        </form>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>

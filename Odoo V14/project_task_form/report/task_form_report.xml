@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_task_form_report_tree" model="ir.ui.view">
+        <field name="name">view.task.form.report.tree</field>
+        <field name="model">task.form.report</field>
+        <field name="arch" type="xml">
+            <tree string="Seguimiento de Ventas" create="0">
+                <field name="form"/>
+                <field name="types"/>
+                <field name="project_id"/>
+                <field name="task_id"/>
+                <field name="date"/>
+                <field name="company_id"/>
+                <field name="form_id" invisible="1"/>
+                <field name="model" invisible="1"/>
+                <field name="state" decoration-success="state == 'finished'" decoration-info="state == 'draft'" widget="badge"/>
+                <button name="action_view_form"
+                        string="Ver Formulario"
+                        type="object"
+                        icon="fa-info"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_task_form_report_search" model="ir.ui.view">
+        <field name="name">view.task.form.report.search</field>
+        <field name="model">task.form.report</field>
+        <field name="arch" type="xml">
+            <search string="Formularios">
+                <field name="form"/>
+                <field name="project_id"/>
+                <field name="task_id"/>
+                <field name="company_id"/>
+                <group expand="0" string="Group By">
+                    <filter string="Tarea" name="task" domain="[]" context="{'group_by': 'task_id'}"/>
+                    <filter string="Centro de Costo" name="project" domain="[]" context="{'group_by': 'project_id'}"/>
+                    <filter string="Estado" name="state" domain="[]" context="{'group_by': 'state'}"/>
+                    <filter string="Tipo de Formulario" name="type" domain="[]" context="{'group_by': 'types'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>
+
+
+

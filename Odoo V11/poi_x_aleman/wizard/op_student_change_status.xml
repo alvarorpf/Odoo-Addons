@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="op_student_change_status_wiz" model="ir.ui.view">
+            <field name="name">op.student.change.status.form</field>
+            <field name="model">op.student.change.status</field>
+            <field name="arch" type="xml">
+                <form string="Asistente de Cabio de Estado">
+                    <group>
+                        <field name="student_id" invisible="1"/>
+                        <field name="state"/>
+                        <field name="case_id"/>
+                        <field name="reason"/>
+                        <field name="date_change"/>
+                    </group>
+                    <footer>
+                        <button name="change_student_status" string="Aplicar" type="object"
+                                class="btn-primary"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

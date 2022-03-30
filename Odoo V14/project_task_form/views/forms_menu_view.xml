@@ -1,0 +1,15 @@
+<odoo>
+    <record id="action_form_list" model="ir.actions.act_window">
+      <field name="name">Formularios</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">task.form.report</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem   id="form_menu_root"
+                name="Formularios"
+                parent="project.menu_main_pm"
+                sequence="50"
+                action="action_form_list"
+                />
+</odoo>

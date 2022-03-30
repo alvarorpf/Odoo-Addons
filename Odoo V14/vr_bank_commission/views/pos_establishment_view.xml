@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_establishment" model="ir.ui.view">
+        <field name="name">pos.establishment</field>
+        <field name="model">pos.establishment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <b>
+                            <span>Nombre</span>
+                        </b>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group string="">
+                        <group>
+                            <field name="conciliation_account_id"/>
+                            <field name="journal_id"/>
+                            <field name="pos_payment_method_id"/>
+                        </group>
+                        <group>
+                            <field name="commission_account_id"/>
+                            <field name="percentage"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="pos_establishment_tree" model="ir.ui.view">
+        <field name="name">pos.establishment.tree</field>
+        <field name="model">pos.establishment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="conciliation_account_id"/>
+                <field name="commission_account_id"/>
+                <field name="journal_id"/>
+                <field name="pos_payment_method_id"/>
+                <field name="percentage"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_pos_establishment_search" model="ir.ui.view">
+        <field name="name">view.pos.establishment.search</field>
+        <field name="model">pos.establishment</field>
+        <field name="arch" type="xml">
+            <search string="Jobs">
+                <field name="name"/>
+                <field name="conciliation_account_id"/>
+                <field name="commission_account_id"/>
+                <field name="journal_id"/>
+                <field name="pos_payment_method_id"/>
+                <group expand="0" string="Group By">
+                    <filter string="Cuenta de Conciliación" name="conciliation_account" domain="[]" context="{'group_by': 'conciliation_account_id'}"/>
+                    <filter string="Cuenta de Comisión" name="commission_account" domain="[]" context="{'group_by': 'commission_account_id'}"/>
+                    <filter string="Diario" name="journal" domain="[]" context="{'group_by': 'journal_id'}"/>
+                    <filter string="Método de Pago POS" name="payment_method" domain="[]" context="{'group_by': 'pos_payment_method_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="pos_establishment_action" model="ir.actions.act_window">
+        <field name="name">Establecimiento</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.establishment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_pos_establishment_search"/>
+    </record>
+
+    <menuitem id="pos_establishment_menu"
+              name="Establecimiento"
+              parent="point_of_sale.menu_point_config_product"
+              action="pos_establishment_action"
+              sequence="30"
+              groups="point_of_sale.group_pos_manager"/>
+</odoo>

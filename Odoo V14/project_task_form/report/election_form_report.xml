@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_report_election_form" model="ir.actions.report">
+            <field name="name">Acta de Eleccion</field>
+            <field name="model">election.form</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">project_task_form.election_form_report</field>
+            <field name="report_file">project_task_form.election_form_report</field>
+            <field name="print_report_name">'Acta de Eleccion - %s' % object.name</field>
+            <field name="paperformat_id" ref="project_task_form.paperformat_base"/>
+            <field name="binding_model_id" ref="model_election_form"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="election_form_report">
+            <t t-foreach="docs" t-as="d">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div class="row" id="hash_header">
+                            <div class="col-12">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td width='20%' style="font-size:12px:" align="center">
+                                            <img style="max-width: 80px;"
+                                                 t-if="d.company_id.logo"
+                                                 t-att-src="image_data_uri(d.company_id.logo)"
+                                                 alt="Logo"/>
+                                        </td>
+                                        <td style="text-align:center;" width='60%'>
+                                            <b>
+                                                <span t-esc="d.name"/>
+                                            </b>
+                                            <br/>
+                                            <b>ACTA DE ELECCION</b>
+                                            <br/>
+                                            <b></b>
+                                        </td>
+                                        <td width='20%' style="text-align:left;">
+                                            <br/>
+                                            <b>Fecha:</b>
+                                            <span t-esc="d.date.strftime('%d-%m-%Y')"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 style='text-align:center'>
+                                    <b>ACTA DE VOTACIÓN PARA LA ELECCIÓN DE REPRESENTANTES DE LOS TRABAJADORES DEL
+                                        COMITÉ PARITARIO DE HIGIENE Y SEGURIDAD.
+                                    </b>
+                                </h5>
+                                <p>
+                                    En<span t-esc="d.community"/>, a<span t-esc="d.date_election.strftime('%d-%m-%Y')"/>
+                                    , en presencia de los que más abajo firman, se efectuó la votación para elegir a los
+                                    representantes de los trabajadores que integrarán el comité paritario de Higiene y
+                                    Seguridad de la empresa
+                                    <span t-esc="d.social_reason"/>
+                                    Rut,
+                                    <span t-esc="d.rut"/>
+                                    en su
+                                    <span t-esc="d.project_id.name"/>
+                                    con dirección en<span t-esc="d.direction"/>.
+                                </p>
+                                <p>
+                                    En la ocasión los sufragios emitidos fueron distribuidos de la siguiente manera:
+                                </p>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th style="text-align:center;">Nombres</th>
+                                        <th style="text-align:center;">RUT</th>
+                                        <th style="text-align:center;">Votos</th>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="d.suffrage_ids" t-as="s">
+                                            <tr>
+                                                <td>
+                                                    <span t-esc="s.name"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="s.rut"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="s.votes"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <p>
+                                    Votos Escrutados:
+                                    <span t-esc="d.votes_count"/>
+                                    <br/>
+                                    Votos Nulos:
+                                    <span t-esc="d.votes_null"/>
+                                    <br/>
+                                    Total Votos:
+                                    <span t-esc="d.votes_total"/>
+                                </p>
+                                <p>
+                                    Se eligieron como representantes de los trabajadores a las siguientes personas:
+                                </p>
+                                <p>
+                                    Titulares:
+                                </p>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th style="text-align:center;">Nombres</th>
+                                        <th style="text-align:center;">RUT</th>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="d.headline_ids" t-as="h">
+                                            <tr>
+                                                <td>
+                                                    <span t-esc="h.name"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="h.rut"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <p>
+                                    Suplentes:
+                                </p>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th style="text-align:center;">Nombres</th>
+                                        <th style="text-align:center;">RUT</th>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="d.substitute_ids" t-as="su">
+                                            <tr>
+                                                <td>
+                                                    <span t-esc="su.name"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="su.rut"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <p>
+                                    Dan fe de esta votación.
+                                </p>
+                                <t t-foreach="d.witness_ids" t-as="w">
+                                    <table class="table table-bordered" style="font-size: 10px;">
+                                        <tbody>
+                                            <tr>
+                                                <td width='40%' style="font-size:12px:" align="center">
+                                                    <img style="max-width: 70px;"
+                                                         t-if="d.company_id.logo"
+                                                         t-att-src="image_data_uri(d.company_id.logo)"
+                                                         alt="Logo"/>
+                                                </td>
+                                                <td style="width:60%; text-align:center;">
+                                                    <img class="img"
+                                                         t-attf-src="data:image/png;base64,{{w.signature}}"
+                                                         style="max-width:300px;"
+                                                    />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td/>
+                                                <td style="width:60%; text-align:center;">
+                                                    <b>
+                                                        <span t-esc="w.name"/>
+                                                    </b>
+                                                    -
+                                                    <b>
+                                                        <span t-esc="w.rut"/>
+                                                    </b>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </t>
+                                <span t-esc="d.note"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

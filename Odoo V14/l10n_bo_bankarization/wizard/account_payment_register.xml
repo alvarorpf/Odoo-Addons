@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_account_payment_register_form_inherit_bank" model="ir.ui.view">
+            <field name="name">account.payment.register.form.inherit.bank</field>
+            <field name="model">account.payment.register</field>
+            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="inside">
+                    <notebook attrs="{'invisible':[('is_banking','=',False)]}">
+                        <page string="Bancarización">
+                            <group>
+                                <group>
+                                    <field name="is_banking" invisible="1"/>
+                                    <field name="transaction_mod_id" attrs="{'required':[('is_banking','=',True)]}"/>
+                                    <field name="transaction_type_id" attrs="{'required':[('is_banking','=',True)]}"/>
+                                    <field name="contract_number" attrs="{'required':[('is_banking','=',True)]}"/>
+                                    <field name="account_number" attrs="{'required':[('is_banking','=',True)]}"/>
+                                    <field name="nit_origin" attrs="{'required':[('is_banking','=',True)]}"/>
+                                    <field name="document_number" attrs="{'required':[('is_banking','=',True)]}"/>
+                                    <field name="document_type_id" attrs="{'required':[('is_banking','=',True)]}"/>
+                                    <field name="document_date" attrs="{'required':[('is_banking','=',True)]}"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

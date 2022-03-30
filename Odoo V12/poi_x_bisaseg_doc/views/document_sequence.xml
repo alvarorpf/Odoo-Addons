@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="document_sequence_form">
+        <field name="name">document.sequence.form</field>
+        <field name="model">document.sequence</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code_start"/>
+                            <field name="type_id"/>
+                            <field name="process_id" attrs="{'invisible': [('is_guide', '=', True)]}"/>
+                            <field name="system_id" attrs="{'invisible': [('is_guide', '=', False)]}"/>
+                            <field name="is_guide" invisible="1"/>
+                            <field name="code"/>
+                        </group>
+                        <group>
+                            <field name="number_increment"/>
+                            <field name="next_number"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="document_sequence_tree">
+        <field name="name">document.sequence.tree</field>
+        <field name="model">document.sequence</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="type_id"/>
+                <field name="process_id"/>
+                <field name="system_id"/>
+                <field name="code"/>
+                <field name="number_increment"/>
+                <field name="next_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_document_sequence">
+        <field name="name">Secuencias</field>
+        <field name="res_model">document.sequence</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

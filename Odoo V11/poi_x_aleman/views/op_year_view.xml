@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="op_year_view_tree" model="ir.ui.view">
+            <field name="name">op.year.tree</field>
+            <field name="model">op.year</field>
+            <field name="arch" type="xml">
+                <tree string="Gestion">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="op_year_view_form" model="ir.ui.view">
+            <field name="name">op.year.form</field>
+            <field name="model">op.year</field>
+            <field name="arch" type="xml">
+                <form string="Gestion">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="op_year_action" model="ir.actions.act_window">
+            <field name="name">Gestion</field>
+            <field name="res_model">op.year</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Gestiones
+                </p>
+                <p>
+                    Agregar Gestion
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_op_year" parent="op_submenu_configuration"
+                  action="op_year_action" name="Gestion" sequence="11"/>
+    </data>
+</odoo>

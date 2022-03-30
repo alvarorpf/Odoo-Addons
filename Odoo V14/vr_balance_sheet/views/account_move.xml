@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <!-- Herencia del formulario de asiento contable para la adcición del campo periodo contable -->
+        <record id="view_move_form_inherit" model="ir.ui.view">
+            <field name="name">view_move_form_inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <data>
+
+                    <xpath expr="//field[@name='ref']" position="after">
+                        <field name="period_id" required="1" readonly="1" store="1" options="{'no_open': True}"/>
+                    </xpath>
+                    <xpath expr="//field[@name='line_ids']/tree/field[@name='partner_id']" position="before">
+                        <field name="user_type_id"/>
+                    </xpath>
+
+                    <xpath expr="//field[@name='line_ids']/tree" position="attributes">
+                        <attribute name="default_order">user_type_id</attribute>
+                    </xpath>
+
+                </data>
+            </field>
+        </record>
+
+        <!--Adición de filtro para la agrupación de asientos contables en base al campo periodo contable-->
+         <record id="view_account_move_inherit" model="ir.ui.view">
+            <field name="name">account.move.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_account_move_filter"/>
+            <field name="arch" type="xml">
+                <group>
+                    <filter string="Periodo Contable" domain="[]" name="account_period" context="{'group_by':'period_id'}"/>
+                </group>
+            </field>
+        </record>
+    </data>
+</odoo>

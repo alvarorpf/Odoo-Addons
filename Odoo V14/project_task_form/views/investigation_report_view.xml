@@ -1,0 +1,115 @@
+<odoo>
+
+    <record id="investigation_report_form" model="ir.ui.view">
+          <field name="name">investigation.report.form</field>
+          <field name="model">investigation.report</field>
+          <field name="arch" type="xml">
+                <form>
+                      <header>
+                            <button name="action_confirm" string="Finalizar" class="oe_highlight" states="draft" type="object" confirm="¿Esta seguro de finalizar el llenado del formulario?"/>
+                            <field name="state" widget="statusbar"/>
+                      </header>
+                      <sheet>
+                            <div class="oe_title">
+                                <b><span>Nombre</span></b>
+                                <h1>
+                                    <field name="name" readonly="1"/>
+                                </h1>
+                            </div>
+                            <group string="ANTECEDENTES EMPRESA">
+                                <group>
+                                    <field name="company_id" invisible="1"/>
+                                    <field name="social_reason" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="project_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="kam" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+
+                                </group>
+                                <group>
+                                    <field name="rut" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="boss" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                </group>
+                                <field name="direction" placeholder="Ubicacion / Direccion del centro de costo" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </group>
+                            <group string="ANTECEDENTES DEL TRABAJADOR LESIONADO">
+                                <group>
+                                    <field name="injured" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="position" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="antiquity" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="direct_boss" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                </group>
+                                <group>
+                                    <field name="rut_injured" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="age" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="antiquity_company" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="contract_type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                </group>
+                            </group>
+                            <group string="ANTECEDENTES DEL ACCIDENTE">
+                                <group>
+                                    <field name="datetime_accident" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="accident_cause" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="activity" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="matriz" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="accident_type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="injury_type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                </group>
+                                <group>
+                                    <field name="accident_day" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="accident_source" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="training" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="procedure" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="affected_part" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                </group>
+                            </group>
+                            <field name="crash_site" placeholder="Lugar del accidente" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <group string="DESCRIPCION DEL ACCIDENTE">
+                                <div>
+                                    <field name="description" placeholder="Detalle la descripcion del accidente" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                </div>
+                            </group>
+                            <group string="MEDIDAS DE CONTROL">
+                                <div>
+                                    <field name="measure_ids" string="Medidas de control" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                        <tree editable="bottom">
+                                            <field name="action"/>
+                                            <field name="date"/>
+                                            <field name="responsible"/>
+                                            <field name="correct_action"/>
+                                            <field name="reprogramming_action"/>
+                                        </tree>
+                                    </field>
+                                </div>
+                            </group>
+                          <group>
+                              <field name="signature" widget="signature"/>
+                          </group>
+                      </sheet>
+                </form>
+          </field>
+    </record>
+
+    <record id="investigation_report_tree" model="ir.ui.view">
+          <field name="name">investigation.report.tree</field>
+          <field name="model">investigation.report</field>
+          <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="social_reason"/>
+                    <field name="kam"/>
+                    <field name="injured"/>
+                    <field name="position"/>
+                    <field name="antiquity"/>
+                    <field name="direct_boss"/>
+                </tree>
+          </field>
+    </record>
+
+    <record id="investigation_report_action" model="ir.actions.act_window">
+      <field name="name">Investigacion de Accidente</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">investigation.report</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

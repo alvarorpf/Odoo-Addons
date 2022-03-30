@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--FORM-->
+        <record id="create_event_address_form" model="ir.ui.view">
+            <field name="name">create.event.address.form</field>
+            <field name="model">create.event</field>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <form string="Event">
+                    <header>
+                        <button name="confirmar_evento" states="inicial" string="Confirmar" type="object"
+                                class="oe_highlight"/>
+                        <button string="Entregar Productos" states="abierto" name="llenar_entregas_lines" type="object"
+                                class="oe_highlight"/>
+                        <button name="%(action_event_invoice)d"
+                                string="Facturar"
+                                class="oe_highlight" type="action"
+                                states="abierto"/>
+                        <button name="%(action_event_advance)d"
+                                string="Crear Anticipo"
+                                class="oe_highlight" type="action"
+                                states="abierto"/>
+                        <button name="%(action_event_trasnfer)d"
+                                string="Asistente de Traspaso"
+                                class="oe_highlight" type="action"
+                                states="abierto"/>
+                        <button name="action_event_cancel" string="Cancelar" type="object"/>
+                        <button name="close" states="abierto" string="Cerrar" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="inicial,cancelado,abierto,cerrado"/>
+                    </header>
+                    <sheet>
+                    <div class="oe_title">
+                        <label string="Solicitud de Evento " attrs="{'invisible': [('state','not in',('draft','sent'))]}"/>
+                        <label string="Evento" attrs="{'invisible': [('state','in',('draft','sent'))]}"/>
+                        <h1>
+                              <field name="name" class="oe_inline" readonly="1"/>
+                        </h1>
+                    </div>
+                        <group>
+                            <group>
+                                <field name="date_start" attrs="{'readonly': [('state','=','cerrado')]}"/>
+                                <field name="date_event" attrs="{'readonly': [('state','=','cerrado')]}"/>
+                                <field name="date_customer" attrs="{'readonly': [('state','=','cerrado')]}"/>
+                                <field name="organizado_id" domain="[('customer','=','True')]"
+                                       attrs="{'readonly': [('state','=','cerrado')]}" style="width: 100%%"/>
+                                <!--<field name="partner_id" domain="[('customer','=','True')]"
+                                       on_change="titular_id_change(partner_id, context)"
+                                       attrs="{'readonly': [('state','in',('cerrado','cancelado','abierto'))]}"
+                                       style="width: 100%"/>-->
+                                <field name="partner_id" domain="[('customer','=','True')]"
+                                       attrs="{'readonly': [('state','in',('cerrado','cancelado','abierto'))]}"
+                                       style="width: 100%"/>
+                                <!--<field name="pricelist_id" groups="product.group_sale_pricelist"/>-->
+                                <field name="telephone" attrs="{'readonly': [('state','=','cerrado')]}"
+                                       style="width: 100%%"/>
+                                <field name="movil" attrs="{'readonly': [('state','=','cerrado')]}"
+                                       style="width: 100%%"/>
+                                <field name="email" attrs="{'readonly': [('state','=','cerrado')]}"
+                                       style="width: 100%%"/>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="img_nombre" widget='image' class="oe_avatar"
+                                           options='{"preview_image": "image_medium", "size": [300, 220]}'/>
+                                    <field name="shop_id"/>
+                                    <field name="pricelist_id"/>
+                                </group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Contactos">
+                                <field name="child_ids">
+                                    <tree string="Contacts">
+                                        <field name="display_name" String="Nombre"/>
+                                        <field name="phone"/>
+                                        <field name="email"/>
+                                        <field name="ci"/>
+                                        <field name="razon"/>
+                                        <field name="mobile"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Lista de Regalos">
+                                <field name="regalos_lines">
+                                    <form string="Regalos Line">
+                                        <group>
+                                            <group>
+                                                <field name="product_id"
+                                                       context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id, 'uom':product_uom}"
+                                                       force_save="1"/>
+                                                <label for="product_uom_qty" string="Ordered Quantity"/>
+                                                <div>
+                                                    <field context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id}"
+                                                           name="product_uom_qty" class="oe_inline"/>
+                                                    <field name="product_uom"
+                                                           class="oe_inline oe_no_button"/>
+                                                </div>
+                                                <field name="price_unit"/>
+                                            </group>
+                                            <group>
+                                            </group>
+                                        </group>
+                                        <label for="name"/>
+                                        <field name="name"/>
+                                        <field name="estado" invisible="1"/>
+                                    </form>
+                                    <tree editable="bottom"
+                                          colors="red:estado == 'traspasado'; blue:estado == 'devuelto'">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="event_id" invisible="1"/>
+                                        <!--<field name="product_id"
+                                               context="{'partner_id':parent.titular_id, 'quantity':cantidad, 'pricelist':parent.pricelist_id, 'uom':product_uom}"
+                                               attrs="{'readonly': [('estado', '=', 'traspasado')]}"/>-->
+                                        <!--<field name="product_id"
+                                               attrs="{'readonly': [('estado', '=', 'traspasado')]}"
+                                               force_save="1"
+                                               context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id, 'uom':product_uom"
+                                        />-->
+                                        <field name="product_id"
+                                               force_save="1"
+                                               context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id, 'uom':product_uom }"
+                                        />
+                                        <field name="name"/>
+                                        <!--<field name="product_uom_qty"
+                                               attrs="{'readonly': [('estado','==','traspasado')]}"
+                                               context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id, 'uom':product_uom}"
+                                        />-->
+                                        <field name="product_uom_qty" invisible="1" readonly="1"
+                                               context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id, 'uom':product_uom}"
+                                        />
+                                        <field name="price_unit"/>
+                                        <field name="event_journal" invisible="1"/>
+                                        <field name="product_uom" invisible="1"/>
+                                        <!--<field name="precio_unitario"
+                                                on_change="onchange_preciounitario(parent.regalos_lines,precio_unitario)"
+                                                attrs="{'readonly': [('estado','==','traspasado')]}"/>-->
+                                        <!--<field name="sub_total" invisible="1"/>
+                                        <field name="abono"/>-->
+                                        <field name="partner_id"/>
+                                        <field name="estado" on_change="onchange_estado(parent.regalos_lines,estado)"/>
+                                        <field name="factura"/>
+                                        <field name="comentarios" attrs="{'readonly': [('estado','==','traspasado')]}"/>
+                                        <!--<field name="estado_evento" invisible="1"/>
+                                        <field name="item" invisible="1"/>
+                                        <field name="vps" invisible="1"/>
+                                        <field name="consigna" invisible="1"/>-->
+                                    </tree>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                                    <field name="amount_sub"/>
+                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                        <label for="amount_total"/>
+                                    </div>
+                                    <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator"
+                                           widget='monetary'/>
+                                </group>
+                                <field name="note" class="oe_inline"
+                                       placeholder="..."/>
+                                <div class="oe_clear"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- FIN CALENDAR -->
+        <record id="create_event_tree" model="ir.ui.view">
+            <field name="name">create.event.tree</field>
+            <field name="model">create.event</field>
+            <field name="arch" type="xml">
+                <tree string="Create Event">
+                    <field name="name" string="Referencia"/>
+                    <field name="date_event"/>
+                    <field name="partner_id"/>
+                    <field name="telephone"/>
+                    <field name="movil"/>
+                    <field name="email"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="create_event_view_calendar" model="ir.ui.view">
+            <field name="name">create.event.view.calendar</field>
+            <field name="model">create.event</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <calendar string="Scheduled Actions">
+                    <!--<field name="name"/>-->
+                </calendar>
+            </field>
+        </record>
+
+        <record id="create_event_action_all" model="ir.actions.act_window">
+            <field name="name">Eventos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">create.event</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="view_type">form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new event.
+                </p>
+                <p>
+                    The event form contains information to simplify the products in reservation
+                    process: client, notes date of event, list of products, etc.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="action_create_event_menu" name="Eventos" sequence="4"
+                  parent="sale.sale_order_menu" action="create_event_action_all"/>
+
+    </data>
+</odoo>
+
+
+
+
+
+

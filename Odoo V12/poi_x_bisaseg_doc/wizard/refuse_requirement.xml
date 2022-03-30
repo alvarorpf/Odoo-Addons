@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="refuse_requirement_form" model="ir.ui.view">
+            <field name="name">refuse.requirement.form</field>
+            <field name="model">refuse.requirement</field>
+            <field name="arch" type="xml">
+                <form string="Rechazo de Requerimiento">
+                    <group>
+                        <field name="request_id" invisible="1"/>
+                        <field name="comment"/>
+                    </group>
+                    <footer>
+                        <button name="action_refuse" string="Rechazar Requerimiento" type="object"
+                                class="btn-primary" confirm="¿Está seguro de confirmar el rechazo del requerimiento?"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

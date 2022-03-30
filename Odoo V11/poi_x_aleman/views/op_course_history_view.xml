@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_course_history_form_view" model="ir.ui.view">
+            <field name="name">op.course.history.form.view</field>
+            <field name="model">op.course.history</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="course_id"/>
+                            <field name="class_id"/>
+                            <field name="level_id"/>
+                            <field name="year_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_course_history_tree_view" model="ir.ui.view">
+            <field name="name">op.course.history.tree.view</field>
+            <field name="model">op.course.history</field>
+            <field name="arch" type="xml">
+                <tree string="op Course History">
+                    <field name="student_id"/>
+                    <field name="course_id"/>
+                    <field name="class_id"/>
+                    <field name="level_id"/>
+                    <field name="year_id"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_course_history" model="ir.actions.act_window">
+            <field name="name">Historial de Curso</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.course.history</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menu
+        <menuitem id="action_op_course_history_menu_configuration" name="Historial de Curso" sequence="1"
+                  parent="openeducat_core.menu_op_school_config_subject" action="action_op_course_history"/>-->
+    </data>
+</odoo>

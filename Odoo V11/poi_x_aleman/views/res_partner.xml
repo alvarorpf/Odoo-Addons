@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_aleman_form" model="ir.ui.view">
+            <field name="name">res.partner.aleman.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//sheet" position="before">
+                        <header>
+                            <button name="action_create_user"
+                                    string="Crear Usuario"
+                                    class="oe_highlight" type="object"
+                            />
+                        </header>
+                    </xpath>
+                    <xpath expr="//form/sheet/group/group[1]" position="before">
+                        <group>
+                            <field name="contact_id" invisible="True"/>
+                            <field name="family_id" string="Codigo de Familia"
+                                   attrs="{'invisible': [('contact_id', '=', False)]}" widget="many2many_tags"/>
+                            <field name="odoo_id"/>
+                            <field name="user_exist"/>
+                        </group>
+                    </xpath>
+                    <xpath expr="//field[@name='nit']" position="replace">
+                        <field name="nit" attrs="{'required': [('supplier','=',True)]}"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>

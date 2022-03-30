@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_report_parameters_form_view" model="ir.ui.view">
+            <field name="name">op.report.parameters.form.view</field>
+            <field name="model">op.report.parameters</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_report_parameters_tree_view" model="ir.ui.view">
+            <field name="name">op.report.parameters.tree.view</field>
+            <field name="model">op.report.parameters</field>
+            <field name="arch" type="xml">
+                <tree string="Op Report Parameters">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_report_parameters" model="ir.actions.act_window">
+            <field name="name">Parametros de Reporte</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.report.parameters</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_report_parameters_menu_configuration" name="Parametros de Reporte" sequence="1" parent="submenu_op_health_configuration_clinical" action="action_op_report_parameters"/>
+    </data>
+</odoo>

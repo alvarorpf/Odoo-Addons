@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>        
+    <record id="view_account_payment_invoice_form_aleman" model="ir.ui.view">
+        <field name="name">account.payment.invoice.form.aleman</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_invoice_form"/>
+        <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_date']" position="after">
+                <field name="charge_request_id"/>
+            </xpath>
+        </field>
+    </record>
+</data> 
+</odoo>
+ 

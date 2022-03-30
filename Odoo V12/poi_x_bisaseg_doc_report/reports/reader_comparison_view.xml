@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_reader_comparison_tree" model="ir.ui.view">
+        <field name="name">reader.comparison.report.tree</field>
+        <field name="model">reader.comparison</field>
+        <field name="arch" type="xml">
+            <tree string="Analisis de Lectores">
+                <field name="document_id"/>
+                <field name="norm_id"/>
+                <field name="version"/>
+                <field name="user_id"/>
+                <field name="is_read"/>
+                <field name="read_date"/>
+                <field name="is_mandatory"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_reader_comparison_search" model="ir.ui.view">
+        <field name="name">view.reader.comparison.search</field>
+        <field name="model">reader.comparison</field>
+        <field name="arch" type="xml">
+            <search string="Analisis de Lectores">
+                <filter string="Registro Lectura" name="is_read" domain="[('is_read','=', True)]"/>
+                <filter string="Lector Obligatorio" name="is_mandatory" domain="[('is_mandatory','=', True)]"/>
+                <separator/>
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="gb_document" string="Documento" domain="[]" context="{'group_by' : 'document_id'}"/>
+                    <filter name="gb_norm" string="Documento Relacionado" domain="[]" context="{'group_by' : 'norm_id'}"/>
+                    <filter name="gb_reader" string="Lector" context="{'group_by': 'user_id'}"/>
+                    <filter name="gb_version" string="Version" context="{'group_by': 'version'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_reader_comparison_search" model="ir.ui.view">
+        <field name="name">reader.comparison.report.search</field>
+        <field name="model">reader.comparison</field>
+        <field name="arch" type="xml">
+            <search string="Request Comparision">
+                <field name="document_id"/>
+                <field name="version"/>
+                <field name="user_id"/>
+                <separator/>
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="gb_document_id" string="Documento" context="{'group_by': 'document_id'}"/>
+                    <filter name="gb_user_id" string="Usuario" context="{'group_by': 'user_id'}"/>
+                    <filter name="gb_version" string="Version" context="{'group_by': 'version'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_reader_comparison" model="ir.actions.act_window">
+        <field name="name">Analisis de Lectores</field>
+        <field name="res_model">reader.comparison</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+</odoo>

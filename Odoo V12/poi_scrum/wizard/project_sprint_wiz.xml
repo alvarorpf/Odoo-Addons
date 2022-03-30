@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="project_sprint_wiz_form" model="ir.ui.view">
+            <field name="name">project.sprint.wiz.form</field>
+            <field name="model">project.sprint.wiz</field>
+            <field name="arch" type="xml">
+                <form string="Sprints de Proyect">
+                    <group>
+                        <field name="project_id"/>
+                    </group>
+                    <footer>
+                        <button name="action_view" string="Ver Sprints" type="object"
+                                class="btn-primary"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_project_sprint_wiz" model="ir.actions.act_window">
+            <field name="name">Sprints de Proyecto</field>
+            <field name="res_model">project.sprint.wiz</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="wizard_project_sprint" name="Sprints de Proyecto" parent="project_agile.project_agile_menu" action="action_project_sprint_wiz" sequence="10" groups="project.group_project_user"/>
+    </data>
+</odoo>

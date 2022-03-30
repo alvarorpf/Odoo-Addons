@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wizard_generate_payment" model="ir.ui.view">
+            <field name="name">Generacion de pagos</field>
+            <field name="model">wizard.generate.payment</field>
+            <field name="arch" type="xml">
+                <form string="Libro de Compras y Ventas">
+                    <field name="transfer_id" invisible="1"/>
+                    <group string="Generacion de Pagos">
+                        <field name="journal_origin_id"/>
+                        <field name="journal_destiny_id"/>
+                        <field name="date"/>
+                        <field name="ref"/>
+                    </group>
+                    <footer>
+                        <button name="action_register" string="Confirmar" type="object" class="oe_highlight"/>
+                        <button string="Cancelar" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

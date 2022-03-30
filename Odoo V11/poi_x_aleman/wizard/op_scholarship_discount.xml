@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="op_scholarship_discount_wiz" model="ir.ui.view">
+            <field name="name">op.scholarship.discount.form</field>
+            <field name="model">op.scholarship.discount</field>
+            <field name="arch" type="xml">
+                <form string="Asistente Asignacion de Descuento">
+                    <group>
+                        <field name="scholarship_id" invisible="1"/>
+                        <field name="type_discount" widget="radio"/>
+                        <field name="amount"/>
+                    </group>
+                    <footer>
+                        <button name="apply_discount" string="Aplicar" type="object"
+                                class="btn-primary"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

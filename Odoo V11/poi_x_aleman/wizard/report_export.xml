@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+     <record id="wallet_report_export_wizard" model="ir.ui.view">
+         <field name="name">report.export.form</field>
+         <field name="model">report.export</field>
+         <field name="type">form</field>
+         <field name="arch" type="xml">
+             <form string="Descarga Reporte">
+                <h2>Exportación Completada</h2>
+                 <field name="name" readonly="1" invisible="1"/>
+                <p>Aquí esta el archivo de exportación generado : <field name="file" readonly="1" filename="name"/></p>
+
+                <newline/>
+             	<separator colspan="4" />
+             	<footer>
+                    <button string="Cerrar" special="cancel" type="object"/>
+                </footer>
+            </form>
+         </field>
+     </record>
+  </data>
+</odoo>

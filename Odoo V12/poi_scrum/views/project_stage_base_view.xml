@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="project_stage_base_form">
+        <field name="name">project.stage.base.form</field>
+        <field name="model">project.stage.base</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                        <field name="is_dev" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="project_stage_base_tree">
+        <field name="name">project.stage.base.tree</field>
+        <field name="model">project.stage.base</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="sequence"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_project_stage_base">
+        <field name="name">Etapas de Proyecto</field>
+        <field name="res_model">project.stage.base</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_project_stage_base"
+              name="Etapas de Proyecto"
+              parent="project.menu_project_config"
+              action="action_project_stage_base"
+              sequence="11"/>
+</odoo>
+
+

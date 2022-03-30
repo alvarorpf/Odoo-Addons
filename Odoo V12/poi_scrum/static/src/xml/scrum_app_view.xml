@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="poi_scrum.scrum_app">   
+<div class="col-sm-12">
+      <div class="row">
+            <div class="col-sm-12">
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary active project_home">
+                              <input type="radio" name="options" id="option1" autocomplete="off"/> <span class="fa fa-home">  Proyecto</span>
+                        </label>
+                       
+                        <label class="btn btn-primary project_kanban">
+                        <input type="radio" name="options" id="option4" autocomplete="off"/> Tablero Kanban
+                        </label>
+                  </div>
+            </div>
+      </div>
+      <div class="row project-home-view">
+            <div class="col-sm-12 home">
+                  <div class="row">
+                        <div class="col-sm-4">
+                              <div class="card bg-light">
+                              
+                                    <div class="card-header toggle-card">
+                                          Proyectos
+                                    </div>
+                                    <div class="card-body">
+                                          <ul class="list-group o_project o_project_list">
+                                          </ul>
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="col-sm-4">
+                              <div class="card bg-light">
+                  
+                                    <div class="card-header toggle-card">
+                                          Tareas Asignadas a mi
+                                    </div>
+                                    <div class="card-body">
+                                          <ul class="list-group o_project o_task_list">
+                                          </ul>
+                                    </div>
+                              </div>
+                              <!-- <div class="card bg-light">
+                  
+                                    <div class="card-header toggle-card">
+                                          Tareas del Proyecto
+                                    </div>
+                                    <div class="card-body">
+                                          <ul class="list-group o_project o_task_list">
+                                          </ul>
+                                    </div>
+                              </div> -->
+                        </div>
+                  
+                        <div class="col-sm-4 task_open_view">
+                        </div>
+                        
+                  </div>
+                    
+                                   
+                 
+            </div>
+           
+      </div>
+      <div class="row project-sprint-view">
+            <div class="col-sm-6 o_sprint_view"></div>
+            <div class="col-sm-6 o_task_no_sprint"></div>
+      </div>
+      <div class="row project-kanban-view">
+            <div class="o_kanban_view" style="background-color: #4253904d;overflow: auto;display: flex; width: 100%;">
+                  
+            </div>
+      </div>
+      
+</div>
+</t>
+<t t-name="poi_scrum.comments">
+
+            <div id="discussion"
+                  class="hidden-print request_comments_chatter"
+                  
+                  data-res_model="project.task"
+                  t-att-data-res_id="t.id"
+                  data-pager_step="10"
+                  data-allow_composer="'1'">
+            </div>
+   
+</t>
+<t t-name="poi_scrum.alert2">
+<div class="col-sm-12">
+    <p>Debes seleccionar un Proyecto para poder ver este apartado.</p>
+</div>
+</t>
+<div t-name="Loading" class="o_loading"/>
+</templates>

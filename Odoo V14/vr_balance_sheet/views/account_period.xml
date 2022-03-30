@@ -1,0 +1,107 @@
+<odoo>
+    <data>
+        <!-- Vista Árbol de Modelo Periodo Contable -->
+
+        <record model="ir.ui.view" id="account_period_tree">
+            <field name="name">account.period.tree</field>
+            <field name="model">account.period</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="description"/>
+                    <field name="date_init"/>
+                    <field name="date_end"/>
+                    <field name="date_update"/>
+                    <field name="state" widget="badge" decoration-info="state=='draft'" decoration-success="state=='open'" decoration-danger="state=='close'"/>
+                    <button name="action_open_period" class="btn btn-primary" states="draft" type="object" icon="fa-unlock"/>
+                    <button name="action_close_period" class="btn btn-primary" states="open" type="object" icon="fa-unlock"/>
+                    <button name="action_open_period" class="btn btn-primary" states="close" type="object" confirm="¿Esta seguro de aperturar el periodo contable?" icon="fa-lock"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario de Modelo Periodo Contable -->
+
+        <record model="ir.ui.view" id="account_period_form">
+            <field name="name">account.period.form</field>
+            <field name="model">account.period</field>
+            <field name="arch" type="xml">
+                <form string="Periodo Contable" duplicate="0">
+                    <header>
+                        <button name="action_open_period" string="Aperturar Periodo" class="oe_highlight" states="draft" type="object"/>
+                        <button name="action_close_period" string="Cerrar Periodo" class="oe_highlight" states="open" type="object"/>
+                        <button name="action_open_period" string="Aperturar Periodo" class="oe_highlight" states="close" type="object" confirm="¿Esta seguro de aperturar el periodo contable?"/>
+                        <field name="state" widget="statusbar" readonly="1"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_view_moves" string="Asientos Contables" type="object" class="oe_stat_button" icon="fa-list"/>
+                        </div>
+                        <div class="oe_title">
+                            <b><span>Nombre</span></b>
+                            <h1>
+                                <field name="name" placeholder="Ej. Julio/2020" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="user_id" readonly="1" store="1" options="{'no_open': True}"/>
+                                <field name="date_init" attrs="{'readonly' : [('state', '=', 'close')]}"/>
+                            </group>
+                            <group>
+                                <field name="date_update" readonly="1"/>
+                                <field name="date_end" attrs="{'readonly' : [('state', '=', 'close')]}"/>
+                            </group>
+                        </group>
+                        <div class="col-6">
+                            <field name="description" placeholder="Glosa" nolabel="1" height="50"/>
+                        </div>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Busqueda de Modelo Periodo Contable -->
+
+        <record model="ir.ui.view" id="account_period_search">
+            <field name="name">account.period.search</field>
+            <field name="model">account.period</field>
+            <field name="arch" type="xml">
+                <search string="Periodo Contable Busqueda">
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="state"/>
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Usuario" name="user" domain="[]" context="{'group_by':'user_id'}"/>
+                        <filter string="Estado" name="state" context="{'group_by':'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Accion para visualizar modelo Pediodo Contable -->
+
+        <record id="account_period_action" model="ir.actions.act_window">
+            <field name="name">Periodo Contable</field>
+            <field name="res_model">account.period</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="account_period_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crear un nuevo periodo contable
+                </p>
+            </field>
+        </record>
+
+        <!--Menu de periodo contable-->
+
+        <menuitem id="account_period_menu" parent="account.account_account_menu" action="account_period_action"/>
+
+    </data>
+</odoo>

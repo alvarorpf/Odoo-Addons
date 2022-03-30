@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+  <record id="project_task_adduser_wiz_form" model="ir.ui.view">
+    <field name="name">project.task.adduser.wiz.form</field>
+    <field name="model">project.task.adduser.wiz</field>
+    <field name="arch" type="xml">
+      <form string="Registro de Horas Reales">
+        <group>
+            <field name="task_id" invisible="1"/>
+            <field name="type" widget="radio"/>
+            <field name="user_ids" widget="many2many_tags" attrs="{'invisible': [('type', '!=', 'add')], 'required': [('type', '=', 'add')]}" options="{'no_create': True, 'no_edit': False}"/>
+            <field name="user_remove_ids" widget="many2many_tags" options="{'no_create': True, 'no_edit': False}" attrs="{'invisible': [('type', '!=', 'remove')], 'required': [('type', '=', 'remove')]}"/>
+        </group>
+        <footer>
+            <button name="action_process" string="Procesar" type="object" class="btn-primary"/>
+            <button string="Salir" class="oe_link" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+</data>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="request_advance_c" model="ir.sequence">
+            <field name="name">Anticipo Colaborador</field>
+            <field name="code">sequence.request.advance.c</field>
+            <field name="prefix">ANT-C/</field>
+            <field name="padding">4</field>
+        </record>
+
+        <record id="request_advance_p" model="ir.sequence">
+            <field name="name">Anticipo Proveedor</field>
+            <field name="code">sequence.request.advance.p</field>
+            <field name="prefix">ANT-P/</field>
+            <field name="padding">4</field>
+        </record>
+
+    </data>
+</odoo>

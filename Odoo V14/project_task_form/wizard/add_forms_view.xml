@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="add_forms_wizard_view" model="ir.ui.view">
+            <field name="name">add.forms.wizard.view</field>
+            <field name="model">add.forms</field>
+            <field name="arch" type="xml">
+                <form string="Invoice">
+                    <group>
+                        <group>
+                            <field name="task_id" options="{'no_open': True, 'no_create': True}" required="1" invisible="1"/>
+
+                            <field name="has_initial_investigation" invisible="1"/>
+                            <field name="has_investigation_report" invisible="1"/>
+                            <field name="has_visit_form" invisible="1"/>
+                            <field name="has_election_form" invisible="1"/>
+                            <field name="has_security_inspection" invisible="1"/>
+                            <field name="has_observation_form" invisible="1"/>
+
+                            <field name="initial_investigation" attrs="{'invisible': [('has_initial_investigation', '=', False)]}"/>
+                            <field name="investigation_report" attrs="{'invisible': [('has_investigation_report', '=', False)]}"/>
+                            <field name="visit_form" attrs="{'invisible': [('has_visit_form', '=', False)]}"/>
+                            <field name="election_form" attrs="{'invisible': [('has_election_form', '=', False)]}"/>
+                            <field name="security_inspection" attrs="{'invisible': [('has_security_inspection', '=', False)]}"/>
+                            <field name="observation_form" attrs="{'invisible': [('has_observation_form', '=', False)]}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Confirmar" name="action_confirm" type="object" class="send btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

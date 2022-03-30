@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.account</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="40"/>
+            <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='analytic']" position="after">
+                    <h2>Analytics</h2>
+                        <div class="row mt16 o_settings_container" id="analytic">
+                            <div class="col-12 col-lg-6 o_setting_box"
+                                id="transient_account_debit"
+                                title="Cuenta Transitoria de Ventas."
+                                groups="account.group_account_user">
+                                <div class="o_setting_right_pane">
+                                    <label for="transient_account_sale_id"/>
+                                    <field name="transient_account_sale_id"/>
+                                    <div class="text-muted">
+                                        Cuenta transitoria de ventas para el registro de asientos contables
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box"
+                                id="transient_account_credit"
+                                title="Cuenta Transitoria de Compras."
+                                groups="account.group_account_user">
+                                <div class="o_setting_right_pane">
+                                    <label for="transient_account_purchase_id"/>
+                                    <field name="transient_account_purchase_id"/>
+                                    <div class="text-muted">
+                                        Cuenta transitoria de compras para el registro de asientos contables
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

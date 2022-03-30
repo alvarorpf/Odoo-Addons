@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_mora_2" model="ir.actions.act_window">
+            <field name="name">Reporte de Mora</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">report.mora.2</field>
+            <field name="view_mode">pivot,tree</field>
+            <field name="view_id" ref="report_mora_2_pivot"/>
+            <field name="context">{}</field>
+        </record>
+
+        <record id="view_report_mora" model="ir.ui.view">
+            <field name="name">Reporte de Mora</field>
+            <field name="model">report.mora.wiz</field>
+            <field name="arch" type="xml">
+                <form string="Reporte de Mora">
+                    <group col="1">
+                        <field name="type" widget="radio"/>
+                        <field name="student_id"
+                               attrs="{'invisible': [('type', 'not in', ['student'])], 'required':[('type', '=', 'student')]}"/>
+                        <field name="code_family_id"
+                               attrs="{'invisible': [('type', 'not in', ['code'])], 'required':[('type', '=', 'code')] }"/>
+                        <field name="parent_id"
+                               attrs="{'invisible': [('type', 'not in', ['parent'])], 'required':[('type', '=', 'parent')] }"/>
+                        <field name="year_id"/>
+                        <field name="date"/>
+                    </group>
+                    <footer>
+                        <button name="%(action_report_mora_2)d" string="Vista en Pantalla" class="oe_highlight"
+                                type="action"/>
+                        <button name="action_view_report" string="Generar PDF" type="object" class="btn-primary"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_mora_action" model="ir.actions.act_window">
+            <field name="name">Reporte de Mora</field>
+            <field name="res_model">report.mora.wiz</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem name="Reporte de Mora" action="report_mora_action" id="menu_report_mora"
+                  parent="menu_report_account_cea" sequence="12"/>
+
+    </data>
+</odoo>

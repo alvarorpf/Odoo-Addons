@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_measure_taken_form_view" model="ir.ui.view">
+            <field name="name">op.measure.taken.form.view</field>
+            <field name="model">op.measure.taken</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_measure_taken_tree_view" model="ir.ui.view">
+            <field name="name">op.measure.taken.tree.view</field>
+            <field name="model">op.measure.taken</field>
+            <field name="arch" type="xml">
+                <tree string="Op Measure Taken">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_measure_taken" model="ir.actions.act_window">
+            <field name="name">Medida Tomada</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.measure.taken</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_measure_taken_menu_configuration" name="Medida Tomada" sequence="1" parent="submenu_op_health_configuration_clinical" action="action_op_measure_taken"/>
+    </data>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="upload_file_form" model="ir.ui.view">
+            <field name="name">upload.file.form</field>
+            <field name="model">upload.file</field>
+            <field name="arch" type="xml">
+                <form string="Cargar Documento">
+                    <group>
+                        <field name="document_id" invisible="1"/>
+                        <field name="user_id" invisible="1"/>
+                        <field name="date" readonly="1" force_save="1"/>
+                        <field name="comment"/>
+                        <field name="version"/>
+                        <field name="file" filename="file_name" string="Archivo" required="1"/>
+                        <field name="official" invisible="1"/>
+                    </group>
+                    <group invisible="1">
+                        <group string="Archivo">
+                            <field name="file_ext" string="Extension"/>
+                            <field name="file_name" string="Name"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_continue" string="Continuar" type="object"
+                                class="btn-primary"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

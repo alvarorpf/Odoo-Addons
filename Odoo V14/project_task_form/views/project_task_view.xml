@@ -1,0 +1,61 @@
+<odoo>
+    <!--Project Task Inherit Form view-->
+    <record id="project_task_view_form_inherit" model="ir.ui.view">
+        <field name="name">project.task.view.form.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//header" position="inside">
+                    <button name="create_forms" string="Crear Formularios" class="oe_highlight" type="object"/>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="action_view_forms"
+                            type="object"
+                            class="oe_stat_button" icon="fa-file">
+                            <field name="count_forms"/>Formularios
+                            </button>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <!--Project Task Type Inherit Form view-->
+    <record id="project_task_type_view_form_inherit" model="ir.ui.view">
+        <field name="name">project.task.type.view.form.inherit</field>
+        <field name="model">project.task.type</field>
+        <field name="inherit_id" ref="project.task_type_edit"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//sheet" position="inside">
+                    <group string="Formularios">
+                        <group>
+                            <field name="has_visit_form"/>
+                            <field name="has_initial_investigation"/>
+                            <field name="has_election_form"/>
+                        </group>
+                        <group>
+                            <field name="has_investigation_report"/>
+                            <field name="has_security_inspection"/>
+                            <field name="has_observation_form"/>
+                        </group>
+                    </group>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="project_task_view_kanban_inherited" model="ir.ui.view">
+        <field name="name">project.task.view.kanban.inherited</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_deadline']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_deadline']" position="before">
+                <field name="date_deadline"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

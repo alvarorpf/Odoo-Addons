@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="op_faculty_form_view_inherit" model="ir.ui.view">
+            <field name="name">op.faculty.form.view.inherit</field>
+            <field name="model">op.faculty</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_faculty_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form/sheet/div[1]" position="before">
+                        <div class="oe_title oe_button_box" name="button_box">
+                            <button class="registros" string="Registro Clinico" name="action_view_clinical_record"
+                                type="object" icon="fa-hospital-o"/>
+                        </div>
+                    </xpath>
+                    <xpath expr="//field[@name='blood_group']" position="replace">
+                        <field name="blood_group_id"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>

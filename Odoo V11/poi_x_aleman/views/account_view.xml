@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_aleman_account_form">
+            <field name="name">account.aleman.form</field>
+            <field name="model">account.account</field>
+            <field name="inherit_id" ref="poi_bol_base.view_poi_bol_account_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='account_aju_usd_id']" position="after">
+                    <newline/>
+                    <label string="Configuración de Balance" class="o_horizontal_separator" style="font-size: 20px;"/>
+                    <field name="balance_currency_id"/>
+                    <field name="balance_income_id"/>
+                    <field name="balance_discharge_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

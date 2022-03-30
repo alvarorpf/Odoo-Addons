@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="project_agile_team_kanban_view">
+        <field name="name">project.agile.team.kanban</field>
+        <field name="model">project.agile.team</field>
+        <field name="inherit_id" ref="project_agile.view_project_agile_team_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='member_ids']/kanban/field[@name='partner_id']" position="after">
+                <field name="valoration"/>
+                <field name="tag_ids"/>
+            </xpath>
+            <xpath expr="//div[@class='oe_kanban_details']/field[@name='name']" position="after">
+                <field name="valoration" widget="priority"/>
+                <field name="tag_ids" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

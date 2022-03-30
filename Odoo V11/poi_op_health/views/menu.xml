@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_op_school_health" name="Salud" sequence="11" web_icon="poi_op_health,static/description/icon.png" />
+        <menuitem id="submenu_op_health_health" name="Salud" parent="menu_op_school_health" sequence="11"/>
+        <menuitem id="submenu_op_health_documents" name="Documentos" parent="menu_op_school_health" sequence="11"/>
+        <menuitem id="submenu_op_health_report" name="Informe" parent="menu_op_school_health" sequence="11"/>
+        <menuitem id="submenu_op_health_configuration" name="Configuracion" parent="menu_op_school_health" sequence="11"/>
+        <menuitem id="submenu_op_health_configuration_file" name="Ficha Medica" parent="submenu_op_health_configuration" sequence="11"/>
+        <menuitem id="submenu_op_health_configuration_clinical" name="Registro Clinico" parent="submenu_op_health_configuration" sequence="11"/>
+    </data>
+</odoo>

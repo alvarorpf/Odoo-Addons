@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="op_parallel_view_tree" model="ir.ui.view">
+            <field name="name">op.parallel.tree</field>
+            <field name="model">op.batch.parallel</field>
+            <field name="arch" type="xml">
+                <tree string="Paralelos">
+                    <field name="name"/>
+                    <field name="sequence"/>
+                </tree>
+            </field>
+        </record>
+        <record id="op_parallel_view_form" model="ir.ui.view">
+            <field name="name">op.parallel.form</field>
+            <field name="model">op.batch.parallel</field>
+            <field name="arch" type="xml">
+                <form string="Paralelos">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="sequence"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="op_parallel_action" model="ir.actions.act_window">
+            <field name="name">Paralelos</field>
+            <field name="res_model">op.batch.parallel</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Paralelos
+                </p>
+                <p>
+                    Agregar Paralelo
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_op_parallel" parent="openeducat_core.menu_op_school_config_course"
+                  action="op_parallel_action" name="Paralelos" sequence="11"/>
+    </data>
+</odoo>

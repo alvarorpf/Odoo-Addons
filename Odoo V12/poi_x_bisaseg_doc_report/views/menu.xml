@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Menu de Reportes Proyectos-->
+    <menuitem name="Reportes"
+              id="menu_report_document"
+              sequence="80"
+              parent="muk_quality_docs.menu_muk_quality_docs"
+              groups="poi_x_bisaseg_doc.group_report_documents"/>
+
+    <menuitem id="report_menu_analysis_requirements"
+              name="Analisis Requerimientos"
+              action="action_analysis_requirements"
+              parent="menu_report_document"
+              sequence="10"/>
+
+    <menuitem id="report_menu_analysis_documents"
+              name="Analisis Documentos QMS"
+              action="action_analysis_documents"
+              parent="menu_report_document"
+              sequence="20"/>
+
+    <menuitem id="report_menu_reader_comparison"
+              name="Analisis de Lectores"
+              action="action_reader_comparison"
+              parent="menu_report_document"
+              sequence="30"/>
+</odoo>

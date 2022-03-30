@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="poi_scrum.icon_popover">
+    <div class="popover" role="tooltip">
+        <div class="arrow">
+            
+        </div>
+        <h3 class="popover-header"></h3>
+        <div class="popover-body" style="overflow: hidden;max-height: 260px;overflow-y: auto;"></div>
+    </div>
+
+</t>
+<t t-name="poi_scrum.icon_widget">
+
+    <t t-foreach="widget" t-as="i">
+        <button type='button' class='btn btn-outline-dark icon' t-attf-data-id='{{i.class}}' style='margin:4px; width:34px; heigth:30px;'><span t-attf-class='fa {{i.class}}' ></span></button>
+    </t>
+
+
+</t>
+</templates>

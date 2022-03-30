@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--    WIZARD WIZARD   -->
+        <record id="data_wizard_invoice" model="ir.ui.view">
+            <field name="name">invoice.wizard.form</field>
+            <field name="model">invoice.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Facturar Wizard" version="11.0">
+                    <label string=""/>
+                    <group>
+                        <field name="event_id"/>
+                    </group>
+                    <group>
+                        <field name="cliente_id" domain="[('customer','=','True')]"/>
+                    </group>
+                    <group>
+                        <field name="invoice_line" domain="[('event_id','=',event_id),('estado','=','libre')]">
+                            <tree editable="bottom">
+                                <field name="product_id" readonly="1"/>
+                                <field name="price_unit" readonly="1"/>
+                                <field name="estado" readonly="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group>
+                        <field name="checked_conentrega" string="Recogido"/>
+                    </group>
+                    <footer>
+                        <button string="Facturar" name="facturar_evento" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Descartar" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!--ACTION CALL WIZARD CREATE INVOICE-->
+        <record id="action_event_invoice" model="ir.actions.act_window">
+            <field name="name">Facturacion</field>
+            <field name="res_model">invoice.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="data_wizard_invoice"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

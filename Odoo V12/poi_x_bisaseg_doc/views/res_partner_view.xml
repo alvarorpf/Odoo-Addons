@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="update_partner_info_action_form" model="ir.actions.act_window">
+        <field name="name">Actualizar Contacto</field>
+        <field name="res_model">update.partner.info</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record model="ir.ui.view" id="view_partner_bisa_doc_form">
+        <field name="name">res.partner.bisa.doc.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="poi_x_bisaseg.view_partner_bisa_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="%(update_partner_info_action_form)d"
+                        string="Actualizar Contacto"
+                        class="oe_highlight" type="action"
+                        context="{'default_partner_id':id}"
+                        groups="poi_x_bisaseg_doc.group_o_and_m"/>
+            </xpath>
+            <xpath expr="//field[@name='function']" position="after">
+                <field name="parent"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

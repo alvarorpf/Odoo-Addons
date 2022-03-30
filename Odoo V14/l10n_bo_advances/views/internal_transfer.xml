@@ -1,0 +1,166 @@
+<odoo>
+    <data>
+        <!-- Vista Árbol de Modelo Movimiento Interno -->
+
+        <record model="ir.ui.view" id="internal_transfer_tree">
+            <field name="name">internal.transfer.tree</field>
+            <field name="model">internal.transfer</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="type_id"/>
+                    <field name="employee_id"/>
+                    <field name="date"/>
+                    <field name="amount"/>
+                    <field name="state" widget="badge" decoration-info="state=='draft'" decoration-success="state=='deposit'" decoration-danger="state=='cancel'"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario de Modelo Movimiento Interno -->
+
+        <record model="ir.ui.view" id="internal_transfer_form">
+            <field name="name">internal.transfer.form</field>
+            <field name="model">internal.transfer</field>
+            <field name="arch" type="xml">
+                <form string="Movimiento Interno">
+                    <header>
+                        <field name="is_approver" invisible="1"/>
+                        <button name="action_send" string="Enviar" class="oe_highlight" type="object" states="draft"/>
+                        <button name="action_approve" string="Aprobar" class="oe_highlight" type="object" attrs="{'invisible': ['|',('is_approver', '=', False), ('state', 'not in', ['send'])]}"/>
+                        <button name="action_deposit" string="Registrar Pago" class="oe_highlight" type="object" states="approved" groups="account.group_account_user"/>
+                        <button name="action_cancel" string="Cancelar" class="oe_highlight oe_edit_only" states="send,approved,deposit" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,send,approved,deposit" readonly="1"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+<!--                            <button name="action_view_informs" string="Informes" type="object" class="oe_stat_button" icon="fa-file" states="approved,finished"/>-->
+                            <button name="action_view_payments" string="Pagos" type="object" class="oe_stat_button" icon="fa-file"/>
+                        </div>
+                        <group>
+                            <group>
+                                <div class="oe_title">
+                                    <b><span>Nombre</span></b>
+                                    <h1>
+                                        <field name="name" readonly="1"/>
+                                    </h1>
+                                </div>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="type_id" attrs="{'readonly' : [('state', 'not in', ['draft'])]}" options="{'no_open': True}"/>
+                                <field name="user_id" invisible="1"/>
+                                <field name="employee_id" attrs="{'readonly' : [('state', '!=', 'draft')]}" options="{'no_open': True}"/>
+                                <field name="parent_id" attrs="{'readonly' : [('state', '!=', 'draft')]}" options="{'no_open': True}"/>
+                            </group>
+                            <group>
+                                <field name="date" readonly="1"/>
+                                <label for="amount"/>
+                                <div name="amount_div" class="d-flex">
+                                    <field name="amount" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                                    <span class="oe_inline o_form_label mx-3 oe_read_only"> en </span>
+                                    <span class="oe_inline o_form_label mr-3 ml-5 oe_edit_only"> en </span>
+                                    <field name="currency_id" readonly="1" options="{'no_open': True}"/>
+                                </div>
+                                <field name="type" invisible="1"/>
+                            </group>
+                        </group>
+                        <div class="col-6">
+                            <b><span>Motivo</span></b>
+                            <field name="description" nolabel="1" height="50" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        </div>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Busqueda de Modelo Movimiento Interno -->
+
+        <record model="ir.ui.view" id="internal_transfer_search">
+            <field name="name">internal.transfer.search</field>
+            <field name="model">internal.transfer</field>
+            <field name="arch" type="xml">
+                <search string="Movimiento Interno Busqueda">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="state"/>
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Colaborador" name="collaborator" domain="[]" context="{'group_by':'employee_id'}"/>
+                        <filter string="Estado" name="state" context="{'group_by':'state'}"/>
+                        <filter string="Tipo" name="type_id" context="{'group_by':'type_id'}"/>
+                        <filter string="Mis Movimientos" name="my_moves" domain="[('user_id', '=', uid)]"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Accion para visualizar modelo Movimiento Interno -->
+
+        <record id="internal_transfer_action" model="ir.actions.act_window">
+            <field name="name">Asignacion de fondos</field>
+            <field name="res_model">internal.transfer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="internal_transfer_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crer una nueva asignacion de fondos
+                </p>
+            </field>
+            <field name="context">{
+                'default_type': 'expenses',
+                'search_default_my_moves': True,
+                }
+            </field>
+            <field name="domain">[("type","=","expenses")]</field>
+        </record>
+
+        <record id="internal_transfer_action2" model="ir.actions.act_window">
+            <field name="name">Devolucion de fondos</field>
+            <field name="res_model">internal.transfer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="internal_transfer_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crer una nueva devolucion de fondos
+                </p>
+            </field>
+            <field name="context">{
+                'default_type': 'refund',
+                'search_default_my_moves': True,
+                }
+            </field>
+            <field name="domain">[("type","=","refund")]</field>
+        </record>
+
+        <record id="internal_transfer_action3" model="ir.actions.act_window">
+            <field name="name">Movimiento Interno</field>
+            <field name="res_model">internal.transfer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="internal_transfer_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crer un nuevo movimiento interno
+                </p>
+            </field>
+            <field name="context">{
+                'search_default_type_id': True,
+                }
+            </field>
+        </record>
+
+        <!--Menu de Movimiento Interno-->
+
+        <menuitem id="advance_menu" parent="hr_expense.menu_hr_expense_my_expenses" name="Fondos"/>
+        <menuitem id="internal_transfer_menu" sequence="10" parent="advance_menu" action="internal_transfer_action"/>
+        <menuitem id="internal_transfer_menu2" sequence="10" parent="advance_menu" action="internal_transfer_action2"/>
+        <menuitem id="internal_transfer_menu3" sequence="10" parent="account.menu_finance_entries_actions" action="internal_transfer_action3"/>
+
+
+    </data>
+</odoo>

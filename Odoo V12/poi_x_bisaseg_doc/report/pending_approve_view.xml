@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pending_approve_tree" model="ir.ui.view">
+         <field name="name">pending.approve.report.tree</field>
+         <field name="model">pending.approve</field>
+         <field name="arch" type="xml">
+             <tree string="Pendientes de Aprobacion">
+                 <field name="request_id"/>
+                 <field name="document_id"/>
+                 <field name="user_id"/>
+                 <field name="action"/>
+                 <button name="view_approve" type="object" class="btn btn-primary btn-sm" string="Ver"/>
+             </tree>
+         </field>
+    </record>
+
+    <record id="view_pending_approve_search" model="ir.ui.view">
+        <field name="name">pending.approve.report.search</field>
+        <field name="model">pending.approve</field>
+        <field name="arch" type="xml">
+            <search string="Pendientes de Aprobacion">
+                <field name="request_id"/>
+                <field name="document_id"/>
+                <field name="user_id"/>
+                <separator/>
+                <filter string="Mis Pendientes" name="my_pending" domain="[('user_id','=',uid)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_pending_approve" model="ir.actions.act_window">
+        <field name="name">Pendientes de Aprobacion</field>
+        <field name="res_model">pending.approve</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="context">{'search_default_my_pending': 1}</field>
+    </record>
+
+</odoo>

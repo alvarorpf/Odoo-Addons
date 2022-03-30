@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="general_schedule_tree_view" model="ir.ui.view">
+            <field name="name">general.schedule.tree.view</field>
+            <field name="model">general.schedule</field>
+            <field name="arch" type="xml">
+                <tree string="Cronograma General" create="false" decoration-bf="type=='macro'" decoration-it="type!='macro'">
+                    <field name="project_id"/>
+                    <field name="stage_id"/>
+                    <field name="type"/>
+                    <field name="name"/>
+                    <field name="assigned_id"/>
+                    <field name="date_start"/>
+                    <field name="date_deadline"/>
+                    <field name="state"/>
+                    <field name="progress" widget="progressbar"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

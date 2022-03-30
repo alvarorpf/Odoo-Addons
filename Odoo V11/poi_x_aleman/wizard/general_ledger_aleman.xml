@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="view_general_ledger" model="ir.ui.view">
+        <field name="name">Balance General</field>
+        <field name="model">general.ledger.aleman.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Balance General">
+                <group col="1">
+                    <field name="company_id"/>
+                    <field name="currency_id" required="1"/>
+                    <field name="adjust" required="1"/>
+                    <field name="date_ini"/>
+                    <field name="date_end"/>
+                </group>
+                <footer>
+                    <!--<button name="generate_report" string="Generar PDF" type="object" class="btn-primary"/>-->
+                    <button name="export_report" string="Exportar Excel" type="object" class="btn-primary"/>
+                    <button string="Salir" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="general_ledger_aleman_action" model="ir.actions.act_window">
+        <field name="name">Balance General</field>
+        <field name="res_model">general.ledger.aleman.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem name="Balance General" action="general_ledger_aleman_action" id="menu_general_ledger" parent="account.menu_finance_reports" sequence="13"/>
+
+  </data>
+</odoo>

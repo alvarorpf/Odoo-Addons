@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!--Inactivar logo OpenEducat y reemplazar-->
+    <record id="web_openeducat.navbar_mega" model="ir.ui.view">
+        <field name="active" eval="False"/>
+    </record>
+
+    <template id="navbar_mega" inherit_id="website.layout">
+
+        <xpath expr="//div[hasclass('navbar-header')]" position="inside">
+            <a href="/">
+                <img src="/poi_x_aleman/static/src/img/logo.png" class="img img-responsive" alt="Colegio Aleman" title="Colegio Aleman" />
+            </a>
+        </xpath>
+    </template>
+
+    <record id="openeducat_core.fav_ico" model="ir.ui.view">
+        <field name="active" eval="False"/>
+    </record>
+    <template id="fav_ico" name="CEA Icon" inherit_id="web.layout">
+        <xpath expr="//html/head/link[1]" position="replace">
+            <link rel="shortcut icon"
+                href="/poi_x_aleman/static/src/img/favicon.ico"
+                type="image/x-icon" />
+        </xpath>
+    </template>
+
+    <menuitem id="openeducat_core.menu_op_school_root" name="Colegio Aleman" sequence="5"
+            web_icon="poi_x_aleman,static/description/menu_icon.png" />
+
+    <record id="web_openeducat.top_navbar_mid_menu" model="ir.ui.view">
+        <field name="active" eval="False"/>
+    </record>
+    <template id="top_navbar_mid_menu" inherit_id="website.layout" name="Header Layout Menu">
+        <xpath expr="//div[@id='wrapwrap']/header/div[hasclass('navbar-static-top')]" position="before">
+            <div class="oe_structure">
+                <div id="custom-pre-header">
+                    <div class="container">
+                        <nav class="header-nav-top pull-right">
+
+                            <div id="social">
+                                <a href="https://www.facebook.com/DsLaPaz" target="_blank">
+                                    <i class="fa fa-facebook fa-1x img-circle"></i>
+                                </a>
+                                <a href="https://twitter.com/" target="_blank">
+                                    <i class="fa fa-twitter fa-1x img-circle"></i>
+                                </a>
+                                <a href="https://plus.google.com/" target="_blank">
+                                    <i class="fa fa-google-plus fa-1x img-circle"></i>
+                                </a>
+                            </div>
+                        </nav>
+                        <div id="company_details">
+                            <i class="fa fa-phone pr8" />
+                            <span class="company-info pr8">(+591 -2) 2710812</span>
+                            <i class="fa fa-envelope pr8" />
+                            <span class="company-info">info@ds-lapaz.edu.bo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!--Reemplazar footer nativo-->
+    <record id="website.layout_footer_copyright" model="ir.ui.view">
+        <field name="active" eval="False"/>
+    </record>
+    <template id="layout_footer_copyright" inherit_id="website.layout" name="Footer Copyright">
+        <xpath expr="//footer" position="inside">
+            <div class="container mt16 mb8">
+                <div class="pull-right" t-ignore="true" t-if="not editable" style="font-size: smaller;">
+                    Desarrollado <a target="_blank" href="http://www.poiesisconsulting.com">por</a>
+                    <a target="_blank" class="label label-success" href="http://www.poiesisconsulting.com">Poiesis Consulting</a>
+                </div>
+                <div class="pull-left text-muted" itemscope="itemscope" itemtype="http://schema.org/Organization">
+                    Copyright &amp;copy; <span t-field="res_company.name" itemprop="name">Company name</span>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

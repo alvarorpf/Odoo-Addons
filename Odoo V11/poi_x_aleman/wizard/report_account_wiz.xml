@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="view_report_account" model="ir.ui.view">
+        <field name="name">Estado de Cuentas</field>
+        <field name="model">report.account.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Reporte de Mora">
+                <group col="1">
+                    <field name="family_id"/>
+                    <!--<field name="parent_id"/>-->
+                    <field name="year_id"/>
+                    <field name="date_from" />
+                </group>
+                <footer>
+                    <button name="action_view_report" string="Generar" type="object" class="btn-primary"/>
+                    <button string="Salir" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="report_account_action" model="ir.actions.act_window">
+        <field name="name">Estado de Cuentas</field>
+        <field name="res_model">report.account.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem name="Estado de Cuentas" action="report_account_action" id="menu_account_report"
+              parent="menu_report_account_cea" sequence="12"/>
+
+  </data>
+</odoo>

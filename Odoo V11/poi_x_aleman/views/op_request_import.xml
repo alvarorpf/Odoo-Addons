@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<record id="op_request_import_line_view_tree" model="ir.ui.view">
+    <field name="name">op.request.import.line.tree</field>
+    <field name="model">op.request.import.line</field>
+    <field name="arch" type="xml">
+        <tree string="Importación de Cargos">
+            <field name="nit"/>
+            <field name="razon"/>
+            <field name="nro_fac" />
+            <field name="cc_aut"/>
+            <field name="date_invoice"/>
+            <field name="amount_total" />
+            <field name="ice" />
+            <field name="exentos" />
+            <field name="amount_iva" />
+            <field name="iva"/>
+            <field name="estado_fac"/>
+            <field name="cc_cod"/>
+            <field name="code"/>
+            <field name="note"/>
+            <field name="currency"/>
+            <field name="tc"/>
+        </tree>
+    </field>
+</record>
+
+<record id="op_request_import_view_tree" model="ir.ui.view">
+    <field name="name">op.request.import.tree</field>
+    <field name="model">op.request.import</field>
+    <field name="arch" type="xml">
+        <tree string="Importación de Cargos">
+            <field name="name"/>
+        </tree>
+    </field>
+</record>
+<record id="op_request_import_view_form" model="ir.ui.view">
+    <field name="name">op.request.import.form</field>
+    <field name="model">op.request.import</field>
+    <field name="arch" type="xml">
+        <form string="Importación de Cargos">
+            <header>
+                <button name="action_confirm" string="Confirmar" type="object" states="draft" class="btn-primary"/>
+                <button name="action_done" string="Finalizar" type="object" states="confirm" class="btn-primary"/>
+                <field name="state" widget="statusbar"/>
+            </header>
+            <sheet string="Importación">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_line_ids"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-pencil-square-o"
+                        string="Lineas a Importar">
+                    </button>
+                </div>
+                <group>
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="date"/>
+                    <field name="currency_origin"/>
+                    <field name="currency"/>
+                    <field name="tc"/>
+                </group>
+                <notebook>
+                    <page string="Cargos">
+                        <field name="line_ids" nolabel="1" widget="one2many_list" mode="tree">
+                            <tree editable="bottom" create="0">
+                                <field name="nit"/>
+                                <field name="razon"/>
+                                <field name="nro_fac" />
+                                <field name="cc_aut"/>
+                                <field name="date_invoice"/>
+                                <field name="amount_total" />
+                                <field name="ice" />
+                                <field name="exentos" />
+                                <field name="amount_iva" />
+                                <field name="iva"/>
+                                <field name="estado_fac"/>
+                                <field name="cc_cod"/>
+                                <field name="code"/>
+                                <field name="note"/>
+                                <field name="currency"/>
+                                <field name="tc"/>
+                                <field name="state"/>
+                                <field name="request_id"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+<record id="op_request_import_action" model="ir.actions.act_window">
+    <field name="name">Importación de Cargos</field>
+    <field name="res_model">op.request.import</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+            Importación de Cargos
+        </p>
+    </field>
+</record>
+</data>
+</odoo>

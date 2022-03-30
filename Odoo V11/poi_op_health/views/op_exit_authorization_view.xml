@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_exit_authorization_form_view" model="ir.ui.view">
+            <field name="name">op.exit.authorization.form.view</field>
+            <field name="model">op.exit.authorization</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="authorization_type"/>
+                            </group>
+                        </group>
+                        <group col="4" string="Datos de Alumno">
+                            <field name="student_id"/>
+                            <field name="family_code_id"/>
+                            <field name="course_id"/>
+                            <field name="teacher_id"/>
+                        </group>
+                        <group string="Datos para la salida">
+                            <group>
+                                <field name="consultation_reason_id"
+                                       attrs="{'required': [('authorization_type', '=', 'medica')]}"/>
+                            </group>
+                            <group>
+                                <field name="datetime_authorization"
+                                       attrs="{'required': [('authorization_type', '=', 'medica')]}"/>
+                                <field name="datetime_departure"
+                                       attrs="{'required': [('authorization_type', '=', 'medica')]}"/>
+                            </group>
+                        </group>
+                        <group col="4" string="Datos para ausencia">
+                            <field name="absence_reason"
+                                   attrs="{'required': [('authorization_type', '=', 'ausencia')]}"/>
+                            <field name="datetime_absence"
+                                   attrs="{'required': [('authorization_type', '=', 'ausencia')]}"/>
+                        </group>
+                        <group string="Datos de Gondola" col="4">
+                            <field name="bus_number"/>
+                            <field name="bus_route"/>
+                        </group>
+                        <group>
+                            <field name="observations"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_exit_authorization_tree_view" model="ir.ui.view">
+            <field name="name">op.exit.authorization.tree.view</field>
+            <field name="model">op.exit.authorization</field>
+            <field name="arch" type="xml">
+                <tree string="Op Exit Authorization">
+                    <field name="student_id"/>
+                    <field name="family_code_id"/>
+                    <field name="course_id"/>
+                    <field name="teacher_id"/>
+                    <field name="consultation_reason_id"/>
+                    <field name="datetime_authorization"/>
+                    <field name="datetime_departure"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_exit_authorization" model="ir.actions.act_window">
+            <field name="name">Autorizacion de Salida</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.exit.authorization</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_op_exit_authorization2" model="ir.actions.act_window">
+            <field name="name">Autorizacion de Salida</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.exit.authorization</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_exit_authorization_menu_health" name="Autorizacion de Salida" sequence="1"
+                  parent="submenu_op_health_health" action="action_op_exit_authorization"/>
+    </data>
+</odoo>

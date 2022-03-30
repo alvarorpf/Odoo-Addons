@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_report_observation_form" model="ir.actions.report">
+            <field name="name">Formulario de Observacion</field>
+            <field name="model">observation.form</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">project_task_form.observation_form_report</field>
+            <field name="report_file">project_task_form.observation_form_report</field>
+            <field name="print_report_name">'Formulario de Visita - %s' % object.name</field>
+            <field name="paperformat_id" ref="project_task_form.paperformat_base"/>
+            <field name="binding_model_id" ref="model_observation_form"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="observation_form_report">
+            <t t-foreach="docs" t-as="d">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div class="row" id="hash_header">
+                            <div class="col-12">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td width='20%' style="font-size:12px:" align="center">
+                                            <img style="max-width: 80px;"
+                                                 t-if="d.company_id.logo"
+                                                 t-att-src="image_data_uri(d.company_id.logo)"
+                                                 alt="Logo"/>
+                                        </td>
+                                        <td style="text-align:center;" width='60%'>
+                                            <b>
+                                                <span t-esc="d.name"/>
+                                            </b>
+                                            <br/>
+                                            <b>FORMULARIO DE OBSERVACION</b>
+                                            <br/>
+                                            <b></b>
+                                        </td>
+                                        <td width='20%' style="text-align:left;">
+                                            <br/>
+                                            <b>Fecha:</b>
+                                            <span t-esc="d.date.strftime('%d/%m/%Y')"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>FECHA Y HORA</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.datetime.strftime('%d/%m/%Y %H:%M')"/>
+                                            </td>
+                                            <td style="width:20%;">
+                                                <b>TIEMPO OCUPADO</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.planned_hours"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <b>CENTRO DE COSTO</b>
+                                            </td>
+                                            <td colspan="2">
+                                                <span t-esc="d.project_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <b>SUPERVISOR</b>
+                                            </td>
+                                            <td colspan="2">
+                                                <span t-esc="d.supervisor"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <b>CARGO</b>
+                                            </td>
+                                            <td colspan="2">
+                                                <span t-esc="d.supervisor_charge"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th colspan="4" style="text-align:center;">ASPECTOS DE LA OBSERVACION</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>NOMBRE TRABAJADOR</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.employee"/>
+                                            </td>
+                                            <td style="width:20%;">
+                                                <b>CARGO</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.charge"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>AMTIGUEDAD EN EL CARGO</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.antiquity"/>
+                                            </td>
+                                            <td style="width:20%;">
+                                                <b>ANTIGUEDAD DE LA EMPRESA</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.antiquity_company"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>TIPO DE OBSERVACION</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <t t-if="d.type == 'with'">
+                                                    <span>Con Aviso</span>
+                                                </t>
+                                                <t t-if="d.type == 'without'">
+                                                    <span>Sin Aviso</span>
+                                                </t>
+                                            </td>
+                                            <td style="width:20%;">
+                                                <b>MOTIVO DE LA OBSERVACION</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <t t-if="d.reason == 'repeated'">
+                                                    <span>Accidentes Repetidos</span>
+                                                </t>
+                                                <t t-if="d.reason == 'reckless'">
+                                                    <span>Trabajador Temerario</span>
+                                                </t>
+                                                <t t-if="d.reason == 'deficient'">
+                                                    <span>Desempeño deficiente</span>
+                                                </t>
+                                                <t t-if="d.reason == 'critical'">
+                                                    <span>Trabajo Critico</span>
+                                                </t>
+                                                <t t-if="d.reason == 'trouble'">
+                                                    <span>Problemas de habilidad</span>
+                                                </t>
+                                                <t t-if="d.reason == 'work'">
+                                                    <span>Labores fuera de contrato</span>
+                                                </t>
+                                                <t t-if="d.reason == 'new'">
+                                                    <span>Trabajador Nuevo</span>
+                                                </t>
+                                                <t t-if="d.reason == 'other'">
+                                                    <span>Otro</span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <t t-if="d.reason == 'other'">
+                                            <tr>
+                                                <td>OTRO MOTIVO</td>
+                                                <td colspan='3'>
+                                                    <span t-esc="d.other_reason"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th colspan="4" style="text-align:center;">OBSERVACION</th>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="d.line_ids" t-as="l">
+                                            <tr>
+                                                <td colspan="4">-
+                                                    <span t-esc="l.observation"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th style="text-align:center;">FOCOS DE OBSERVACION</th>
+                                        <th style="text-align:center;">BUENAS PRACTICAS</th>
+                                        <th style="text-align:center;">MALAS PRACTICAS</th>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="d.spotlight_ids" t-as="s">
+                                            <tr>
+                                                <td>
+                                                    <span t-esc="s.spotlight"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="s.good_practice"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="s.bad_practice"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th style="text-align:center;">ACCION SEGUN OBSERVACION</th>
+                                        <th style="text-align:center;">AC/AP</th>
+                                        <th style="text-align:center;">RESPONSABLE</th>
+                                        <th style="text-align:center;">PLAZO</th>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="d.action_ids" t-as="a">
+                                            <tr>
+                                                <td>
+                                                    <span t-esc="a.action"/>
+                                                </td>
+                                                <td>
+                                                    <t t-if="a.ac_ap == 'ac'">
+                                                        <span>AC</span>
+                                                    </t>
+                                                    <t t-if="a.ac_ap == 'ap'">
+                                                        <span>AP</span>
+                                                    </t>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="a.responsible"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="a.date.strftime('%d/%m/%Y')"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <tbody>
+                                        <tr>
+                                            <td width='40%' style="font-size:12px:" align="center">
+                                                <img style="max-width: 70px;"
+                                                     t-if="d.company_id.logo"
+                                                     t-att-src="image_data_uri(d.company_id.logo)"
+                                                     alt="Logo"/>
+                                            </td>
+                                            <td style="width:60%; text-align:center;">
+                                                <img class="img"
+                                                     t-attf-src="data:image/png;base64,{{d.signature}}"
+                                                     style="max-width:300px;"
+                                                />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width='40%' style="font-size:12px:" align="center">
+                                                <b></b>
+                                            </td>
+                                            <td style="width:60%; text-align:left;">
+                                                <b>REALIZADO POR:</b>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

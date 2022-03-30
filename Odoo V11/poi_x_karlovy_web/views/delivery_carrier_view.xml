@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_delivery_carrier_form_inherit_karlovy" model="ir.ui.view">
+            <field name="name">website.sale.delivery.carrier.karlovy.inherit</field>
+            <field name="model">delivery.carrier</field>
+            <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='destination']" position="after">
+                    <page string="Eventos">
+                        <group>
+                            <field name="type_event"/>
+                            <field name="type_delivery_event"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+    </record>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_allergy_list_form_view" model="ir.ui.view">
+            <field name="name">op.allergy.list.form.view</field>
+            <field name="model">op.allergy.list</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_allergy_list_tree_view" model="ir.ui.view">
+            <field name="name">op.allergy.list.tree.view</field>
+            <field name="model">op.allergy.list</field>
+            <field name="arch" type="xml">
+                <tree string="Op Allergy List">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_allergy_list" model="ir.actions.act_window">
+            <field name="name">Lista de Alergias</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.allergy.list</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_allergy_list_menu_configuration" name="Lista de Alergias" sequence="1" parent="submenu_op_health_configuration_file" action="action_op_allergy_list"/>
+    </data>
+</odoo>

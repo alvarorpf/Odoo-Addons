@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem   name="Compras"
+                    id="purchase.menu_purchase_root"
+                    groups="zrd_delta.group_visibility_menu"
+                    web_icon="purchase,static/description/icon.png"
+                    sequence="25"/>
+        <menuitem   name="Ventas"
+                    id="sale.sale_menu_root"
+                    groups="zrd_delta.group_visibility_menu"
+                    web_icon="sale_management,static/description/icon.png"
+                    sequence="25"/>
+    </data>
+</odoo>

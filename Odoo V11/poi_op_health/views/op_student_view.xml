@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="op_student_form_view_inherit" model="ir.ui.view">
+            <field name="name">op.student.form.view.inherit</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="poi_x_aleman.op_student_form_view_inherit"/>
+            <field name="priority" eval="11"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form/header/button[1]" position="before">
+                        <button name="%(action_op_medical_file_register_student)d" string="Registrar Ficha Medica"
+                                class="oe_highlight" type="action"
+                                context="{'default_student_id':id}"/>
+                    </xpath>
+                    <xpath expr="//form/sheet/div[2]/button[1]" position="before">
+                        <button class="salidas" string="Salidas / Ausencias" name="action_view_exit_authorization" type="object" icon="fa-user"/>
+                        <button class="fichas" string="Ficha Medica" name="action_view_medical_file" type="object" icon="fa-plus-square"/>
+                        <button class="registros" string="Registro Clinico" name="action_view_clinical_record" type="object" icon="fa-hospital-o"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</odoo>

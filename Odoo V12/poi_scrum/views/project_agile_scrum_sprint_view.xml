@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="agile_sprint_form_bisa" model="ir.ui.view">
+        <field name="name">project.agile.scrum.sprint.bisa</field>
+        <field name="model">project.agile.scrum.sprint</field>
+        <field name="inherit_id" ref="project_agile_scrum.agile_sprint_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button name="action_active" string="Activar" type="object" states="draft" class="btn btn-primary"/>
+                <button name="action_complete" string="Completar" type="object" states="active"
+                        class="btn btn-primary"/>
+            </header>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="open_tasks" string="Tareas" type="object" class="oe_stat_button"
+                            icon="fa-file-o"/>
+            </xpath>
+            <xpath expr="//field[@name='team_id']" position="attributes">
+                <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='start_date']" position="attributes">
+                <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='end_date']" position="attributes">
+                <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='team_id']" position="before">
+                <field name="project_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+            </xpath>
+            <xpath expr="//field[@name='task_ids']/.." position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='task_ids']/.." position="before">
+                <page name="tareas" string="Tareas">
+                    <field name="finished_task_ids" readonly="1" nolabel="1"/>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='end_date']" position="before">
+                <field name="progress" widget="progressbar"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_agile_scrum_sprint_kanban_view">
+        <field name="name">project.agile.scrum.sprint.kanban</field>
+        <field name="model">project.agile.scrum.sprint</field>
+        <field name="inherit_id" ref="project_agile_scrum.agile_scrum_sprint_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="default_group_by">state</attribute>
+            </xpath>
+            <field name="end_date" position="after">
+                <field name="project_id"/>
+            </field>
+            <xpath expr="//strong[@class='oe_partner_heading']" position="after">
+                <br/>
+                <strong class="oe_partner_heading">
+                    <field name="project_id"/>
+                </strong>
+            </xpath>
+            <xpath expr="//kanban/field[@name='end_date']" position="after">
+                <field name="task_count"/>
+                <field name="label_tasks"/>
+                <field name="state"/>
+            </xpath>
+            <xpath expr="//div[@class='oe_kanban_details']" position="after">
+                <div class="o_project_kanban_boxes">
+                    <button class="btn btn-outline-primary fa fa-tasks btn-sm" name="open_tasks" type="object">
+                        <span class="o_value" t-esc="record.task_count.value"/>
+                        <span class="o_label" t-esc="record.label_tasks.value"/>
+                    </button>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+

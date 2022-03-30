@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_inherit_res_company_accounts_form" model="ir.ui.view">
+            <field name="name">view.inherit.res.company.accounts.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='general_info']" position="inside">
+                    <group string="Cuentas Transitorias" invisible="1">
+                        <group>
+                            <field name="transient_account_purchase_id"/>
+                        </group>
+                        <group>
+                            <field name="transient_account_sale_id"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

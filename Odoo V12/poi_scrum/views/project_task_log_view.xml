@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="project_task_log_view_tree">
+        <field name="name">project.task.log.view.tree</field>
+        <field name="model">project.task.log</field>
+        <field name="arch" type="xml">
+            <tree create='false' edit='false'>
+                <field name="date_prev" string="Fecha Registro"/>
+                <field name="date" string="Fecha Modificación"/>
+                <field name="task_id" string="Tarea"/>
+                <field name="task_type" string="Tipo de Tarea"/>
+                <field name="state" string="Etapa General" attrs="{'invisible': [('task_type', '=', 'developing')]}"/>
+                <field name="stage_id" string="Etapa Desarrollo" attrs="{'invisible': [('task_type', '=', 'general')]}"/>
+                <field name="assigned_id" string="Asignado a"/>
+                <field name="user_id" string="Usuario Creador"/>
+                <field name="time_spent_total" widget="float_time"/>
+                <field name="time_spent_calendar" widget="float_time"/>
+                <field name="calendar_id"/>
+                <field name="observations"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_task_log_view_search">
+        <field name="name">project.task.log.view.search</field>
+        <field name="model">project.task.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="task_id"/>
+                <field name="task_type"/>
+                <field name="stage_id"/>
+                <field name="state"/>
+                <field name="assigned_id"/>
+                <field name="user_id"/>
+
+                <group name="group_group_by" expand="0" string="Group By...">
+                     <!--<filter name="group_by_request" string="Request" context="{'group_by': 'request_id'}"/>
+                     <filter name="group_by_request_type" string="Request Type" context="{'group_by': 'request_type_id'}"/>-->
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_refuse_requirement" model="ir.actions.act_window">
+        <field name="name">Rechazar Requerimiento</field>
+        <field name="res_model">refuse.requirement</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_suspend_requirement" model="ir.actions.act_window">
+        <field name="name">Suspender</field>
+        <field name="res_model">suspend.requirement</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_continue_requirement" model="ir.actions.act_window">
+        <field name="name">Activar</field>
+        <field name="res_model">continue.requirement</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record model="ir.ui.view" id="request_document_form">
+        <field name="name">request.document.form</field>
+        <field name="model">request.document</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button class="btn btn-primary" name="action_send" type="object" string="Enviar"
+                            states="draft"
+                            help="Confirma el requerimiento de documentos, enviandolo a su revisión y aprobación correspondientes."/>
+                    <button class="btn btn-primary" name="action_approve" type="object" string="Aprobar"
+                            help="Los encargados correspondientes son los unicos que pueden realizar la aprobación de este requerimiento."
+                            attrs="{'invisible': [('is_approved', '=', False),'&amp;',('state', 'not in', ['request', 'management'])]}"/>
+                    <button class="btn btn-primary" name="action_elaboration" type="object" string="Ejecutar"
+                            states="approved"
+                            help="Ejecuta la creación de documentos del requerimiento."
+                            groups="poi_x_bisaseg_doc.group_o_and_m"/>
+                    <button class="btn btn-primary" name="action_refresh" type="object" string="Actualizar"
+                            help="Esta acción permitirá realizar la actualizacion de los documentos que fueron recientemente seleccionados"
+                            attrs="{'invisible': [('state', '!=', 'elaboration'),'|',('norm_id', '=', False)]}"
+                            groups="poi_x_bisaseg_doc.group_o_and_m"/>
+                    <button name="%(action_suspend_requirement)d"
+                            string="Suspender"
+                            class="oe_highlight" type="action"
+                            context="{'default_request_id':id}"
+                            attrs="{'invisible': [('state', 'in', ['suspend', 'concluded','cancelled'])]}"
+                            groups="poi_x_bisaseg_doc.group_o_and_m"/>
+                    <button name="%(action_continue_requirement)d"
+                            string="Activar"
+                            class="oe_highlight" type="action"
+                            context="{'default_request_id':id}"
+                            states="suspend"
+                            groups="poi_x_bisaseg_doc.group_o_and_m"/>
+                    <button name="%(action_refuse_requirement)d"
+                            string="Rechazar"
+                            class="oe_highlight" type="action"
+                            context="{'default_request_id':id}"
+                            attrs="{'invisible': [('is_approved', '=', False),'&amp;',('state', 'not in', ['request', 'management'])]}"/>
+                    <button name="action_cancel"
+                            string="Cancelar" class="oe_highlight"
+                            type="object"
+                            states="draft,request,management,approved,elaboration,wait_approve,pre_published"
+                            confirm="¿Está seguro de cancelar el requerimiento? Esta acción anulará las operaciones de documentos relacionados a este requerimiento."/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_documents"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-file"
+                                string="Documentos"/>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" class="o_task_name text-truncate" placeholder="Nombre"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="title" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="type_id" attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                   options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="user_id" readonly="1" force_save="1"/>
+                            <field name="department_id" readonly="1" force_save="1"/>
+                            <field name="parent" invisible="1"/>
+                            <field name="justification_id" attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                   options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="date_create" readonly="1"/>
+                            <field name="date_request" readonly="1"/>
+                            <field name="date_management" readonly="1"/>
+                            <field name="date_approved" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="is_approved" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page name="detail" string="Detalles Requerimiento">
+                            <group>
+                                <group>
+                                    <field name="norm_id"
+                                           options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"
+                                           attrs="{'readonly': [('state', 'not in', ['draft', 'approved'])]}"/>
+                                </group>
+                            </group>
+                            <field name="document_ids"
+                                   attrs="{'readonly': [('state', 'not in', ['approved', 'elaboration'])]}"
+                                   force_save="1">
+                                <tree create="0" editable="bottom">
+                                    <field name="select"/>
+                                    <field name="document_id"/>
+                                    <field name="stage_id" readonly="1"/>
+                                    <field name="state" readonly="1"/>
+                                    <field name="is_father"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="info" string="Datos Específicos">
+                            <group col="4">
+                                <field name="type2_id"
+                                       attrs="{'readonly': True}"
+                                       options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="complexity_id"
+                                       attrs="{'readonly': True}"
+                                       options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="responsible_id"
+                                       attrs="{'readonly': True}"
+                                       options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="priority_id"
+                                       attrs="{'readonly': True}"
+                                       options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            </group>
+                            <group>
+                                <field name="comment" attrs="{'readonly': True}"/>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="date_close" attrs="{'readonly': True}"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"
+                           options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--Edicion especifica de campos a un determinado grupo-->
+    <record id="request_document_form_o_and_m" model="ir.ui.view">
+        <field name="name">request.document.form.o.and.m</field>
+        <field name="model">request.document</field>
+        <field name="inherit_id" ref="poi_x_bisaseg_doc.request_document_form"/>
+        <field name="groups_id" eval="[(4, ref('poi_x_bisaseg_doc.group_o_and_m'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type2_id']" position="replace">
+                    <field name="type2_id" attrs="{'required': [('state', '=', 'management')], 'readonly': [('state', '!=', 'management'),('is_approved', '=', False)]}" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </xpath>
+            <xpath expr="//field[@name='complexity_id']" position="replace">
+                    <field name="complexity_id" attrs="{'required': [('state', '=', 'management')], 'readonly': [('state', '!=', 'management'),('is_approved', '=', False)]}" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </xpath>
+            <xpath expr="//field[@name='responsible_id']" position="replace">
+                    <field name="responsible_id" attrs="{'required': [('state', '=', 'management')], 'readonly': [('state', '!=', 'management'),('is_approved', '=', False)]}" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </xpath>
+            <xpath expr="//field[@name='priority_id']" position="replace">
+                    <field name="priority_id" attrs="{'required': [('state', '=', 'management')], 'readonly': [('state', '!=', 'management'),('is_approved', '=', False)]}" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </xpath>
+            <xpath expr="//field[@name='comment']" position="replace">
+                    <field name="comment" attrs="{'required': [('state', '=', 'management')], 'readonly': [('state', '!=', 'management'),('is_approved', '=', False)]}"/>
+            </xpath>
+            <xpath expr="//field[@name='date_close']" position="replace">
+                    <field name="date_close" attrs="{'required': [('state', '=', 'management')], 'readonly': [('state', '!=', 'management'),('is_approved', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="request_document_tree">
+        <field name="name">request.document.tree</field>
+        <field name="model">request.document</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="title"/>
+                <field name="department_id"/>
+                <field name="user_id"/>
+                <field name="date_create"/>
+                <field name="priority_id"/>
+                <field name="complexity_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_request_document_search" model="ir.ui.view">
+        <field name="name">view.request.document.search</field>
+        <field name="model">request.document</field>
+        <field name="arch" type="xml">
+            <search string="Request.document">
+                <field name="name"/>
+                <field name="title"/>
+                <field name="department_id"/>
+                <field name="user_id"/>
+                <field name="priority_id"/>
+                <field name="complexity_id"/>
+                <field name="state"/>
+                <separator/>
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="gb_department_id" string="Área Solicitante" domain="[]"
+                            context="{'group_by' : 'department_id'}"/>
+                    <filter name="gb_user_id" string="Solicitante" context="{'group_by': 'user_id'}"/>
+                    <filter name="gb_priority_id" string="Prioridad" context="{'group_by': 'priority_id'}"/>
+                    <filter name="gb_complexity_id" string="Complejidad" context="{'group_by': 'complexity_id'}"/>
+                    <filter name="gb_state" string="Estado" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_request_document">
+        <field name="name">Requerimiento Documento</field>
+        <field name="res_model">request.document</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
+
+

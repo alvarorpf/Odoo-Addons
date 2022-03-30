@@ -1,0 +1,2962 @@
+# Traduccion modulo de proyectos
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_agile_scrum
+#	* project_agile
+#	* project_workflow_management
+#	* project_key
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-18 19:15+0000\n"
+"PO-Revision-Date: 2019-07-18 19:15+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_agile
+#: code:addons/project_agile/models/base.py:39
+#, python-format
+msgid "%s '%s' is a system record!\n"
+"You are not allowed to delete system record!"
+msgstr "%s '%s' es un registro del sistema!\n"
+"No esta permitido borrar el registro del sistema!"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_accepted
+msgid "Accepted"
+msgstr "Aceptado"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_report__action_id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_report__action_id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team_report__action_id
+msgid "Action"
+msgstr "Acción"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_wkf_project_task_confirmation__message
+msgid "Action Message"
+msgstr "Mensaje de Acción"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__message_needaction
+msgid "Action Needed"
+msgstr "Acción Necesaria"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_actionable
+msgid "Actionable"
+msgstr "Procesable"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.res_config_settings_view_form
+msgid "Activate task analytics for your agile projects"
+msgstr "Activa las tareas analíticas para tus proyectos ágiles"
+
+#. modules: project_agile_scrum, project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_code_item__active
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority__active
+#: model:ir.model.fields,field_description:project_agile.field_project_task_resolution__active
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__active
+#: model:ir.model.fields,field_description:project_agile.field_project_type__active
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.view_agile_sprint_filter
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.view_project_agile_team_form
+#: selection:project.agile.scrum.sprint,state:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_team__active_sprint_id
+msgid "Active Sprint"
+msgstr "Sprint Activo"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_team__active_sprint_count
+msgid "Active Sprint Count"
+msgstr "Contador de Sprint Activo"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__active
+msgid "Active?"
+msgstr "Ativo?"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__actual_end_date
+msgid "Actual End Date"
+msgstr "Fecha Final Actual"
+
+#. module: project_agile
+#: model:ir.actions.act_window,name:project_agile.launch_task_link_wizard
+msgid "Add Link"
+msgstr "Agregar Link"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_form2_inherited
+msgid "Add Sub-Task"
+msgstr "Añadir Sub-Tarea"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_form2_inherited
+msgid "Add Worklog"
+msgstr "Añadir Worklog"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.project_task_link_wizard
+msgid "Add link"
+msgstr "Añadir Link"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_form2_inherited
+msgid "Add new link"
+msgstr "Añadir nuevo link"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_form
+msgid "Advanced"
+msgstr "Avanzado"
+
+#. module: project_agile
+#: model:ir.ui.menu,name:project_agile.project_agile_menu
+#: model_terms:ir.ui.view,arch_db:project_agile.view_project_project_filter_extend_with_key
+msgid "Agile"
+msgstr "Desarrollo"
+
+#. modules: project_agile_scrum, project_agile
+#: model:ir.model,name:project_agile.model_project_agile_board
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_create_wizard_form
+#: model:ir.model,name:project_agile_scrum.model_project_agile_board
+msgid "Agile Board"
+msgstr "Tablero Ágil"
+
+#. module: project_agile
+#: model:ir.model,name:project_agile.model_project_agile_board_column
+msgid "Agile Board Column"
+msgstr "Columna de tablero ágil"
+
+#. module: project_agile
+#: model:ir.model,name:project_agile.model_project_agile_board_column_status
+msgid "Agile Board Column Status"
+msgstr "Columna estado de tablero ágil"
+
+#. module: project_agile
+#: model:ir.actions.act_window,name:project_agile.agile_board_create_action
+msgid "Agile Board Create Wizard"
+msgstr "Asistente de creación de tablero ágil"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.edit_project
+msgid "Agile Boards"
+msgstr "Tableros ágiles"
+
+#. module: project_agile
+#: model:ir.model,name:project_agile.model_project_agile_code_item
+msgid "Agile Code Item"
+msgstr "Item de código ágil"
+
+#. modules: project_agile_scrum, project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_project__agile_method
+#: model_terms:ir.ui.view,arch_db:project_agile.view_project_project_filter_extend_with_key
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_project__agile_method
+msgid "Agile Method"
+msgstr "Método ágil"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__agile_order
+msgid "Agile Order"
+msgstr "Orden ágil"
+
+#. module: project_agile_scrum
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.view_agile_sprint_filter
+msgid "Agile Scrum Sprint"
+msgstr "Sprint de scrum ágil"
+
+#. modules: project_agile_scrum, project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_project_agile_team_form
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__team_id
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.view_agile_sprint_filter
+msgid "Agile Team"
+msgstr "Equipo ágil"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_project__team_ids
+msgid "Agile Teams"
+msgstr "Equipos ágiles"
+
+#. module: project_agile
+#: code:addons/project_agile/models/project_agile_board.py:156
+#, python-format
+msgid "Agile method on assigned projects does not match selected board type!"
+msgstr "¡El método ágil en los proyectos asignados no coincide con el tipo de tablero seleccionado!"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__stage_ids
+msgid "All workflow task stages"
+msgstr "Todas las etapas de tareas de flujo de trabajo"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__allow_story_points
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__allow_story_points
+msgid "Allow Story Points"
+msgstr "Permitir Story Points"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__allow_sub_tasks
+msgid "Allow Sub-Items"
+msgstr "Permitir Sub-Artículos"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__allow_sub_tasks
+msgid "Allow Sub-Tasks"
+msgstr "Permitir Sub-Tareas"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_project__allow_workflow
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_task__allow_workflow
+msgid "Allow Workflow?"
+msgstr "Permitir Flujo de Trabajo?"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.edit_project_extend_with_type_workflow
+msgid "Allow workflow"
+msgstr "Permitir flujo de trabajo"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__type_ids
+#: model:ir.model.fields,field_description:project_agile.field_project_task__type_ids
+msgid "Allowed Subtypes"
+msgstr "Subtipos Permitidos"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_res_config_settings__module_project_agile_analytic
+msgid "Analytics"
+msgstr "Analítica"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,help:project_workflow_management.field_project_workflow_stage_mapping_wizard_line__task_count
+#: model:ir.model.fields,help:project_workflow_management.field_project_workflow_stage_mapping_wizard_stage__task_count
+msgid "Applicable only for stages of type 'from'"
+msgstr "Aplicable solo para etapas de tipo 'desde'"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_edit_workspace_wizard_form
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_edit_workspace_wizard_form
+msgid "Apply Workflow"
+msgstr "Aplicar flujo de trabajo"
+
+#. module: project_agile_scrum
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.view_agile_sprint_filter
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: project_workflow_management
+#. openerp-web
+#: code:addons/project_workflow_management/static/src/js/diagram_controller.js:116
+#, python-format
+msgid "Are you sure you want to discard this workflow?"
+msgstr "Está seguro de descartar este flujo de trabajo?"
+
+#. module: project_workflow_management
+#. openerp-web
+#: code:addons/project_workflow_management/static/src/js/diagram_controller.js:98
+#, python-format
+msgid "Are you sure you want to publish this workflow?"
+msgstr "Está seguro de publicar este flujo de trabajo?"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__user_id
+msgid "Assigned to"
+msgstr "Asignada a"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__assigned_to_me
+msgid "Assigned to Me"
+msgstr "Asinado a mí"
+
+#. modules: project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__user_id
+#: model:ir.model.fields,field_description:project_workflow_management.field_wkf_project_task_confirmation__user_id
+msgid "Assignee"
+msgstr "Asignado"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__message_attachment_count
+msgid "Attachment Count"
+msgstr "Conteo de archivos adjuntos"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__backlog_task_type_ids
+msgid "Backlog Task Types"
+msgstr "Tipos de tareas pendientes"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_form
+msgid "Backlog Task Types..."
+msgstr "Tipos de tareas pendientes..."
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_board__scrum_backlog_state_ids
+msgid "Backlog states"
+msgstr "Estados Atrasados"
+
+#. module: project_agile
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_accepted
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_actionable
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_blocked
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_close
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_code_review
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_deployment
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_deployment_uat
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_done
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_in_progress
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_in_progress_qa
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_in_progress_uat_qa
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_init
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_integration
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_open
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_qa
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_qa_production
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_rejected
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_reopened
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_resolved
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_todo
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_uat_qa
+#: model:project.task.type,legend_blocked:project_agile.project_task_stage_waiting_approval
+#: model:project.task.type,name:project_agile.project_task_stage_blocked
+msgid "Blocked"
+msgstr "Bloqueada"
+
+#. module: project_agile
+#: model:ir.actions.act_window,name:project_agile.open_agile_board_form
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__board_id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__board_id
+msgid "Board"
+msgstr "Tablero"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_form
+msgid "Board Columns"
+msgstr "Columnas de Tablero"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_project__boards_count
+msgid "Board Count"
+msgstr "Contador de Tablero"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__board_task_type_ids
+msgid "Board Task Types"
+msgstr "Tablero de tipo de tareas"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_form
+msgid "Board Task Types..."
+msgstr "Tablero de tipo de tareas..."
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__board_ids
+#: model:ir.model.fields,field_description:project_agile.field_project_project__board_ids
+#: model:ir.ui.menu,name:project_agile.project_agile_board_menu_config
+#: model:ir.ui.menu,name:project_agile.project_agile_boards_menu
+msgid "Boards"
+msgstr "Tableros"
+
+#. modules: project_agile, project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_create_wizard_form
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_project_task_worklog_form
+#: model_terms:ir.ui.view,arch_db:project_agile.project_sub_task_wizard
+#: model_terms:ir.ui.view,arch_db:project_agile.project_task_link_wizard
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_edit_workspace_wizard_form
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_export_wizard_form
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_import_wizard_form
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_edit_wizard_form
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_mapping_wizard_form
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.wkf_project_task_confirmation_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.edit_project_extend_with_type_workflow
+msgid "Change Workflow"
+msgstr "Cambiar flujo de trabajo"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_export_wizard_form
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_close
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_code_review
+msgid "Code Review"
+msgstr "Revisión de Código"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__column_id
+msgid "Column"
+msgstr "Columna"
+
+#. module: project_agile
+#: sql_constraint:project.agile.board.column.status:0
+msgid "Column state must be unique per board!"
+msgstr "Columna estado debe ser unica por tablero!"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__column_ids
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_form
+msgid "Columns"
+msgstr "Columnas"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow_state__board_column_status_ids
+msgid "Columns Statuses"
+msgstr "Columnas de estados"
+
+#. modules: project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link__comment
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_add_wizard__comment
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.wkf_project_task_confirmation_form
+msgid "Comment"
+msgstr "Comentario"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__team_id
+msgid "Committed team"
+msgstr "Equipo comprometido"
+
+#. module: project_agile_scrum
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.view_agile_sprint_filter
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.view_project_agile_team_form
+#: selection:project.agile.scrum.sprint,state:0
+msgid "Completed"
+msgstr "Completado"
+
+#. module: project_agile_scrum
+#: code:addons/project_agile_scrum/models/project_agile_team.py:114
+#, python-format
+msgid "Completed Sprints"
+msgstr "Sprints Completados"
+
+#. modules: project_agile, project_workflow_management
+#: model:ir.model,name:project_agile.model_res_config_settings
+#: model:ir.model,name:project_workflow_management.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.res_config_settings_view_form
+msgid "Configure project workflow to provide default task states per security group."
+msgstr "Configure el flujo de trabajo del proyecto para proporcionar estados de tareas predeterminados por grupo de seguridad."
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.res_config_settings_view_form
+msgid "Configure project workflow transitions and states to execute server actions."
+msgstr "Configure project workflow transitions and states to execute server actions."
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.res_config_settings_view_form
+msgid "Configure project workflow transitions to be allowed for specified projects."
+msgstr "Configure las transiciones del flujo de trabajo del proyecto para permitir proyectos específicos."
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.res_config_settings_view_form
+msgid "Configure project workflow transitions to be allowed for specified security groups."
+msgstr "Configure las transiciones del flujo de trabajo del proyecto para permitir grupos de seguridad específicos."
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.res_config_settings_view_form_workflow
+msgid "Configure project workflow transitions to be allowed for specified task types."
+msgstr "Configure las transiciones del flujo de trabajo del proyecto para que sean permitidas para los tipos de tareas especificados."
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.wkf_project_task_confirmation_form
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: project_workflow_management
+#: model:ir.actions.act_window,name:project_workflow_management.wkf_project_task_confirmation_action
+msgid "Confirmation Widow"
+msgstr "Ventana de Confirmación"
+
+#. module: project_agile
+#: model:ir.ui.menu,name:project_agile.project_agile_board_wiz_menu
+msgid "Create Board"
+msgstr "Crear Tablero"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.project_sub_task_wizard
+msgid "Create Sub-Task"
+msgstr "Crear Sub-tarea"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__create_date
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_form2_inherited
+msgid "Created"
+msgstr "Creado"
+
+#. modules: project_agile_scrum, project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_report__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team_report__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_add_wizard__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_relation__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_resolution__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_worklog_wizard__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_type__create_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow_task_type__create_uid
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__create_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_edit_workflow_wizard__create_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__create_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_edit_wizard__create_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_export_wizard__create_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_import_wizard__create_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard__create_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_line__create_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_stage__create_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__create_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_transition__create_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_wkf_project_task_confirmation__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. modules: project_agile_scrum, project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_report__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team_report__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_add_wizard__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_relation__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_resolution__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_worklog_wizard__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_type__create_date
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow_task_type__create_date
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__create_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_edit_workflow_wizard__create_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__create_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_edit_wizard__create_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_export_wizard__create_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_import_wizard__create_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard__create_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_line__create_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_stage__create_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__create_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_transition__create_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_wkf_project_task_confirmation__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_edit_workflow_wizard__current_workflow_id
+msgid "Current Workflow"
+msgstr "Flujo de trabajo actual"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_task__sprint_id
+msgid "Current sprint"
+msgstr "Sprint actual"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_res_users__team_id
+msgid "Current team"
+msgstr "Equipo actual"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_import_wizard__data
+msgid "Data"
+msgstr "Data"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_worklog_wizard__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_form
+msgid "Declare Default"
+msgstr "Declarar Predeterminado"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_team__default_sprint_length
+msgid "Default Sprint Length"
+msgstr "Tamaño de Sprint Predeterminado"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,help:project_agile_scrum.field_project_agile_team__default_sprint_length
+msgid "Default Sprint time for this project"
+msgstr "Tiempo de Sprint predeterminado para este proyecto"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__default_priority_id
+msgid "Default Task Priority"
+msgstr "Prioridad de tarea predeterminada"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_project__default_task_type_id
+#: model:ir.model.fields,field_description:project_agile.field_project_type__default_task_type_id
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow__default_task_type_id
+msgid "Default Task Type"
+msgstr "Tipo de tarea predeterminado"
+
+#. modules: project_agile_scrum, project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__default_hrs
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__default_hrs
+msgid "Default daily hours"
+msgstr "Horas diarias predeterminadas"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__default_state_id
+msgid "Default state"
+msgstr "Estado predeterminado"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_res_config_settings__module_project_workflow_default_state_per_group
+msgid "Default task states per security group"
+msgstr "Estados de tarea predeterminados por grupo de seguridad"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__is_default
+msgid "Default?"
+msgstr "Por defecto?"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_form2_inherited
+msgid "Delete"
+msgstr "Eliminar"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_deployment
+msgid "Deployment"
+msgstr "Despliegue"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_deployment_uat
+msgid "Deployment UAT"
+msgstr "Despliegue UAT"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,help:project_workflow_management.field_project_workflow__description
+msgid "Describe this workflow for your colleagues ..."
+msgstr "Describa este flujo de trabajo para sus colegas ..."
+
+#. modules: project_agile_scrum, project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__description
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_report__description
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_code_item__description
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_report__description
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__description
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team_report__description
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__description
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority__description
+#: model:ir.model.fields,field_description:project_agile.field_project_task_resolution__description
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__description
+#: model:ir.model.fields,field_description:project_agile.field_project_task_worklog_wizard__name
+#: model:ir.model.fields,field_description:project_agile.field_project_type__description
+#: model_terms:ir.ui.view,arch_db:project_agile.project_sub_task_wizard
+#: model_terms:ir.ui.view,arch_db:project_agile.project_task_priority_form
+#: model_terms:ir.ui.view,arch_db:project_agile.project_task_type2_form
+#: model_terms:ir.ui.view,arch_db:project_agile.project_type_form
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__description
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__description
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__description
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_transition__description
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.edit_project_workflow
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_transition_diagram_form
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_transition_form
+msgid "Description"
+msgstr "Descripción"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_form
+msgid "Description..."
+msgstr "Descripción..."
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_transition__dst_id
+msgid "Destination Stage"
+msgstr "Etapa de Destino"
+
+#. module: project_agile_scrum
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.agile_sprint_form
+msgid "Details"
+msgstr "Detalles"
+
+#. module: project_workflow_management
+#: selection:project.workflow.edit.wizard,type:0
+msgid "Diagram"
+msgstr "Diagrama"
+
+#. module: project_workflow_management
+#. openerp-web
+#: code:addons/project_workflow_management/static/src/xml/diagram.xml:21
+#, python-format
+msgid "Discard"
+msgstr "Descartar"
+
+#. modules: project_agile_scrum, project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_report__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_code_item__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_mixin_id_search__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_report__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team_report__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_add_wizard__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_relation__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_task_resolution__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_task_worklog_wizard__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_type__display_name
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow_task_type__display_name
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_edit_workflow_wizard__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_edit_wizard__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_export_wizard__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_import_wizard__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_importer__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_publisher__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_line__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_stage__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_transition__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_xml_reader__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_xml_writer__display_name
+#: model:ir.model.fields,field_description:project_workflow_management.field_wkf_project_task_confirmation__display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_form2_inherited
+msgid "Documents"
+msgstr "Documentos"
+
+#. modules: project_agile, project_workflow_management
+#: model:project.task.type,name:project_agile.project_task_stage_done
+#: selection:project.workflow.state,type:0
+msgid "Done"
+msgstr "Realizado"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_project__done_estimation
+msgid "Done Estimation"
+msgstr "Estimado de realización"
+
+#. modules: project_agile_scrum, project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.view_agile_sprint_filter
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.view_project_agile_team_form
+#: selection:project.agile.scrum.sprint,state:0
+#: selection:project.workflow,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: project_workflow_management
+#: code:addons/project_workflow_management/models/project_workflow.py:300
+#, python-format
+msgid "Draft Version of '%s'"
+msgstr "Versión borrador de '%s'"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__edit_ids
+msgid "Drafts"
+msgstr "Borradores"
+
+#. modules: project_agile_scrum, project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_worklog_wizard__duration
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.agile_sprint_form
+msgid "Duration"
+msgstr "Duración"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__email
+msgid "E-mail"
+msgstr "E-mail"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_form
+msgid "Edit"
+msgstr "Editar"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__edit_count
+msgid "Edit Count"
+msgstr "Contador de edición"
+
+#. module: project_workflow_management
+#. openerp-web
+#: code:addons/project_workflow_management/static/src/js/diagram_controller.js:65
+#, python-format
+msgid "Edit:"
+msgstr "Editar:"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_edit_wizard_form
+msgid "Editor"
+msgstr "Editor"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_edit_wizard_form
+msgid "Editor Chooser"
+msgstr "Seleccionar Editor"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_edit_wizard__type
+msgid "Editor Type"
+msgstr "Tipo de editor"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.res_config_settings_view_form
+msgid "Enable timesheet category for project agile"
+msgstr "Habilitar la categoría de parte de horas para el proyecto ágil."
+
+#. module: project_workflow_management
+#: selection:project.workflow.export.wizard,state:0
+msgid "End"
+msgstr "Fin"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__end_date
+msgid "End Date"
+msgstr "Fecha finalización"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_res_users__team_ids
+msgid "Enroled in teams"
+msgstr "Inscrito en equipos"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__epic_id
+msgid "Epic"
+msgstr "Epic"
+
+#. module: project_agile
+#: code:addons/project_agile/models/project_project.py:361
+#: model_terms:ir.ui.view,arch_db:project_agile.edit_project
+#: model_terms:ir.ui.view,arch_db:project_agile.view_project_kanban
+#, python-format
+msgid "Epics"
+msgstr "Epics"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_project__epics_count
+msgid "Epics Count"
+msgstr "Contador de Epics"
+
+#. module: project_agile
+#: selection:project.agile.board.column,notification_level:0
+msgid "Error"
+msgstr "Error"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__story_points
+msgid "Estimate"
+msgstr "Estimado"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_search_form_inherited
+msgid "Exclude Sub-Tasks"
+msgstr "Excluir Sub-Tareas"
+
+#. module: project_workflow_management
+#. openerp-web
+#: code:addons/project_workflow_management/static/src/xml/diagram.xml:25
+#: model:ir.ui.menu,name:project_workflow_management.project_workflow_export
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_form
+#, python-format
+msgid "Export"
+msgstr "Exportar"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_export_wizard__data
+msgid "File"
+msgstr "Archivo"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_export_wizard__file_name
+msgid "File Name"
+msgstr "Nombre del archivo"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canales)"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Empresas)"
+
+#. module: project_workflow_management
+#: code:addons/project_workflow_management/models/project_workflow_xml.py:123
+#, python-format
+msgid "Following state(s) are referenced in the transitions but can not be found: [%s]"
+msgstr "Se hace referencia a los siguientes estados en las transiciones, pero no se pueden encontrar: [%s]"
+
+#. module: project_workflow_management
+#: selection:project.workflow.edit.wizard,type:0
+msgid "Form"
+msgstr "Formulario"
+
+#. module: project_agile_scrum
+#: selection:project.agile.team,default_sprint_length:0
+msgid "Four Weeks"
+msgstr "Cuatro Semanas"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard__from_id
+#: selection:project.workflow.stage.mapping.wizard.stage,type:0
+msgid "From"
+msgstr "De"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_line__from_id
+msgid "From Stage"
+msgstr "Etapa desde"
+
+#. module: project_workflow_management
+#: sql_constraint:project.workflow.stage.mapping.wizard.line:0
+msgid "From and To stages must be unique!"
+msgstr "Etapas desde y hasta deben ser unicas!"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_team__completed_sprint_count
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_team__future_sprint_count
+msgid "Future Sprint Count"
+msgstr "Contador de Sprint futuro"
+
+#. module: project_agile_scrum
+#: code:addons/project_agile_scrum/models/project_agile_team.py:102
+#, python-format
+msgid "Future Sprints"
+msgstr ""
+
+#. module: project_agile
+#: selection:project.agile.board,visibility:0
+#: selection:project.agile.board.create.wizard,visibility:0
+msgid "Global"
+msgstr "Global"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_state_diagram_form
+msgid "Global State"
+msgstr "Estado Global"
+
+#. module: project_agile_scrum
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.view_agile_sprint_filter
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. modules: project_agile_scrum, project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard__id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_report__id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_code_item__id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_mixin_id_search__id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_report__id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team_report__id
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__id
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link__id
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_add_wizard__id
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_relation__id
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority__id
+#: model:ir.model.fields,field_description:project_agile.field_project_task_resolution__id
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__id
+#: model:ir.model.fields,field_description:project_agile.field_project_task_worklog_wizard__id
+#: model:ir.model.fields,field_description:project_agile.field_project_type__id
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow_task_type__id
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_edit_workflow_wizard__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_edit_wizard__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_export_wizard__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_import_wizard__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_importer__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_publisher__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_line__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_stage__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_transition__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_xml_reader__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_xml_writer__id
+#: model:ir.model.fields,field_description:project_workflow_management.field_wkf_project_task_confirmation__id
+msgid "ID"
+msgstr "ID"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority__icon
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_state_diagram_form
+msgid "If check this state be declared as a Global State which means that the workflow will allow all in/out transitions to/from this state."
+msgstr "Si marca este estado, se debe declarar como Estado global, lo que significa que el flujo de trabajo permitirá todas las transiciones de entrada / salida a / desde este estado."
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_team__message_unread
+msgid "If checked new messages require your attention."
+msgstr "Si está marcado, hay nuevos mensajes que requieren su atención"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_project__agile_enabled
+#: model:ir.model.fields,help:project_agile.field_project_task__agile_enabled
+msgid "If checked project will be enabled for agile management"
+msgstr "Si el proyecto marcado estará habilitado para una gestión ágil."
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_state_diagram_form
+msgid "If checked this state will be declared as the initial state for this workflow. When creating a task this state will be assigned as default state"
+msgstr "
+Si se marca, este estado se declarará como el estado inicial de este flujo de trabajo. Al crear una tarea, este estado se asignará como estado predeterminado."
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_team__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado, hay nuevos mensajes que requieren su atención."
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_team__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si se encuentra marcado, algunos mensajes tienen error de envío."
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__image
+#: model:ir.model.fields,field_description:project_agile.field_project_project__image
+msgid "Image"
+msgstr "Imagen"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_report__image_url
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_report__image_url
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team_report__image_url
+msgid "Image Url"
+msgstr "Url de Imagen"
+
+#. module: project_workflow_management
+#: model:ir.ui.menu,name:project_workflow_management.project_workflow_import
+msgid "Import"
+msgstr "Importar"
+
+#. module: project_workflow_management
+#: code:addons/project_workflow_management/models/project_workflow_importer.py:35
+#, python-format
+msgid "Importer can not run without provided data reader!"
+msgstr "El importador no puede funcionar sin el lector de datos proporcionado!"
+
+#. modules: project_agile, project_workflow_management
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_accepted
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_actionable
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_blocked
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_close
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_code_review
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_deployment
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_deployment_uat
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_done
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_in_progress
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_in_progress_qa
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_in_progress_uat_qa
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_init
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_integration
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_open
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_qa
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_qa_production
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_rejected
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_reopened
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_resolved
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_todo
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_uat_qa
+#: model:project.task.type,legend_normal:project_agile.project_task_stage_waiting_approval
+#: model:project.task.type,name:project_agile.project_task_stage_in_progress
+#: selection:project.workflow.state,type:0
+msgid "In Progress"
+msgstr "En proceso"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_project__in_progress_estimation
+msgid "In Progress Estimation"
+msgstr "Estimación en progreso"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_in_progress_qa
+msgid "In Progress QA"
+msgstr "QA en progreso"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_in_progress_uat_qa
+msgid "In Progress UAT QA"
+msgstr "UAT QA en progreso"
+
+#. module: project_workflow_management
+#: code:addons/project_workflow_management/models/project_workflow_publisher.py:50
+#, python-format
+msgid "In case old workflow is not present, you need to provide project to which, a new workflow will be applied!"
+msgstr "En caso de que el flujo de trabajo anterior no esté presente, debe proporcionar un proyecto al cual se aplicará un nuevo flujo de trabajo."
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__in_transitions
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_state_form
+msgid "Incoming Transitions"
+msgstr "Tranciones Entrantes"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_init
+msgid "Init"
+msgstr "Iniciar"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_state_diagram_form
+msgid "Initial State"
+msgstr "Estado Inicial"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard__from_diagram
+msgid "Initiated from diagram?"
+msgstr "Iniciado desde diagrama?"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_integration
+msgid "Integration"
+msgstr "integración"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_relation__inverse_name
+msgid "Inverse Name"
+msgstr "Nombre Inverso"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow_task_type__is_default
+msgid "Is Default?"
+msgstr "Es por defecto?"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__is_epic
+msgid "Is Epic"
+msgstr "Es Epic"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__message_is_follower
+msgid "Is Follower"
+msgstr "Es un seguidor"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__is_user_story
+msgid "Is Story"
+msgstr "Es Historia"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_code_item__system
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority__system
+#: model:ir.model.fields,field_description:project_agile.field_project_task_resolution__system
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__system
+#: model:ir.model.fields,field_description:project_agile.field_project_type__system
+msgid "Is System Type"
+msgstr "Es Tipo de Sistema"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__is_default
+msgid "Is default"
+msgstr "Es por defecto"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__is_global
+msgid "Is global?"
+msgstr "Es global?"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_res_config_settings__module_project_agile_jira
+msgid "JIRA Importer"
+msgstr "Importador JIRA"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard__switch
+msgid "Just Switch"
+msgstr "Solo Cambia"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_res_config_settings__module_project_agile_kanban
+msgid "Kanban"
+msgstr "Kanban"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__kanban_sequence
+msgid "Kanban Sequence"
+msgstr "Secuencia Kanban"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,help:project_workflow_management.field_project_workflow_state__kanban_sequence
+msgid "Kanban sequence is used for defining order of statesin kanban view."
+msgstr "La secuencia Kanban se utiliza para definir el orden de los estados en la vista Kanban."
+
+#. module: project_key
+#: model:ir.model.fields,field_description:project_key.field_project_project__task_key_sequence_id
+msgid "Key Sequence"
+msgstr "Secuencia de Llave"
+
+#. modules: project_agile_scrum, project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_report____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_code_item____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_mixin_id_search____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_report____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team_report____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_add_wizard____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_relation____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_task_resolution____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_task_worklog_wizard____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_type____last_update
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow_task_type____last_update
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_edit_workflow_wizard____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_edit_wizard____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_export_wizard____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_import_wizard____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_importer____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_publisher____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_line____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_stage____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_transition____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_xml_reader____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_xml_writer____last_update
+#: model:ir.model.fields,field_description:project_workflow_management.field_wkf_project_task_confirmation____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. modules: project_agile_scrum, project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_report__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team_report__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_add_wizard__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_relation__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_resolution__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_task_worklog_wizard__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_type__write_uid
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow_task_type__write_uid
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__write_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_edit_workflow_wizard__write_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__write_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_edit_wizard__write_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_export_wizard__write_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_import_wizard__write_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard__write_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_line__write_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_stage__write_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__write_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_transition__write_uid
+#: model:ir.model.fields,field_description:project_workflow_management.field_wkf_project_task_confirmation__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. modules: project_agile_scrum, project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_report__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team_report__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_add_wizard__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_relation__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_resolution__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_task_worklog_wizard__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_type__write_date
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow_task_type__write_date
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__write_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_edit_workflow_wizard__write_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__write_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_edit_wizard__write_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_export_wizard__write_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_import_wizard__write_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard__write_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_line__write_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_stage__write_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__write_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_transition__write_date
+#: model:ir.model.fields,field_description:project_workflow_management.field_wkf_project_task_confirmation__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_board_column__notification_level
+msgid "Level of notification when the maximum number of issues is exceeded!"
+msgstr "Nivel de notificación cuando se supera el número máximo de problemas!"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard__line_ids
+msgid "Line"
+msgstr "Linea"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__link_ids
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_form2_inherited
+msgid "Links"
+msgstr "Enlaces"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_board__board_task_type_ids
+msgid "List of available task types for active sprint.If left empty task types from registered projects will be used"
+msgstr "Lista de los tipos de tareas disponibles para el sprint activo. Si se dejan vacíos, se usarán los tipos de proyectos registrados"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_board__backlog_task_type_ids
+msgid "List of available task types for this board.If left empty task types from registered projects will be used"
+msgstr "Lista de tipos de tareas disponibles para este tablero. Si se dejan vacíos, se usarán los tipos de tareas de los proyectos registrados"
+
+#. module: project_workflow_management
+#: selection:project.workflow,state:0
+msgid "Live"
+msgstr "Vivir"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjuntos principales"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_mapping_wizard_form
+msgid "Map From"
+msgstr "Mapa desde"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_mapping_wizard_form
+msgid "Map To"
+msgstr "Mapa Hasta"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_mapping_wizard_form
+msgid "Mapping Wizard"
+msgstr "Asistente de Mapeo"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__max
+msgid "Max"
+msgstr "Max"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__image_medium
+#: model:ir.model.fields,field_description:project_agile.field_project_project__image_medium
+msgid "Medium-sized image"
+msgstr "Imagen de tamaño mediano"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_team__image_medium
+msgid "Medium-sized image of the agile team. It is automatically resized as a 128x128px image, with aspect ratio preserved, only when the image exceeds one of those sizes. Use this field in form views or some kanban views."
+msgstr "Imagen mediana del equipo ágil. Se redimensiona automáticamente como una imagen de 128x128px, con relación de aspecto conservada, solo cuando la imagen excede uno de esos tamaños. Utilice este campo en las vistas de formulario o en algunas vistas de kanban."
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_project__image_medium
+msgid "Medium-sized image of the project. It is automatically resized as a 128x128px image, with aspect ratio preserved,only when the image exceeds one of those sizes. Use this field in form views or some kanban views."
+msgstr "Imagen mediana del proyecto. Se redimensiona automáticamente como una imagen de 128x128px, con relación de aspecto conservada, solo cuando la imagen excede uno de esos tamaños. Utilice este campo en las vistas de formulario o en algunas vistas de kanban."
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de Envío de Mensaje"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.res_config_settings_view_form
+msgid "Migrate your projects and tasks from your JIRA account."
+msgstr "Migre sus proyectos y tareas desde su cuenta JIRA."
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__min
+msgid "Min"
+msgstr "Min"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__min_max_visible
+msgid "Min Max Visible"
+msgstr "Min Max Visible"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_project_agile_team_form
+msgid "Mobile:"
+msgstr "Móvil:"
+
+#. module: project_workflow_management
+#. openerp-web
+#: code:addons/project_workflow_management/static/src/xml/base.xml:17
+#, python-format
+msgid "More"
+msgstr "Más"
+
+#. modules: project_agile_scrum, project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__stage_id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__state_id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard__name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_report__name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_code_item__name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_report__name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__name
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team_report__name
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link__name
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_relation__name
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority__name
+#: model:ir.model.fields,field_description:project_agile.field_project_task_resolution__name
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__name
+#: model:ir.model.fields,field_description:project_agile.field_project_type__name
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_form
+#: model_terms:ir.ui.view,arch_db:project_agile.view_project_agile_team_form
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__name
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.agile_sprint_form
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_stage__name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__name
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_transition__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_wkf_project_task_confirmation__stage_id
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.wkf_project_task_confirmation_form
+msgid "New Stage"
+msgstr "Nueva Etapa"
+
+#. module: project_workflow_management
+#. openerp-web
+#: code:addons/project_workflow_management/static/src/xml/diagram.xml:13
+#, python-format
+msgid "New State"
+msgstr "Nuevo Estado"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_edit_workflow_wizard__new_workflow_id
+msgid "New Workflow"
+msgstr "Nuevo flujo de trabajo"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Siguiente plazo de actividad"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__notification_level
+msgid "Notification Level"
+msgstr "Nivel de notificación"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__link_count
+msgid "Number of Links"
+msgstr "Número de enlaces"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__task_count
+msgid "Number of SubTasks"
+msgstr "Número de Sub-tareas"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__doc_count
+msgid "Number of documents attached"
+msgstr "Número de documentos adjuntos"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__message_has_error_counter
+msgid "Number of error"
+msgstr "Número de error"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_team__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_team__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de envío"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_team__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes no leidos"
+
+#. module: project_agile_scrum
+#: selection:project.agile.team,default_sprint_length:0
+msgid "One Week"
+msgstr "Una semana"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_team__project_ids
+msgid "Only projects with same type as team can be connected.Projects must also have Use Agile option enabled"
+msgstr "Solo se pueden conectar proyectos con el mismo tipo de equipo. Los proyectos también deben tener la opción Usar ágil habilitada"
+
+#. modules: project_agile, project_workflow_management
+#: model:project.task.type,name:project_agile.project_task_stage_open
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_edit_wizard_form
+msgid "Open"
+msgstr "Abierto"
+
+#. modules: project_agile_scrum, project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__order
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__order
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__order
+msgid "Order"
+msgstr "Orden"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__original_id
+msgid "Origin"
+msgstr "Origen"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__original_name
+msgid "Original"
+msgstr "Original"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__out_transitions
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_state_form
+msgid "Outgoing Transitions"
+msgstr "Transiciones salientes"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_form2_inherited
+msgid "Parent"
+msgstr "Padre"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__task_id
+msgid "Parent Task"
+msgstr "Tarea padre"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_project_agile_team_form
+msgid "Phone:"
+msgstr "Teléfono:"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_edit_wizard_form
+msgid "Please choose workflow editor"
+msgstr "Por favor, elija editor de flujo de trabajo"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_form
+msgid "Please have in mind that you have made changes to your workflow but those changes are not published.<br/>\n"
+"                        To view your changes please follow this"
+msgstr "Tenga en cuenta que ha realizado cambios en su flujo de trabajo, pero esos cambios no se publicaron. <br/>\n "
+"Para ver tus cambios por favor sigue esto"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__priority_ids
+msgid "Priorities"
+msgstr "Prioridades"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__priority_id
+#: model:ir.model.fields,field_description:project_agile.field_project_task__priority_id
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_search_form_inherited
+msgid "Priority"
+msgstr "Prioridad"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.project_task_priority_form
+msgid "Priority Description"
+msgstr "Descripción de Prioridad"
+
+#. module: project_agile
+#: sql_constraint:project.task.priority:0
+msgid "Priority name already exists"
+msgstr "Nombre de prioridad ya existe"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__product_owner_ids
+msgid "Product Owner"
+msgstr "Dueño del producto"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_project_agile_team_form
+msgid "Product Owners"
+msgstr "Dueños del Producto"
+
+#. modules: project_agile_scrum, project_agile, project_workflow_management, project_key
+#: model:ir.model,name:project_agile.model_project_project
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__project_id
+#: model:ir.model,name:project_agile_scrum.model_project_project
+#: model:ir.model,name:project_key.model_project_project
+#: model:ir.model,name:project_workflow_management.model_project_project
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_edit_workflow_wizard__project_id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard__project_id
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.res_config_settings_view_form
+msgid "Project Agile"
+msgstr "Proyecto ágil"
+
+#. module: project_workflow_management
+#: model:ir.actions.act_window,name:project_workflow_management.project_edit_workflow_wizard_action
+msgid "Project Apply Workflow Wizard"
+msgstr "Asistente para aplicar flujo de trabajo en el proyecto"
+
+#. module: project_agile
+#: model:ir.actions.act_window,name:project_agile.launch_sub_task_wizard
+#: model:ir.actions.act_window,name:project_agile.project_sub_task_action_window
+msgid "Project Sub-Task"
+msgstr "Sub-tareas de Proyecto"
+
+#. modules: project_agile_scrum, project_agile
+#: model:ir.model,name:project_agile.model_project_sub_task_add_wizard
+#: model:ir.model,name:project_agile_scrum.model_project_sub_task_add_wizard
+msgid "Project Sub-Task Add Wizard"
+msgstr "Asistente para añadir sub-tareas de proyecto"
+
+#. module: project_agile
+#: model:ir.model,name:project_agile.model_project_task_link_add_wizard
+msgid "Project Task Add Link Wizard"
+msgstr "Asistente para añadir enlace de tareas de proyecto"
+
+#. module: project_agile
+#: model:ir.actions.act_window,name:project_agile.project_task_link_action_window
+#: model:ir.model,name:project_agile.model_project_task_link
+msgid "Project Task Link"
+msgstr "Enlace de tareas de proyecto"
+
+#. module: project_agile
+#: model:ir.model,name:project_agile.model_project_task_link_relation
+msgid "Project Task Link Relation Type"
+msgstr "Tipo de relación de enlace de tarea de proyecto"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__project_type_id
+#: model:ir.model.fields,field_description:project_agile.field_project_task__project_type_id
+#: model_terms:ir.ui.view,arch_db:project_agile.view_project_project_filter_extend_with_key
+msgid "Project Type"
+msgstr "Tipo de Proyecto"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__project_type_ids
+#: model:ir.ui.menu,name:project_agile.project_type_menu
+#: model_terms:ir.ui.view,arch_db:project_agile.project_task_type2_form
+msgid "Project Types"
+msgstr "Tipos de proyecto"
+
+#. modules: project_agile, project_workflow_management
+#: model:ir.model,name:project_agile.model_project_workflow
+#: model:ir.model.fields,help:project_agile.field_project_project__workflow_id
+#: model:ir.model,name:project_workflow_management.model_project_workflow
+#: model:ir.model.fields,help:project_workflow_management.field_project_project__workflow_id
+#: model:ir.model.fields,help:project_workflow_management.field_project_task__workflow_id
+msgid "Project Workflow"
+msgstr "Flujo de trabajo de proyecto"
+
+#. module: project_workflow_management
+#: model:ir.actions.act_window,name:project_workflow_management.project_workspace_edit_wizard_action
+msgid "Project Workflow Edit Wizard"
+msgstr "Asistente de edición de flujo de trabajo de proyecto"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_export_wizard_form
+msgid "Project Workflow Exporter"
+msgstr "Esportador de flujo de trabajo de proyecto"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_import_wizard_form
+msgid "Project Workflow Importer"
+msgstr "Importador de flujo de trabajo de proyecto"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.res_config_settings_view_form
+msgid "Project Workflow Management"
+msgstr "Gestor de flujo de trabajo de proyecto"
+
+#. module: project_workflow_management
+#: model:ir.actions.act_window,name:project_workflow_management.project_workspace_mapping_wizard_action
+msgid "Project Workflow Mapping Wizard"
+msgstr "Asistente de mapeo de flujo de trabajo de proyecto"
+
+#. modules: project_agile, project_workflow_management
+#: model:ir.model,name:project_agile.model_project_workflow_state
+#: model:ir.model,name:project_workflow_management.model_project_workflow_state
+msgid "Project Workflow State"
+msgstr "Estado de flujo de trabajo de proyecto"
+
+#. module: project_agile
+#: model:ir.model,name:project_agile.model_project_workflow_task_type
+msgid "Project Workflow Task Type"
+msgstr "Tipo de tarea de flujo de trabajo de proyecto"
+
+#. modules: project_agile, project_workflow_management
+#: model:ir.model,name:project_agile.model_project_workflow_transition
+#: model:ir.model,name:project_workflow_management.model_project_workflow_transition
+msgid "Project Workflow Transition"
+msgstr "Transición de flujo de trabajo de proyecto"
+
+#. module: project_key
+#: sql_constraint:project.project:0
+msgid "Project key must be unique"
+msgstr "El código del proyecto debe ser único"
+
+#. module: project_key
+#: code:addons/project_key/models/project_project.py:117
+#, python-format
+msgid "Project task sequence for project "
+msgstr "Secuencia de tarea de proyecto para proyecto "
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_project__type_id
+#: model_terms:ir.ui.view,arch_db:project_agile.edit_project
+msgid "Project type"
+msgstr "Tipo de proyecto"
+
+#. module: project_agile
+#: model:ir.actions.act_window,name:project_agile.project_type_action
+msgid "Project types"
+msgstr "Tipos de proyecto"
+
+#. module: project_workflow_management
+#: code:addons/project_workflow_management/models/project.py:195
+#: code:addons/project_workflow_management/models/project.py:248
+#, python-format
+msgid "Project workflow '%s' has no default state.Please configure the workflow, so that we know what default stage should be"
+msgstr "El flujo de trabajo del proyecto '%s' no tiene un estado predeterminado. Por favor, configure el flujo de trabajo, para que sepamos qué etapa predeterminada debe ser"
+
+#. module: project_workflow_management
+#: sql_constraint:project.workflow:0
+msgid "Project workflow with this name already exists!"
+msgstr "Proyecto de flujo de trabajo con este nombre ya existe!
+"
+
+#. modules: project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__project_ids
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard__project_ids
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__project_ids
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__project_ids
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_form
+msgid "Projects"
+msgstr "Proyectos"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_form
+msgid "Projects..."
+msgstr "Proyectos..."
+
+#. module: project_workflow_management
+#. openerp-web
+#: code:addons/project_workflow_management/static/src/xml/diagram.xml:17
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_form
+#, python-format
+msgid "Publish"
+msgstr "Publicar"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_qa
+msgid "QA"
+msgstr "QA"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_qa_production
+msgid "QA Production"
+msgstr "QA Producción"
+
+#. module: project_agile
+#: model:project.task.type,legend_done:project_agile.project_task_stage_accepted
+#: model:project.task.type,legend_done:project_agile.project_task_stage_actionable
+#: model:project.task.type,legend_done:project_agile.project_task_stage_blocked
+#: model:project.task.type,legend_done:project_agile.project_task_stage_close
+#: model:project.task.type,legend_done:project_agile.project_task_stage_code_review
+#: model:project.task.type,legend_done:project_agile.project_task_stage_deployment
+#: model:project.task.type,legend_done:project_agile.project_task_stage_deployment_uat
+#: model:project.task.type,legend_done:project_agile.project_task_stage_done
+#: model:project.task.type,legend_done:project_agile.project_task_stage_in_progress
+#: model:project.task.type,legend_done:project_agile.project_task_stage_in_progress_qa
+#: model:project.task.type,legend_done:project_agile.project_task_stage_in_progress_uat_qa
+#: model:project.task.type,legend_done:project_agile.project_task_stage_init
+#: model:project.task.type,legend_done:project_agile.project_task_stage_integration
+#: model:project.task.type,legend_done:project_agile.project_task_stage_open
+#: model:project.task.type,legend_done:project_agile.project_task_stage_qa
+#: model:project.task.type,legend_done:project_agile.project_task_stage_qa_production
+#: model:project.task.type,legend_done:project_agile.project_task_stage_rejected
+#: model:project.task.type,legend_done:project_agile.project_task_stage_reopened
+#: model:project.task.type,legend_done:project_agile.project_task_stage_resolved
+#: model:project.task.type,legend_done:project_agile.project_task_stage_todo
+#: model:project.task.type,legend_done:project_agile.project_task_stage_uat_qa
+#: model:project.task.type,legend_done:project_agile.project_task_stage_waiting_approval
+msgid "Ready for Next Stage"
+msgstr "Lista para la siguiente etapa"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_rejected
+msgid "Rejected"
+msgstr "Rechazado"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__task_ids
+msgid "Related Tasks"
+msgstr "Tareas relacionadas"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link__related_task_id
+msgid "Related task"
+msgstr "Tareas relacionadas"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link__relation_id
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link__relation_name
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_add_wizard__relation_id
+msgid "Relation"
+msgstr "Realación"
+
+#. module: project_workflow_management
+#. openerp-web
+#: code:addons/project_workflow_management/static/src/xml/diagram.xml:9
+#, python-format
+msgid "Rename"
+msgstr "Renombrar"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_reopened
+msgid "Reopened"
+msgstr "Reaperturar"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__report_ids
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__report_ids
+msgid "Report"
+msgstr "Reportar"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__create_uid
+msgid "Reported By"
+msgstr "Reportado por"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_form2_inherited
+msgid "Reported by"
+msgstr "Reportado por"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_form
+#: model_terms:ir.ui.view,arch_db:project_agile.view_project_agile_team_form
+msgid "Reports"
+msgstr "Reportes"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__resolution_id
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow_transition__resolution_id
+#: model:ir.model.fields,field_description:project_agile.field_wkf_project_task_confirmation__resolution_id
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_search_form_inherited
+msgid "Resolution"
+msgstr "Resolución"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.project_task_resolution_form
+msgid "Resolution Description"
+msgstr "Descripción de resolución"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_resolved
+msgid "Resolved"
+msgstr "Resuelto"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.res_config_settings_view_form
+msgid "Run your projects by Agile Kanban"
+msgstr "Correr tus proyectos por Kanban Ágil"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.res_config_settings_view_form
+msgid "Run your projects by Agile Scrum"
+msgstr "Correr tus proyectos por Scrum Ágil"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_form
+msgid "Scenario Title..."
+msgstr "Titulo de escenario..."
+
+#. modules: project_agile_scrum, project_agile
+#: model:ir.model.fields,field_description:project_agile.field_res_config_settings__module_project_agile_scrum
+#: selection:project.agile.board,type:0
+#: selection:project.agile.board.create.wizard,type:0
+#: selection:project.agile.board.report,type:0
+#: selection:project.agile.report,type:0
+#: selection:project.agile.team,type:0
+#: selection:project.agile.team.report,type:0
+#: selection:project.project,agile_method:0
+#: selection:project.agile.board,type:0
+#: selection:project.agile.board.create.wizard,type:0
+#: selection:project.agile.board.report,type:0
+#: selection:project.agile.report,type:0
+#: selection:project.agile.team,type:0
+#: selection:project.agile.team.report,type:0
+#: selection:project.project,agile_method:0
+msgid "Scrum"
+msgstr "Scrum"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_team__master_id
+msgid "Scrum Master"
+msgstr "Scrum Master"
+
+#. modules: project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_code_item__sequence
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_relation__sequence
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority__sequence
+#: model:ir.model.fields,field_description:project_agile.field_project_task_resolution__sequence
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__sequence
+#: model:ir.model.fields,field_description:project_agile.field_project_type__sequence
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: project_agile
+#: model:ir.ui.menu,name:project_agile.project_services_menu
+msgid "Services"
+msgstr "Servicios"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.edit_project_extend_with_type_workflow
+msgid "Set Workflow"
+msgstr "Establecer Flujo de Trabajo"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__image_small
+#: model:ir.model.fields,field_description:project_agile.field_project_project__image_small
+msgid "Small-sized image"
+msgstr "Imagen de tamaño pequeño"
+
+#. modules: project_agile_scrum, project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_team__image_small
+#: model:ir.model.fields,help:project_agile_scrum.field_project_agile_scrum_sprint__team_image_small
+msgid "Small-sized image of the agile team. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
+msgstr "Imagen de pequeño tamaño del equipo ágil. Se cambia automáticamente de tamaño como una imagen de 64x64px, con relación de aspecto conservada. Utilice este campo en cualquier lugar donde se requiera una pequeña imagen."
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_project__image_small
+msgid "Small-sized image of the project. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
+msgstr "Imagen de pequeño tamaño del proyecto. Se cambia automáticamente de tamaño como una imagen de 64x64px, con relación de aspecto conservada. Utilice este campo en cualquier lugar donde se requiera una pequeña imagen."
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_transition__src_id
+msgid "Source Stage"
+msgstr "Etapa fuente"
+
+#. module: project_agile_scrum
+#: model:ir.actions.act_window,name:project_agile_scrum.open_agile_sprint
+msgid "Sprint"
+msgstr "Sprint"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_team__sprint_sequence
+msgid "Sprint Sequence"
+msgstr "Secuencia de Sprint"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_task__sprint_state
+msgid "Sprint State"
+msgstr "Estado de Sprint"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_task__sprint_ids
+msgid "Sprint history"
+msgstr "Historia de Sprint"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__sprint_length_days
+msgid "Sprint length(in days)"
+msgstr "Tiempo(en días) del Sprint"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__sprint_length_hrs
+msgid "Sprint length(in hrs)"
+msgstr "Tiempo(en hrs) del Sprint"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__sprint_length_week
+msgid "Sprint length(in weeks)"
+msgstr "Tiempo (en semanas) del Sptrin"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_team__sprint_ids
+#: model:ir.ui.menu,name:project_agile_scrum.menu_agile_sprint
+msgid "Sprints"
+msgstr "Sprints"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_task__stage_id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_stage__stage_id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__stage_id
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_mapping_wizard_form
+msgid "Stage"
+msgstr "Etapa"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_mapping_wizard_form
+msgid "Stage Mappings"
+msgstr "Mapas de etapas"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,help:project_workflow_management.field_project_workflow__default_state_id
+msgid "Stage from this state will be set by default if not specified when creating task."
+msgstr "La etapa desde este estado se establecerá de forma predeterminada si no se especifica al crear la tarea."
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.edit_project
+#: model_terms:ir.ui.view,arch_db:project_agile.project_type_form
+msgid "Stages"
+msgstr "Etapas"
+
+#. module: project_workflow_management
+#: selection:project.workflow.export.wizard,state:0
+msgid "Start"
+msgstr "Inicio"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__start_date
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. modules: project_agile_scrum, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__state
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__state
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_export_wizard__state
+msgid "State"
+msgstr "Estado"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__state_ids
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_form
+msgid "States"
+msgstr "Estados"
+
+#. module: project_agile_scrum
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.view_agile_sprint_filter
+msgid "Status"
+msgstr "Estado"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__status_ids
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__status_ids
+msgid "Statuses"
+msgstr "Estados"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__story_points
+msgid "Story Points"
+msgstr "Story Points"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_type2__type_ids
+#: model_terms:ir.ui.view,arch_db:project_agile.project_task_type2_form
+msgid "Sub Types"
+msgstr "Sub Tipos"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__type_id
+msgid "Sub-Task Type"
+msgstr "Tipo de Sub-tarea"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_form2_inherited
+msgid "Sub-Tasks"
+msgstr "Sub-Tareas"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__subject
+msgid "Subject"
+msgstr "Asunto"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_sub_task_add_wizard__tag_ids
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. modules: project_agile_scrum, project_agile, project_workflow_management, project_key
+#: model:ir.model,name:project_agile.model_project_task
+#: model:ir.model.fields,field_description:project_agile.field_project_task_worklog_wizard__task_id
+#: model:ir.model,name:project_agile_scrum.model_project_task
+#: model:ir.model,name:project_key.model_project_task
+#: model:ir.model,name:project_workflow_management.model_project_task
+#: model:ir.model.fields,field_description:project_workflow_management.field_wkf_project_task_confirmation__task_id
+msgid "Task"
+msgstr "Tarea"
+
+#. modules: project_agile_scrum, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__task_count
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_line__task_count
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_stage__task_count
+msgid "Task Count"
+msgstr "Contador de tarea"
+
+#. module: project_agile
+#: model:ir.actions.act_window,name:project_agile.open_task_priority_form
+#: model:ir.ui.menu,name:project_agile.project_task_priority_menu
+#: model_terms:ir.ui.view,arch_db:project_agile.project_task_type2_form
+msgid "Task Priorities"
+msgstr "Prioridades de tarea"
+
+#. module: project_agile
+#: model:ir.model,name:project_agile.model_project_task_priority
+msgid "Task Priority"
+msgstr "Prioridad de tarea"
+
+#. module: project_agile
+#: model:ir.model,name:project_agile.model_project_task_resolution
+msgid "Task Resolution"
+msgstr "Resolución de tarea"
+
+#. module: project_agile
+#: model:ir.actions.act_window,name:project_agile.open_task_resolution_form
+#: model:ir.ui.menu,name:project_agile.project_task_resolution_menu
+msgid "Task Resolutions"
+msgstr "Resoluciones de tarea"
+
+#. module: project_agile
+#: model:ir.model,name:project_agile.model_project_task_type2
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow_task_type__type_id
+#: model_terms:ir.ui.view,arch_db:project_agile.project_task_type2_form
+msgid "Task Type"
+msgstr "Tipo de tarea"
+
+#. module: project_agile
+#: model:ir.actions.act_window,name:project_agile.open_task_type2_form
+#: model:ir.model.fields,field_description:project_agile.field_project_type__task_type_ids
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow__task_type_ids
+#: model:ir.ui.menu,name:project_agile.project_task_type2_menu
+#: model_terms:ir.ui.view,arch_db:project_agile.edit_project_workflow
+#: model_terms:ir.ui.view,arch_db:project_agile.project_task_priority_form
+#: model_terms:ir.ui.view,arch_db:project_agile.project_type_form
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_type2_search_form
+msgid "Task Types"
+msgstr "Tipos de tarea"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_state_diagram_form
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_state_form
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_state_tree
+msgid "Task Workflow State"
+msgstr "Estado de tarea de flujo de trabajo"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_transition_diagram_form
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_transition_form
+msgid "Task Workflow Transition"
+msgstr "Transición de tarea de flujo de trabajo"
+
+#. module: project_agile
+#: model:ir.actions.act_window,name:project_agile.agile_project_task_worklog_action
+msgid "Task Worklog"
+msgstr "Registro de tareas"
+
+#. module: project_key
+#: sql_constraint:project.task:0
+msgid "Task key must be unique!"
+msgstr "¡El código de tarea debe ser único!"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link__task_left_id
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_add_wizard__task_left_id
+msgid "Task on the left"
+msgstr "Tarea a la izquierda"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link__task_right_id
+#: model:ir.model.fields,field_description:project_agile.field_project_task_link_add_wizard__task_right_id
+msgid "Task on the right"
+msgstr "Tarea a la derecha"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_mapping_wizard_form
+msgid "Task stage mappings"
+msgstr "Mapas de etapa de tarea"
+
+#. modules: project_agile_scrum, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__task_ids
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.agile_sprint_form
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_mapping_wizard_form
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_type__stage_ids
+msgid "Tasks Stages"
+msgstr "Etapas de tareas"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__team_id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard__team_id
+#: selection:project.agile.board,visibility:0
+#: selection:project.agile.board.create.wizard,visibility:0
+msgid "Team"
+msgstr "Equipo
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__team_image_small
+msgid "Team Image"
+msgstr "Imagen de Equipo"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__member_ids
+#: model_terms:ir.ui.view,arch_db:project_agile.view_project_agile_team_form
+msgid "Team Members"
+msgstr "Miembros de equipo"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_board__team_id
+#: model:ir.model.fields,help:project_agile.field_project_agile_board_create_wizard__team_id
+msgid "Team which owns this board"
+msgstr "Equipo que posee este tablero"
+
+#. module: project_agile
+#: model:ir.actions.act_window,name:project_agile.action_project_agile_team
+#: model:ir.ui.menu,name:project_agile.project_agile_team_menu
+#: model_terms:ir.ui.view,arch_db:project_agile.edit_project
+msgid "Teams"
+msgstr "Equipos"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,help:project_workflow_management.field_project_workflow__state_ids
+msgid "The list of all possible states a task can be in."
+msgstr "Lista de todos los estados posibles en que puede estar una tarea."
+
+#. module: project_workflow_management
+#: model:ir.model.fields,help:project_workflow_management.field_project_workflow__transition_ids
+msgid "The list of all state transitions."
+msgstr "Lista de todas las transiciones de estado."
+
+#. module: project_workflow_management
+#: model:ir.model.fields,help:project_workflow_management.field_project_workflow__project_ids
+msgid "The list of related projects."
+msgstr "Lista de los proyectos relacionados"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_board_column__max
+msgid "The maximum number of issues int this column"
+msgstr "Número máximo de problemas en esta columna."
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_board_column__min
+msgid "The minimum number of issues in this column"
+msgstr "Número minimo de tareas en esta columna."
+
+#. module: project_agile
+#: sql_constraint:project.type:0
+msgid "The name must be unique"
+msgstr "El nombre debe ser unico"
+
+#. module: project_agile
+#: sql_constraint:project.agile.board.column:0
+msgid "The name of the column must be unique per board"
+msgstr "el nombre de a columna debe ser unico por tablero"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,help:project_workflow_management.field_project_workflow__name
+#: model:ir.model.fields,help:project_workflow_management.field_project_workflow__original_name
+msgid "The name of the workflow. It has to be unique!"
+msgstr "El nombre de flujo de trabajo. Debe ser unico!"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_team__image
+msgid "This field holds the image used as image for the agile team, limited to 1024x1024px."
+msgstr "Este campo contiene la imagen utilizada como imagen para el equipo ágil, limitada a 1024x1024px."
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_project__image
+msgid "This field holds the image used as image for the project, limited to 1024x1024px."
+msgstr "Este campo contiene la imagen utilizada como imagen para el proyecto, limitada a 1024x1024px."
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_task__epic_id
+msgid "This field represents the first"
+msgstr "Este campo representa el primero."
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_form
+msgid "This is a draft version of workflow.\n"
+"                        Here you can apply your modifications but please have in mind that those changes will not be visible in the rest of the system until you publish them."
+msgstr "Esta es una versión de borrador del flujo de trabajo.\n"
+"                        Aquí puede aplicar sus modificaciones, pero tenga en cuenta que esos cambios no serán visibles en el resto del sistema hasta que los publique."
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_form
+msgid "Este es un flujo de trabajo publicado. \n"
+"Puede cambiarlo ingresando al modo de edición, pero tenga en cuenta que esos cambios no serán visibles en el resto del sistema hasta que los publique"
+msgstr ""
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_in_progress_uat_qa
+msgid "This means that QA is testing this task on UAT environment."
+msgstr "Esto significa que QA está probando esta tarea en un entorno UAT."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_in_progress_qa
+msgid "This means that QA is working on this task."
+msgstr "Esto significa que QA está trabajando en esta tarea."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_blocked
+msgid "This means that on this task could not be worked anymore due the missing information\n"
+"            or similar.\n"
+"        "
+msgstr "Esto significa que en esta tarea ya no se pudo trabajar debido a la información faltante \n "
+"o similar. \n"
+"""
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_code_review
+msgid "This means that on this task requires code review."
+msgstr "Esto significa que en esta tarea requiere revisión de código."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_integration
+msgid "This means that on this task requires integration testing (i.e. Unit Testing)."
+msgstr "Esto significa que en esta tarea requiere pruebas de integración (es decir, Pruebas de unidad)."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_reopened
+msgid "This means that the task has been reopened for some reason."
+msgstr "Esto significa que la tarea ha sido reabierta por alguna razón."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_deployment_uat
+msgid "This means that the task is ready to be deployed on UAT."
+msgstr ""
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_uat_qa
+msgid "This means that the task is ready to be tested on UAT."
+msgstr "Esto significa que la tarea está lista para ser implementada en UAT."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_qa
+msgid "This means that this task is ready for QA"
+msgstr "Esto significa que esta tarea está lista para el control de calidad."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_resolved
+msgid "This stage means that a task has been successfully test on UAT."
+msgstr "Esta etapa significa que una tarea se ha probado con éxito en UAT."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_deployment
+msgid "This stage means that a task is ready to be deployed to production."
+msgstr "Esta etapa significa que una tarea está lista para implementarse en producción."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_qa_production
+msgid "This stage means that a ticket has been deployed to production and it's waiting to be\n"
+"            verified on production if possible..\n"
+"        "
+msgstr "Esta etapa significa que un ticket se ha implementado en producción y está a la espera de ser \n "
+"verificado en producción si es posible .. \n"
+""
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_open
+msgid "This stage means that it can be worked on this task."
+msgstr "Esta etapa significa que se puede trabajar en esta tarea."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_in_progress
+msgid "This stage means that on this task is been actively worked on."
+msgstr "Esta etapa significa que en esta tarea se ha trabajado activamente."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_actionable
+msgid "This stage means that the task definition has been completed and that it's ready for\n"
+"            review by project manager.\n"
+"        "
+msgstr "Esta etapa significa que la definición de la tarea se ha completado y que está lista para \n"
+"Revisión por el gerente del proyecto. \n"
+""
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_accepted
+msgid "This stage means that the task has been accepted by the project manager"
+msgstr "Esta etapa significa que la tarea ha sido aceptada por el gerente del proyecto."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_done
+msgid "This stage means that the task has been completed."
+msgstr "Esta etapa significa que la tarea ha sido completada."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_rejected
+msgid "This stage means that the task has been rejected."
+msgstr "Esta etapa significa que la tarea ha sido rechazada."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_init
+msgid "This stage means that the task is under construction. It should be ignored until\n"
+"            reporter says otherwise.\n"
+"        "
+msgstr "Esta etapa significa que la tarea está en construcción. Debe ignorarse hasta que \n"
+"el reportero dice lo contrario. \n"
+""
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_waiting_approval
+msgid "This stage means that the task is waiting for a \"green light\" to be worked on."
+msgstr "Esta etapa significa que la tarea está a la espera de que se realice una \"luz verde\"."
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_todo
+msgid "This stage means that the task is waiting on TODO list to be picked up for work.\n"
+"        "
+msgstr "Esta etapa significa que la tarea está esperando a que se recoja la lista de tareas pendientes para el trabajo. \n"
+
+#. module: project_agile
+#: model:project.task.type,description:project_agile.project_task_stage_close
+msgid "This stage means that this task is closed."
+msgstr "Esta etapa significa que esta tarea está cerrada."
+
+#. module: project_workflow_management
+#: sql_constraint:project.workflow.state:0
+msgid "This state already exists!"
+msgstr "¡Este estado ya existe!"
+
+#. module: project_workflow_management
+#: sql_constraint:project.workflow.transition:0
+msgid "This transition already exists!"
+msgstr "¡Esta transición ya existe!"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_edit_workspace_wizard_form
+msgid "This wizard will help you to safely change workflow"
+msgstr "Este asistente te ayudará a cambiar de forma segura el flujo de trabajo"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_res_config_settings__module_project_agile_timesheet_category
+msgid "Timesheet Category"
+msgstr "Categoría de parte de horas"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard__to_id
+#: selection:project.workflow.stage.mapping.wizard.stage,type:0
+msgid "To"
+msgstr "Para"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_line__to_id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_line__to_stage_id
+msgid "To Stage"
+msgstr "Etapa para"
+
+#. modules: project_agile, project_workflow_management
+#: model:project.task.type,name:project_agile.project_task_stage_todo
+#: selection:project.workflow.state,type:0
+msgid "ToDo"
+msgstr "Por hacer"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_project__todo_estimation
+msgid "Todo Estimation"
+msgstr "Estimación por hacer"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__total_story_points
+msgid "Total Story Points"
+msgstr "Total Story Points"
+
+#. module: project_workflow_management
+#: code:addons/project_workflow_management/models/project_workflow.py:181
+#, python-format
+msgid "Transition to this state is not supported from the current task state!\n"
+"Please refer to the project workflow '%s' to see all possible transitions from the current state or you could view task in form view and see possible transitionsfrom there."
+msgstr
+"¡La transición a este estado no es compatible con el estado de tarea actual! \n"
+"Consulte el flujo de trabajo del proyecto '%s' para ver todas las posibles transiciones del estado actual o puede ver la tarea en la vista de formulario y ver las posibles transiciones desde allí"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow__transition_ids
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_form
+msgid "Transitions"
+msgstr "Transiciones"
+
+#. module: project_agile_scrum
+#: selection:project.agile.team,default_sprint_length:0
+msgid "Tree Weeks"
+msgstr "Tres semanas"
+
+#. module: project_agile_scrum
+#: selection:project.agile.team,default_sprint_length:0
+msgid "Two Weeks"
+msgstr "Dos semanas"
+
+#. modules: project_agile_scrum, project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__type
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard__type
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_report__type
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_report__type
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__type
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team_report__type
+#: model:ir.model.fields,field_description:project_agile.field_project_task__type_id
+#: model_terms:ir.ui.view,arch_db:project_agile.view_project_project_filter_extend_with_key
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_search_form_inherited
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_board__type
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_board_create_wizard__type
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_board_report__type
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_report__type
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_team__type
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_team_report__type
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_stage__type
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task_priority__type_ids
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_type2_search_form
+msgid "Types"
+msgstr "tipos"
+
+#. modules: project_agile_scrum, project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_team__type
+#: model:ir.model.fields,help:project_agile_scrum.field_project_agile_team__type
+msgid "Types are introduced by plugins, if there is no methodology youneed, please install appropriate plugin for Scrummer."
+msgstr "Los tipos son introducidos por los complementos, si no hay una metodología que necesites, instala el complemento apropiado para Scrummer."
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_uat_qa
+msgid "UAT QA"
+msgstr "UAT QA"
+
+#. module: project_key
+#: model:ir.model.fields,field_description:project_key.field_project_task__url
+msgid "URL"
+msgstr "URL"
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__unfinished_task_ids
+#: model_terms:ir.ui.view,arch_db:project_agile_scrum.agile_sprint_form
+msgid "Unfinished tasks"
+msgstr "Tareas inconclusas"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__unmapped_state_ids
+msgid "Unmapped State"
+msgstr "Estado no mapeado"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_form
+msgid "Unmapped States"
+msgstr "Estados no mapeados"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__unmapped_task_stage_ids
+msgid "Unmapped Task Stage"
+msgstr "Etapa de tarea no asignada"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes por leer"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador de mensajes sin leer"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_task__write_date
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_form2_inherited
+msgid "Updated"
+msgstr "Actualizado"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_project__agile_enabled
+#: model:ir.model.fields,field_description:project_agile.field_project_task__agile_enabled
+msgid "Use Agile"
+msgstr "Usar ágil"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__user_id
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard__user_id
+#: model:ir.model.fields,field_description:project_agile.field_project_task_worklog_wizard__user_id
+#: selection:project.agile.board,visibility:0
+#: selection:project.agile.board.create.wizard,visibility:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_transition__user_confirmation
+msgid "User Confirmation?"
+msgstr "Confirmación de usuario?"
+
+#. module: project_agile
+#: code:addons/project_agile/models/project_project.py:332
+#: model_terms:ir.ui.view,arch_db:project_agile.edit_project
+#: model_terms:ir.ui.view,arch_db:project_agile.view_project_kanban
+#, python-format
+msgid "User Stories"
+msgstr "Historias de usuario"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_project__user_story_count
+msgid "User Story Count"
+msgstr "Contador de historia de usuario"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_board__user_id
+#: model:ir.model.fields,help:project_agile.field_project_agile_board_create_wizard__user_id
+msgid "User which owns this board"
+msgstr "Usuario que posee este tablero"
+
+#. module: project_agile
+#: model:ir.model,name:project_agile.model_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,help:project_workflow_management.field_project_workflow_state__sequence
+msgid "Value of sequence determines order of transitions. When Task is in a workflow state, available transitions areshown according to their destinations state sequence."
+msgstr "El valor de la secuencia determina el orden de las transiciones. Cuando la Tarea se encuentra en un estado de flujo de trabajo, las transiciones disponibles se resuelven de acuerdo con la secuencia de estado de sus destinos."
+
+#. module: project_agile_scrum
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_scrum_sprint__velocity
+#: model:ir.model.fields,field_description:project_agile_scrum.field_project_agile_team__velocity
+msgid "Velocity"
+msgstr "Velocidad"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_form2_inherited
+msgid "View Linked Task"
+msgstr "Ver tarea enlazada"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.view_task_form2_inherited
+msgid "View Sub-Task"
+msgstr "Ver sub-tarea"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__visibility
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard__visibility
+msgid "Visibility"
+msgstr "Visibilidad"
+
+#. module: project_agile
+#: model:project.task.type,name:project_agile.project_task_stage_waiting_approval
+msgid "Waiting Approval"
+msgstr "Esperando aprobación"
+
+#. module: project_agile
+#: selection:project.agile.board.column,notification_level:0
+msgid "Warning"
+msgstr "Advertencia"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_mapping_wizard_form
+msgid "We have detected changes between old and new versions of your workflow\n"
+"                        and we need your action to resolve conflicts."
+msgstr "Hemos detectado cambios entre las versiones anteriores y nuevas de su flujo de trabajo \n"
+"y necesitamos su acción para resolver conflictos"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_team__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_agile_team__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicaciones del sitio web"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,help:project_workflow_management.field_project_workflow_state__is_global
+msgid "When checked it will allow all transitions from/to this state."
+msgstr "Cuando se marca, permitirá todas las transiciones de / a este estado."
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.view_project_workflow_diagram
+msgid "When customizing a workflow, be sure you do not modify an existing node or arrow, but rather add new nodes or arrows. If you absolutely need to modify a node or arrow, you can only change fields that are empty or set to the default value. If you don't do that, your customization will be overwritten at the next update or upgrade to a future version of Odoo."
+msgstr "Cuando personalice un flujo de trabajo, asegúrese de no modificar un nodo o flecha existente, sino agregar nuevos nodos o flechas. Si absolutamente necesita modificar un nodo o una flecha, solo puede cambiar los campos que están vacíos o configurados en el valor predeterminado. Si no lo hace, su personalización se sobrescribirá en la próxima actualización o actualización a una versión futura de Odoo."
+
+#. module: project_agile
+#: model_terms:ir.actions.act_window,help:project_agile.action_project_agile_team
+msgid "With this view you can create your agile teams."
+msgstr "Con esta vista puedes crear tus equipos ágiles."
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_line__wizard_id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_stage_mapping_wizard_stage__wizard_id
+msgid "Wizard"
+msgstr "Asistente"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_task__wkf_state_type
+msgid "Wkf State Type"
+msgstr "Tipo de estado de trabajo"
+
+#. modules: project_agile, project_workflow_management
+#. openerp-web
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__workflow_id
+#: model:ir.model.fields,field_description:project_agile.field_project_project__workflow_id
+#: model:ir.model.fields,field_description:project_agile.field_project_type__workflow_id
+#: model:ir.model.fields,field_description:project_agile.field_project_workflow_task_type__workflow_id
+#: code:addons/project_workflow_management/static/src/js/diagram_controller.js:59
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_project__workflow_id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_task__workflow_id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_edit_wizard__workflow_id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_export_wizard__workflow_id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_state__workflow_id
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_workflow_transition__workflow_id
+#: model:ir.ui.menu,name:project_workflow_management.project_workflow_menu
+#, python-format
+msgid "Workflow"
+msgstr "Flujo de trabajo"
+
+#. module: project_workflow_management
+#. openerp-web
+#: code:addons/project_workflow_management/static/src/js/diagram_controller.js:91
+#, python-format
+msgid "Workflow '' has been successfully published!"
+msgstr "Flujo de trabajo '' fue publicado exitosamente!"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_res_config_settings__module_project_workflow_action
+msgid "Workflow Action"
+msgstr "Acción flujo de trabajo"
+
+#. module: project_workflow_management
+#: model:ir.actions.act_window,name:project_workflow_management.project_workflow_diagram_edit_action
+#: model:ir.actions.act_window,name:project_workflow_management.project_workflow_diagram_readonly_action
+msgid "Workflow Diagram"
+msgstr "Diagrama de flujo de trabajo"
+
+#. module: project_workflow_management
+#: model:ir.actions.act_window,name:project_workflow_management.project_workflow_export_wizard_action
+msgid "Workflow Export Wizard"
+msgstr "Asistente de exportación para flujo de trabajo"
+
+#. module: project_workflow_management
+#: code:addons/project_workflow_management/models/project_workflow_xml.py:43
+#, python-format
+msgid "Workflow File Validation Error: %s,"
+msgstr "Error de validación de archivo de flujo de trabajo: %s,"
+
+#. module: project_workflow_management
+#: model:ir.actions.act_window,name:project_workflow_management.project_workflow_form_edit_action
+msgid "Workflow Form"
+msgstr "Formulario de flujo de trabajo"
+
+#. module: project_workflow_management
+#: model:ir.actions.act_window,name:project_workflow_management.project_workflow_import_wizard_action
+msgid "Workflow Import Wizard"
+msgstr "Asistente de importación de flujo de trabajo"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_res_config_settings__module_project_workflow_security
+msgid "Workflow Security"
+msgstr "Seguridad de flujo de trabajo"
+
+#. modules: project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__workflow_stage_ids
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_task__wkf_stage_id
+msgid "Workflow Stage"
+msgstr "Etapa de flujo de trabajo"
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_project_task__wkf_state_id
+msgid "Workflow State"
+msgstr "Estado de flujo de trabajo"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_form
+msgid "Workflow States"
+msgstr "Estados de flujo de trabajo"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.edit_project_workflow
+msgid "Workflow Title..."
+msgstr "Título de flujo de trabajo..."
+
+#. module: project_workflow_management
+#: model:ir.model.fields,field_description:project_workflow_management.field_res_config_settings__module_project_workflow_transition_by_project
+msgid "Workflow Transitions by Project"
+msgstr "Transición de flujo de trabajo por proyecto"
+
+#. module: project_agile
+#: model:ir.model.fields,field_description:project_agile.field_res_config_settings__module_project_agile_workflow_transitions_by_task_type
+msgid "Workflow Transitions by task type"
+msgstr "Transición de flujo de trabajo por tipo de tarea"
+
+#. module: project_workflow_management
+#: code:addons/project_workflow_management/models/project_workflow_xml.py:130
+#, python-format
+msgid "Workflow default state is missing!"
+msgstr "Falta el estado por defecto de flujo de trabajo!"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_export_wizard_form
+msgid "Workflow has been exported and now you can download it from here:"
+msgstr "El flujo de trabajo ha sido exportado y puede descargarlo desde aqui:"
+
+#. module: project_agile
+#: model:ir.model.fields,help:project_agile.field_project_type__workflow_id
+msgid "Workflow which will be used as a default project workflow"
+msgstr "Flujo de trabajo por defecto del proyecto"
+
+#. modules: project_agile, project_workflow_management
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board__workflow_ids
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column__workflow_ids
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_column_status__workflow_ids
+#: model:ir.model.fields,field_description:project_agile.field_project_agile_board_create_wizard__workflow_ids
+#: model:ir.actions.act_window,name:project_workflow_management.project_workflow_form_read_only_action
+#: model:ir.actions.act_window,name:project_workflow_management.project_workflow_read_only_action
+#: model:ir.ui.menu,name:project_workflow_management.project_workflows_menu
+msgid "Workflows"
+msgstr "Flujos de Trabajo"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_project_task_worklog_form
+msgid "Worklog"
+msgstr "Registro de Trabajo"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_project_task_worklog_form
+msgid "Worklog Description"
+msgstr "Descripcion de registro de trabajo"
+
+#. module: project_agile
+#: code:addons/project_agile/models/res_users.py:56
+#, python-format
+msgid "You are allowed only to change current team for yourself"
+msgstr "Solo tienes permitido cambiar el equipo actual por ti mismo."
+
+#. module: project_workflow_management
+#: code:addons/project_workflow_management/models/project_workflow.py:143
+#, python-format
+msgid "You are not allowed do delete this workflow because it is being used by the following projects: %s"
+msgstr "No está permitido eliminar este flujo de trabajo porque está siendo utilizado por los siguientes proyectos: %s"
+
+#. module: project_workflow_management
+#: code:addons/project_workflow_management/models/project_workflow_xml.py:109
+#, python-format
+msgid "You have defined one or more states with the same name!"
+msgstr "Usted a definido uno o mas estados con el mismo nombre!"
+
+#. module: project_agile_scrum
+#: code:addons/project_agile_scrum/models/project_agile_scrum_sprint.py:169
+#, python-format
+msgid "You have to be part of an agile team in order to create a new sprint"
+msgstr "Tienes que ser parte de un equipo ágil para crear un nuevo sprint"
+
+#. module: project_workflow_management
+#: code:addons/project_workflow_management/models/project_workflow_publisher.py:45
+#, python-format
+msgid "You have to provide the new workflow!"
+msgstr "Tienes que proporcionar el nuevo flujo de trabajo!"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_board_create_wizard_form
+msgid "_Apply"
+msgstr "_Aplicar"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_export_wizard_form
+msgid "_Export"
+msgstr "_Exportar"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workspace_mapping_wizard_form
+msgid "_Finish"
+msgstr "_Terminar"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_import_wizard_form
+msgid "_Import"
+msgstr "_Importar"
+
+#. module: project_agile
+#: model_terms:ir.ui.view,arch_db:project_agile.agile_project_task_worklog_form
+msgid "_Sumbit"
+msgstr "_Enviar"
+
+#. module: project_key
+#: model:ir.model.fields,field_description:project_key.field_project_project__key
+#: model:ir.model.fields,field_description:project_key.field_project_task__key
+msgid "key"
+msgstr "Código"
+
+#. module: project_workflow_management
+#: model_terms:ir.ui.view,arch_db:project_workflow_management.project_workflow_form
+msgid "link"
+msgstr "enlace"
+
+#. module: project
+#: model:ir.ui.menu,name:project.menu_project_management
+msgid "All Tasks"
+msgstr "Todas las Tareas"
+
+#. module: project
+#: model:ir.ui.menu,name:project.menu_project_report
+msgid "Reporting"
+msgstr "Informes"

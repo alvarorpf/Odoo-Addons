@@ -1,0 +1,118 @@
+<odoo>
+
+    <record id="observation_form" model="ir.ui.view">
+        <field name="name">observation.form</field>
+        <field name="model">observation.form</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" string="Finalizar" class="oe_highlight" states="draft" type="object" confirm="¿Esta seguro de finalizar el llenado del formulario?"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <b>
+                            <span>Nombre</span>
+                        </b>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group string="DATOS GENERALES">
+                        <group>
+                            <field name="company_id" invisible="1"/>
+                            <field name="project_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="supervisor" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="supervisor_charge" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="datetime" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="planned_hours" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                    </group>
+                    <group string="ASPECTOS DE LA OBSERVACION">
+                        <group>
+                            <field name="employee" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="antiquity" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="reason" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="other_reason"
+                                   attrs="{'invisible': [('reason', '!=', 'other')], 'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="area" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="charge" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="antiquity_company" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                    </group>
+                    <group string="OBSERVACION">
+                        <div>
+                            <field name="line_ids" string="Observaciones"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                <tree editable="bottom">
+                                    <field name="observation"/>
+                                </tree>
+                            </field>
+                        </div>
+                    </group>
+                    <group string="FOCOS DE OBSERVACION">
+                        <div>
+                            <field name="spotlight_ids" string="Observaciones"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                <tree editable="bottom">
+                                    <field name="spotlight"/>
+                                    <field name="good_practice"/>
+                                    <field name="bad_practice"/>
+                                </tree>
+                            </field>
+                        </div>
+                    </group>
+                    <group string="ACCIONES">
+                        <div>
+                            <field name="action_ids" string="Observaciones"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                <tree editable="bottom">
+                                    <field name="action"/>
+                                    <field name="ac_ap"/>
+                                    <field name="responsible"/>
+                                    <field name="date_limit"/>
+                                </tree>
+                            </field>
+                        </div>
+                    </group>
+                    <group string="COMENTARIOS">
+                        <div>
+                            <field name="note" placeholder="COMENTARIOS"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </div>
+                    </group>
+                    <group>
+                        <field name="signature" widget="signature"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="observation_form_tree" model="ir.ui.view">
+        <field name="name">observation.form.tree</field>
+        <field name="model">observation.form</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="supervisor"/>
+                <field name="supervisor_charge"/>
+                <field name="planned_hours"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="observation_form_action" model="ir.actions.act_window">
+        <field name="name">Formulario de Observacion de Conducta</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">observation.form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

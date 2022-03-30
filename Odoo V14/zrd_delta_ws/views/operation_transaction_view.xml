@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_inherit_operation_transaction_form" model="ir.ui.view">
+            <field name="name">view.inherit.operation.transaction.form</field>
+            <field name="model">operation.transaction</field>
+            <field name="inherit_id" ref="zrd_delta.operation_transaction"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='analytic_account_id']" position="after">
+                    <field name="tms_code" readonly="1"/>
+                    <field name="tms_id" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_report_security_inspection" model="ir.actions.report">
+            <field name="name">Formulario de Inspeccion de Seguridad</field>
+            <field name="model">security.inspection</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">project_task_form.security_inspection_report</field>
+            <field name="report_file">project_task_form.security_inspection_report</field>
+            <field name="print_report_name">'Formulario de Visita - %s' % object.name</field>
+            <field name="paperformat_id" ref="project_task_form.paperformat_base"/>
+            <field name="binding_model_id" ref="model_security_inspection"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="security_inspection_report">
+            <t t-foreach="docs" t-as="d">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div class="row" id="hash_header">
+                            <div class="col-12">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td width='20%' style="font-size:12px:" align="center">
+                                            <img style="max-width: 80px;"
+                                                 t-if="d.company_id.logo"
+                                                 t-att-src="image_data_uri(d.company_id.logo)"
+                                                 alt="Logo"/>
+                                        </td>
+                                        <td style="text-align:center;" width='60%'>
+                                            <b>
+                                                <span t-esc="d.name"/>
+                                            </b>
+                                            <br/>
+                                            <b>INSPECCION DE SEGURIDAD</b>
+                                            <br/>
+                                            <b></b>
+                                        </td>
+                                        <td width='20%' style="text-align:left;">
+                                            <br/>
+                                            <b>Fecha:</b>
+                                            <span t-esc="d.date.strftime('%d/%m/%Y')"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>FECHA Y HORA</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.datetime.strftime('%d/%m/%Y %H:%M')"/>
+                                            </td>
+                                            <td style="width:20%;">
+                                                <b>TIEMPO OCUPADO</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.planned_hours"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <b>CENTRO DE COSTO</b>
+                                            </td>
+                                            <td colspan="2">
+                                                <span t-esc="d.project_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <b>INSPECTOR</b>
+                                            </td>
+                                            <td colspan="2">
+                                                <span t-esc="d.inspector"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <b>CARGO</b>
+                                            </td>
+                                            <td colspan="2">
+                                                <span t-esc="d.charge"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th colspan="8" style="text-align:center;">CONDICIONES GENERALES</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:12,5%;">
+                                                <b>Orden</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.order == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.order == 'r'">
+                                                    <span>Regular</span>
+                                                </t>
+                                                <t t-if="d.order == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>Aseo</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.clean == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.clean == 'r'">
+                                                    <span>Regular</span>
+                                                </t>
+                                                <t t-if="d.clean == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>Almacenamiento</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.storage == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.storage == 'r'">
+                                                    <span>Regular</span>
+                                                </t>
+                                                <t t-if="d.storage == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>Herramientas</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.tools == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.tools == 'r'">
+                                                    <span>Regular</span>
+                                                </t>
+                                                <t t-if="d.tools == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:12,5%;">
+                                                <b>Vias de Evacuacion</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.escape == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.escape == 'r'">
+                                                    <span>Regular</span>
+                                                </t>
+                                                <t t-if="d.escape == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>Señaleticas</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.clean == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.clean == 'r'">
+                                                    <span>Regular</span>
+                                                </t>
+                                                <t t-if="d.clean == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>Protecciones</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.protect == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.protect == 'r'">
+                                                    <span>Regular</span>
+                                                </t>
+                                                <t t-if="d.protect == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>Condiciones Ambientales</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.condition == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.condition == 'r'">
+                                                    <span>condition</span>
+                                                </t>
+                                                <t t-if="d.tools == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:12,5%;">
+                                                <b>Maquinas</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.machine == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.machine == 'r'">
+                                                    <span>Regular</span>
+                                                </t>
+                                                <t t-if="d.machine == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>Proteccion Incendios</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.protection == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.protection == 'r'">
+                                                    <span>condition</span>
+                                                </t>
+                                                <t t-if="d.protection == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>Superficies</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.surface == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.surface == 'r'">
+                                                    <span>Regular</span>
+                                                </t>
+                                                <t t-if="d.surface == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>Iluminacion</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.illumination == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.illumination == 'r'">
+                                                    <span>Regular</span>
+                                                </t>
+                                                <t t-if="d.illumination == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:12,5%;">
+                                                <b>Ergonomia</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.ergonomic == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.ergonomic == 'r'">
+                                                    <span>Regular</span>
+                                                </t>
+                                                <t t-if="d.ergonomic == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>Infraestructura</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.infrastructure == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.infrastructure == 'r'">
+                                                    <span>condition</span>
+                                                </t>
+                                                <t t-if="d.infrastructure == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>Vias de Circulacion</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.circulation == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.circulation == 'r'">
+                                                    <span>Regular</span>
+                                                </t>
+                                                <t t-if="d.circulation == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>Otros</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <t t-if="d.other == 'b'">
+                                                    <span>Bueno</span>
+                                                </t>
+                                                <t t-if="d.other == 'r'">
+                                                    <span>Regular</span>
+                                                </t>
+                                                <t t-if="d.other == 'm'">
+                                                    <span>Malo</span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:12,5%;">
+                                                <b>#</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>CONDICION DETECTADA</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>PROBABILIDAD</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>GRAVEDAD</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>RIESGO</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>ACCION CORRECTIVA</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>RESPONSABLE</b>
+                                            </td>
+                                            <td style="width:12,5%;">
+                                                <b>PLAZO</b>
+                                            </td>
+                                        </tr>
+                                        <t t-foreach="d.line_ids" t-as="l">
+                                            <tr>
+                                                <td style="width:12,5%;">
+                                                    <span t-esc="l.condition"/>
+                                                </td>
+                                                <td style="width:12,5%;">
+                                                    <t t-if="l.probability == 'b'">
+                                                        <span>Baja</span>
+                                                    </t>
+                                                    <t t-if="l.probability == 'm'">
+                                                        <span>Media</span>
+                                                    </t>
+                                                    <t t-if="l.probability == 'a'">
+                                                        <span>Alta</span>
+                                                    </t>
+                                                </td>
+                                                <td style="width:12,5%;">
+                                                    <t t-if="l.gravity == 'l'">
+                                                        <span>Ligeramente Dañino</span>
+                                                    </t>
+                                                    <t t-if="l.gravity == 'd'">
+                                                        <span>Dañino</span>
+                                                    </t>
+                                                    <t t-if="l.gravity == 'e'">
+                                                        <span>Extremadamente Dañino</span>
+                                                    </t>
+                                                </td>
+                                                <td style="width:12,5%;">
+                                                    <t t-if="l.risk == 'tr'">
+                                                        <span>Trivial</span>
+                                                    </t>
+                                                    <t t-if="l.risk == 'to'">
+                                                        <span>Tolerable</span>
+                                                    </t>
+                                                    <t t-if="l.risk == 'mo'">
+                                                        <span>Moderado</span>
+                                                    </t>
+                                                    <t t-if="l.risk == 'im'">
+                                                        <span>Importante</span>
+                                                    </t>
+                                                    <t t-if="l.risk == 'in'">
+                                                        <span>Intolerable</span>
+                                                    </t>
+                                                </td>
+                                                <td style="width:12,5%;">
+                                                    <span t-esc="l.action"/>
+                                                </td>
+                                                <td style="width:12,5%;">
+                                                    <span t-esc="l.responsible"/>
+                                                </td>
+                                                <td style="width:12,5%;">
+                                                    <span t-esc="l.date.strftime('%d/%m/%Y')"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <tbody>
+                                        <tr>
+                                            <td width='40%' style="font-size:12px:" align="center">
+                                                <img style="max-width: 70px;"
+                                                     t-if="d.company_id.logo"
+                                                     t-att-src="image_data_uri(d.company_id.logo)"
+                                                     alt="Logo"/>
+                                            </td>
+                                            <td style="width:60%; text-align:center;">
+                                                <img class="img"
+                                                     t-attf-src="data:image/png;base64,{{d.signature}}"
+                                                     style="max-width:300px;"
+                                                />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width='40%' style="font-size:12px:" align="center">
+                                                <b></b>
+                                            </td>
+                                            <td style="width:60%; text-align:left;">
+                                                <b>REALIZADO POR:</b>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

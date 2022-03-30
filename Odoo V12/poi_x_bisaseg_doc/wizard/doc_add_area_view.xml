@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="document_add_area" model="ir.ui.view">
+            <field name="name">document.add.area.wiz.form</field>
+            <field name="model">doc.add.area</field>
+            <field name="arch" type="xml">
+                <form string="Adicion de Areas">
+                    <group>
+                        <field name="doc_id" invisible="1"/>
+                        <field name="type" widget="radio"/>
+                        <field name="area_ids" widget="many2many_tags"
+                               attrs="{'invisible': [('type', '!=', 'add')], 'required': [('type', '=', 'add')]}"
+                               options="{'no_create': True, 'no_edit': False}"/>
+                        <field name="area_remove_ids" widget="many2many_tags"
+                               options="{'no_create': True, 'no_edit': False}"
+                               attrs="{'invisible': [('type', '!=', 'remove')], 'required': [('type', '=', 'remove')]}"/>
+                    </group>
+                    <footer>
+                        <button name="action_process" string="Continuar" type="object" class="btn-primary"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

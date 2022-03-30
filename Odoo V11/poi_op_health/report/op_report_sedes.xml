@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <report
+                id="op_report_sedes"
+                string="Informe Sedes"
+                model="op.report.sedes"
+                report_type="qweb-pdf"
+                file="poi_op_health.op_report_sedes"
+                name="poi_op_health.op_report_sedes_template"
+                menu="False"
+        />
+    </data>
+    <template id="op_report_sedes_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page" style="font-size:13px">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3 style="text-align:center;">
+                                <strong>INFORME SEDES</strong>
+                            </h3>
+                            <t t-if="data['start_date'] == data['end_date']">
+                                <h3 style="text-align:center;">
+                                    <strong>Fecha:</strong>
+                                    <strong>
+                                        <span t-esc="data['end_date']" t-options="{'widget': 'date'}"/>
+                                    </strong>
+                                </h3>
+                            </t>
+                            <t t-else="">
+                                <h3 style="text-align:center;">
+                                    <strong>Desde</strong>
+                                    <strong>
+                                        <span t-esc="data['start_date']" t-options="{'widget': 'date'}"/>
+                                    </strong>
+                                    <strong>-</strong>
+                                    <strong>Hasta</strong>
+                                    <strong>
+                                        <span t-esc="data['end_date']" t-options="{'widget': 'date'}"/>
+                                    </strong>
+                                </h3>
+                            </t>
+                            <t t-foreach="parameters" t-as="p">
+                                <div class="col-xs-12" style="padding-top:40px;font-size:15px;">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <th>
+                                                <b>
+                                                    <span t-esc="p"/>
+                                                </b>
+                                            </th>
+                                            <th colspan="2" style="text-align:center">5-9 años</th>
+                                            <th colspan="2" style="text-align:center">10-14 años</th>
+                                            <th colspan="2" style="text-align:center">15-19 años</th>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td style="text-align:center">
+                                                <b>M</b>
+                                            </td>
+                                            <td style="text-align:center">
+                                                <b>F</b>
+                                            </td>
+                                            <td style="text-align:center">
+                                                <b>M</b>
+                                            </td>
+                                            <td style="text-align:center">
+                                                <b>F</b>
+                                            </td>
+                                            <td style="text-align:center">
+                                                <b>M</b>
+                                            </td>
+                                            <td style="text-align:center">
+                                                <b>F</b>
+                                            </td>
+                                        </tr>
+                                        <t t-foreach="values" t-as="v">
+                                            <t t-if="v.parameter_id.name == p">
+                                                <tr>
+                                                    <td>
+                                                        <span t-esc="v.name"/>
+                                                    </td>
+                                                    <t t-set="M9" t-value="0"/>
+                                                    <t t-set="F9" t-value="0"/>
+                                                    <t t-set="M14" t-value="0"/>
+                                                    <t t-set="F14" t-value="0"/>
+                                                    <t t-set="M19" t-value="0"/>
+                                                    <t t-set="F19" t-value="0"/>
+                                                    <t t-foreach="docs" t-as="d">
+                                                        <t t-if="d.value == v.name">
+                                                            <t t-if="d.age &lt;= 9">
+                                                                <t t-if="d.gender == 'm'">
+                                                                    <t t-set="M9" t-value="M9 + 1"/>
+                                                                </t>
+                                                                <t t-if="d.gender == 'f'">
+                                                                    <t t-set="F9" t-value="F9 + 1"/>
+                                                                </t>
+                                                            </t>
+                                                            <t t-if="d.age &gt;= 10">
+                                                                <t t-if=" d.age &lt;= 14">
+                                                                    <t t-if="d.gender == 'm'">
+                                                                        <t t-set="M14" t-value="M14 + 1"/>
+                                                                    </t>
+                                                                    <t t-if="d.gender == 'f'">
+                                                                        <t t-set="F14" t-value="F14 + 1"/>
+                                                                    </t>
+                                                                </t>
+                                                            </t>
+                                                            <t t-if="d.age &gt;= 15">
+                                                                <t t-if="d.gender == 'm'">
+                                                                    <t t-set="M19" t-value="M19 + 1"/>
+                                                                </t>
+                                                                <t t-if="d.gender == 'f'">
+                                                                    <t t-set="F19" t-value="F19 + 1"/>
+                                                                </t>
+                                                            </t>
+                                                        </t>
+                                                    </t>
+                                                    <td style="text-align:center">
+                                                        <span t-esc="M9"/>
+                                                    </td>
+                                                    <td style="text-align:center">
+                                                        <span t-esc="F9"/>
+                                                    </td>
+                                                    <td style="text-align:center">
+                                                        <span t-esc="M14"/>
+                                                    </td>
+                                                    <td style="text-align:center">
+                                                        <span t-esc="F14"/>
+                                                    </td>
+                                                    <td style="text-align:center">
+                                                        <span t-esc="M19"/>
+                                                    </td>
+                                                    <td style="text-align:center">
+                                                        <span t-esc="F19"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </t>
+                                    </table>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_establishment,access.pos.establishment,model_pos_establishment,base.group_user,1,1,1,1
+access_wizard_calculate_bank_commission,access.wizard.calculate.bank.commission,model_wizard_calculate_bank_commission,base.group_user,1,1,1,1
+access_wizard_calculate_bank_commission_lines,access.wizard.calculate.bank.commission.lines,model_wizard_calculate_bank_commission_lines,base.group_user,1,1,1,1

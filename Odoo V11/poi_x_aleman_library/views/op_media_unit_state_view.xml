@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_media_unit_state_form_view" model="ir.ui.view">
+            <field name="name">op.media.unit.state.form.view</field>
+            <field name="model">op.media.unit.state</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_media_unit_state_tree_view" model="ir.ui.view">
+            <field name="name">op.media.unit.state.tree.view</field>
+            <field name="model">op.media.unit.state</field>
+            <field name="arch" type="xml">
+                <tree string="Op Media Unit State">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_media_unit_state" model="ir.actions.act_window">
+            <field name="name">Estado de Libro</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.media.unit.state</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_media_unit_state_menu_configuration" name="Estado de Libro" sequence="1"
+                  parent="op_school_library_config" action="action_op_media_unit_state"/>
+    </data>
+</odoo>

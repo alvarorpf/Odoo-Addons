@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="poi_scrum.sprint_view">
+<ul class="list-group o_project sprint_task drag-t">
+    <t t-foreach="widget.tasks.task_ids" t-as="t">
+        <li class="list-group-item task scrum-item" t-attf-data-id="t.id">
+            <span t-esc="t.name"> </span>   
+            <!-- <span class="badge badge-primary  float-right" t-esc="t.user_story_count" />
+            <span class="badge badge-warning  float-right" t-esc="t.todo_estimation" />
+            <span class="badge badge-success  float-right" t-esc="t.done_estimation" />  -->
+        </li>
+    </t>
+</ul>
+</t>
+</templates>

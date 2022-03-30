@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_consultation_reason_form_view" model="ir.ui.view">
+            <field name="name">op.consultation.reason.form.view</field>
+            <field name="model">op.consultation.reason</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_consultation_reason_tree_view" model="ir.ui.view">
+            <field name="name">op.consultation.reason.tree.view</field>
+            <field name="model">op.consultation.reason</field>
+            <field name="arch" type="xml">
+                <tree string="Op Consultation Reason">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_consultation_reason" model="ir.actions.act_window">
+            <field name="name">Razon de Consulta</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.consultation.reason</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_consultation_reason_menu_configuration" name="Razon de Consulta" sequence="1" parent="submenu_op_health_configuration_clinical" action="action_op_consultation_reason"/>
+    </data>
+</odoo>

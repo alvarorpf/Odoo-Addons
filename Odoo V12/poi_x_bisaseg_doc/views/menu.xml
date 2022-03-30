@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Menu de Configuraciones Generales de Requerimientos de Documentos-->
+    <menuitem id="menu_configuration_request_document"
+              name="Configuración"
+              parent="muk_quality_docs.menu_muk_quality_docs"
+              sequence="100"
+              groups="poi_x_bisaseg_doc.group_o_and_m"/>
+
+    <menuitem id="menu_muk_quality_docs_documents2"
+              name="Documentos"
+              parent="muk_quality_docs.menu_muk_quality_docs_documents"
+              sequence="1"
+              action="muk_quality_docs.documents"/>
+
+    <menuitem id="muk_quality_docs.menu_muk_quality_docs_stages"
+              name="Etapas"
+              parent="muk_quality_docs.menu_muk_quality_docs_documents"
+              sequence="2"
+              groups="muk_quality_docs.group_muk_quality_docs_manager"
+              action="muk_quality_docs.stages"/>
+
+    <menuitem id="muk_quality_docs.menu_muk_quality_docs_documents"
+              name="Documentos"
+              parent="muk_quality_docs.menu_muk_quality_docs"
+              sequence="10"/>
+
+    <!-- Importación web -->
+    <menuitem
+            name="Importador Web"
+            id="menu_view_poi_bizagi_import_base"
+            parent="muk_quality_docs.menu_muk_quality_docs"
+            sequence="20"/>
+
+    <menuitem
+            name="Importar"
+            action="action_view_poi_bizagi_import_wizard"
+            id="menu_view_poi_bizagi_import_wizard"
+            parent="menu_view_poi_bizagi_import_base"
+            sequence="10"/>
+
+    <menuitem
+            name="Paginas Web"
+            action="action_view_poi_bizagi_import"
+            id="menu_view_poi_bizagi_import"
+            parent="menu_view_poi_bizagi_import_base"
+            sequence="20"/>
+
+    <!--Documentos-->
+    <menuitem id="conf_document_type"
+              name="Tipo de Documento"
+              parent="menu_configuration_request_document"
+              action="action_document_type"
+              sequence="70"/>
+
+    <menuitem id="conf_document_template_circuit"
+              name="Template Circuito Autorización"
+              parent="menu_configuration_request_document"
+              action="action_document_template_circuit"
+              sequence="80"/>
+
+    <menuitem id="conf_document_norm"
+              name="Documento Relacionado"
+              parent="menu_configuration_request_document"
+              action="action_document_norm"
+              sequence="90"/>
+
+    <menuitem id="conf_document_process"
+              name="Proceso"
+              parent="menu_configuration_request_document"
+              action="action_document_process"
+              sequence="100"/>
+ 
+    <menuitem id="conf_document_sistema"
+              name="Sistema"
+              parent="menu_configuration_request_document"
+              action="action_document_system"
+              sequence="110"/>
+    <menuitem id="conf_document_sequence"
+              name="Secuencias"
+              parent="menu_configuration_request_document"
+              action="action_document_sequence"
+              sequence="120"/>
+
+    <menuitem id="conf_document_tag"
+              name="Etiquetas de Documento"
+              parent="menu_configuration_request_document"
+              action="action_document_tag"
+              sequence="130"/>
+
+    <!--Requerimientos-->
+    <menuitem id="menu_request_doc"
+              name="Requerimiento"
+              sequence="3"
+              parent="muk_quality_docs.menu_muk_quality_docs_documents"
+              action="action_request_document"/>
+
+    <menuitem id="menu_pending_approve"
+              name="Pendientes Aprobacion"
+              sequence="4"
+              parent="muk_quality_docs.menu_muk_quality_docs_documents"
+              action="action_pending_approve"/>
+
+    <menuitem id="conf_request_document_approver"
+              name="Aprobadores Finales"
+              parent="menu_configuration_request_document"
+              action="action_request_document_approver"
+              sequence="10"/>
+
+    <menuitem id="conf_request_doc_type"
+              name="Tipo de Requerimiento"
+              parent="menu_configuration_request_document"
+              action="action_request_doc_type"
+              sequence="20"/>
+
+    <menuitem id="conf_request_doc_type2"
+              name="Tipo"
+              parent="menu_configuration_request_document"
+              action="action_request_doc_type2"
+              sequence="30"/>
+
+    <menuitem id="conf_request_doc_justification"
+              name="Justificación"
+              parent="menu_configuration_request_document"
+              action="action_request_doc_justification"
+              sequence="40"/>
+
+    <menuitem id="conf_request_doc_complexity"
+              name="Complejidad"
+              parent="menu_configuration_request_document"
+              action="action_request_doc_complexity"
+              sequence="50"/>
+
+    <menuitem id="conf_request_doc_priority"
+              name="Prioridad"
+              parent="menu_configuration_request_document"
+              action="action_request_doc_priority"
+              sequence="60"/>
+
+    <record id="action_access_groups" model="ir.actions.act_window">
+        <field name="name">Grupos de Acceso</field>
+        <field name="res_model">muk_security.access_groups</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="conf_access_group"
+              name="Grupos de Acceso"
+              parent="menu_configuration_request_document"
+              action="action_access_groups"
+              sequence="60"/>
+
+    <menuitem name="Importacion de Documentos" id="menu_import_document"  parent="muk_quality_docs.menu_muk_quality_docs"
+              action="import_document_action_form" sequence="22"/>
+</odoo>

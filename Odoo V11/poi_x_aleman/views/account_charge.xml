@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+
+  <record id="account_op_charge_type_view_tree" model="ir.ui.view">
+    <field name="name">account.op.charge.type.tree</field>
+    <field name="model">account.op.charge.type</field>
+    <field name="arch" type="xml">
+      <tree string="">
+        <field name="code"/>
+        <field name="name" />
+        <field name="type" />
+      </tree>
+    </field>
+  </record>
+
+
+
+  <record id="account_op_charge_type_view_form" model="ir.ui.view">
+    <field name="name">account.op.charge.type.form</field>
+    <field name="model">account.op.charge.type</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <sheet>
+          <group>
+            <field name="code"/>
+            <field name="name" />
+            <field name="type" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="account_op_charge_type_action_form" model="ir.actions.act_window">
+    <field name="name">Tipos de Cargo</field>
+    <field name="res_model">account.op.charge.type</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+        Añadir tipos de Cargo
+      </p>
+      <p>
+        <!-- More details about what a user can do -->
+      </p>
+    </field>
+  </record>
+
+
+  <record id="account_op_charge_view_tree" model="ir.ui.view">
+    <field name="name">account.op.charge.tree</field>
+    <field name="model">account.op.charge</field>
+    <field name="arch" type="xml">
+      <tree string="Cargos">
+        <field name="family_id" />
+        <field name="student_id"/>
+        <field name="type_charge" />
+        <field name="amount" />
+        <field name="pension_amount_pay"/>
+        <field name="amount_diff"/>
+        <field name="state" />
+        <field name="state_paid" />
+        <field name="date" />
+        <field name="year_id"/>
+        <field name="month_id" />
+      </tree>
+    </field>
+  </record>
+
+   <!--Search View-->
+  <record id="account.charge_search_view" model="ir.ui.view">
+      <field name="name">account.charge.search.view</field>
+      <field name="model">account.op.charge</field>
+      <field name="priority" eval="8"/>
+      <field name="arch" type="xml">
+          <search string="Account Charge">
+              <field name="family_id"/>
+              <field name="student_id"/>
+              <field name="type_charge"/>
+              <field name="month_id"/>
+              <newline/>
+          </search>
+      </field>
+  </record>
+  <record id="wiz_charge_payment" model="ir.actions.server">
+      <field name="name">Asistente de pago de cargos</field>
+      <field name="model_id" ref="poi_x_aleman.model_account_op_charge"/>
+      <field name="binding_model_id" ref="poi_x_aleman.model_account_op_charge"/>
+      <field name="state">code</field>
+      <field name="code">action = records.create_payment()</field>
+  </record>
+
+  <record id="account_op_charge_view_form" model="ir.ui.view">
+    <field name="name">account.op.charge.form</field>
+    <field name="model">account.op.charge</field>
+    <field name="arch" type="xml">
+      <form string="Cargos">
+        <header>
+          <button name="action_send" string="Confirmar" class="oe_highlight" states="draft" type="object"/>
+          <button name="create_payment" string="Pagar..." class="oe_highlight" states="send,wait" type="object"/>
+          <button name="action_cancel" string="Cancelar" type="object"/>
+          <field name="state" widget="statusbar" readonly="1"/>
+        </header>
+        <sheet>
+          <div class="oe_button_box" name="button_box">
+              <button name="action_open_requests" type="object"
+                      class="oe_stat_button" icon="fa-dollar" string="Pagos de cargo" states="done">
+
+              </button>
+          </div>
+          <group>
+            <group>
+              <field name="state_paid" readonly="1" />
+              <field name="type_charge" />
+              <field name="student_id" />
+              <field name="payment_responsable"/>
+              <field name="currency_id"/>
+            </group>
+            <group>
+              <field name="date" />
+              <field name="date_due" />
+              <field name="year_id" readonly="1" />
+              <field name="month_id" />
+              <field name="family_id" />
+              <field name="course_id" />
+              <field name="course_level_id" />
+            </group>
+          </group>
+          <notebook>
+            <page string="Detalles del Cargo">
+              <group>
+                <group>
+                  <field name="product_id" />
+                  <field name="concept_type" invisible="1"/>
+                  <field name="taxes_id" widget="many2many_tags" />
+                  <field name="analytic_id" />
+                  <field name="account_id" domain="[('internal_type', '=', 'other'), ('deprecated', '=', False)]"/>
+                </group>
+                <group>
+                  <field name="name" required="1"/>
+                  <field name="priority_id" />
+                  <field name="amount" />
+                </group>
+                <group>
+
+                </group>
+                <group class="oe_subtotal_footer oe_right" colspan="2" name="charge_total">
+                    <field name="amount_untaxed"/>
+                    <field name="amount_tax"/>
+                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                        <label for="amount_total" />
+                    </div>
+                    <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator"/>
+                    <field name="pension_amount_pay" readonly="1"/>
+                    <field name="amount_diff" readonly="1"/>
+                </group>
+              </group>
+            </page>
+          </notebook>
+          <group>
+            
+          </group>
+          <group>
+            <field name="warehouse_id"/>
+            <field name="picking_id"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="account_op_charge_action_form" model="ir.actions.act_window">
+    <field name="name">Cargos</field>
+    <field name="res_model">account.op.charge</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+        Crear Nuevos Cargos a los Alumnos
+      </p>
+      <p>
+        <!-- More details about what a user can do -->
+      </p>
+    </field>
+  </record>
+
+</data>
+</odoo>

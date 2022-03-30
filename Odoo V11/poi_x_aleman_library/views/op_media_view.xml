@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="create_unit_action_form" model="ir.actions.act_window">
+            <field name="name">Crear Unidad</field>
+            <field name="res_model">create.unit</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <record id="op_media_form_view_inherit" model="ir.ui.view">
+            <field name="name">op.media.form.view.inherit</field>
+            <field name="model">op.media</field>
+            <field name="inherit_id" ref="openeducat_library.view_op_media_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form" position="replace">
+                        <form string="Libros">
+                            <sheet>
+                                <field name="image" widget="image" class="oe_left oe_avatar"/>
+                                <div class="oe_title">
+                                    <h1>
+                                        <field name="name" placeholder="Nombre"/>
+                                    </h1>
+                                </div>
+                                <group>
+                                    <group>
+                                        <field name="author_ids" widget="many2many_tags" string="Autor(es)"/>
+                                        <field name="isbn" string="ISBN"/>
+                                        <field name="edition" string="Edición"/>
+                                        <field name="year_edition"/>
+                                        <field name="media_type_id" string="Tipo de Medio" required="1" options="{'no_open': True}"/>
+                                        <field name="media_subtype_id" options="{'no_open': True}"/>
+                                    </group>
+                                    <group>
+                                        <field name="publisher_ids" widget="many2many_tags" string="Editorial(es)"/>
+                                        <field name="cdu_code_id" options="{'no_open': True}"/>
+                                        <field name="author_type"/>
+                                        <field name="data_title"/>
+                                        <field name="color_tag"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <notebook>
+                                        <page string="Unidades">
+                                            <group>
+                                                <button name="%(create_unit_action_form)d"
+                                                        string="Crear Unidad"
+                                                        class="oe_highlight oe_edit_only" type="action"
+                                                        context="{'default_media_id':id, 'default_media_type_id': media_type_id}"/>
+                                            </group>
+                                            <group>
+                                                <div>
+                                                    <field name="unit_ids"/>
+                                                </div>
+                                            </group>
+                                        </page>
+                                        <page string="Descripción">
+                                            <group>
+                                                <div>
+                                                    <field name="description"/>
+                                                </div>
+                                            </group>
+                                            <group>
+                                                <field name="original_title"/>
+                                            </group>
+                                            <group>
+                                                <group>
+                                                    <field name="language_ids" string="Idiomas" widget="many2many_tags"/>
+                                                    <field name="publisher_place_id"/>
+                                                    <field name="page_number"/>
+                                                    <field name="translate"/>
+                                                </group>
+                                                <group string="Precio">
+                                                    <field name="ref_price"/>
+                                                    <field name="ref_currency"/>
+                                                </group>
+                                            </group>
+                                        </page>
+                                        <page string="Detalles Educación">
+                                            <group>
+                                                <group>
+                                                    <field name="cursos_ids" string="Cursos" widget="many2many_tags"/>
+                                                    <field name="level_id"/>
+                                                </group>
+                                                <group>
+                                                    <field name="subject_ids" string="Materias"
+                                                           widget="many2many_tags"/>
+                                                </group>
+                                            </group>
+                                        </page>
+                                    </notebook>
+                                </group>
+                            </sheet>
+                            <div class="oe_chatter">
+                                <field name="message_follower_ids" widget="mail_followers"/>
+                                <field name="activity_ids" widget="mail_activity"/>
+                                <field name="message_ids" widget="mail_thread"
+                                       options="{'post_refresh': 'recipients'}"/>
+                            </div>
+                        </form>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="op_media_tree_view_inherit" model="ir.ui.view">
+            <field name="name">op.media.tree.view.inherit</field>
+            <field name="model">op.media</field>
+            <field name="inherit_id" ref="openeducat_library.view_op_media_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="replace">
+                    <tree>
+                        <field name="name" string="Titulo"/>
+                        <field name="isbn" string="ISBN"/>
+                        <field name="media_type_id" string="Tipo de Medio"/>
+                        <field name="edition" string="Edicion"/>
+                        <field name="author_ids" string="Autores" widget="many2many_tags"/>
+                        <field name="publisher_ids" string="Editoriales" widget="many2many_tags"/>
+                        <field name="cdu_code_id" string="Codigo Interno"/>
+                    </tree>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Kanban View-->
+        <record id="kanban_view_media" model="ir.ui.view">
+            <field name="name">Libro Kanban</field>
+            <field name="model">op.media</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="image"/>
+                    <field name="unit_ids"/>
+                    <field name="author_ids"/>
+                    <field name="media_type_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click o_res_partner_kanban">
+                                <div class="o_kanban_image">
+                                    <t t-if="record.image.raw_value">
+                                        <field name="image" widget="image" class="oe_left oe_avatar"/>
+                                    </t>
+                                    <t t-if="!record.image.value">
+                                        <img t-att-src="_s + &quot;/base/static/src/img/avatar.png&quot;"/>
+                                    </t>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <span class="pull-right">
+                                        <strong class="label label-success">
+                                            <t t-if="record.media_type_id.raw_value">
+                                                <field name="media_type_id"/>
+                                            </t>
+                                        </strong>
+                                    </span>
+                                    <h4>
+                                        <a type="open">
+                                            <field name="name"/>
+                                        </a>
+                                    </h4>
+                                    <ul>
+                                        <li t-if="record.author_ids.raw_value">
+                                            <span>
+                                                <strong>Autor(es):</strong>
+                                            </span>
+                                            <field name="author_ids"/>
+                                        </li>
+                                        <li t-if="record.publisher_ids.raw_value">
+                                            <span>
+                                                <strong>Editorial(es):</strong>
+                                            </span>
+                                            <field name="publisher_ids"/>
+                                        </li>
+                                        <t t-if="record.unit_ids.value != 'No hay registros'">
+                                            <li>
+                                                <span>
+                                                    <strong>Cantidad de Ejemplares:</strong>
+                                                </span>
+                                                <br/>
+                                                <span t-esc="record.unit_ids.value"/>
+                                            </li>
+                                        </t>
+                                        <t t-else="">
+                                            <li>
+                                                <span>
+                                                    <strong>Cantidad:</strong>
+                                                </span>
+                                                <br/>
+                                                Sin ejemplares
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="op_media_search_view_inherit" model="ir.ui.view">
+            <field name="name">op.media.search.view.inherit</field>
+            <field name="model">op.media</field>
+            <field name="inherit_id" ref="openeducat_library.view_op_media_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="replace">
+                    <search>
+                        <field name="name" string="Titulo"/>
+                        <field name="isbn" string="ISBN"/>
+                        <field name="edition" string="Edición"/>
+                        <field name="year_edition" string="Año de Edición"/>
+                        <field name="media_type_id" string="Tipo de Medio"/>
+                        <field name="edition" string="Edicion"/>
+                        <field name="author_ids" string="Autores"/>
+                        <field name="publisher_ids" string="Editoriales"/>
+                        <field name="cdu_code_id" string="Codigo Interno"/>
+                        <field name="original_title"/>
+                        <field name="publisher_place_id"/>
+                    </search>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="openeducat_library.act_open_op_media_view">
+            <field name="name">Libros/Media</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.media</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="search_view_id" ref="openeducat_library.view_op_media_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+    </data>
+</odoo>

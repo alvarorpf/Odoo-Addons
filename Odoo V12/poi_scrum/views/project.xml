@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_pause_project" model="ir.actions.act_window">
+        <field name="name">Pausar Proyecto</field>
+        <field name="res_model">pause.project</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_continue_project" model="ir.actions.act_window">
+        <field name="name">Continuar Proyecto</field>
+        <field name="res_model">pause.project</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_dismissed_project" model="ir.actions.act_window">
+        <field name="name">Desestimar Proyecto</field>
+        <field name="res_model">dismissed.project</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_continue_dismissed_project" model="ir.actions.act_window">
+        <field name="name">Continuar Proyecto</field>
+        <field name="res_model">dismissed.project</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <!--Herencias al formulario de proyectos-->
+    <!--Herencia Modulo Project_Agile-->
+    <record id="edit_project_scrum" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project_agile.edit_project"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button class="btn-primary" name="next_stage" type="object" string="Siguiente Etapa"
+                        attrs="{'invisible': ['|', ('end_stage', '=', True), ('pause', '=', True)]}"
+                        groups="project.group_project_manager"/>
+                <button name="%(action_pause_project)d"
+                        string="Pausar Proyecto"
+                        class="oe_highlight" type="action"
+                        attrs="{'invisible': ['|',('pause', '=', True),('dismissed', '=', True)]}"
+                        context="{'default_project_id':id}"
+                        groups="project.group_project_manager"/>
+                <button name="%(action_continue_project)d"
+                        string="Continuar Proyecto"
+                        class="oe_highlight" type="action"
+                        attrs="{'invisible': [('pause', '=', False)]}"
+                        context="{'default_project_id':id, 'default_pause': False}"
+                        groups="project.group_project_manager"/>
+                <button name="%(action_dismissed_project)d"
+                        string="Desestimar Proyecto"
+                        class="oe_highlight" type="action"
+                        attrs="{'invisible': ['|',('dismissed', '=', True),('pause', '=', True)]}"
+                        context="{'default_project_id':id}"
+                        groups="project.group_project_manager"/>
+                <button name="%(action_continue_dismissed_project)d"
+                        string="Continuar Proyecto"
+                        class="oe_highlight" type="action"
+                        attrs="{'invisible': [('dismissed', '=', False)]}"
+                        context="{'default_project_id':id, 'default_dismissed': False}"
+                        groups="project.group_project_manager"/>
+                <field name="stage_id" widget="statusbar"/>
+            </header>
+            <xpath expr="//field[@name='type_id']" position="attributes">
+                <attribute name="options">{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='type_id']/.." position="attributes">
+                <attribute name="col">4</attribute>
+            </xpath>
+            <xpath expr="//field[@name='type_id']" position="after">
+                <field name="origin_id"
+                       options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                <field name="priority_id"
+                       options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </xpath>
+            <div name="button_box" position="inside">
+                <button name="action_view_log" string="Log" type="object" class="oe_stat_button" icon="fa-list" groups="project.group_project_user"/>
+                <button name="action_view_sprints" string="Sprints" type="object" class="oe_stat_button"
+                        icon="fa-clock-o" groups="project.group_project_user"/>
+            </div>
+            <xpath expr="//button[@name='open_user_stories']" position="replace">
+                <button name="action_view_request" string="Formulario Requerimiento" type="object"
+                        class="oe_stat_button"
+                        icon="fa-file-text" attrs="{'invisible': [('request_id', '=', False)]}"/>
+                <button name="action_general_tasks" string="Tareas Generales" type="object" class="oe_stat_button"
+                        icon="fa-tasks" groups="project.group_project_user"/>
+            </xpath>
+            <xpath expr="//button[@name='open_epics']" position="replace">
+                <button name="action_developing_tasks" string="Tareas Desarrollo" type="object" class="oe_stat_button"
+                        icon="fa-tasks" groups="project.group_project_user"/>
+            </xpath>
+            <xpath expr="//button[@name='open_board_tree_view']" position="replace">
+                <button name="action_general_schedule" string="Cronograma General" type="object" class="oe_stat_button"
+                        icon="fa-list" groups="project.group_project_user"/>
+                <button name="action_developing_schedule" string="Cronograma Desarrollo" type="object"
+                        class="oe_stat_button" icon="fa-list" groups="project.group_project_user"/>
+            </xpath>
+            <xpath expr="//button[@name='button_run_workflow_wizard']/.." position="attributes">
+                <attribute name="groups">project.group_project_user</attribute>
+            </xpath>
+            <xpath expr="//field[@name='task_count']/.." position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='allow_workflow']/../.." position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='agile_enabled']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='agile_method']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='attachment_tree_view']" position="attributes">
+                <attribute name="groups">project.group_project_manager</attribute>
+            </xpath>
+            <notebook position="before">
+                <group>
+                    <group>
+                        <field name="advance" readonly="1" force_save="1"/>
+                        <field name="delay_days" readonly="1" force_save="1"/>
+                        <field name="deviation" readonly="1" force_save="1"/>
+                        <field name="pause" invisible="1"/>
+                        <field name="dismissed" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="start_date" readonly="1" force_save="1"/>
+                        <field name="end_date" readonly="1" force_save="1"/>
+                        <field name="health" readonly="1" force_save="1"/>
+                        <field name="end_stage" invisible="1"/>
+                    </group>
+                    <label for="description" string="Descripción General" style="font-weight: bold;"/>
+                    <field name="description" string="Descripción"
+                           placeholder="Por favor, ingrese la descripción del proyecto"/>
+                </group>
+            </notebook>
+            <xpath expr="//field[@name='user_id']" position="replace"/>
+            <xpath expr="//field[@name='key']" position="attributes">
+                <attribute name="readonly">1</attribute>
+                <attribute name="force_save">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='teams']" position="attributes">
+                <attribute name="string">Equipos Desarrollo</attribute>
+            </xpath>
+            <xpath expr="//field[@name='type_ids']/.." position="attributes">
+                <attribute name="string">Etapas Desarrollo</attribute>
+                <attribute name="name">stages</attribute>
+            </xpath>
+            <xpath expr="//field[@name='team_ids']" position="attributes">
+                    <attribute name="readonly">0</attribute>
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page[@name='stages']" position="before">
+                <page string="Información" name="information">
+                    <group>
+                        <field name="user_id" string="Administrador del proyecto" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="sponsor_ids" widget="many2many_tags"
+                               options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="area_id" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="supervisor_id" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="supervisor_ids" widget="many2many_tags" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="owner_id" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="requesting_user_id" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="request_id" invisible="1"/>
+                    </group>
+                </page>
+                <page string="Etapas Proyecto" name="project_stages">
+                    <field name="project_stage_ids" context="{'default_project_id': id}">
+                        <tree editable="bottom" delete="0" create="0">
+                            <field name="project_id" invisible="1"/>
+                            <field name="project_stage_id" readonly="1" force_save="1"/>
+                            <field name="res_user_ids" widget="many2many_tags"/>
+                            <field name="date_start" required="1"/>
+                            <field name="date_end" required="1"/>
+                            <field name="allow_tasks"/>
+                            <field name="view_cg" invisible="1"/>
+                            <field name="sequence" invisible="1"/>
+                            <field name="progress" widget="progressbar"/>
+                            <field name="observation"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_chatter')]" position="inside">
+                <field name="activity_ids" widget="mail_activity"/>
+                <field name="message_ids" widget="mail_thread"
+                       options="{'post_refresh': 'recipients'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="edit_project_scrum2" model="ir.ui.view">
+        <field name="name">project.project.form2</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="hr_timesheet.project_invoice_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='analytic_account_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!--Vista arbol de proyectos-->
+    <record id="project_view_tree_scrum" model="ir.ui.view">
+        <field name="name">project.view.tree,scrum</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="replace">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="key"/>
+                    <field name="stage_id"/>
+                    <field name="area_id"/>
+                    <field name="supervisor_id"/>
+                    <field name="sponsor_ids" widget="many2many_tags"/>
+                    <field name="owner_id"/>
+                    <field name="health"/>
+                    <field name="deviation"/>
+                </tree>
+            </xpath>
+        </field>
+    </record>
+
+    <!--Vista Kanban dde Proyectos-->
+    <record model="ir.ui.view" id="view_project_kanban">
+        <field name="name">project.project.kanban</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <field name="type_id" position="after">
+                <field name="image"/>
+                <field name="advance"/>
+            </field>
+            <xpath expr="//div[hasclass('o_primary')]/span[2]" position="after">
+                <br/>
+                <span t-if="record.key.value">
+                    <t t-esc="record.key.value"/>
+                </span>
+                <br/>
+                <field name="advance" widget="progressbar"/>
+                <br/>
+                <div class="o_kanban_image">
+                    <field name="image" widget="image" class="oe_left oe_avatar"/>
+                </div>
+            </xpath>
+            <xpath expr="//div[hasclass('o_project_kanban_boxes')]" position="replace">
+                <div class="col-xs-12">
+                    <button class="btn btn-outline-primary fa fa-tasks" name="action_general_tasks" type="object"
+                            title="Tareas Generales" groups="project.group_project_user">
+                        <span>General</span>
+                    </button>
+                    <button class="btn btn-outline-primary fa fa-tasks" name="developing_tasks" type="object"
+                            title="Tareas Desarrollo" string="Desarrollo" groups="project.group_project_user">
+                        <span>Desarrollo</span>
+                    </button>
+                    <button class="btn btn-outline-primary fa fa-clock-o" name="action_view_sprints" type="object"
+                            title="Sprints" groups="project.group_project_user">
+                        <span>Sprint</span>
+                    </button>
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="project.open_view_project_all" model="ir.actions.act_window">
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <!--Vista Arbol de Log de Proyectos-->
+    <record id="project_log_tree_bisa" model="ir.ui.view">
+        <field name="name">project.log.tree.bisa</field>
+        <field name="model">project.log</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="project_id"/>
+                <field name="date"/>
+                <field name="stage_id"/>
+                <field name="health"/>
+                <field name="owner_id"/>
+                <field name="supervisor_id"/>
+                <field name="origin_id"/>
+                <field name="deviation"/>
+                <field name="observation"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

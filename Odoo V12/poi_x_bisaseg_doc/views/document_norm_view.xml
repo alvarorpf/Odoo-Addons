@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="document_norm_form">
+        <field name="name">document.norm.form</field>
+        <field name="model">document.norm</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="document_norm_tree">
+        <field name="name">document.norm.tree</field>
+        <field name="model">document.norm</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_document_norm">
+        <field name="name">Documento Relacionado</field>
+        <field name="res_model">document.norm</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

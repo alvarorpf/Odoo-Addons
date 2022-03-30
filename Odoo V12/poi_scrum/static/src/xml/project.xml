@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="poi_scrum.project_list">
+<t t-foreach="widget.projects" t-as="p">
+    <li class="o_list list-group-item project scrum-item" t-attf-data-id="{{p.id}}">
+        <span class="fa fa-clone"></span>
+        <span t-esc="p.name"> </span>   
+        <span class="badge badge-primary  float-right" t-esc="p.user_story_count" />
+        <span class="badge badge-warning  float-right" t-esc="p.todo_estimation" />
+        <span class="badge badge-success  float-right" t-esc="p.done_estimation" /> 
+    </li>
+</t>
+</t>
+</templates>

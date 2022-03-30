@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="True">
+        <record id="level_1" model="account.op.charge.level">
+            <field name="name">1</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="level_2" model="account.op.charge.level">
+            <field name="name">2</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="level_3" model="account.op.charge.level">
+            <field name="name">3</field>
+            <field name="sequence">3</field>
+        </record>
+        <record id="level_4" model="account.op.charge.level">
+            <field name="name">4</field>
+            <field name="sequence">4</field>
+        </record>
+        <record id="level_5" model="account.op.charge.level">
+            <field name="name">5</field>
+            <field name="sequence">5</field>
+        </record>
+        <record id="level_6" model="account.op.charge.level">
+            <field name="name">6</field>
+            <field name="sequence">6</field>
+        </record>
+        <record id="level_7" model="account.op.charge.level">
+            <field name="name">7</field>
+            <field name="sequence">7</field>
+        </record>
+    </data>
+</odoo>

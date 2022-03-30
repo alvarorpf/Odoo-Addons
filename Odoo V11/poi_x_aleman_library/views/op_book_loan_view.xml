@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="return_book_action_form" model="ir.actions.act_window">
+            <field name="name">Devolver Libro</field>
+            <field name="res_model">return.book</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <!--Form View-->
+        <record id="op_book_loan_form_view" model="ir.ui.view">
+            <field name="name">op.book.loan.form.view</field>
+            <field name="model">op.book.loan</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="issue_book" string="Emitir Libro" class="oe_highlight" states="draft"
+                                type="object"/>
+                        <button name="%(return_book_action_form)d"
+                                class="oe_highlight"
+                                states="issued,late"
+                                string="Devolver Libro"
+                                type="action"
+                                context="{'default_book_loan_id':id}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                        <group string="Detalle de Libro">
+                            <group>
+                                <field name="media_id"/>
+                                <field name="media_unit_id"/>
+                                <field name="media_type_id" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="barcode"/>
+                            </group>
+                        </group>
+                        <group string="Detalles de Préstamo">
+                            <group>
+                                <field name="type"/>
+                                <field name="student_id"
+                                       attrs="{'required': [('type','=', 'student')], 'invisible': [('type','!=', 'student')]}"
+                                       domain="[('state','=','activo')]"/>
+                                <field name="teacher_id"
+                                       attrs="{'required': [('type','=', 'teacher')], 'invisible': [('type','!=', 'teacher')]}"/>
+                                <field name="employee_id"
+                                       attrs="{'required': [('type','=', 'employee')], 'invisible': [('type','!=', 'employee')]}"/>
+                                <field name="code"/>
+                            </group>
+                            <group>
+                                <field name="loan_term_id"/>
+                                <field name="level_id"
+                                       attrs="{'required': [('type','=', 'student')], 'invisible': [('type','!=', 'student')]}"/>
+                            </group>
+                        </group>
+                        <group string="Fechas">
+                            <group>
+                                <field name="broadcast_date"/>
+                                <field name="return_date" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="due_date" readonly="1"/>
+                                <field name="days_late" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"
+                               options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_book_loan_search" model="ir.ui.view">
+            <field name="name">op.book.loan.search</field>
+            <field name="model">op.book.loan</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <search string="Préstamo de Libros">
+                    <field name="lender_name"/>
+                    <field name="code"/>
+                    <field name="media_id"/>
+                    <field name="media_unit_id"/>
+                    <field name="barcode"/>
+                    <field name="state"/>
+                    <newline />
+                </search>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_book_loan_tree_view" model="ir.ui.view">
+            <field name="name">op.book.loan.tree.view</field>
+            <field name="model">op.book.loan</field>
+            <field name="arch" type="xml">
+                <tree string="Op Book Loan">
+                    <field name="name"/>
+                    <field name="lender_name"/>
+                    <field name="code"/>
+                    <field name="media_id"/>
+                    <field name="media_unit_id"/>
+                    <field name="barcode"/>
+                    <field name="state"/>
+                    <field name="loan_term_id"/>
+                    <field name="broadcast_date"/>
+                    <field name="return_date"/>
+                    <field name="due_date"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_book_loan" model="ir.actions.act_window">
+            <field name="name">Préstamo de Libro</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.book.loan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_book_loan_menu_library" name="Préstamo de Libros" sequence="30"
+                  parent="openeducat_library.menu_library_medias" action="action_op_book_loan"/>
+    </data>
+</odoo>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="account_closing_wizard_form_view" model="ir.ui.view">
+            <field name="name">account.closing.wizard.form.view</field>
+            <field name="model">account.closing.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Invoice">
+                    <group>
+                        <group>
+                            <field name="drag_account_id" options="{'no_open': True, 'no_create': True}" required="1"/>
+                            <field name="closing_account_id" options="{'no_open': True, 'no_create': True}" required="1"/>
+                            <field name="journal_id" options="{'no_open': True, 'no_create': True}" required="1"/>
+                        </group>
+                        <group>
+                            <field name="date_start" required="1"/>
+                            <field name="date_end" required="1"/>
+                            <field name="amount" widget='monetary' readonly="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Confirmar" name="action_redistribute" type="object" class="send btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+       <record id="action_account_closing_wizard" model="ir.actions.act_window">
+           <field name="name">Traspaso de resultado actual</field>
+           <field name="res_model">account.closing.wizard</field>
+           <field name="view_mode">form</field>
+           <field name="target">new</field>
+       </record>
+
+        <record id="account_closing_wizard_transfer_form_view" model="ir.ui.view">
+            <field name="name">account.closing.wizard.transfer.form.view</field>
+            <field name="model">account.closing.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Invoice">
+                    <group>
+                        <group>
+                            <field name="drag_account_id" options="{'no_open': True, 'no_create': True}" required="1"/>
+                            <field name="closing_account_id" options="{'no_open': True, 'no_create': True}" required="1" string="Cuenta de resultado acumulado"/>
+                            <field name="journal_id" options="{'no_open': True, 'no_create': True}" required="1"/>
+                        </group>
+                        <group>
+                            <field name="date_start" required="1"/>
+                            <field name="date_end" required="1"/>
+                            <field name="amount_transfer" widget='monetary' readonly="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Confirmar" name="action_redistribute_transfer" type="object" class="send btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_account_closing_transfer_wizard" model="ir.actions.act_window">
+           <field name="name">Traspaso de resultado Acumulado</field>
+           <field name="res_model">account.closing.wizard</field>
+           <field name="view_mode">form</field>
+           <field name="view_id" ref="account_closing_wizard_transfer_form_view"/>
+           <field name="target">new</field>
+       </record>
+
+        <menuitem id="menu_account_closing" parent="account.menu_finance_entries" name="Traspaso de resultados" sequence="1">
+            <menuitem id="account_closing_menu" action="action_account_closing_wizard"/>
+            <menuitem id="account_closing_transfer_menu" action="action_account_closing_transfer_wizard"/>
+        </menuitem>
+    </data>
+</odoo>

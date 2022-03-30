@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="openeducat_library.menu_library_medias" name="Biblioteca"
+                  parent="openeducat_library.menu_op_library_root" sequence="20"/>
+
+        <menuitem id="openeducat_library.menu_op_sub_media_library" name="Libros/Medio"
+                  parent="openeducat_library.menu_library_medias" sequence="10"
+                  groups="openeducat_library.group_op_library,openeducat_core.group_op_student"
+                  action="openeducat_library.act_open_op_media_view"/>
+
+        <menuitem id="openeducat_library.menu_op_media_unit_library" name="Unidades"
+                  parent="openeducat_library.menu_library_medias" sequence="20"
+                  action="openeducat_library.act_open_media_unit_view"
+                  groups="openeducat_library.group_op_library,openeducat_core.group_op_back_office"/>
+
+        <menuitem id="op_school_library_config" name="Configuracion"
+                  parent="openeducat_library.menu_op_library_root" sequence="20"/>
+
+        <menuitem id="op_author" name="Autores"
+                  parent="op_school_library_config" sequence="30"
+                  action="openeducat_library.act_open_op_author_view"
+                  groups="openeducat_library.group_op_library,openeducat_core.group_op_faculty"/>
+
+        <menuitem id="op_media_type" name="Tipos de Medio"
+                  parent="op_school_library_config" sequence="50"
+                  action="openeducat_library.act_open_op_media_type_view"
+                  groups="openeducat_library.group_op_library,openeducat_core.group_op_back_office"/>
+
+        <menuitem id="op_library_publishers" name="Editoriales"
+                  parent="op_school_library_config" sequence="20"
+                  action="openeducat_library.act_open_op_publisher_view"
+                  groups="openeducat_library.group_op_library,openeducat_core.group_op_faculty"/>
+
+
+        <!--Menus Ocultos-->
+        <menuitem id="openeducat_library.menu_op_school_library_config" name="Configuration"
+                  parent="openeducat_library.menu_op_library_root" sequence="20" groups="poi_x_aleman.hide"/>
+
+        <menuitem id="menu_group_hide" name="Configuration"
+                  parent="openeducat_library.menu_op_library_root" sequence="20" groups="poi_x_aleman.hide"/>
+
+        <menuitem id="openeducat_library.menu_op_media_movement_library"
+                  sequence="30"
+                  parent="menu_group_hide"
+                  groups="poi_x_aleman.hide"/>
+
+        <menuitem id="openeducat_library.menu_op_media_queue_request_library_sub"
+                  sequence="40"
+                  parent="menu_group_hide"
+                  groups="poi_x_aleman.hide"/>
+
+        <menuitem id="openeducat_library.menu_op_media_request_library_sub"
+                  sequence="50"
+                  parent="menu_group_hide"
+                  groups="poi_x_aleman.hide"/>
+    </data>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="document_tag_form">
+        <field name="name">document.tag.form</field>
+        <field name="model">document.tag</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="document_tag_tree">
+        <field name="name">document.tag.tree</field>
+        <field name="model">document.tag</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_document_tag">
+        <field name="name">Etiquetas de Documento</field>
+        <field name="res_model">document.tag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="project_priority_form">
+        <field name="name">project.priority.form</field>
+        <field name="model">project.priority</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="project_priority_tree">
+        <field name="name">project.priority.tree</field>
+        <field name="model">project.priority</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_project_priority">
+        <field name="name">Prioridad</field>
+        <field name="res_model">project.priority</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

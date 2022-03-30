@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_clinical_record_form_view" model="ir.ui.view">
+            <field name="name">op.clinical.record.form.view</field>
+            <field name="model">op.clinical.record</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="%(action_op_exit_authorization2)d" string="Crear Autorizacion de Salida"
+                                class="oe_highlight" type="action"
+                                context="{'default_student_id':student_id,
+                                'default_consultation_reason_id':consultation_reason_id,
+                                'default_teacher_id':teacher_id}"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <group>
+                            <field name="type" widget="radio"/>
+                        </group>
+                        <group col="4" string="Datos de Alumno" attrs="{'invisible': [('type','!=', 'student')]}">
+                            <field name="student_id" attrs="{'required': [('type','=', 'student')]}"/>
+                            <field name="family_code_id"/>
+                        </group>
+                        <group col="4" string="Datos de Profesor" attrs="{'invisible': [('type','!=', 'teacher')]}">
+                            <field name="teacher_id"/>
+                        </group>
+                        <group col="4" string="Datos de Empleado" attrs="{'invisible': [('type','!=', 'employee')]}">
+                            <field name="employee_id" attrs="{'required': [('type','=', 'employee')]}"/>
+                        </group>
+                        <group col="4" string="Datos Academicos" attrs="{'invisible': [('type','!=', 'student')]}">
+                            <field name="course_id"/>
+                            <field name="teacher_id"/>
+                        </group>
+                        <group string="Registro Clinico">
+                            <group>
+                                <field name="consultation_reason_id"/>
+                                <field name="measure_taken_id"/>
+                            </group>
+                            <group>
+                                <field name="datetime_arrival"/>
+                                <field name="datetime_departure"/>
+                            </group>
+                        </group>
+                        <group string="Parametros de Reporte"/>
+                        <div class="col-xs-12">
+                            <field name="clinical_parameters_ids">
+                                <tree editable="bottom">
+                                    <field name="parameter_id"/>
+                                    <field name="value_id"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <group>
+                            <field name="observations"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_clinical_record_tree_view" model="ir.ui.view">
+            <field name="name">op.clinical.record.tree.view</field>
+            <field name="model">op.clinical.record</field>
+            <field name="arch" type="xml">
+                <tree string="Op Clinical record">
+                    <field name="patient_name"/>
+                    <field name="code"/>
+                    <field name="age" attrs="{'invisible': [('type','!=', 'student')]}"/>
+                    <field name="course_id" attrs="{'invisible': [('type','!=', 'student')]}"/>
+                    <field name="teacher_id" attrs="{'invisible': [('type','=', 'teacher'),'|', ('type','=', 'employee')]}"/>
+                    <field name="consultation_reason_id"/>
+                    <field name="datetime_arrival"/>
+                    <field name="datetime_departure"/>
+                    <field name="measure_taken_id"/>
+                    <field name="observations"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_clinical_record" model="ir.actions.act_window">
+            <field name="name">Registro Clinico</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.clinical.record</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_clinical_record_menu_health" name="Registro Clinico" sequence="1"
+                  parent="submenu_op_health_health" action="action_op_clinical_record"/>
+    </data>
+</odoo>

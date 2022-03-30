@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <report
+                id="action_class_list"
+                string="Lista del Curso"
+                model="op.course"
+                report_type="qweb-pdf"
+                file="poi_x_aleman.class_list"
+                name="poi_x_aleman.class_list"
+        />
+        <template id="class_list">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page" style="margin-top: -12px;">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h5 style="text-align:center;">
+                                        <b>LISTADO DE ALUMNOS POR CURSO</b>
+                                    </h5>
+                                </div>
+                                <div class="col-xs-4" style="margin-top: 0;">
+                                    <span>
+                                        <b>Curso:</b>
+                                    </span>
+                                    <span t-esc="o['clase'].name"/>
+                                </div>
+                                <div class="col-xs-6" style="margin-top: 0;">
+                                    <span>
+                                        <b>Jefe de Curso:</b>
+                                    </span>
+                                    <span t-esc="o['responsable'].full_name"/>
+                                </div>
+                                <div class="col-xs-2" style="margin-top: 0;">
+                                    <span>
+                                        <b>Gestión:</b>
+                                    </span>
+                                    <span t-esc="o['year'].name"/>
+                                </div>
+                                <div class="col-xs-12">
+                                    <span>
+                                        Emitido el
+                                    </span>
+                                    <span t-esc="fecha"/>
+                                    <span>
+                                        a las
+                                    </span>
+                                    <span t-esc="hora"/>
+                                </div>
+                                <div class="col-xs-12" style="padding-top:20px;">
+                                    <table class="table table-bordered" style="width 100%; font-size: 10px;">
+                                        <tr style="color: #806cac;">
+                                            <th style="width:5%; text-align: center;">Nro.</th>
+                                            <th style="width:15%;">1er Apellido</th>
+                                            <th style="width:15%;">2do Apellido</th>
+                                            <th style="width:25%;">Nombres</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                        </tr>
+                                        <t t-set="count" t-value="1"/>
+                                        <t t-foreach="o['students']" t-as="s">
+                                            <tr>
+                                                <td style="text-align: center;">
+                                                    <span t-esc="count"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="s.last_name"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="s.last_name2"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="s.first_name"/>
+                                                    <span t-esc="s.middle_name"/>
+                                                </td>
+                                                <td> </td>
+                                                <td> </td>
+                                                <td> </td>
+                                                <td> </td>
+                                                <td> </td>
+                                                <td> </td>
+                                            </tr>
+                                            <t t-set="count" t-value="count + 1"/>
+                                        </t>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

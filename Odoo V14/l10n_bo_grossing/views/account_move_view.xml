@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="account_invoice_bo">
+            <field name="name">account.invoice.form.bo</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_subtotal']" position="replace">
+                    <button name="action_inverse_tax" type="object" string=" "
+                            attrs="{'invisible': ['|', ('tax_ids', '=', False), ('parent.move_type','not in', ('in_invoice', 'in_refund', 'in_receipt'))]}"
+                            icon="fa-calculator"/>
+                    <field name="price_subtotal" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

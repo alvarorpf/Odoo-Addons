@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="document_template_circuit_form">
+        <field name="name">document.template.circuit.form</field>
+        <field name="model">document.template.circuit</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <label for="user_approved_uid" string="Usuarios Aprobadores"/>
+                    <field name="user_approved_ids">
+                        <tree editable="bottom">
+                            <field name="template_id" invisible="1"/>
+                            <field name="sequence" widget="handle"/>
+                            <field name="user_id"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="document_template_circuit_tree">
+        <field name="name">document.template.circuit.tree</field>
+        <field name="model">document.template.circuit</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_document_template_circuit">
+        <field name="name">Template Circuito Autorización</field>
+        <field name="res_model">document.template.circuit</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

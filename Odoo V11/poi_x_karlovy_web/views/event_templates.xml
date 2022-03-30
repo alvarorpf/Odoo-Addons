@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="events_karlovy" model="website.menu">
+        <field name="name">Eventos</field>
+        <field name="url">/events</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">99</field>
+    </record>
+
+    <template id="lista_eventos_karlovy" customize_show="True">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure"/>
+                <div class="oe_structure">
+                    <section class="s_big_picture" style="background-color: rgba(56, 62, 108, 1);">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12" align="center"
+                                         style="font-family: 'Lora', 'Merriweather Sans', Helvetica, Arial, sans-serif; font-size: 20px; color: rgba(188, 138, 44, 1); font-style: italic; border-right: 2px solid rgba(188, 138, 44, 1); border-left: 2px solid rgba(188, 138, 44, 1);">
+                                        <h3>ACCESO LISTA DE REGALOS</h3>
+                                        Escribe el apellido de uno de los agasajados
+                                        <br/>
+                                        para descubrir su lista de regalos
+                                        <br/>
+                                        <br/>
+                                        <div class="col-md-offset-3 col-md-6">
+                                            <form method="get" class="s_website_form container-fluid form-horizontal"
+                                                  action="/event_search">
+                                                <input type="hidden" name="csrf_token"
+                                                       t-att-value="request.csrf_token()"/>
+                                                <div class="input-group">
+                                                    <div class="oe_search">
+                                                        <input type="text" name="search"
+                                                               class="search-query form-control oe_search_box"
+                                                               placeholder="Buscar..." t-att-value="search"/>
+                                                    </div>
+                                                    <span class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default oe_search_button">
+                                                            <i class="fa fa-search"/>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <br/>
+                                        <br/>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                <section class="s_big_picture">
+                    <br/>
+                    <div class="container">
+                        <div class="row">
+                            <t t-if="events">
+                                <t t-foreach="events" t-as="event">
+                                    <t t-if="event.state == 'abierto'">
+                                        <div class="col-md-3">
+                                            <div class="panel-group">
+                                                <div class="panel panel-primary" style="max-height:500px;">
+                                                    <div class="panel-heading">
+                                                        <span style="text-align:center" t-esc="event.name"/>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <img class="img img-responsive"
+                                                             src="/poi_x_karlovy_web/static/src/img/website/product-image-default4.jpg"
+                                                             data-index="0"/>
+                                                        Fecha de Evento:
+                                                        <span t-esc="event.date_event"/>
+                                                    </div>
+                                                    <div class="panel-footer" style="text-align:center">
+                                                        <a t-att-href="'/events/%s' % (event.id)">
+                                                            Ver Regalos
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+                </section>
+                </div>
+                <div class="oe_structure"/>
+            </div>
+        </t>
+    </template>
+
+    <template id="regalos_karlovy">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <br/>
+                    <t t-if="event">
+                            <t t-foreach="event" t-as="event">
+                    <center>
+                        <h3>Lista de Regalos <span t-esc="event.name"/></h3>
+                    </center>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <t t-foreach="lines" t-as="line">
+                                    <t t-if="line.state == 'libre'">
+                                        <div class="col-md-4"
+                                             style="padding:10px; border-style:solid; border-color:#456712; width:390px; max-width:390px;display: inline-block;height: 200px">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <img class="img img-responsive align-center"
+                                                         t-attf-src="/web/image/product.template/#{line.product_id.product_tmpl_id.id}/image"/>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <b>Producto:
+                                                        <br/>
+                                                    </b>
+                                                    <span t-esc="line.name"/>
+                                                    <br/>
+                                                    <b>Precio:</b>
+                                                    <br/>
+                                                    $us.
+                                                    <span t-esc="line.product_id.list_price_second"/>
+                                                    <br/>
+                                                    <t t-if="line.state == 'libre'">
+                                                        <form method="post" class="s_website_form container-fluid form-horizontal"
+                                                                action="/add_event_line">
+                                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                            <input name="product_id" t-att-value="line.product_id.id" type="hidden"/>
+                                                            <input name="event_line_id" t-att-value="line.id" type="hidden"/>
+                                                            <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-shopping-cart"></i>Reservar</button>
+                                                        </form>
+    <!--                                                    <a class="btn btn-primary pull-right"-->
+    <!--                                                       t-att-href="'/events/%s/event_purchase/%s' % (event.id, line.id)">-->
+    <!--                                                        Reservar-->
+    <!--                                                    </a>-->
+                                                    </t>
+                                                    <!--<t t-elif="line.state == 'traspasado'">
+                                                        <span class="label label-danger pull-right o_delivery_compute">
+                                                            Traspasado
+                                                        </span>
+                                                    </t>
+                                                    <t t-elif="line.state == 'vendido'">
+                                                        <span class="label label-success pull-right o_delivery_compute">
+                                                            Vendido
+                                                        </span>
+                                                    </t>
+                                                    <t t-elif="line.state == 'entregado'">
+                                                        <span class="label label-primary pull-right o_delivery_compute">
+                                                            Entregado
+                                                        </span>
+                                                    </t>
+                                                    <t t-elif="line.state == 'entregado_'">
+                                                        <span class="label label-primary pull-right o_delivery_compute">
+                                                            Entregado
+                                                        </span>
+                                                    </t>
+                                                    <t t-elif="line.state == 'recogido'">
+                                                        <span class="label label-warning pull-right o_delivery_compute">
+                                                            Recogido
+                                                        </span>
+                                                    </t>
+                                                    <t t-elif="line.state == 'anulado'">
+                                                        <span class="label label-danger pull-right o_delivery_compute">
+                                                            Anulado
+                                                        </span>
+                                                    </t>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                            </t>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="reserva_regalo_karlovy">
+        <t t-call="website.layout">
+            <div class="container" id="wrap">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <section id="purchase_form">
+                                <form method="post" class="s_website_form container-fluid form-horizontal"
+                                      action="/event_purchase">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <div class="form-group form-field">
+                                        <div class="col-md-12">
+                                            <h2>Su dirección</h2>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="control-label" for="name">Nombre</label>
+                                            <input name="name" type="text" required="True"
+                                                   class="o_website_form_input form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"/>
+                                    <div class="form-group form-field">
+                                        <div class="col-md-6">
+                                            <label class="control-label" for="email">Correo electrónico</label>
+                                            <input name="email" type="email" required="True"
+                                                   class="o_website_form_input form-control"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="control-label" for="phone">Telefono</label>
+                                            <input name="phone" type="text" required="True"
+                                                   class="o_website_form_input form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"/>
+                                    <div class="form-group form-field">
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="razon">Razón social</label>
+                                            <input name="razon" type="text" required="True"
+                                                   class="o_website_form_input form-control"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="ci">CI</label>
+                                            <input name="ci" type="text" required="True"
+                                                   class="o_website_form_input form-control"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="nit">NIT</label>
+                                            <input name="nit" type="text" required="True"
+                                                   class="o_website_form_input form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"/>
+                                    <div class="form-group form-field">
+                                        <div class="col-md-12">
+                                            <label class="control-label" for="street">Dirección</label>
+                                            <input name="street" type="text" required="True"
+                                                   class="o_website_form_input form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"/>
+                                    <div class="form-group form-field">
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="city">Ciudad</label>
+                                            <input name="city" type="text" required="True"
+                                                   class="o_website_form_input form-control"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="department">Departamento</label>
+                                            <input name="department" type="text" required="True"
+                                                   class="o_website_form_input form-control"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="country">Pais</label>
+                                            <input name="country" type="text" required="True"
+                                                   class="o_website_form_input form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"/>
+                                    <div class="form-group form-field">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h2>Elegir un método de entrega</h2>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default" id="delivery_method">
+                                            <ul class="list-group">
+                                                <t t-set="delivery_nb" t-value="len(deliveries)"/>
+                                                <t t-foreach="deliveries" t-as="delivery">
+                                                    <li class="list-group-item">
+                                                        <input t-att-value="delivery.id"
+                                                               t-att-id="'delivery_%i' % delivery.id" type="radio"
+                                                               name="delivery_type"
+                                                               t-att-class="'hidden' if delivery_nb == 1 else ''"/>
+                                                        <label class="label-optional" t-field="delivery.name"
+                                                               t-att-for="'delivery_%i' % delivery.id"/>
+                                                        <t t-if="delivery.delivery_type == 'fixed'">
+                                                            <span t-if="delivery.fixed_price > 0.0"
+                                                                  class="badge pull-right">
+                                                                <t t-set="monetary_options" t-value='{"widget": "monetary",
+                                       "from_currency": delivery.product_id.company_id.currency_id, "display_currency": delivery.product_id.company_id.currency_id}'/>
+                                                                <t t-if="delivery.free_over"
+                                                                   t-esc="delivery.rate_shipment(website_sale_order)['price']"
+                                                                   t-options='monetary_options'/>
+                                                                <t t-else="" t-esc="delivery.fixed_price"
+                                                                   t-options='monetary_options'/>
+                                                            </span>
+                                                            <span t-else="" class="badge pull-right">Gratis</span>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span class="badge pull-right hidden"
+                                                                  t-field="delivery.fixed_price"
+                                                                  t-options='{"widget": "monetary", "from_currency": delivery.product_id.company_id.currency_id, "display_currency": website_sale_order.currency_id}'/>
+                                                            <span class="badge pull-right o_delivery_compute">Select to
+                                                                compute delivery rate
+                                                            </span>
+                                                        </t>
+                                                        <t t-if="delivery.website_description">
+                                                            <div t-field="delivery.website_description"
+                                                                 class="text-muted mt8"/>
+                                                        </t>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"/>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h2>Pagar con</h2>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <label class="label-optional">Transferencia Bancaria</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            <input name="event" type="hidden" required="True"
+                                                   class="o_website_form_input form-control" t-att-value="event"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input name="line" type="hidden" required="True"
+                                                   class="o_website_form_input form-control" t-att-value="line"/>
+                                        </div>
+                                        <div class="col-md-offset-7 col-md-3">
+                                            <button type="submit" class="btn btn-primary pull-right">Confirmar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Información de compra</h3>
+                    </div>
+                    <t t-if="product">
+                        <div class="col-md-4">
+                            <img class="img img-responsive align-center" style="height:300px;"
+                                 t-attf-src="/web/image/product.product/#{product.id}/image"/>
+                            <span>
+                                <b>Código Interno:</b>
+                            </span>
+                            <span t-esc="product.default_code"/>
+                            <br/>
+                            <span>
+                                <b>Producto:</b>
+                            </span>
+                            <span t-esc="product.name"/>
+                            <br/>
+                            <span>
+                                <b>Precio Bs.:</b>
+                            </span>
+                            <span t-esc="product.list_price"/>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="agradecimientos_karlovy">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <div class="row">
+                        <br/>
+                        <h2>Gracias por su compra</h2>
+                        <br/>
+                        <h3>Detalle del pedido</h3>
+                        <div class="col-md-8">
+                            <t t-set="total" t-value="0"/>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <th>PRODUCTO</th>
+                                    <th>CANTIDAD</th>
+                                    <th>PRECIO</th>
+                                </thead>
+                                <tbody>
+                                    <t t-if="product">
+                                        <tr>
+                                            <td>
+                                                <span t-esc="product.name"/>
+                                            </td>
+                                            <td>1 Unidad(es)</td>
+                                            <td>Bs.
+                                                <span t-esc="product.list_price"/>
+                                            </td>
+                                        </tr>
+                                        <t t-set="total" t-value="total + product.list_price"/>
+                                    </t>
+                                    <t t-if="delivery">
+                                        <tr>
+                                            <td>
+                                                <span t-esc="delivery.name"/>
+                                            </td>
+                                            <td>1 Unidad(es)</td>
+                                            <td>Bs.
+                                                <span t-esc="delivery.list_price"/>
+                                            </td>
+                                        </tr>
+                                        <t t-set="total" t-value="total + delivery.list_price"/>
+                                    </t>
+                                    <tr>
+                                        <td/>
+                                        <td>
+                                            <b>TOTAL:</b>
+                                        </td>
+                                        <td>
+                                            <b>Bs.
+                                                <span t-esc="total"/>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-12" style="color: black;">
+                                    <h5 class="mt16">GALERÍA LA PAZ</h5>
+                                    <p>
+                                        Av. Claudio Aliaga #1182 Bloque J-47
+                                        <br/>
+                                        San Miguel Zona Sur
+                                        <br/>
+                                        (591) 2-279 9838
+                                        <br/>
+                                        788 88402
+                                        <br/>
+                                        galeriakarlovyvary@gmail.com
+                                    </p>
+                                </div>
+                                <div class="col-md-12" style="color: black;">
+                                    <h5 class="mt16">GALERÍA SANTA CRUZ</h5>
+                                    <p>
+                                        Calle Los Gomeros #111 Barrio Sirari
+                                        <br/>
+                                        (frente al restaurant La Suisse)
+                                        <br/>
+                                        (591) 3-344 4111
+                                        <br/>
+                                        789 82999
+                                        <br/>
+                                        galeriakarlovyvary@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h3>Información de Pago</h3>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <label class="label-optional">Transferencia Bancaria</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h3>Utilice los siguientes datos de la transferencia</h3>
+                            <h4>Cuenta bancaria 4000-120-12-0-0-123</h4>
+                            <h4>Banco Central</h4>
+                            <h4>Comunicación</h4>
+                            Utilice el nombre del pedido como una referencia comunicativa.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

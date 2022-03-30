@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_media_unit_history_form_view" model="ir.ui.view">
+            <field name="name">op.media.unit.history.form.view</field>
+            <field name="model">op.media.unit.history</field>
+            <field name="arch" type="xml">
+                <form create="false" delete="false">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="media_unit_id"/>
+                            <field name="media_state_id"/>
+                            <field name="out_date"/>
+                            <field name="return_date"/>
+                            <field name="observations"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_media_unit_history_tree_view" model="ir.ui.view">
+            <field name="name">op.media.unit.history.tree.view</field>
+            <field name="model">op.media.unit.history</field>
+            <field name="arch" type="xml">
+                <tree string="Op Media Unit History" create="false" delete="false">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="media_unit_id"/>
+                    <field name="media_state_id"/>
+                    <field name="out_date"/>
+                    <field name="return_date"/>
+                    <field name="observations"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_media_unit_history" model="ir.actions.act_window">
+            <field name="name">Historico de Prestamos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.media.unit.history</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_loan_term_form_view" model="ir.ui.view">
+            <field name="name">op.loan.term.form.view</field>
+            <field name="model">op.loan.term</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="days_available"/>
+                            <field name="days_reminder"/>
+                            <field name="user_reminder_id"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_loan_term_tree_view" model="ir.ui.view">
+            <field name="name">op.loan.term.tree.view</field>
+            <field name="model">op.loan.term</field>
+            <field name="arch" type="xml">
+                <tree string="Op Loan Term">
+                    <field name="name"/>
+                    <field name="days_available"/>
+                    <field name="days_reminder"/>
+                    <field name="user_reminder_id"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_loan_term" model="ir.actions.act_window">
+            <field name="name">Termino de Prestamo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.loan.term</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_loan_term_menu_configuration" name="Termino de Prestamo" sequence="1"
+                  parent="op_school_library_config" action="action_op_loan_term"/>
+    </data>
+</odoo>

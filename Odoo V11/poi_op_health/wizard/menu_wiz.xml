@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+  <menuitem id="wizard_op_report_sedes" name="Informe Sedes" parent="submenu_op_health_report" action="op_report_sedes_wiz_action_form" sequence="2"/>
+</data>
+</odoo>

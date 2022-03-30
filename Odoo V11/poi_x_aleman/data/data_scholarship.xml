@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="True">
+        <record id="scholarship_1" model="op.scholarship">
+            <field name="name">BECA FUNCIONARIO LOCAL</field>
+            <field name="is_child_local" eval="True"/>
+        </record>
+        <record id="scholarship_2" model="op.scholarship">
+            <field name="name">BECA FUNCIONARIO EXTRANJERO</field>
+            <field name="is_child_foreign" eval="True"/>
+        </record>
+    </data>
+</odoo>

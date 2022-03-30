@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="view_statement_income" model="ir.ui.view">
+        <field name="name">Estado de Resultados</field>
+        <field name="model">statement.income.aleman.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Estado de Resultados">
+                <group col="1">
+                    <field name="company_id"/>
+                    <field name="currency_id" required="1"/>
+                    <field name="adjust" required="1"/>
+                    <field name="date_ini"/>
+                    <field name="date_end"/>
+                </group>
+                <footer>
+                    <!--<button name="generate_report" string="Generar PDF" type="object" class="btn-primary"/>-->
+                    <button name="export_report" string="Exportar Excel" type="object" class="btn-primary"/>
+                    <button string="Salir" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="statement_income_aleman_action" model="ir.actions.act_window">
+        <field name="name">Estado de Resultados</field>
+        <field name="res_model">statement.income.aleman.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem name="Estado de Resultados" action="statement_income_aleman_action" id="menu_statement_income" parent="account.menu_finance_reports" sequence="13"/>
+
+  </data>
+</odoo>

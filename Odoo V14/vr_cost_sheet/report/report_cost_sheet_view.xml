@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cost_sheet_report_pivot" model="ir.ui.view">
+         <field name="name">view.cost.sheet.report.pivot</field>
+         <field name="model">report.cost.sheet</field>
+         <field name="arch" type="xml">
+             <pivot string="Hoja de Costos" disable_linking="True" sample="1">
+                 <field name="purchase_id" type="row"/>
+                 <field name="picking_id" type="row"/>
+                 <field name="valor" type="measure"/>
+             </pivot>
+         </field>
+    </record>
+
+    <record id="view_cost_sheet_report_tree" model="ir.ui.view">
+         <field name="name">view.cost.sheet.report.tree</field>
+         <field name="model">report.cost.sheet</field>
+         <field name="arch" type="xml">
+             <tree string="Hoja de Costos" create="0" edit="0">
+                 <field name="purchase_id"/>
+                 <field name="picking_id"/>
+                 <field name="concept"/>
+<!--                 <field name="product_type"/>-->
+                 <field name="relation"/>
+                 <field name="product_id"/>
+                 <field name="valor"/>
+             </tree>
+         </field>
+    </record>
+
+     <record id="view_cost_sheet_report_search" model="ir.ui.view">
+            <field name="name">view.cost.sheet.report.search</field>
+            <field name="model">report.cost.sheet</field>
+            <field name="arch" type="xml">
+                <search string="Jobs">
+                    <field name="purchase_id"/>
+                     <field name="picking_id"/>
+                     <field name="relation"/>
+                     <field name="product_id"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Orden de Compra" name="purchase" domain="[]" context="{'group_by': 'purchase_id'}"/>
+                        <filter string="Transferencia" name="picking" domain="[]" context="{'group_by': 'picking_id'}"/>
+                        <filter string="Concepto" name="concept" domain="[]" context="{'group_by': 'concept'}"/>
+<!--                        <filter string="Tipo de Producto" name="product_type" domain="[]" context="{'group_by': 'product_type'}"/>-->
+                        <filter string="Producto" name="product" domain="[]" context="{'group_by': 'product_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    <record id="report_cost_sheet_action" model="ir.actions.act_window">
+        <field name="name">Hoja de Costos</field>
+        <field name="res_model">report.cost.sheet</field>
+        <field name="view_mode">pivot,tree</field>
+        <field name="search_view_id" ref="view_cost_sheet_report_search"/>
+    </record>
+
+    <menuitem id="report_cost_sheet_menu" name="Hoja de Costos" parent="purchase.menu_purchase_products" sequence="99" action="report_cost_sheet_action"/>
+</odoo>

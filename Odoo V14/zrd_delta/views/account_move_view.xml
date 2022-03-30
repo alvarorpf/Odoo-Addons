@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="account_edit_description">
+            <field name="name">account.edit.description</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line_ids']/tree" position="inside">
+                    <button name="action_edit_description" type="object" string=""
+                            attrs="{'invisible': [('parent.state', '!=', 'posted'), ('parent.move_type','not in', ('in_refund', 'in_receipt'))]}"
+                            icon="fa-edit"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

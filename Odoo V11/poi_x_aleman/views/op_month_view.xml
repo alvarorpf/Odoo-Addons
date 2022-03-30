@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="op_month_view_tree" model="ir.ui.view">
+            <field name="name">op.month.tree</field>
+            <field name="model">op.month</field>
+            <field name="arch" type="xml">
+                <tree string="Periodo">
+                    <field name="name"/>
+                    <field name="literal"/>
+                    <field name="sequence"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        <record id="op_month_view_form" model="ir.ui.view">
+            <field name="name">op.month.form</field>
+            <field name="model">op.month</field>
+            <field name="arch" type="xml">
+                <form string="Periodo">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="literal"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="op_month_action" model="ir.actions.act_window">
+            <field name="name">Periodo</field>
+            <field name="res_model">op.month</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Periodos
+                </p>
+                <p>
+                    Agregar Periodo
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_op_month" parent="op_submenu_configuration"
+                  action="op_month_action" name="Periodo" sequence="11"/>
+    </data>
+</odoo>

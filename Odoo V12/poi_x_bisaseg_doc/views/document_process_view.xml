@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="document_process_form">
+        <field name="name">document.process.form</field>
+        <field name="model">document.process</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="process_father_id"/>
+                            <field name="code"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="document_process_tree">
+        <field name="name">document.process.tree</field>
+        <field name="model">document.process</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="process_father_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_document_process">
+        <field name="name">Proceso</field>
+        <field name="res_model">document.process</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <!-- Herencia del formulario de informe de gastos para la adicion del campo anticipo -->
+        <record id="view_hr_expense_sheet_form_inherit" model="ir.ui.view">
+            <field name="name">view.hr.expense.sheet.form.inherit</field>
+            <field name="model">hr.expense.sheet</field>
+            <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//group[@name='employee_details']" position="inside">
+                        <field name="advance_id"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>

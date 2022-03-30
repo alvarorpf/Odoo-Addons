@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+  <record id="january" model="op.month">
+    <field name="name">01</field>
+    <field name="literal">Enero</field>
+    <field name="initials">ENE</field>
+    <field name="sequence">1</field>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="february" model="op.month">
+    <field name="name">02</field>
+    <field name="literal">Febrero</field>
+    <field name="initials">FEB</field>
+    <field name="sequence">2</field>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="march" model="op.month">
+    <field name="name">03</field>
+    <field name="literal">Marzo</field>
+    <field name="initials">MAR</field>
+    <field name="sequence">3</field>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="april" model="op.month">
+    <field name="name">04</field>
+    <field name="literal">Abril</field>
+    <field name="initials">ABR</field>
+    <field name="sequence">4</field>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="may" model="op.month">
+    <field name="name">05</field>
+    <field name="literal">Mayo</field>
+    <field name="initials">MAY</field>
+    <field name="sequence">5</field>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="june" model="op.month">
+    <field name="name">06</field>
+    <field name="literal">Junio</field>
+    <field name="initials">JUN</field>
+    <field name="sequence">6</field>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="july" model="op.month">
+    <field name="name">07</field>
+    <field name="literal">Julio</field>
+    <field name="initials">JUL</field>
+    <field name="sequence">7</field>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="august" model="op.month">
+    <field name="name">08</field>
+    <field name="literal">Agosto</field>
+    <field name="initials">AGO</field>
+    <field name="sequence">8</field>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="september" model="op.month">
+    <field name="name">09</field>
+    <field name="literal">Septiembre</field>
+    <field name="initials">SEP</field>
+    <field name="sequence">9</field>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="october" model="op.month">
+    <field name="name">10</field>
+    <field name="literal">Octubre</field>
+    <field name="initials">OCT</field>
+    <field name="sequence">10</field>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="november" model="op.month">
+    <field name="name">11</field>
+    <field name="literal">Noviembre</field>
+    <field name="initials">NOV</field>
+    <field name="sequence">11</field>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="december" model="op.month">
+    <field name="name">12</field>
+    <field name="literal">Diciembre</field>
+    <field name="initials">DIC</field>
+    <field name="sequence">12</field>
+    <field name="active" eval="True"/>
+  </record>
+
+  <record id="year_2017" model="op.year">
+    <field name="name">2017</field>
+  </record>
+  <record id="year_2018" model="op.year">
+    <field name="name">2018</field>
+  </record>
+  <record id="year_2019" model="op.year">
+    <field name="name">2019</field>
+  </record>
+  <record id="year_2020" model="op.year">
+    <field name="name">2020</field>
+  </record>
+  <record id="year_2021" model="op.year">
+    <field name="name">2021</field>
+  </record>
+  <record id="year_2022" model="op.year">
+    <field name="name">2022</field>
+  </record>
+  <record id="year_2023" model="op.year">
+    <field name="name">2023</field>
+  </record>
+  <record id="year_2024" model="op.year">
+    <field name="name">2024</field>
+  </record>
+
+  <record forcecreate="True" id="decimal_web_service" model="decimal.precision">
+      <field name="name">Servicios_Web</field>
+      <field name="digits">2</field>
+  </record>
+</data>
+</odoo>

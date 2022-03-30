@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="request_form_form">
+        <field name="name">request.form.form</field>
+        <field name="model">request.form</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_send" type="object" string="Enviar"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_project" type="object" string="Convertir a Proyecto"
+                            attrs="{'invisible': [('state', '!=', 'send')]}"
+                            groups="project.group_project_manager"/>
+                    <button name="action_draft" type="object" string="Volver a borrador"
+                            attrs="{'invisible': [('state', '!=', 'send')]}"
+                            groups="project.group_project_manager"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_project" string="Proyecto" type="object" class="oe_stat_button"
+                                icon="fa-file-o"
+                                attrs="{'invisible': ['|',('project_id', '=', False), ('state', '!=', 'project')]}"/>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="title" class="o_task_name text-truncate" placeholder="Título..."
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </h1>
+                    </div>
+                    <group col="4">
+                        <field name="area_id"
+                               attrs="{'readonly': [('state', '!=', 'draft')]}" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="name"/>
+                        <field name="applicant_id" readonly="1" force_save="1" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="date"/>
+                        <field name="priority_id" attrs="{'readonly': [('state', '!=', 'draft')]}"
+                               options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    </group>
+                    <label for="description" string="Problema o necesidad identificada"/>
+                    <field name="description"
+                           placeholder="[Escribe aquí el incidente, la iniciativa y/o necesidad institucional, que genera esta solicitud, especifica la solicitud o mesa de ayuda si corresponde]. Ejemplo.: “En fecha 15/01/2019 el área de Contabilidad identifica un descuadre en la cuenta xxxx por ello considera necesario la creación de un nuevo reporte de cuadratura”"
+                           attrs="{'readonly': [('state', '!=', 'draft')]}"
+                           required="1"/>
+                    <notebook>
+                        <page name="specific" string="Descripción específica">
+                            <span>[Escribe aquí la descripción específica de esta solicitud]</span>
+                            <br/>
+                            <span>Ejemplo.: “A raíz de lo indicado en el punto N°1, los campos base que se consideran
+                                para este reporte son los siguientes:
+                            </span>
+                            <br/>
+                            <span>Columna A: (describe campo A)</span>
+                            <br/>
+                            <span>Columna B: (describe campo B)</span>
+                            <br/>
+                            <span>Columna C: (fórmula calculo columna C)</span>
+                            <br/>
+                            <span>El reporte debe mostrarse en pantalla y exportarse a Excel</span>
+                            <br/>
+                            <field name="specific_description" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </page>
+                        <page name="objective" string="Objetivo de la Solicitud">
+                            <group>
+                                <field name="objective"
+                                       placeholder="[Que lograrás si esta solicitud es atendida?] Ejemplo.: “Se logrará el cuadre contable de la cuenta xxxx)”"
+                                       attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="normative"
+                                       placeholder="[Detalla la norma o reglamento a los que se relaciona la solicitud. También es importante que verifiques si no contradice o incumple alguna instrucción normativa.]"
+                                       attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="affected_system"
+                                       placeholder="[Indicar el sistema afectado (Ejemplo.: AS400 – ThinkDi), en caso de tratarse de un nuevo sistema o solución indicar “Nueva solución”]"
+                                       attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </group>
+                            <label for="is_problem"
+                                   string="Es un problema/Incidente recurrente (al menos 1 vez al mes)"/>
+                            <field name="is_problem" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <group>
+                                <field name="other_area_ids" widget="many2many_tags"
+                                       attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </group>
+                        </page>
+                        <page name="benefits" string="Beneficios">
+                            <field name="benefit_ids" context="{'default_request_id': id}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                <tree create="false" editable="bottom" delete="false">
+                                    <field name="benefit_id" readonly="1" force_save="1" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="select"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="types" string="Tipo de Requerimiento">
+                            <field name="type_ids" context="{'default_request_id': id}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                <tree create="false" editable="bottom" delete="false">
+                                    <field name="origin_id" readonly="1" force_save="1" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="description" readonly="1" force_save="1"/>
+                                    <field name="classification"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="process" string="Proceso o Flujo">
+                            <field name="process" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </page>
+                        <field name="project_id" invisibe="1"/>
+                    </notebook>
+                    <group col="4">
+                        <field name="owner_id" attrs="{'readonly': [('state', '!=', 'draft')]}" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="sponsor_ids" widget="many2many_tags"
+                               attrs="{'readonly': [('state', '!=', 'draft')]}"
+                               placeholder="[Solo Gerencias/ Comité de Gerentes]"
+                               options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"
+                           options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="request_form_view_simplified" model="ir.ui.view">
+        <field name="name">request.form.view.simplified</field>
+        <field name="model">request.form</field>
+        <field name="arch" type="xml">
+            <form string="Project">
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="title"/>
+                        <field name="type_id" required="1"/>
+                        <field name="workflow_id" required="1"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Crear Proyecto" name="action_create_project" type="object"
+                            class="btn-primary o_open_tasks"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="request_form_tree">
+        <field name="name">request.form.tree</field>
+        <field name="model">request.form</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title"/>
+                <field name="name"/>
+                <field name="area_id"/>
+                <field name="date"/>
+                <field name="priority_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="request_form_search">
+        <field name="name">request.form.search</field>
+        <field name="model">request.form</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="area_id"/>
+                <field name="priority_id"/>
+                <group name="group_group_by" expand="0" string="Group By...">
+                    <filter name="group_by_request" string="Area" context="{'group_by': 'area_id'}"/>
+                    <filter name="group_by_request" string="Solicitante" context="{'group_by': 'applicant_id'}"/>
+                    <filter name="group_by_request_type" string="Prioridad" context="{'group_by': 'priority_id'}"/>
+                    <filter string="Mis Requerimientos" name="activities_my"
+                        domain="[('applicant_id', '=', uid)]"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_request_form">
+        <field name="name">Formulario de Requerimiento</field>
+        <field name="res_model">request.form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="main_menu_request_form" name="Formulario Requerimiento" sequence="11"
+              web_icon="poi_scrum,static/description/icon_fr.png" groups="group_request_form"/>
+    <menuitem id="sub_menu_request_form" name="Formulario Requerimiento" parent="main_menu_request_form"
+              action="action_request_form" sequence="1"/>
+    <menuitem id="sub_menu_configuration_request" name="Configuración" parent="main_menu_request_form" sequence="2" groups="project.group_project_manager"/>
+    <menuitem id="conf_request_form_project_priority" name="Prioridad" parent="sub_menu_configuration_request"
+              action="action_project_priority" sequence="3"/>
+    <menuitem id="conf_request_form_project_sponsor" name="Sponsor" parent="sub_menu_configuration_request"
+              action="action_project_sponsor" sequence="4"/>
+
+
+</odoo>
+
+

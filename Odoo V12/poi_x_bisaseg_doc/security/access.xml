@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="group_o_and_m" model="res.groups">
+        <field name="name">Aprobador O&amp;M</field>
+        <field name="comment">
+            Este grupo se encarga de subir otro tipo de version en el documento QMS.
+        </field>
+    </record>
+
+    <record id="group_report_documents" model="res.groups">
+        <field name="name">Reportes de Documentos</field>
+        <field name="comment">
+            Este grupo permite la visualización de los reportes de documentos.
+        </field>
+    </record>
+
+    <record id="rule_access_read_author" model="ir.rule">
+        <field name="name">Acceso de autores a documentos</field>
+        <field name="model_id" ref="model_muk_quality_docs_document"/>
+        <field name="domain_force">['|', ('auth_circuit_ids.user_id', '=', user.id),'|', ('collaborator_ids.user_id',
+            '=', user.id), '|', ('stage_id.has_read_access_for_authors', '=', True),
+            ('stage_id.has_write_access_for_authors', '=', True)]
+        </field>
+        <field name="groups" eval="[(4, ref('muk_quality_docs.group_muk_quality_docs_author'))]"/>
+        <field eval="0" name="perm_unlink"/>
+        <field eval="0" name="perm_write"/>
+        <field eval="1" name="perm_read"/>
+        <field eval="0" name="perm_create"/>
+    </record>
+
+    <record id="rule_access_manager_qms" model="ir.rule">
+        <field name="name">Acceso de managers a documentos</field>
+        <field name="model_id" ref="model_muk_quality_docs_document"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('muk_quality_docs.group_muk_quality_docs_manager'))]"/>
+        <field eval="0" name="perm_unlink"/>
+        <field eval="1" name="perm_write"/>
+        <field eval="1" name="perm_read"/>
+        <field eval="1" name="perm_create"/>
+    </record>
+</odoo>

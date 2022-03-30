@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <!-- mail.compose.message inherit form view -->
+    <record id="email_compose_message_wizard_form_bisa" model="ir.ui.view">
+        <field name="name">mail.compose.message.inherit.view.form.bisa</field>
+        <field name="model">mail.compose.message</field>
+        <field name="inherit_id" ref="mail.email_compose_message_wizard_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='subject']" position="after">
+                <field name="send_link"/>
+            </xpath>
+        </field>
+    </record>
+
+</data>
+</odoo>

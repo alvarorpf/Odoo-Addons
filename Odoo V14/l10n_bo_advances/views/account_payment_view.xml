@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="account.action_account_payments" model="ir.actions.act_window">
+            <field name="name">Pagos</field>
+            <field name="res_model">account.payment</field>
+            <field name="view_mode">tree,kanban,form,graph</field>
+            <field name="context">{
+                'default_payment_type': 'inbound',
+                'default_partner_type': 'customer',
+                'search_default_inbound_filter': 1,
+                'default_move_journal_types': ('bank', 'cash'),
+            }</field>
+            <field name="domain">[('partner_type', '=', 'customer'),('is_prepaid', '=', False)]</field>
+            <field name="view_id" ref="account.view_account_payment_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                  Registrar un pago
+                </p>
+            </field>
+        </record>
+
+        <record id="account.action_account_payments_payable" model="ir.actions.act_window">
+            <field name="name">Pagos</field>
+            <field name="res_model">account.payment</field>
+            <field name="view_mode">tree,kanban,form,graph</field>
+            <field name="context">{
+                'default_payment_type': 'outbound',
+                'default_partner_type': 'supplier',
+                'search_default_outbound_filter': 1,
+                'default_move_journal_types': ('bank', 'cash'),
+            }</field>
+            <field name="domain">[('partner_type', '=', 'supplier'),('is_prepaid', '=', False)]</field>
+            <field name="view_id" ref="account.view_account_supplier_payment_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                  Registrar un pago
+                </p>
+            </field>
+        </record>
+
+        <!-- FOR PREPAYMENTS -->
+
+        <record id="action_account_prepayments" model="ir.actions.act_window">
+            <field name="name">Cobros Adelantados</field>
+            <field name="res_model">account.payment</field>
+            <field name="view_mode">tree,kanban,form,graph</field>
+            <field name="context">{'default_payment_type': 'inbound','default_is_prepaid': True}</field>
+            <field name="domain">[('partner_type', '=', 'customer'),('is_prepaid', '=', True)]</field>
+            <field name="view_id" ref="account.view_account_payment_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                  Registrar un pago
+                </p>
+            </field>
+        </record>
+
+        <record id="action_account_prepayments_payable" model="ir.actions.act_window">
+            <field name="name">Pagos Adelantados</field>
+            <field name="res_model">account.payment</field>
+            <field name="view_mode">tree,kanban,form,graph</field>
+            <field name="context">{'default_payment_type': 'outbound','default_is_prepaid': True}</field>
+            <field name="domain">[('partner_type', '=', 'supplier'),('is_prepaid', '=', True)]</field>
+            <field name="view_id" ref="account.view_account_supplier_payment_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                  Registrar un pago
+                </p>
+            </field>
+        </record>
+<!--        <menuitem action="action_account_prepayments" id="menu_action_account_prepayments_receivable"-->
+<!--                  parent="account.menu_finance_receivables" sequence="20"/>-->
+<!--        <menuitem action="action_account_prepayments_payable" id="menu_action_account_prepayments_payable"-->
+<!--                  parent="account.menu_finance_payables" sequence="20"/>-->
+    </data>
+</odoo>

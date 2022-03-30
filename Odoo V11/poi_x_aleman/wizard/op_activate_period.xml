@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="op_activate_period_view_form" model="ir.ui.view">
+            <field name="name">op.activate.period.form</field>
+            <field name="model">op.activate.period</field>
+            <field name="arch" type="xml">
+                <form string="Asistente de Activacion de Gestion">
+                    <h5>Desea continuar con la Activacion del Periodo Escolar?</h5>
+                    <field name="period_id" readonly="True"/>
+                    <h5><b>Nota: Si realiza la activacion de la gestion actual no podra realizar el proceso de Promocion de Alumnos</b></h5>
+                    <footer>
+                        <button name="action_activate_period" string="Activar" type="object" class="btn-primary"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

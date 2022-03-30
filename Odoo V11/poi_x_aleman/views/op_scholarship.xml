@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="op_scholarship_discount_action_form" model="ir.actions.act_window">
+            <field name="name">Aplicar Descuento</field>
+            <field name="res_model">op.scholarship.discount</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="op_scholarship_view_tree" model="ir.ui.view">
+            <field name="name">op.scholarship.tree</field>
+            <field name="model">op.scholarship</field>
+            <field name="arch" type="xml">
+                <tree string="Becas y Descuentos">
+                    <field name="name"/>
+                    <field name="discount"/>
+                    <field name="discount_total"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="op_scholarship_view_form" model="ir.ui.view">
+            <field name="name">op.scholarship.form</field>
+            <field name="model">op.scholarship</field>
+            <field name="arch" type="xml">
+                <form string="Becas y Descuentos">
+                    <header>
+                        <button name="%(poi_x_aleman.op_scholarship_discount_action_form)d"
+                                string="Aplicar Descuento"
+                                class="oe_highlight" type="action"
+                                context="{'default_scholarship_id':id}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="discount" attrs="{'readonly':True}"
+                                   string="Descuento (%)"/>
+                            <field name="discount_total" attrs="{'readonly':True}"/>
+
+                            <field name="apply_first"/>
+                            <field name="apply_regular"/>
+                            <field name="active_scholarship"/>
+                        </group>
+
+                        <group string="Aplica Para">
+                            <field name="is_regular"/>
+                            <field name="is_scholarship"/>
+                            <field name="is_child_local"/>
+                            <field name="is_child_foreign"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="op_scholarship_action_form" model="ir.actions.act_window">
+            <field name="name">Tipos de Becas/Descuentos</field>
+            <field name="res_model">op.scholarship</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Añadir Configuracion de Tipos de y Becas de Descuento
+                </p>
+                <p>
+                    Configuraciones de Becas/Descuentos
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

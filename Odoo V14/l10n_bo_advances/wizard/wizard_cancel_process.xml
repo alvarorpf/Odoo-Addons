@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wizard_cancel_process" model="ir.ui.view">
+            <field name="name">Anulacion de Operacion</field>
+            <field name="model">wizard.cancel.process</field>
+            <field name="arch" type="xml">
+                <form string="Cancelar Operacion">
+                    <field name="transfer_id" invisible="1"/>
+                    <group string="Cancelar Operacion">
+                        <div>
+                            <span>
+                                Este proceso anulara el formulario y en caso de existir pagos procedera a cancelarlos.
+                            </span>
+                        </div>
+                    </group>
+                    <group>
+                        <field name="ref"/>
+                    </group>
+                    <footer>
+                        <button name="action_cancel" string="Confirmar" confirm="Esta seguro de anular la operacion" type="object" class="oe_highlight"/>
+                        <button string="Cancelar" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

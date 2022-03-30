@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="document_history_tree">
+        <field name="name">document.history.tree</field>
+        <field name="model">document.history</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false">
+                <field name="document_id"/>
+                <field name="user_id"/>
+                <field name="date"/>
+                <field name="version"/>
+                <field name="comment"/>
+                <field name="preview_name" invisible="1"/>
+                <field name="preview_binary" widget="binary" filename="preview_name"/>
+                <field name="user_can_only_see_viewer_file" invisible="1"/>
+                <field name="download" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="document_history_form">
+        <field name="name">document.history.form</field>
+        <field name="model">document.history</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="document_id"/>
+                        <field name="user_id"/>
+                        <field name="date"/>
+                        <field name="version"/>
+                        <field name="comment"/>
+                        <field name="file" filename="file_name"
+                               attrs="{'invisible':[('user_can_only_see_viewer_file','=',True)]}"/>
+                        <field name="viewer_file" filename="viewer_file_name"/>
+                        <field name="user_can_only_see_viewer_file" invisible="1"/>
+                    </group>
+                    <group invisible="1">
+                        <group string="Archivo">
+                            <field name="file_ext" string="Extension"/>
+                            <field name="file_name" string="Nombre"/>
+                        </group>
+                        <group string="Archivo de Vista">
+                            <field name="file_ext" string="Extension"/>
+                            <field name="viewer_file_name" string="Nombre"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

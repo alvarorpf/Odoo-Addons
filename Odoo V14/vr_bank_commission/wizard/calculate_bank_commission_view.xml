@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="wizard_calculate_bank_commission" model="ir.ui.view">
+            <field name="name">Comisión Bancaria</field>
+            <field name="model">wizard.calculate.bank.commission</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Summary">
+					<sheet>
+                        <group>
+                            <field name="date" required="1"/>
+                            <field name="pos_establishment_ids" widget="many2many_tags" required="1"/>
+                        </group>
+                        <field name="line_ids" options='{"no_open":True}'>
+                            <tree create="0" edit="0">
+                                <field name="check"/>
+                                <field name="move_id"/>
+                                <field name="pos_establishment_id"/>
+                                <field name="journal_id" readonly="1"/>
+                                <field name="date" readonly="1"/>
+                                <field name="amount" readonly="1" invisible="1"/>
+                                <field name="state" readonly="1"/>
+                            </tree>
+                        </field>
+                    </sheet>
+					<footer>
+                        <button name="action_continue" string="Calcular" type="object"/>
+						<button special="cancel" class="oe_highlight" string="Cancelar" />
+					</footer>
+                </form>
+            </field>
+        </record>
+
+		<record id="wizard_calculate_bank_commission_action" model="ir.actions.act_window">
+            <field name="name">Calcular Comisión Bancaria</field>
+            <field name="res_model">wizard.calculate.bank.commission</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="wizard_bank_commission_menu"
+              name="Calcular Comisión Bancaria"
+              parent="point_of_sale.menu_point_config_product"
+              action="wizard_calculate_bank_commission_action"
+              sequence="40"
+              groups="point_of_sale.group_pos_manager"/>
+	</odoo>

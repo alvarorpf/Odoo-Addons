@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="op_student_form_view_inherit_library" model="ir.ui.view">
+            <field name="name">op.student.form.view.inherit.library</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="poi_x_aleman.op_student_form_view_inherit"/>
+            <field name="priority" eval="11"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form/sheet/div[2]/button[1]" position="before">
+                        <button string="Historial de Prestamos" name="action_view_book_loan" type="object" icon="fa-list-alt"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</odoo>

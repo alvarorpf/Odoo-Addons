@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+  <record id="op_request_charge_view_tree" model="ir.ui.view">
+    <field name="name">op.request.charge.tree</field>
+    <field name="model">op.request.charge</field>
+    <field name="arch" type="xml">
+      <tree string="">
+        <field name="name"/>
+        <field name="code_family"/>
+        <field name="responsable_id"/>
+        <field name="date" />
+        <field name="amount_total" />
+        <field name="state"/>
+      </tree>
+    </field>
+  </record>
+  <!--Search View-->
+  <record id="request_charge_search_view" model="ir.ui.view">
+      <field name="name">request.charge.search.view</field>
+      <field name="model">op.request.charge</field>
+      <field name="priority" eval="8"/>
+      <field name="arch" type="xml">
+          <search string="Request Charge">
+              <field name="name"/>
+              <field name="code_family"/>
+              <field name="responsable_id"/>
+              <newline/>
+          </search>
+      </field>
+  </record>
+
+  <record id="op_request_charge_view_form" model="ir.ui.view">
+    <field name="name">op.request.charge.form</field>
+    <field name="model">op.request.charge</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <header>
+          <button name="action_confirm_charge" string="Confirmar" class="oe_highlight" states="draft" type="object"/>
+          <button name="action_pay_charge" string="Pagar" class="oe_highlight" states="confirm" type="object"/>
+          <field name="state" widget="statusbar" readonly="1"/>
+          <button name="action_cancel_payment" string="Cancelar" class="oe_highlight" states="confirm,done" type="object" confirm="Este proceso Cancelara la factura y su pago. Esta seguro de Continuar?"/>
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <!-- <field name="student_id"/> -->
+              <field name="code_family" required="1"/>
+
+              <field name="responsable_id" required="1"/>
+            </group>
+            <group>
+              <field name="date" required="1"/>
+              <field name="date_due" required="1"/>
+              <field name="year_id" required="1" readonly="1"/>
+              <field name="currency_id" required="1"/>
+              <field name="invoiced" invisible="1"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Cargos">
+              <group>
+                <field name="line_ids" nolabel="1" widget="one2many_list" mode="tree" attrs="{'editable': [('state', 'in', ['confirm', 'done'])]}">
+                  <tree editable="bottom" create="0">
+                    <field name="check"/>
+                    <field name="student_id"/>
+                    <field name="date" />
+                    <field name="date_due"/>
+                    <field name="charge_id" readonly="1" force_save="1"/>
+                    <field name="type" />
+                    <field name="product_id" />
+                    <!-- <field name="amount_untaxed" />
+                    <field name="amount_tax" /> -->
+                    <field name="amount_total" invisible="1"/>
+                    <field name="amount_detail"/>
+                  </tree>
+                </field>
+                <group class="oe_subtotal_footer oe_right" colspan="2" name="charge_total">
+                    <field name="amount_untaxed"/>
+                    <field name="amount_tax"/>
+                    <!-- <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator"/> -->
+                    <field name="pension_amount_total" invisible="1"/>
+                    <field name="material_amount_total" invisible="1"/>
+                    <field name="due_amount_total" invisible="1"/>
+                     <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                        <label for="amount_total" />
+                    </div>
+                    <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator"/>
+
+                </group>
+              </group>
+            </page>
+            <page string="Adelantos">
+              <group>
+                <field name="advanced_ids" nolabel="1" widget="one2many_list" mode="tree" attrs="{'readonly': [('state', 'in', ['confirm', 'done'])]}">
+                  <tree editable="1" create="0">
+                    <field name="student_id" />
+                    <field name="type"/>
+                    <field name="amount_type"/>
+                    <!--<field name="amount_bono"/>
+                    <field name="amount"/>-->
+                    <field name="amount_rest" readonly="1"/>
+                  </tree>
+                </field>
+              </group>
+            </page>
+            <page string="Detalle">
+              <group>
+                <field name="pension_ids" nolabel="1" widget="one2many_list" mode="tree">
+                  <tree editable="0" create="0">
+                    <field name="date" />
+                    <field name="student_id"/>
+                    <field name="charge_id" force_save="1"/>
+                    <field name="type" />
+                    <field name="product_id" />
+                    <field name="amount_total" />
+                    <field name="amount_pay"/>
+                  </tree>
+                </field>
+              </group>
+            </page>
+            <page string="Agrupaciones" groups="base.group_system">
+              <group>
+                <field name="group_ids" nolabel="1" widget="one2many_list" mode="tree">
+                  <tree editable="0" create="0">
+                    <field name="id"/>
+                    <field name="student_id" />
+                    <field name="type"/>
+                    <field name="amount_sus"/>
+                    <field name="amount_bs" />
+                    <field name="cids" />
+                    <field name="amount_pay" />
+                    <field name="amount_rest" />
+                  </tree>
+                </field>
+              </group>
+            </page>
+          </notebook>
+           <group>
+            <group>
+              <field name="invoice_id" readonly="1"/>
+              <field name="payment_id" readonly="1"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="op_request_charge_action_form" model="ir.actions.act_window">
+    <field name="name">Pago de Cargos</field>
+    <field name="res_model">op.request.charge</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+        Crear Solicitud de Pago de Cargos
+      </p>
+      <p>
+        Manejo y Creación de Pago de Cargos
+      </p>
+    </field>
+  </record>
+
+</data>
+</odoo>

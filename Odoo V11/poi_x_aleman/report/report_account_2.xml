@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <report
+                id="report_account_report_2_template"
+                string="Estado de Cuentas"
+                model="account.report.2"
+                report_type="qweb-pdf"
+                file="poi_x_aleman.report_account_2"
+                name="poi_x_aleman.report_account_2_template"
+                menu='False'
+        />
+    </data>
+    <template id="report_account_2_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 style="text-align:center;">
+                                <strong>ESTADO DE CUENTAS</strong>
+                            </h4>
+                            <h6 style="text-align:center;">(Expresado en $)</h6>
+                        </div>
+                        <div class="col-xs-12 text-center">
+                            Emitido el:
+                            <t t-usertime="%d/%m/%Y"/>
+                            a las
+                            <t t-usertime="%H:%M"/>
+                        </div>
+                        <div class="col-xs-12 text-right">
+                            <t t-if="year_id">
+                                <strong>Gestión:</strong>
+                                <span t-esc="year_id.name"/>
+                            </t>
+                        </div>
+                        <div class="col-xs-12">
+                            <strong>Código:</strong>
+                            <span t-esc="family_id.name"/>
+                            <br/>
+                            <!--<strong>Responsable:</strong>
+                            <span t-esc="parent_id.name"/>
+                            <br/>-->
+                        </div>
+                        <div class="col-xs-12" style="padding-top: 20px;">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Banco</th>
+                                        <th>Factura</th>
+                                        <th>Detalle</th>
+                                        <th class="text-right">Pension</th>
+                                        <th class="text-right">Otros</th>
+                                        <th class="text-right">Pago</th>
+                                        <th class="text-right">Saldo $us.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="total" t-value="0"/>
+                                    <t t-set="saldo_pensiones" t-value="0"/>
+                                    <t t-set="saldo_materiales" t-value="0"/>
+                                    <t t-set="saldo_mora" t-value="0"/>
+                                    <t t-set="total_pagos" t-value="0"/>
+
+
+                                    <t t-foreach="docs" t-as="d">
+                                        <tr>
+                                            <td>
+                                                <span t-esc="d.date" t-options="{'widget': 'date'}"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="d.bank_id.bic"/>
+                                            </td>
+                                            <td>
+                                                <t t-if="d.invoice == 0">
+
+                                                </t>
+                                                <t t-else="">
+                                                    <span t-esc="d.invoice"/>
+                                                </t>
+                                            </td>
+                                            <td>
+                                                <span t-esc="d.name"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="d.pension"
+                                                      t-options="{'widget': 'float', 'precision': prec}"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="d.other"
+                                                      t-options="{'widget': 'float', 'precision': prec}"/>
+                                            </td>
+                                            <!--Asignacion del Pago Normal y del Abono Colegio-->
+                                            <td class="text-right">
+                                                <t t-if="d.type=='payment'">
+                                                    <span t-esc="d.pago * -1"
+                                                          t-options="{'widget': 'float', 'precision': prec}"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <span t-esc="d.pago"
+                                                          t-options="{'widget': 'float', 'precision': prec}"/>
+                                                </t>
+                                            </td>
+                                            <!--Calculo del total por linea-->
+                                            <t t-if="d.type=='payment'">
+                                                <t t-set="total"
+                                                   t-value="total + (d.pension * -1) + (d.other *  -1) + (d.pago * -1)"/>
+                                            </t>
+                                            <t t-else="">
+                                                <t t-set="total"
+                                                   t-value="total + (d.pension * -1) + (d.other *  -1) + d.pago"/>
+                                            </t>
+
+                                            <t t-if="d.concept == 'pension'">
+                                                <t t-if="d.type != 'payment'">
+                                                    <t t-set="saldo_pensiones"
+                                                       t-value="saldo_pensiones + d.payed"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <t t-set="total_pagos" t-value="total_pagos + (d.pago * -1)"/>
+                                                </t>
+                                            </t>
+                                            <t t-elif="d.concept == 'material'">
+                                                <t t-set="saldo_materiales" t-value="saldo_materiales + d.payed"/>
+
+                                            </t>
+                                            <t t-elif="d.concept == 'mora'">
+                                                <t t-set="saldo_mora" t-value="saldo_mora + d.payed"/>
+                                            </t>
+                                            <t t-else="">
+                                                <t t-set="total_pagos" t-value="total_pagos + d.pago"/>
+                                            </t>
+                                            <td class="text-right">
+                                                <span t-esc="total" t-options="{'widget': 'float', 'precision': prec}"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <br/>
+                            <b>SALDO A FAVOR:</b>
+                            <span t-esc="total" t-options="{'widget': 'float', 'precision': prec}"/>
+                            <b>$us</b>
+                            <br/>
+                            <br/>
+                            <b>Saldo x Pensiones:</b>
+                            <span t-esc="saldo_pensiones * -1"
+                                  t-options="{'widget': 'float', 'precision': prec}"/>
+                            <br/>
+                            <b>Saldo x Materiales:</b>
+                            <span t-esc="saldo_materiales * -1" t-options="{'widget': 'float', 'precision': prec}"/>
+                            <br/>
+                            <b>Saldo x Intereses:</b>
+                            <span t-esc="saldo_mora * -1" t-options="{'widget': 'float', 'precision': prec}"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

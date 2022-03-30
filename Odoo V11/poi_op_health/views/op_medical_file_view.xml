@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_medical_file_form_view" model="ir.ui.view">
+            <field name="name">op.medical.file.form.view</field>
+            <field name="model">op.medical.file</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <group string="A. Datos Personales" col="4">
+                            <field name="student_id"/>
+                            <field name="student_family_code"/>
+                        </group>
+
+                        <group string="B. Contactos de Emergencia">
+                            <div>
+                                <field name="clinical_contact_id">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="phones"/>
+                                        <field name="relationship_id"/>
+                                    </tree>
+                                </field>
+                            </div>
+                        </group>
+
+                        <group string="C. Cobertura Medica">
+                            <group string="Seguro">
+                                <field name="private_insurance"/>
+                                <field name="insurance_name"/>
+                                <field name="insurance_phone"/>
+                            </group>
+                            <group string="Centro Médico">
+                                <field name="medical_center"/>
+                                <field name="phone_medical_center"/>
+                            </group>
+                            <group string="Medico">
+                                <field name="family_doctor"/>
+                                <field name="phone_doctor"/>
+                            </group>
+                        </group>
+                        <group>
+                            <div>
+                                <label string="Enfermedades que padece o que padecío"/>
+                                <field name="clinical_disease_id">
+                                    <tree editable="bottom">
+                                        <field name="disease_id"/>
+                                        <field name="age"/>
+                                    </tree>
+                                </field>
+                            </div>
+                        </group>
+                        <group string="D. Antecendentes de interes">
+                            <field name="operations"/>
+                            <field name="fractures"/>
+                            <field name="coagulation_problems"/>
+                            <field name="blood_group_id"/>
+                        </group>
+                        <group string="Vacunas">
+                            <div>
+                                <field name="clinical_vaccine_id">
+                                    <tree editable="bottom">
+                                        <field name="vaccine_id"/>
+                                        <field name="has"/>
+                                    </tree>
+                                </field>
+                            </div>
+                        </group>
+                        <group string="Alergias">
+                            <div>
+                                <h4>Considere medicamentos, alimentos, animales, picada de insectos,
+                                    agentes ambientales (polvo, pasto, árboles, etc.)
+                                </h4>
+                                <field name="clinical_allergy_id">
+                                    <tree editable="bottom">
+                                        <field name="allergy_id"/>
+                                        <field name="reaction"/>
+                                        <field name="medication"/>
+                                    </tree>
+                                </field>
+                            </div>
+                        </group>
+                        <group string="Medicacion">
+                            <div>
+                                <h4>Por favor indique los medicamentos recetados, y/o drogas homeopáticas que esté
+                                    usando
+                                    o que sen contraindicados
+                                </h4>
+                                <field name="clinical_frequency_id">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="dose"/>
+                                        <field name="frequency_id"/>
+                                        <field name="side_effects"/>
+                                        <field name="use_reasons"/>
+                                    </tree>
+                                </field>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="contraindicated_medications"/>
+                        </group>
+                        <group string="E. Deportes que no puede practicar">
+                            <field name="sport_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_medical_file_tree_view" model="ir.ui.view">
+            <field name="name">op.medical.file.tree.view</field>
+            <field name="model">op.medical.file</field>
+            <field name="arch" type="xml">
+                <tree string="Op Medical File">
+                    <field name="student_id"/>
+                    <field name="student_family_code"/>
+                    <field name="private_insurance"/>
+                    <field name="insurance_name"/>
+                    <field name="medical_center"/>
+                    <field name="family_doctor"/>
+                    <field name="blood_group_id"/>
+                    <field name="contraindicated_medications"/>
+                </tree>
+            </field>
+        </record>
+        <!--Seacrh View-->
+        <record id="view_op_medical_file_search" model="ir.ui.view">
+            <field name="name">op.medical.file.search</field>
+            <field name="model">op.medical.file</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Ficha Medica">
+                    <field name="student_family_code"/>
+                    <field name="blood_group_id"/>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                        <!--<filter name="student_family_code" string="Codigo de Familia"
+                                domain="[]" context="{'group_by':'student_family_code'}"/>-->
+                        <filter name="blood_group_id" string="Grupo Sanguineo"
+                                domain="[]" context="{'group_by':'blood_group_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_medical_file" model="ir.actions.act_window">
+            <field name="name">Ficha Medica</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.medical.file</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_op_medical_file_register_student" model="ir.actions.act_window">
+            <field name="name">Ficha Medica</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.medical.file</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_medical_file_menu_health" name="Ficha Medica" sequence="1"
+                  parent="submenu_op_health_health" action="action_op_medical_file"/>
+    </data>
+</odoo>

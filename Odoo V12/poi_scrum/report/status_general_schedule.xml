@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <report
+                id="project_state_general_schedule"
+                model="project.project"
+                string="Ver Cronograma General"
+                report_type="qweb-html"
+                name="poi_scrum.template_status_general_schedule"
+                file="Estado de Proyecto"
+        />
+
+        <template id="template_status_general_schedule_links" inherit_id="web.report_layout">
+            <xpath expr="//head" position="inside">
+                <link rel="stylesheet" type="text/css" href="/poi_scrum/static/src/css/jsgantt.css"/>
+                <link rel="stylesheet" type="text/css" href="/poi_scrum/static/src/css/poigantt.css"/>
+                <script type="text/javascript" src="/poi_scrum/static/src/js/jsgantt.js"/>
+                <script type="text/javascript" src="/poi_scrum/static/src/js/poi_gantt.js"/>
+            </xpath>
+        </template>
+    </data>
+
+    <data>
+        <template id="template_status_general_schedule">
+            <t t-call="web.report_layout">
+                <t t-foreach="data" t-as="d">
+                    <div class="header" style="font-size:14px;">
+                        <div class="row">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <td>
+                                        <img t-if="company_id.logo" t-att-src="image_data_uri(company_id.logo)"
+                                             style="max-height:45pt;max-width:90%" alt="Company Logo"/>
+                                        <b style="font-size: 25px;">
+                                            <span t-esc="d['project'].name"/>
+                                        </b>
+                                    </td>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <strong>Fecha:</strong>
+                                        <span t-esc="d['project'].start_date" t-options="{'widget': 'date'}"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <strong>Proyecto:</strong>
+                                        <span t-esc="d['project'].name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <strong>Usuario solicitante:</strong>
+                                        <span t-esc="d['project'].requesting_user_id.name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <strong>Descripción:</strong>
+                                        <span t-raw="d['project'].description"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="project_id" t-att-value="d['project'].id" style="display: none;">
+                            <span t-field="d['project'].id"/>
+                        </div>
+                        <table id="task_ids" style="display: none;">
+                            <tr t-foreach="d['docs']" t-as="task">
+                                <td>
+                                    <span t-esc="task['id']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="task['name']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="task['assigned_id']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="task['task_type']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="task['date_start']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="task['date_end']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="task['date_deadline']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="task['project_date_end']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="task['parent_id']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="task['description']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="task['progress']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="task['depend_id']"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="position:relative; min-width: 3500px;" class="gantt" id="GanttChartDIV"></div>
+                    </div>
+                </t>
+                <script type="text/javascript">window.onload = drawGanttOnload;</script>
+            </t>
+        </template>
+    </data>
+</openerp>

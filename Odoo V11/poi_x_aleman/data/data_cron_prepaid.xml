@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="False">
+        <record id="prepaid_cron" model="ir.cron">
+            <field name="name">Generación de Abono por Pagos Anticipados</field>
+            <field name="model_id" ref="model_op_school_period"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_generate_prepaid()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="active" eval="False"/>
+            <field name="doall" eval="False"/>
+        </record>
+    </data>
+</odoo>

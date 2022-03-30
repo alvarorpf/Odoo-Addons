@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="dismissed_project_form" model="ir.ui.view">
+            <field name="name">dismissed.project.form</field>
+            <field name="model">dismissed.project</field>
+            <field name="arch" type="xml">
+                <form string="Pausar Proyecto">
+                    <group>
+                        <field name="project_id" readonly="1" force_save="1"/>
+                        <field name="observation"/>
+                        <field name="dismissed" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_dismissed" string="Desestimar" type="object"
+                                class="btn-primary" attrs="{'invisible': [('dismissed', '=', False)]}"
+                                confirm="Esta seguro de desestimar el proyecto?"/>
+                        <button name="action_continue" string="Continuar" type="object"
+                                class="btn-primary" attrs="{'invisible': [('dismissed', '=', True)]}"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

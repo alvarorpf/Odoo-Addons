@@ -1,0 +1,111 @@
+<odoo>
+
+    <record id="election_form" model="ir.ui.view">
+          <field name="name">election.form</field>
+          <field name="model">election.form</field>
+          <field name="arch" type="xml">
+                <form>
+                      <header>
+                            <button name="action_confirm" string="Finalizar" class="oe_highlight" states="draft" type="object" confirm="¿Esta seguro de finalizar el llenado del formulario?"/>
+                            <field name="state" widget="statusbar"/>
+                      </header>
+                      <sheet>
+                            <div class="oe_title">
+                                <b><span>Nombre</span></b>
+                                <h1>
+                                    <field name="name" readonly="1"/>
+                                </h1>
+                            </div>
+                            <group string="DATOS GENERALES">
+                                <group>
+                                    <field name="company_id" invisible="1"/>
+                                    <field name="project_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="social_reason" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                </group>
+                                <group>
+                                    <field name="rut" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="community" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                    <field name="date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                </group>
+                                <field name="direction" placeholder="Direccion" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </group>
+                            <group string="SUFRAGIOS EMITIDOS">
+                                <div>
+                                    <field name="suffrage_ids" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                        <tree editable="bottom">
+                                            <field name="name"/>
+                                            <field name="rut"/>
+                                            <field name="votes"/>
+                                        </tree>
+                                    </field>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="votes_count" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="votes_null" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="votes_total" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </group>
+                            <group string="TITULARES">
+                                <div>
+                                    <field name="headline_ids" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                        <tree editable="bottom">
+                                            <field name="name"/>
+                                            <field name="rut"/>
+                                        </tree>
+                                    </field>
+                                </div>
+                            </group>
+                            <group string="SUPLENTES">
+                                <div>
+                                    <field name="substitute_ids" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                        <tree editable="bottom">
+                                            <field name="name"/>
+                                            <field name="rut"/>
+                                        </tree>
+                                    </field>
+                                </div>
+                            </group>
+                            <group string="FIRMAS">
+                                <div>
+                                    <field name="witness_ids" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                        <tree editable="bottom">
+                                            <field name="name"/>
+                                            <field name="rut"/>
+                                            <field name="signature" widget="signature"/>
+                                        </tree>
+                                    </field>
+                                </div>
+                            </group>
+                            <group string="NOTAS ADICIONALES">
+                                <div>
+                                    <field name="note" placeholder="Notas Adicionales" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                </div>
+                            </group>
+                      </sheet>
+                </form>
+          </field>
+    </record>
+
+    <record id="election_form_tree" model="ir.ui.view">
+          <field name="name">election.form.tree</field>
+          <field name="model">election.form</field>
+          <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="rut"/>
+                    <field name="social_reason"/>
+                    <field name="community"/>
+                    <field name="date"/>
+                </tree>
+          </field>
+    </record>
+
+    <record id="election_form_action" model="ir.actions.act_window">
+      <field name="name">Acta de Elecciones</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">election.form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

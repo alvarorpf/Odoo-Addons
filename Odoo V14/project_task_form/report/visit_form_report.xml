@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_report_visit_form" model="ir.actions.report">
+            <field name="name">Formulario de Visita</field>
+            <field name="model">visit.form</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">project_task_form.visit_form_report</field>
+            <field name="report_file">project_task_form.visit_form_report</field>
+            <field name="print_report_name">'Formulario de Visita - %s' % object.name</field>
+            <field name="paperformat_id" ref="project_task_form.paperformat_base"/>
+            <field name="binding_model_id" ref="model_visit_form"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="visit_form_report">
+            <t t-foreach="docs" t-as="d">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div class="row" id="hash_header">
+                            <div class="col-12">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td width='20%' style="font-size:12px:" align="center">
+                                            <img style="max-width: 80px;"
+                                             t-if="d.company_id.logo"
+                                             t-att-src="image_data_uri(d.company_id.logo)"
+                                             alt="Logo"/>
+                                        </td>
+                                        <td style="text-align:center;" width='60%'>
+                                            <b><span t-esc="d.name"/></b>
+                                            <br/>
+                                            <b>FORMULARIO DE VISITA</b>
+                                            <br/>
+                                            <b></b>
+                                        </td>
+                                        <td width='20%' style="text-align:left;">
+                                            <br/>
+                                            <b>Fecha:</b><span t-esc="d.date.strftime('%d/%m/%Y')"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th colspan="4" style="text-align:center;">DATOS DE LA EMPRESA</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:20%;"><b>NOMBRE O RAZON SOCIAL</b></td>
+                                            <td style="width:30%;"><span t-esc="d.social_reason"/></td>
+                                            <td style="width:20%;"><b>RUT</b></td>
+                                            <td style="width:30%;"><span t-esc="d.rut"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:20%;"><b>CLIENTE</b></td>
+                                            <td style="width:30%;"><span t-esc="d.client"/></td>
+                                            <td style="width:20%;"><b>COMUNA</b></td>
+                                            <td style="width:30%;"><span t-esc="d.community"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:20%;"><b>DIRECCION</b></td>
+                                            <td colspan="3" style="width:80%;"><span t-esc="d.direction"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:20%;"><b>NRO. TRABAJADORES</b></td>
+                                            <td style="width:30%;"><span t-esc="d.employee_number"/></td>
+                                            <td style="width:20%;"><b>FECHA</b></td>
+                                            <td style="width:30%;"><span t-esc="d.date.strftime('%d/%m/%Y')"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:20%;"><b>PROFESIONAL RESPONSABLE</b></td>
+                                            <td style="width:30%;"><span t-esc="d.direct_boss"/></td>
+                                            <td style="width:20%;"><b>CARGO</b></td>
+                                            <td style="width:30%;"><span t-esc="d.position"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th colspan="4" style="text-align:center;">OBJETIVOS</th>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="d.objective_ids" t-as="o">
+                                            <tr>
+                                                <td colspan="4"> - <span t-esc="o.objective"/></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th colspan="4" style="text-align:center;">RESULTADO DE VISITA</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="4"><span t-esc="d.visit_result"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <tbody>
+                                        <tr>
+                                            <td width='40%' style="font-size:12px:" align="center">
+                                                <img style="max-width: 70px;"
+                                                 t-if="d.company_id.logo"
+                                                 t-att-src="image_data_uri(d.company_id.logo)"
+                                                 alt="Logo"/>
+                                            </td>
+                                            <td style="width:60%; text-align:center;">
+                                                <img class="img"
+                                                     t-attf-src="data:image/png;base64,{{d.signature}}"
+                                                     style="max-width:300px;"
+                                                />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width='40%' style="font-size:12px:" align="center">
+                                                <b>GERENCIA SEGURIDAD SALUD OCUPACIONAL</b>
+                                            </td>
+                                            <td style="width:60%; text-align:left;"><b>REALIZADO POR: </b><span t-esc="d.create_uid.name"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_internal_transfer,l10n_bo_advances.internal_transfer,model_internal_transfer,base.group_user,1,1,1,1
+access_internal_transfer_type,l10n_bo_advances.internal_transfer_type,model_internal_transfer_type,base.group_user,1,1,1,1
+access_wizard_generate_payment,l10n_bo_advances.wizard_generate_payment,model_wizard_generate_payment,base.group_user,1,1,1,1
+access_wizard_cancel_process,l10n_bo_advances.wizard_cancel_process,model_wizard_cancel_process,base.group_user,1,1,1,1

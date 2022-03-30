@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<record id="op_period_open_wiz_view_form" model="ir.ui.view">
+    <field name="name">op.period.open.form</field>
+    <field name="model">op.period.open</field>
+    <field name="arch" type="xml">
+        <form string="Asistente de Apertura de Gestion">
+            <h4>El asitente creara el año Escolar a partir del anterior, las clases del año anterior pasaran a estado historico y se crearan las clases de la nueva gestion a partir de la anterior gestion.</h4>
+            <group>
+                <field name="new_year_id"/>
+                <field name="copy_year_id" />
+            </group>
+            <footer>
+                <button name="action_create_period" string="Crear y Ver Nueva Gestion Escolar" type="object" class="btn-primary"/>
+                <button string="Salir" class="oe_link" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+<record id="op_period_open_action_form" model="ir.actions.act_window">
+    <field name="name">Asistente de Nueva Gestion Escolar</field>
+    <field name="res_model">op.period.open</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+</record>
+
+<!-- Promocion de Estudiantes -->
+<record id="op_period_open_wiz2_view_form" model="ir.ui.view">
+    <field name="name">op.period.open.form</field>
+    <field name="model">op.period.open</field>
+    <field name="arch" type="xml">
+        <form string="Asistente de Apertura de Gestion">
+            <field name="new_year_id"/>
+            <h5>Este asistente hara un barrido de todos los alumnos  y los promocionara  a la siguiente clase, si es que los requisitos aplican</h5>
+            <footer>
+                <button name="action_promote_students" string="Promover Estudiantes" type="object" class="btn-primary"/>
+                <button string="Salir" class="oe_link" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+<!-- Finalizacion del asistente -->
+<record id="op_period_open_wiz3_view_form" model="ir.ui.view">
+    <field name="name">op.period.open.form</field>
+    <field name="model">op.period.open</field>
+    <field name="arch" type="xml">
+        <form string="Asistente de Apertura de Gestion">
+            <h5>Presione Finalizar para concluir con el asistente</h5>
+            <footer>
+                <button string="Fiinalizar" class="oe_link" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+        <!-- Ajuste Contable -->
+<record id="op_period_open_wiz4_view_form" model="ir.ui.view">
+    <field name="name">op.period.open.form</field>
+    <field name="model">op.period.open</field>
+    <field name="arch" type="xml">
+        <form string="Asistente de Traspaso Contable">
+            <h5>Este asistente hara un traspaso contable de los ingresos y excedentes que se registraron en el cierre contable de la gestion anterior</h5>
+            <group>
+                <group string="Cuentas de Ingreso Activo">
+                    <field name="account_kinder_pension_id" required="True"/>
+                    <field name="account_kinder_material_id" required="True"/>
+                    <!--<field name="account_excedente_id" required="True"/>-->
+                </group>
+            </group>
+            <group>
+                <field name="journal_id" required="True"/>
+            </group>
+            <footer>
+                <button name="action_accounting_opening" string="Traspaso Contable" type="object" class="btn-primary"/>
+                <button string="Salir" class="oe_link" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+</data>
+</odoo>

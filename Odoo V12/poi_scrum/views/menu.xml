@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Menu de Proyectos-->
+    <menuitem name="Proyectos"
+              id="project.menu_main_pm"
+              groups="project.group_project_manager,project.group_project_user,poi_scrum.group_project_only_read"
+              web_icon="project,static/description/icon.png"
+              sequence="50"/>
+    <menuitem action="project.open_view_project_all"
+              id="project.menu_projects"
+              name="Proyectos"
+              parent="project.menu_main_pm"
+              sequence="1"
+              groups="project.group_project_manager,project.group_project_user,poi_scrum.group_project_only_read"/>
+
+    <menuitem name="All Tasks" id="project.menu_project_management" parent="project.menu_main_pm"
+            action="project.action_view_task" sequence="2" groups="base.group_system"/>
+</odoo>

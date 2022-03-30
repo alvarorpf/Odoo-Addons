@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="suspend_form" model="ir.ui.view">
+            <field name="name">suspend.requirement.form</field>
+            <field name="model">suspend.requirement</field>
+            <field name="arch" type="xml">
+                <form string="Suspender Requerimiento">
+                    <group>
+                        <field name="request_id" invisible="1"/>
+                        <field name="comment"/>
+                    </group>
+                    <footer>
+                        <button name="action_suspend" string="Suspender Requerimiento" type="object"
+                                class="btn-primary"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

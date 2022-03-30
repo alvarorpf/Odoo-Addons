@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="True">
+        <!-- Sequences for Student -->
+        <record id="seq_op_student" model="ir.sequence">
+            <field name="name">Codigo de Alumno</field>
+            <field name="code">op.student</field>
+            <field name="prefix">A</field>
+            <field name="padding">4</field>
+            <field name="number_next">4011</field>
+        </record>
+        <!-- Sequences for Family -->
+        <record id="seq_op_family" model="ir.sequence">
+            <field name="name">Codigo de Familia</field>
+            <field name="code">op.family</field>
+            <field name="padding">4</field>
+            <field name="number_next">2000</field>
+        </record>
+    </data>
+</odoo>

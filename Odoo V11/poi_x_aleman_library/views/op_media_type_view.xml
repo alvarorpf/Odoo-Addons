@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_op_media_type_tree_inherit" model="ir.ui.view">
+            <field name="name">op.media.type.tree</field>
+            <field name="model">op.media.type</field>
+            <field name="priority" eval="8"/>
+            <field name="inherit_id" ref="openeducat_library.view_op_media_type_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//tree" position="replace">
+                        <tree string="Tag">
+                            <field name="name"/>
+                        </tree>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="view_op_media_type_form_inherit" model="ir.ui.view">
+            <field name="name">op.media.type.form</field>
+            <field name="model">op.media.type</field>
+            <field name="priority" eval="8"/>
+            <field name="inherit_id" ref="openeducat_library.view_op_media_type_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form" position="replace">
+                        <form string="Tipo de Medio">
+                            <sheet>
+                                <group>
+                                    <field name="name"/>
+                                </group>
+                            </sheet>
+                        </form>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="openeducat_library.act_open_op_media_type_view">
+            <field name="name">Tipo de Medio</field>
+        </record>
+    </data>
+</odoo>

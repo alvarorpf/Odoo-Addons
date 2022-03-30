@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--    TRANSFER WIZARD   -->
+        <record id="data_wizard_transfer" model="ir.ui.view">
+            <field name="name">transfer.wizard.form</field>
+            <field name="model">transfer.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Asistente de Traspaso Wizard" version="7.0">
+                    <group>
+                        <field name="event_id"/>
+                    </group>
+                    <group>
+                        <field name="traspaso_lines"
+                               domain="[('event_id','=',event_id),('estado','in',('libre','pago_parcial'))]">
+                            <tree editable="bottom">
+                                <field name="product_id" readonly="1"/>
+                                <field name="price_unit" readonly="1"/>
+                                <field name="estado" readonly="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button string="Traspasar" name="transfer_event" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Descartar" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_event_trasnfer" model="ir.actions.act_window">
+            <field name="name">TRASPASO</field>
+            <field name="res_model">transfer.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="data_wizard_transfer"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

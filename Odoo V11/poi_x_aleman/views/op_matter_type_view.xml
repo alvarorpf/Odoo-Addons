@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_matter_type_form_view" model="ir.ui.view">
+            <field name="name">op.matter.type.form.view</field>
+            <field name="model">op.matter.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_matter_type_tree_view" model="ir.ui.view">
+            <field name="name">op.matter.type.tree.view</field>
+            <field name="model">op.matter.type</field>
+            <field name="arch" type="xml">
+                <tree string="op Matter Type">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_matter_type" model="ir.actions.act_window">
+            <field name="name">Tipo de Materia</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.matter.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_matter_type_menu_configuration" name="Tipo de Materia" sequence="1" parent="openeducat_core.menu_op_school_config_subject" action="action_op_matter_type"/>
+    </data>
+</odoo>

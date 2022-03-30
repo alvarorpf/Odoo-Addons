@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="True">
+        <record id="dosif_default" model="poi_bol_base.cc_dosif">
+            <field name="name">Dosificacion Servicio Web(defecto)</field>
+            <field name="activa" eval="True"/>
+            <field name="fecha_ini">2017-01-01</field>
+            <field name="fecha_fin">2030-01-01</field>
+            <field name="warehouse_id" ref="stock.warehouse0"/>
+            <field name="applies">out_invoice</field>
+            <field name="nro_orden">222333444556677</field>
+            <field name="auto_num" eval="False"/>
+            <field name="require_taxes" eval="True"/>
+            <field name="rango_ini">0</field>
+            <field name="rango_fin">100000</field>
+            <field name="leyenda_id" ref="poi_bol_cc.poi_bol_ley_1"/>
+        </record>
+        <record id='type_charge_pension' model="account.op.charge.type">
+            <field name="name">Pension</field>
+            <field name="code">PEN0</field>
+            <field name="type">send</field>
+        </record>
+        <record id='type_charge_mora' model="account.op.charge.type">
+            <field name="name">Mora</field>
+            <field name="code">MOR0</field>
+            <field name="type">send</field>
+        </record>
+
+        <record id="op_charges_cron" model="ir.cron">
+            <field name="name">Generación de Cargos</field>
+            <field name="model_id" ref="model_op_school_period"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_generate_charges()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+    </data>
+</odoo>

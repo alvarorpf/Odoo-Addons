@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_banking_document_type,l10n_bo_bankarization.banking_document_type,model_banking_document_type,base.group_user,1,1,1,1
+access_banking_transaction_mod,l10n_bo_bankarization.banking_transaction_mod,model_banking_transaction_mod,base.group_user,1,1,1,1
+access_banking_transaction_type,l10n_bo_bankarization.banking_transaction_type,model_banking_transaction_type,base.group_user,1,1,1,1
+access_wizard_banking,l10n_bo_bankarization.wizard_banking,model_wizard_banking,base.group_user,1,1,1,1
+
+

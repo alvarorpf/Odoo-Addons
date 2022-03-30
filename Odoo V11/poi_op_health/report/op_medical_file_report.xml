@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <report
+                id="action_report_medical_file"
+                model="op.medical.file"
+                string="Ficha Medica"
+                report_type="qweb-pdf"
+                name="poi_op_health.op_medical_file_report"
+                file="poi_op_health.op_medical_file_report"
+        />
+    </data>
+    <template id="op_medical_file_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-xs-12" style="text-align:center;">
+                                <h4>
+                                    <strong>
+                                        <u>FICHA MÉDICA</u>
+                                    </strong>
+                                </h4>
+                                <h4>
+                                    <strong>
+                                        <u>KRAKENAKTE</u>
+                                    </strong>
+                                </h4>
+                            </div>
+                            <div class="col-xs-12">
+                                <h4 style="color:#668fc5;">
+                                    <strong>A. Datos Personales /
+                                        <i>Persönliche Daten</i>
+                                    </strong>
+                                </h4>
+                            </div>
+                            <div class="col-xs-6">
+                                <label>Alumno:</label>
+                                <span t-field="o.student_id.name"/>
+                                <br/>
+                                <i>(Aleman)</i>
+                                <br/>
+                                <label>CI:</label>
+                                <span t-field="o.student_id.ci"/>
+                                <span t-field="o.student_id.issued_ci"/>
+                                <span t-field="o.student_id.extension_ci"/>
+                                <br/>
+                                <i>ID</i>
+                                <br/>
+                                <label>Curso:</label>
+                                <span t-field="o.student_id.course_id"/>
+                                <br/>
+                                <i>Klasse</i>
+                            </div>
+                            <div class="col-xs-6">
+                                <label>Fecha de Nacimiento:</label>
+                                <span t-field="o.student_id.birth_date"/>
+                                <br/>
+                                <i>Geburtsdatum</i>
+                                <br/>
+                                <label>Edad:</label>
+                                <span t-field="o.student_id.age"/>
+                                <br/>
+                                <i>Alter</i>
+                            </div>
+                            <div class="col-xs-12">
+                                <h4 style="color:#668fc5;">
+                                    <strong>B. Contactos de Emergencia /
+                                        <i>Notfallkontakt</i>
+                                    </strong>
+                                </h4>
+                            </div>
+                            <div class="col-xs-12">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th style="text-align:center;">Nombre /
+                                            <i>Name</i>
+                                        </th>
+                                        <th style="text-align:center;">Teléfonos /
+                                            <i>Telefonnummer</i>
+                                        </th>
+                                        <th style="text-align:center;">Relación /
+                                            <i>(Aleman)</i>
+                                        </th>
+                                    </tr>
+                                    <t t-foreach="o.clinical_contact_id" t-as="contact">
+                                        <tr>
+                                            <td style="text-align:center;">
+                                                <span t-field="contact.name"/>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <span t-field="contact.phones"/>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <span t-field="contact.relationship_id.name"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </table>
+                            </div>
+                            <div class="col-xs-12">
+                                <h4 style="color:#668fc5;">
+                                    <strong>C. Cobertura Medica /
+                                        <i>Ärztliche Abdeckung</i>
+                                    </strong>
+                                </h4>
+                            </div>
+                            <div class="col-xs-6">
+                                <label style="color:#668fc5;">Seguro /
+                                    <i>Versicherung</i>
+                                </label>
+                                <br/>
+                                <label>Seguro Particular:</label>
+                                <span t-field="o.private_insurance"/>
+                                <br/>
+                                <i>(Aleman)</i>
+                                <br/>
+                                <label>Nombre del Seguro:</label>
+                                <span t-field="o.insurance_name"/>
+                                <br/>
+                                <i>(Aleman)</i>
+                                <br/>
+                                <label>Telefono Seguro:</label>
+                                <span t-field="o.insurance_phone"/>
+                                <br/>
+                                <i>Telefonnummer</i>
+                            </div>
+                            <div class="col-xs-6">
+                                <label style="color:#668fc5;">Centro Medico /
+                                    <i>(Aleman)</i>
+                                </label>
+                                <br/>
+                                <label>Centro Medico de Referencia:</label>
+                                <span t-field="o.medical_center"/>
+                                <br/>
+                                <i>(Aleman)</i>
+                                <br/>
+                                <label>Telefono Centro:</label>
+                                <span t-field="o.phone_medical_center"/>
+                                <br/>
+                                <i>Telefonnummer</i>
+                                <br/>
+                                <label>Médico pediatra o de cabecera:</label>
+                                <span t-field="o.family_doctor"/>
+                                <br/>
+                                <i>(Aleman)</i>
+                                <br/>
+                                <label>Telefono:</label>
+                                <span t-field="o.phone_doctor"/>
+                                <br/>
+                                <i>Telefonnummer</i>
+                            </div>
+                            <div class="col-xs-12">
+                                <label>Enfermedades que padece o padeció</label>
+                                <br/>
+                                <i>Vorhandene oder vergangene Krankheiten</i>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th style="text-align:center;">Enfermedad /
+                                            <i>Krankheit</i>
+                                        </th>
+                                        <th style="text-align:center;">Edad en que padeció /
+                                            <i>(Aleman)</i>
+                                        </th>
+                                    </tr>
+                                    <t t-foreach="o.clinical_disease_id" t-as="disease">
+                                        <tr>
+                                            <td style="text-align:center;">
+                                                <span t-field="disease.disease_id"/>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <span t-field="disease.age"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </table>
+                            </div>
+                            <div class="col-xs-12">
+                                <h4 style="color:#668fc5;">
+                                    <strong>D. Antecedentes de interés /
+                                        <i>Wichtiger Hintergrund</i>
+                                    </strong>
+                                </h4>
+                            </div>
+                            <div class="col-xs-12">
+                                <label>Operaciones:</label>
+                                <span t-field="o.operations"/>
+                                <br/>
+                                <i>Operationen</i>
+                                <br/>
+                                <label>Traumatismos / Fracturas:</label>
+                                <span t-field="o.fractures"/>
+                                <br/>
+                                <i>Verletzungen / Frakturen</i>
+                                <br/>
+                                <label>Problemas de coagulación:</label>
+                                <span t-field="o.coagulation_problems"/>
+                                <br/>
+                                <i>Liegen Blutgemnugproblemen vor?</i>
+                                <br/>
+                                <label>Grupo Sanguíneo:</label>
+                                <span t-field="o.blood_group_id.composition"/>
+                                <br/>
+                                <i>Blutgruppe</i>
+                            </div>
+                            <div class="col-xs-12">
+                                <h4 style="color:#668fc5;">
+                                    <strong>Vacunas /
+                                        <i>Impfugen</i>
+                                    </strong>
+                                </h4>
+                            </div>
+                            <div class="col-xs-12">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th style="text-align:center;">Vacunas /
+                                            <i>Impfugen</i>
+                                        </th>
+                                        <th style="text-align:center;">Tiene /
+                                            <i>(Aleman)</i>
+                                        </th>
+                                    </tr>
+                                    <t t-foreach="o.clinical_vaccine_id" t-as="vaccine">
+                                        <tr>
+                                            <td style="text-align:center;">
+                                                <span t-field="vaccine.vaccine_id"/>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <t t-if="vaccine.has == True">
+                                                    <i class="fa fa-check"/>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </table>
+                            </div>
+                            <div class="col-xs-12">
+                                <h4 style="color:#668fc5;">
+                                    <strong>Alergias /
+                                        <i>Allergien</i>
+                                    </strong>
+                                </h4>
+                            </div>
+                            <div class="col-xs-12">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th style="text-align:center;">Alergia /
+                                            <i>Allergien</i>
+                                        </th>
+                                        <th style="text-align:center;">Reaccion /
+                                            <i>(Aleman)</i>
+                                        </th>
+                                        <th style="text-align:center;">Medicamento Utilizado /
+                                            <i>(Aleman)</i>
+                                        </th>
+                                    </tr>
+                                    <t t-foreach="o.clinical_allergy_id" t-as="allergy">
+                                        <tr>
+                                            <td style="text-align:center;">
+                                                <span t-field="allergy.allergy_id.name"/>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <span t-field="allergy.reaction"/>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <span t-field="allergy.medication"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </table>
+                            </div>
+                            <div class="col-xs-12">
+                                <h4 style="color:#668fc5;">
+                                    <strong>Medicación /
+                                        <i>(Aleman)</i>
+                                    </strong>
+                                </h4>
+                            </div>
+                            <div class="col-xs-12">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th style="text-align:center;">Nombre Medicamento /
+                                            <i>(Aleman)</i>
+                                        </th>
+                                        <th style="text-align:center;">Dosis /
+                                            <i>(Aleman)</i>
+                                        </th>
+                                        <th style="text-align:center;">Frecuencia /
+                                            <i>(Aleman)</i>
+                                        </th>
+                                        <th style="text-align:center;">Efectos Secundarios /
+                                            <i>(Aleman)</i>
+                                        </th>
+                                        <th style="text-align:center;">Motivo de uso /
+                                            <i>(Aleman)</i>
+                                        </th>
+                                    </tr>
+                                    <t t-foreach="o.clinical_frequency_id" t-as="medicine">
+                                        <tr>
+                                            <td style="text-align:center;">
+                                                <span t-field="medicine.name"/>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <span t-field="medicine.dose"/>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <span t-field="medicine.frequency_id.name"/>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <span t-field="medicine.side_effects"/>
+                                            </td>
+                                            <td style="text-align:center;">
+                                                <span t-field="medicine.use_reasons"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </table>
+                            </div>
+                            <div class="col-xs-12">
+                                <label>Medicamentos contraindicados:</label>
+                                <span t-field="o.contraindicated_medications"/>
+                                <br/>
+                                <i>Kontraindizierte Medikamente</i>
+                            </div>
+                            <div class="col-xs-12">
+                                <h4 style="color:#668fc5;">
+                                    <strong>E. Deportes que no debe practicar /
+                                        <i>Sportaten, die nicht ausgeübt werden sollten</i>
+                                    </strong>
+                                </h4>
+                            </div>
+                            <div class="col-xs-12">
+                                <label>Deportes:</label>
+                                <t t-foreach="o.sport_ids" t-as="sport">
+                                    <span style="padding-right 3px" t-field="sport.name"/>
+                                </t>
+                                <br/>
+                                <i>Sport</i>
+                            </div>
+                            <div class="col-xs-12">
+                                <h4 style="color:#668fc5;">
+                                    <strong>Nota /
+                                        <i>Anmerkung</i>
+                                    </strong>
+                                </h4>
+                            </div>
+                            <div class="col-xs-12">
+                                <p>
+                                    <strong>
+                                        Si acaso su hijo o hija padecierauna enfermedad o tratamiento importante, le
+                                        rogamos adjuntarla certificación médica correspondiente para poder tener el
+                                        manejo adecuado.
+                                    </strong>
+                                </p>
+                                <p>
+                                    <i>
+                                        Für den Fall, dar Ihr Kind eine schewere Krankheit hat oder in Behandlung ist,
+                                        fügen Sie bitte die antprechende ärztliche Berscheinigung zu, um eine angemesse
+                                        Vergsorgung zu haben.
+                                    </i>
+                                </p>
+                            </div>
+                            <div class="col-xs-6" style="text-align:right;">
+                                <br/>
+                                <p style="line-height: 1.2em;">
+                                    <strong>
+                                        Firma del Padre / Madre / Tutor:
+                                    </strong>
+                                    <br/>
+                                    <i>Unterschriff des Vaters, des Mutter oder des Tutors</i>
+                                    <br/>
+                                    <strong>
+                                        Aclaración:
+                                    </strong>
+                                    <br/>
+                                    <i>Klartext</i>
+                                    <br/>
+                                    <strong>
+                                        Fecha:
+                                    </strong>
+                                    <br/>
+                                    <i>Datum</i>
+                                    <br/>
+                                </p>
+                            </div>
+                            <div class="col-xs-12">
+                                <p>
+                                    <strong>
+                                        Rogamos entregar el presente formulario hasta
+                                        <span t-field="period.date_fm"/>
+                                        a los respectivos jefes de curso.
+                                    </strong>
+                                </p>
+                                <p>
+                                    <i>
+                                        Bitte seden Sie Dieses Formular bis
+                                        <span t-field="period.date_fm"/>
+                                        an den jeweiligen Klassenlehrerlin
+                                    </i>
+                                </p>
+                            </div>
+                            <div class="col-xs-12">
+                                <p>
+                                    <strong>
+                                        Muchas gracias
+                                    </strong>
+                                </p>
+                                <p>
+                                    <i>
+                                        Vielen Dank!
+                                    </i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

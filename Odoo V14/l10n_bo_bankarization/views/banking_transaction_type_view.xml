@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <!-- Vista Árbol de Modelo de Tipo de Transaccion Bancarizacion -->
+
+        <record model="ir.ui.view" id="banking_transaction_type_tree">
+            <field name="name">banking.transaction.type.tree</field>
+            <field name="model">banking.transaction.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario de Modelo de Tipo de Transaccion Bancarizacion -->
+
+        <record model="ir.ui.view" id="banking_transaction_type_form">
+            <field name="name">banking.transaction.type.form</field>
+            <field name="model">banking.transaction.type</field>
+            <field name="arch" type="xml">
+                <form string="Modelo de Tipo de Transaccion Bancarizacion">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Accion para visualizar modelo tipo de transacion bancarizacion -->
+
+        <record id="banking_transaction_type_action" model="ir.actions.act_window">
+            <field name="name">Tipo de Transaccion Bancarizacion</field>
+            <field name="res_model">banking.transaction.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crear un nuevo tipo de transacion de bancarizacion
+                </p>
+            </field>
+        </record>
+
+        <!--Menu de Tipo de Documento de Bancarizacion-->
+        <menuitem id="banking_transaction_type_menu" action="banking_transaction_type_action" parent="banking_root_menu"/>
+
+    </data>
+</odoo>

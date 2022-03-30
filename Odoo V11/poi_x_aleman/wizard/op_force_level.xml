@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="op_student_force_level_wiz" model="ir.ui.view">
+            <field name="name">op.student.force.level.form</field>
+            <field name="model">op.student.force.level</field>
+            <field name="arch" type="xml">
+                <form string="Forzar Nivel">
+                    <group col="4">
+                        <field name="level" options="{'no_create_edit': True, 'no_open': True}"/>
+                        <field name="student_id" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button name="force_level" string="Aplicar" type="object"
+                                class="btn-primary"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

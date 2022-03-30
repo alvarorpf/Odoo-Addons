@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record id="no_valid_poi" model="muk_quality_docs.stage">
+        <field name="name">No vigente</field>
+        <field name="sequence" eval="10"/>
+        <field name="has_write_access_for_managers" eval="True"/>
+    </record>
+
+    <record id="valid_poi" model="muk_quality_docs.stage">
+        <field name="name">Vigente</field>
+        <field name="sequence" eval="20"/>
+        <field name="has_read_access_for_users" eval="True"/>
+        <field name="has_read_access_for_authors" eval="True"/>
+    </record>
+</odoo>

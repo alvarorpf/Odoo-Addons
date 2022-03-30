@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="op_grade_view_tree" model="ir.ui.view">
+            <field name="name">op.grade.tree</field>
+            <field name="model">op.batch.grade</field>
+            <field name="arch" type="xml">
+                <tree string="Grados">
+                    <field name="name"/>
+                    <field name="sequence"/>
+                </tree>
+            </field>
+        </record>
+        <record id="op_grade_view_form" model="ir.ui.view">
+            <field name="name">op.grade.form</field>
+            <field name="model">op.batch.grade</field>
+            <field name="arch" type="xml">
+                <form string="Grados">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="sequence"/>
+                            <field name="last_batch"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="op_grade_action" model="ir.actions.act_window">
+            <field name="name">Grados</field>
+            <field name="res_model">op.batch.grade</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Grados
+                </p>
+                <p>
+                    Agregar Grado
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_op_grade" parent="openeducat_core.menu_op_school_config_course"
+                  action="op_grade_action" name="Grados" sequence="11"/>
+    </data>
+</odoo>

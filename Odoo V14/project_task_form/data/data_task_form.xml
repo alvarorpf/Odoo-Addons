@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="election_form_sequence" model="ir.sequence">
+        <field name="name">Formulario de Acta de Eleccion</field>
+        <field name="code">sequence.election.form</field>
+        <field name="prefix">FRME/</field>
+        <field name="padding">4</field>
+    </record>
+
+    <record id="initial_investigation_sequence" model="ir.sequence">
+        <field name="name">Formulario de Investigacion Inicial</field>
+        <field name="code">sequence.initial.investigation</field>
+        <field name="prefix">FRMI/</field>
+        <field name="padding">4</field>
+    </record>
+
+    <record id="investigation_report_sequence" model="ir.sequence">
+        <field name="name">Formulario de Investigacion de Accidentes</field>
+        <field name="code">sequence.investigation.report</field>
+        <field name="prefix">FRMIA/</field>
+        <field name="padding">4</field>
+    </record>
+
+    <record id="observation_form_sequence" model="ir.sequence">
+        <field name="name">Formulario de Observacion</field>
+        <field name="code">sequence.observation.form</field>
+        <field name="prefix">FRMO/</field>
+        <field name="padding">4</field>
+    </record>
+
+    <record id="security_inspection_form_sequence" model="ir.sequence">
+        <field name="name">Formulario de Inspeccion de seguridad</field>
+        <field name="code">sequence.security.inspection.form</field>
+        <field name="prefix">FRMIS/</field>
+        <field name="padding">4</field>
+    </record>
+
+    <record id="visit_form_sequence" model="ir.sequence">
+        <field name="name">Formulario de Visitas</field>
+        <field name="code">sequence.visit.form</field>
+        <field name="prefix">FRMV/</field>
+        <field name="padding">4</field>
+    </record>
+</odoo>

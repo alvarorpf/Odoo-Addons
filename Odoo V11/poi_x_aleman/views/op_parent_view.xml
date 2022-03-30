@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_parent_contact_form_view" model="ir.ui.view">
+            <field name="name">op.parent.contact.form.view</field>
+            <field name="model">op.parent.contact</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <div class="oe_title">
+                                    <field name="image" widget="image" class="oe_left oe_avatar"/>
+                                </div>
+                                <div class="oe_title">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <b>Codigo Familia</b>
+                                            </td>
+                                            <td>
+                                                <field name="family_id" widget="many2many_tags"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <h3>
+                                                    <field name="name" placeholder="Nombre"/>
+                                                </h3>
+                                            </td>
+                                        </tr>
+                                        <!--<tr>
+                                            <td>
+                                                <b>Parentesco</b>
+                                            </td>
+                                            <td>
+                                                <field name="relationship_id"/>
+                                            </td>
+                                        </tr>-->
+                                    </table>
+                                </div>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Informacion General" name="op_general_information">
+                                <group>
+                                    <group string="Datos Generales" name="group_left">
+                                        <field name="first_nationality"/>
+                                        <field name="second_nationality"/>
+                                        <field name="mother_language"/>
+                                        <field name="religion"/>
+                                    </group>
+                                    <group string="Datos de Identificación" name="group_right">
+                                        <label string="CI"/>
+                                        <div class="o_address_format">
+                                            <field name="ci" placeholder="CI" class="o_address_city"/>
+                                            <field name="issued_ci" placeholder="Exp." class="o_address_city"/>
+                                            <field name="extension_ci" placeholder="Ext." class="o_address_city"/>
+                                        </div>
+                                        <field name="passport"/>
+                                        <field name="foreign_id"/>
+                                        <field name="nit"/>
+                                        <field name="razon"/>
+                                    </group>
+                                    <group string="Otra Información" name="group_left">
+                                        <field name="ex_student"/>
+                                        <field name="clase"/>
+                                        <field name="birthdate"/>
+                                    </group>
+                                    <group string="Datos de Contacto" name="group_right">
+                                        <field name="phone"/>
+                                        <field name="cellphone"/>
+                                        <field name="email"/>
+                                    </group>
+                                    <group>
+                                        <field name="family_tag_id" widget="many2many_tags"
+                                               options="{'color_field': 'color', 'no_create_edit':True}"/>
+                                    </group>
+                                    <group string="Datos Laborales" name="group_right">
+                                        <field name="profession_id"/>
+                                        <field name="workplace"/>
+                                        <field name="job"/>
+                                        <field name="work_phone"/>
+                                        <field name="work_cellphone"/>
+                                        <field name="work_email"/>
+                                        <field name="partner_id" readonly="1"/>
+                                    </group>
+                                </group>
+                                <group string="Detalle de Direccion">
+                                    <label for="street" string="Direccion"/>
+                                    <div class="o_address_format">
+                                        <field name="street" placeholder="Calle 1" class="o_address_street"/>
+                                        <field name="street2" placeholder="Calle 2" class="o_address_street"/>
+                                        <div class="o_row">
+                                            <field name="city" placeholder="Ciudad"/>
+                                            <field name="state_id" placeholder="Departamento"/>
+                                            <field name="zone" placeholder="Zona"/>
+                                        </div>
+                                        <field name="country_id" placeholder="Pais" class="o_address_country"/>
+                                    </div>
+                                </group>
+                            </page>
+                            <page string="Responsable de Pago" name="op_payment_responsable">
+                                <group>
+                                    <div>
+                                        <field name="child_ids">
+                                            <tree delete="0">
+                                                <field name="student_code"/>
+                                                <field name="name"/>
+                                                <field name="class_id"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_parent_contact_tree_view" model="ir.ui.view">
+            <field name="name">op.parent.contact.tree.view</field>
+            <field name="model">op.parent.contact</field>
+            <field name="arch" type="xml">
+                <tree string="op Parent">
+                    <field name="name"/>
+                    <field name="family_id" widget="many2many_tags"/>
+                    <field name="phone"/>
+                    <field name="cellphone"/>
+                    <field name="email"/>
+                    <field name="first_nationality"/>
+                    <field name="mother_language"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Search View-->
+        <record id="view_op_parent_contact_search" model="ir.ui.view">
+            <field name="name">op.parent.contact.search</field>
+            <field name="model">op.parent.contact</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Familiar">
+                    <field name="name"/>
+                    <field name="first_nationality"/>
+                    <field name="second_nationality"/>
+                    <field name="family_id"/>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                        <filter name="first_nationality" string="1ra nacionalidad"
+                                domain="[]" context="{'group_by':'first_nationality'}"/>
+                        <filter name="second_nationality" string="2da  nacionalidad"
+                                domain="[]" context="{'group_by':'second_nationality'}"/>
+                        <filter name="mother_language" string="Idioma Materno"
+                                domain="[]" context="{'group_by':'mother_language'}"/>
+                        <filter name="religion" string="Religion"
+                                domain="[]" context="{'group_by':'religion'}"/>
+                        <!--<filter name="family_id" string="Codigo de Familia"
+                                domain="[]" context="{'group_by':'family_id'}"/>-->
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <!--Actions-->
+        <record id="action_op_parent_contact" model="ir.actions.act_window">
+            <field name="name">Familiar</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.parent.contact</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_parent_menu_family" name="Familiar" sequence="1" parent="menu_op_school_family"
+                  action="action_op_parent_contact"/>
+    </data>
+</odoo>

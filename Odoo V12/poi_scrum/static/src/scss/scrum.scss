@@ -1,0 +1,72 @@
+
+.card-header {
+    cursor: pointer !important;
+}
+.card-body{
+    padding: 0px;
+    
+}
+.o_project {
+    list-style-type: none;
+    margin-bottom: 0px;
+}
+.o_list {
+    cursor: pointer !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.125);
+    }
+}
+
+
+.o_loading {
+    background-color: $o-brand-odoo;
+    color: white;
+    padding: 4px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: $zindex-modal + 1;
+}
+
+.scrum-item {
+    padding: 0.20rem 0.3rem;
+}
+
+.kanban-card {
+    margin-left: 4px;
+    margin-right: 4px;
+    -webkit-flex: 0 0 auto;
+    width: 288px;
+    float: left;
+    padding-bottom: 100px;
+    min-height: 500px;
+}
+
+.task-card {
+    width: 270px;
+    height: 130px;
+    margin-left: 8px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.dd-task {
+    margin-bottom: 0px !important;
+}
+
+.task-red {
+    background-color: #FF8779;
+}
+
+.task-yellow {
+    background-color: #FFEF79;
+}
+
+.task-green {
+    background-color: #ACFF79;
+}
+
+.task-nocolor {
+    background-color: white;
+}

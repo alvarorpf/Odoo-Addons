@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="poi_scrum.sprint_view">
+    <div t-attf-class="card {{(widget.mode == 'sprint' and widget.sprint.state == 'active' and 'bg-primary') or (widget.mode == 'sprint' and widget.sprint.state == 'draft' and 'bg-light') or 'bg-warning'}}" style="margin-bottom:12px;">
+        <div class="card-header toggle-card">
+               <span t-esc="widget.sprint.name"/>
+        </div>
+        <div class="card-body" >
+            <ul class="list-group o_project o_sprint drag-t" t-attf-data-id="{{widget.sprint.id}}" style="min-height:28px;">
+            <t t-foreach="widget.tasks.task_ids" t-as="t">
+                <t t-if="widget.sprint.id == t.sprint_id[0] and widget.mode == 'sprint'and t.assigned_to_me">
+                <li class="list-group-item scrum-item" t-attf-data-id="{{t.id}}">
+                    <span class="fa fa-tasks"></span>
+                    <span t-esc="t.name"> </span> 
+                    <span class="badge badge-warning  float-right" t-esc="t.story_points" /> 
+                </li>
+                </t>
+                <t t-if="t.sprint_id == false and widget.mode == 'no_sprint' and t.assigned_to_me">
+                <li class="list-group-item scrum-item" t-attf-data-id="{{t.id}}">
+                    <span class="fa fa-tasks"></span>
+                    <span t-esc="t.name"> </span>  
+                    <span class="badge badge-warning  float-right" t-esc="t.story_points" />
+                </li>
+                </t>
+            </t>
+            </ul>
+        </div>
+    </div>
+</t>
+</templates>

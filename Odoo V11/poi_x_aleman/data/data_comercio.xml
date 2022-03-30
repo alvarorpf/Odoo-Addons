@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="True">
+        <!--<record id="batch_course_level_c" model="op.course.level">
+            <field name="name">COMERCIO</field>
+        </record>-->
+        <record id="batch_parallel_1" model="op.batch.parallel">
+            <field name="name">1</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="batch_parallel_2" model="op.batch.parallel">
+            <field name="name">2</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="batch_grade_c1" model="op.batch.grade">
+            <field name="name">COM1</field>
+            <field name="sequence">15</field>
+        </record>
+        <record id="batch_grade_c2" model="op.batch.grade">
+            <field name="name">COM2</field>
+            <field name="sequence">16</field>
+            <field name="last_batch">True</field>
+        </record>
+        <record id="batch_com1" model="op.batch">
+            <field name="name">COM1</field>
+            <field name="grade_id" ref="batch_grade_c1"/>
+            <field name="parallel_id" ref="batch_parallel_1"/>
+            <!--<field name="level_id" ref="batch_course_level_c"/>-->
+        </record>
+        <record id="batch_com2" model="op.batch">
+            <field name="name">COM2</field>
+            <field name="grade_id" ref="batch_grade_c2"/>
+            <field name="parallel_id" ref="batch_parallel_2"/>
+            <!--<field name="level_id" ref="batch_course_level_c"/>-->
+        </record>
+    </data>
+</odoo>

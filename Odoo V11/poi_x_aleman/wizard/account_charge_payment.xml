@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+  <record id="account_op_charge_pay_view_form" model="ir.ui.view">
+    <field name="name">account.op.charge.generator.form</field>
+    <field name="model">account.op.charge.pay</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <group>
+          <field name="charge_ids" widget="many2many_tags" readonly="1" invisible="0"/>
+          <field name="date" />
+          <field name="dosif_id" />
+          <field name="nit" />
+          <field name="razon" />
+          <field name="journal_id" />
+        </group>
+        <footer>
+            <button name="action_generate" string="Generar" type="object" class="btn-primary"/>
+            <button string="Salir" class="oe_link" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="account_op_charge_pay_action_form" model="ir.actions.act_window">
+    <field name="name">Pago de Cargos</field>
+    <field name="res_model">account.op.charge.pay</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+</data>
+</odoo>

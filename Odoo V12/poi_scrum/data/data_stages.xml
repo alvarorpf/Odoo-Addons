@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo >
+    <data noupdate="1">
+        <record id="stage_planing" model="project.stage.base">
+            <field name="name">Planificación</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="stage_developing" model="project.stage.base">
+            <field name="name">Desarrollo/Ejecución</field>
+            <field name="sequence">2</field>
+            <field name="is_dev">1</field>
+        </record>
+        <record id="stage_testing" model="project.stage.base">
+            <field name="name">Pruebas de Usuario</field>
+            <field name="sequence">3</field>
+        </record>
+        <record id="stage_production" model="project.stage.base">
+            <field name="name">Puesta en Producción</field>
+            <field name="sequence">4</field>
+            <field name="end_stage">1</field>
+        </record>
+    </data>
+</odoo>

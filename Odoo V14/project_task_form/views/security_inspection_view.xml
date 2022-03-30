@@ -1,0 +1,115 @@
+<odoo>
+
+    <record id="security_inspection" model="ir.ui.view">
+        <field name="name">security.inspection</field>
+        <field name="model">security.inspection</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" string="Finalizar" class="oe_highlight" states="draft" type="object"
+                            confirm="¿Esta seguro de finalizar el llenado del formulario?"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <b>
+                            <span>Nombre</span>
+                        </b>
+                        <h1>
+                            <field name="name" placeholder="Ej. Julio/2020" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group string="DATOS DE LA EMPRESA">
+                        <group>
+                            <field name="company_id" invisible="1"/>
+                            <field name="inspector" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="charge" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="datetime" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="planned_hours" widget="timesheet_uom_no_toggle"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                    </group>
+                    <group string="CONDICIONES GENERALES">
+                        <group>
+                            <field name="order" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="clean" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="storage" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="tools" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="escape" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="signals" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="protect" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="condition" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="machine" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="protection" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="surface" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="illumination" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="ergonomic" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="infrastructure" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="circulation" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="other" widget="radio" options="{'horizontal': true}"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                    </group>
+                    <div>
+                        <field name="line_ids" string="Objetivos" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                            <tree editable="bottom">
+                                <field name="condition"/>
+                                <field name="probability"/>
+                                <field name="gravity"/>
+                                <field name="risk"/>
+                                <field name="action"/>
+                                <field name="responsible"/>
+                                <field name="date"/>
+                            </tree>
+                        </field>
+                    </div>
+                    <group>
+                        <field name="signature" widget="signature"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="security_inspection_tree" model="ir.ui.view">
+        <field name="name">security.inspection.tree</field>
+        <field name="model">security.inspection</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="inspector"/>
+                <field name="charge"/>
+                <field name="type"/>
+                <field name="datetime"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="security_inspection_action" model="ir.actions.act_window">
+        <field name="name">Formulario de Inspeccion de seguridad</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">security.inspection</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="True">
+        <record id="batch_course_level_i" model="op.course.level">
+            <field name="name">INICIAL</field>
+        </record>
+        <record id="batch_course_level_p" model="op.course.level">
+            <field name="name">PRIMARIA</field>
+        </record>
+        <record id="batch_course_level_s" model="op.course.level">
+            <field name="name">SECUNDARIA</field>
+        </record>
+    </data>
+</odoo>

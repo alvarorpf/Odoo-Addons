@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="family_page_link" model="website.menu">
+        <field name="name">Familia</field>
+        <field name="url">/Familia</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">99</field>
+    </record>
+
+    <template id="navbar_mega_inherit" inherit_id="website.layout">
+        <xpath expr="//div[hasclass('navbar-header')]/a" position="replace">
+            <a href="/">
+                <img src="/poi_x_aleman/static/description/icon.png" class="img img-responsive" alt="Logo of CEA" title="CEA" style="max-height:3cm; max-width:5cm;"/>
+            </a>
+            <h3>CENTRO ESCOLAR ALEMAN</h3>
+        </xpath>
+    </template>
+
+    <template id="family_web">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#home">Alumnos</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#menu1">Responsable de Pagos</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#menu2">Familiares</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#menu2">Cargos Pendientes</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#menu2">Cargos Pagados</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane fade in active">
+                                <h3>HOME</h3>
+                                <t t-foreach="family" t-as="family">
+                                    <div class="panel panel-info col-sm-2" style="padding-right: 10px;">
+                                        <div class="panel-body">
+                                            <form action="/Familia/Alumno" method="post">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                <h3>Familia</h3>
+                                                <span t-field="family.name"/>
+                                                <input type="text" name="family_id" t-att-value="family.id"/>
+                                                <button type="submit" class="btn btn-primary btn-xs pull-right mb32 ">
+                                                    Editar
+                                                    <span class="fa fa-long-arrow-right"/>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                            <div id="menu1" class="tab-pane fade">
+                                <h3>Menu 1</h3>
+                                <p>Some content in menu 1.</p>
+                            </div>
+                            <div id="menu2" class="tab-pane fade">
+                                <h3>Menu 2</h3>
+                                <p>Some content in menu 2.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

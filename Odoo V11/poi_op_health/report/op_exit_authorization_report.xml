@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <report
+                id="action_report_exit_authorization"
+                model="op.exit.authorization"
+                string="Autorizacion"
+                report_type="qweb-pdf"
+                name="poi_op_health.op_exit_authorization_report"
+                file="poi_op_health.op_exit_authorization_report"
+        />
+    </data>
+    <template id="op_exit_authorization_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="header">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div style="padding-right:10px; float:left;">
+                                <img class="image"
+                                     t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
+                                     style="max-height:3cm; max-width:5cm; margin-left: 10px; margin-bottom: 10px;"/>
+                            </div>
+                            <div style="text-align:left; padding:0; float:left;">
+                                <p style="line-height: 1.2em;">
+                                    <br/>
+                                    <strong>CENTRO ESCOLAR ALEMAN</strong>
+                                    <br/>
+                                    <strong>LA PAZ - BOLIVIA</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12" style="text-align:center;">
+                            <h4>
+                                <strong>
+                                    <u>AUTORIZACIÓN DE SALIDA PARA ALUMNOS(AS)</u>
+                                </strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="article" style="padding: 40px 0px 20px 0px">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <t t-if="o.authorization_type == 'medica'">
+                                <label>Fecha y Hora de Autorizacion:</label>
+                                <span t-field="o.datetime_authorization"/>
+                                <br/>
+                            </t>
+                            <label>Alumno:</label>
+                            <span t-field="o.student_id.name"/>
+                            <br/>
+                            <t t-if="o.authorization_type == 'medica'">
+                                <label>Motivo:</label>
+                                <span t-field="o.consultation_reason_id.name"/>
+                                <br/>
+                            </t>
+                            <t t-if="o.authorization_type == 'ausencia'">
+                                <label>Motivo de ausencia:</label>
+                                <span t-field="o.absence_reason"/>
+                                <br/>
+                            </t>
+                            <label>Nro de Góndola:</label>
+                            <span t-field="o.bus_number"/>
+                            <br/>
+                        </div>
+                        <div class="col-xs-6">
+                            <t t-if="o.authorization_type == 'medica'">
+                                <label>Fecha y Hora de Salida:</label>
+                                <span t-field="o.datetime_departure"/>
+                                <br/>
+                            </t>
+                            <label>Curso:</label>
+                            <span t-field="o.course_id.name"/>
+                            <br/>
+                            <label>Profesor/Autorizador:</label>
+                            <span t-field="o.teacher_id.name"/>
+                            <br/>
+                            <t t-if="o.authorization_type == 'ausencia'">
+                                <label>Fecha y Hora de Ausencia:</label>
+                                <span t-field="o.datetime_absence"/>
+                                <br/>
+                            </t>
+                            <label>Ruta de Góndola:</label>
+                            <span t-field="o.bus_route"/>
+                            <br/>
+                        </div>
+                        <div class="col-xs-12">
+                            <label>Observaciones:</label>
+                            <span t-field="o.observations"/>
+                            <br/>
+                        </div>
+                        <div class="col-xs-12">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                        </div>
+                        <div class="col-xs-offset-1 col-xs-4" style="text-align:center; border-top: 2px solid #212121;">
+                            <label style="font-size:18px; color:#424242;">Profesor(a) Jefe de Curso</label>
+                        </div>
+                        <div class="col-xs-2">
+
+                        </div>
+                        <div class="col-xs-4" style="text-align:center; border-top: 2px solid #212121;">
+                            <label>
+                                <span t-field="o.logged_user" style="font-size:18px; color:#424242;"/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="poi_scrum.task_list">
+<t t-if="widget.tasks.length">
+<t t-foreach="widget.tasks" t-as="t">
+    <t t-if="t.assigned_to_me">
+    <li t-attf-class="list-group-item task task_open scrum-item {{(t.color == 0  and 'task-nocolor') or (t.color == 1 and 'task-red') or (t.color == 3 and 'task-yellow') or (t.color == 10 and 'task-green')}}" t-attf-data-id="{{t.id}}">
+        <span class="fa fa-tasks"></span>
+        <span t-esc="t.name"> </span>   
+        <span class="badge badge-warning  float-right" t-esc="t.story_points" />
+        <!-- <span class="badge badge-warning  float-right" t-esc="t.todo_estimati on" />
+        <span class="badge badge-success  float-right" t-esc="t.done_estimation" />  -->
+    </li>
+    </t>
+</t>
+</t>
+<p t-else="">Seleccione un Proyecto</p>
+</t>
+</templates>

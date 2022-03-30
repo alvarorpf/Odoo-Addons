@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="return_book_wiz" model="ir.ui.view">
+            <field name="name">return.book.form</field>
+            <field name="model">return.book</field>
+            <field name="arch" type="xml">
+                <form string="Asistente para devolución de libro">
+                    <group>
+                        <group>
+                            <field name="media_unit_id"/>
+                            <field name="returned_date"/>
+                        </group>
+                        <group>
+                            <field name="barcode"/>
+                            <field name="media_state_id"/>
+                        </group>
+                        <field name="book_loan_id" invisible="1"/>
+                    </group>
+                    <label string="Observaciones"/>
+                    <field name="observations"/>
+                    <footer>
+                        <button name="return_unit" string="Proceder" type="object"
+                                class="btn-primary"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

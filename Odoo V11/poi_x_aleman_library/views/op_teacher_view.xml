@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="op_faculty_form_view_inherit_library" model="ir.ui.view">
+            <field name="name">op.faculty.form.view.inherit.library</field>
+            <field name="model">op.faculty</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_faculty_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form/sheet/div[1]/button[1]" position="before">
+                        <div class="oe_title oe_button_box" name="button_box">
+                            <button string="Prestamos de Libro" name="action_view_book_loan"
+                                type="object" icon="fa-list-alt"/>
+                        </div>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="True">
+        <record id="op_charges_cron_com" model="ir.cron">
+            <field name="name">Generación de Cargos Comercio</field>
+            <field name="model_id" ref="model_op_school_period"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_generate_charges_com()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+    </data>
+</odoo>

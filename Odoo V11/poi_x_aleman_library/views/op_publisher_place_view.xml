@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_publisher_place_form_view" model="ir.ui.view">
+            <field name="name">op.publisher.place.form.view</field>
+            <field name="model">op.publisher.place</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_publisher_place_tree_view" model="ir.ui.view">
+            <field name="name">op.publisher.place.tree.view</field>
+            <field name="model">op.publisher.place</field>
+            <field name="arch" type="xml">
+                <tree string="Lugar de Edición">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_publisher_place" model="ir.actions.act_window">
+            <field name="name">lugar de Edición</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.publisher.place</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_publisher_place_menu_configuration" name="Lugar de Edición" sequence="1"
+                  parent="op_school_library_config" action="action_op_publisher_place"/>
+    </data>
+</odoo>

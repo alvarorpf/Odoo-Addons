@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="paperformat_base" model="report.paperformat">
+            <field name="name"></field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <record id="action_report_initial_investigation" model="ir.actions.report">
+            <field name="name">Investigacion Inicial</field>
+            <field name="model">initial.investigation</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">project_task_form.initial_investigation_report</field>
+            <field name="report_file">project_task_form.initial_investigation_report</field>
+            <field name="print_report_name">'Investigacion Inicial - %s' % object.name</field>
+            <field name="paperformat_id" ref="project_task_form.paperformat_base"/>
+            <field name="binding_model_id" ref="model_initial_investigation"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="initial_investigation_report">
+            <t t-foreach="docs" t-as="d">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div class="row" id="hash_header">
+                            <div class="col-12">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td width='20%' style="font-size:12px:" align="center">
+                                            <img style="max-width: 80px;"
+                                                 t-if="d.company_id.logo"
+                                                 t-att-src="image_data_uri(d.company_id.logo)"
+                                                 alt="Logo"/>
+                                        </td>
+                                        <td style="text-align:center;" width='60%'>
+                                            <b>
+                                                <span t-esc="d.name"/>
+                                            </b>
+                                            <br/>
+                                            <b>Reporte e investigación inicial de Incidente/accidente</b>
+                                            <br/>
+                                            <b>GERENCIA SSO</b>
+                                        </td>
+                                        <td width='20%' style="text-align:left;">
+                                            <br/>
+                                            <b>Fecha:</b>
+                                            <span t-esc="d.date.strftime('%d/%m/%Y')"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th colspan="4">1. ANTECEDENTES DEL ACCIDENTADO</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>NOMBRE</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.injured"/>
+                                            </td>
+                                            <td style="width:20%;">
+                                                <b>RUT</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.rut"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>EDAD</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.age"/>
+                                            </td>
+                                            <td style="width:20%;">
+                                                <b>CARGO</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.position"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>CENTRO DE COSTO</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.project_id.name"/>
+                                            </td>
+                                            <td style="width:20%;">
+                                                <b>FECHA DE INGRESO</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.date_entry.strftime('%d/%m/%Y')"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>UBICACION</b>
+                                            </td>
+                                            <td colspan="3" style="width:80%;">
+                                                <span t-esc="d.direction"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th colspan="4">2. ANTECEDENTES DEL ACCIDENTE</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>DIA/HORA DEL ACCIDENTE</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.datetime_accident.strftime('%d/%m/%Y %H:%M')"/>
+                                            </td>
+                                            <td style="width:20%;">
+                                                <b>NOMBRE JEFE DIRECTO</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.direct_boss"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>ANTIGUEDAD EN EL CARGO</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.antiquity"/>
+                                            </td>
+                                            <td style="width:20%;">
+                                                <b>ANTIGUEDAD EN LA EMPRESA</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.antiquity_company"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>LUGAR DONDE OCURRIO EL ACCIDENTE</b>
+                                            </td>
+                                            <td colspan="3" style="width:80%;">
+                                                <span t-esc="d.crash_site"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>PARTE DEL CUERPO AFECTADA</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.affected_part"/>
+                                            </td>
+                                            <td style="width:20%;">
+                                                <b>AGENTE CAUSANTE DE LA LESION</b>
+                                            </td>
+                                            <td style="width:30%;">
+                                                <span t-esc="d.injury_cause"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:20%;">
+                                                <b>PREEXISTENCIAS</b>
+                                            </td>
+                                            <td colspan="3" style="width:80%;">
+                                                <span t-esc="d.preexistence"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <b>NOMBRE TESTIGOS</b>
+                                            </td>
+                                        </tr>
+                                        <t t-foreach="d.witness_ids" t-as="w">
+                                            <tr>
+                                                <td colspan="4">-
+                                                    <span t-esc="w.witness_name"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th colspan="4">3. DESCRIPCION DEL ACCIDENTE (Describa como ocurrieron los
+                                            hechos)
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="4">
+                                                <span t-esc="d.description"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <thead>
+                                        <th colspan="4">4. MEDIDAS DE CONTROL</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:50%;">
+                                                <b>ACCIONES CORRECTIVAS/PREVENTIVAS</b>
+                                            </td>
+                                            <td style="width:20%;">
+                                                <b>RESPONSABLES</b>
+                                            </td>
+                                            <td style="width:15%;">
+                                                <b>FECHA INICIO</b>
+                                            </td>
+                                            <td style="width:15%;">
+                                                <b>FECHA FIN</b>
+                                            </td>
+                                        </tr>
+                                        <t t-foreach="d.measure_ids" t-as="m">
+                                            <tr>
+                                                <td style="width:50%;">
+                                                    <span t-esc="m.action"/>
+                                                </td>
+                                                <td style="width:20%;">
+                                                    <span t-esc="m.responsible"/>
+                                                </td>
+                                                <td style="width:15%;">
+                                                    <span t-esc="m.date_init.strftime('%d/%m/%Y')"/>
+                                                </td>
+                                                <td style="width:15%;">
+                                                    <span t-esc="m.date_end.strftime('%d/%m/%Y')"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <table class="table table-bordered" style="font-size: 10px;">
+                                    <tbody>
+                                        <tr>
+                                            <td width='40%' style="font-size:12px:" align="center">
+                                                <img style="max-width: 70px;"
+                                                     t-if="d.company_id.logo"
+                                                     t-att-src="image_data_uri(d.company_id.logo)"
+                                                     alt="Logo"/>
+                                            </td>
+                                            <td style="width:60%; text-align:center;">
+                                                <img class="img"
+                                                     t-attf-src="data:image/png;base64,{{d.signature}}"
+                                                     style="max-width:300px;"
+                                                />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width='40%' style="font-size:12px:" align="center">
+                                                <b>GERENCIA SEGURIDAD SALUD OCUPACIONAL</b>
+                                            </td>
+                                            <td style="width:60%; text-align:left;">
+                                                <b>REALIZADO POR:</b>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

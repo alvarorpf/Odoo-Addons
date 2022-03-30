@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="op_media_unit_tree_view_inherit" model="ir.ui.view">
+            <field name="name">op.media.unit.tree.view.inherit</field>
+            <field name="model">op.media.unit</field>
+            <field name="inherit_id" ref="openeducat_library.view_media_unit_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//tree" position="replace">
+                        <tree string="Unidades">
+                            <field name="name" string="Nombre"/>
+                            <field name="media_id" string="Libro"/>
+                            <field name="barcode" string="Codigo de Barras"/>
+                            <field name="state" string="Estado"/>
+                        </tree>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="op_media_unit_form_view_inherit" model="ir.ui.view">
+            <field name="name">op.media.unit.form.view.inherit</field>
+            <field name="model">op.media.unit</field>
+            <field name="inherit_id" ref="openeducat_library.view_media_unit_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form" position="replace">
+                        <form string="Unidad">
+                            <header>
+                                <field name="state" widget="statusbar" statusbar_colors='{"r":"red"}'/>
+                            </header>
+                            <sheet>
+                                <div class="oe_title oe_button_box" name="button_box">
+                                    <button string="Histórico de Prestamos" name="action_view_loans" type="object"
+                                            icon="fa-list-alt"/>
+                                </div>
+                                <group>
+                                    <group>
+                                        <field name="name" string="Nombre"/>
+                                        <field name="barcode" string="Código de Barras"/>
+                                        <field name="nro_unit"/>
+                                    </group>
+                                    <group>
+                                        <field name="media_id" string="Libro"/>
+                                        <field name="media_type_id" string="Tipo de Medio" required="1"/>
+                                        <field name="state_unit_id"/>
+                                    </group>
+                                </group>
+                            </sheet>
+                            <div class="oe_chatter">
+                                <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                                <field name="message_ids" widget="mail_thread"/>
+                            </div>
+                        </form>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="op_media_unit_search_view_inherit" model="ir.ui.view">
+            <field name="name">op.media.unit.search.view.inherit</field>
+            <field name="model">op.media.unit</field>
+            <field name="inherit_id" ref="openeducat_library.view_media_unit_search"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//search" position="replace">
+                        <search string="Unidades">
+                            <field name="name" string="Nombre"/>
+                            <field name="media_id" string="Libro"/>
+                            <field name="barcode" string="Codigo de Barras"/>
+                            <field name="state" string="Estado"/>
+                            <field name="media_type_id" string="Tipo de Medio"/>
+                            <field name="state_unit_id" string="Estado de Ejemplar"/>
+                        </search>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="openeducat_library.act_open_media_unit_view">
+            <field name="name">Unidades</field>
+        </record>
+    </data>
+</odoo>

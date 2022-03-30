@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="view_pos_config_form_inherit_bc" model="ir.ui.view">
+        <field name="name">POS Configuración</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <h2>Comisión Bancaria</h2>
+                <div class="row mt16 o_settings_container" id="wk_pos_orders">
+                    <div class="col-xs-12 col-md-6 o_setting_box" title="Listado de configuración para el uso de comisión bancaria">
+                        <div class="o_setting_right_pane">
+                            <div class="text-muted">
+                                Selecciona un Establecimiento
+                            </div>
+                            <div class="content-group">
+                                <label for="pos_establishment_id" string="Establecimiento"/>
+                                <div class="mt16">
+                                    <field  style="font-weight:bold" name="pos_establishment_id"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

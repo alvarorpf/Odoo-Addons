@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="request_doc_type_form">
+        <field name="name">request.doc.type.form</field>
+        <field name="model">request.doc.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="request_doc_type_tree">
+        <field name="name">request.doc.type.tree</field>
+        <field name="model">request.doc.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_request_doc_type">
+        <field name="name">Tipo de Requerimiento</field>
+        <field name="res_model">request.doc.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

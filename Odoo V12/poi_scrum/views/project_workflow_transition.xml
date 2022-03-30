@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="project_workflow_transition_diagram_form_scrum" model="ir.ui.view">
+        <field name="name">project.workflow.transition.form.scrum</field>
+        <field name="model">project.workflow.transition</field>
+        <field name="inherit_id" ref="project_workflow_management.project_workflow_transition_diagram_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='user_confirmation']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+            </data>
+        </field>
+    </record>
+</odoo>

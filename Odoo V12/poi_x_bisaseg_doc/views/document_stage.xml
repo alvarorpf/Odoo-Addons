@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+<!-- muk_quality_docs.stage inherit form view -->
+<record id="stage_form_bisa_doc" model="ir.ui.view">
+    <field name="name">muk_quality_docs.stage.inherit.view.form</field>
+    <field name="model">muk_quality_docs.stage</field>
+    <field name="inherit_id" ref="muk_quality_docs.stage_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//notebook/sheet[1]/group[1]/group[1]" position="after">
+            <group string='Técnico'>
+                <field name="register_discharge_date"/>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</odoo>

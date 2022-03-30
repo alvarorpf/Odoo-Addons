@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+        <!-- Vista Árbol de Tipo de Documento Bancarizacion -->
+
+        <record model="ir.ui.view" id="banking_document_type_tree">
+            <field name="name">banking.document.type.tree</field>
+            <field name="model">banking.document.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario de Modelo Tipo de Documento Bancarizacion -->
+
+        <record model="ir.ui.view" id="banking_document_type_form">
+            <field name="name">banking.document.type.form</field>
+            <field name="model">banking.document.type</field>
+            <field name="arch" type="xml">
+                <form string="Tipo de Documento Bancarizacion">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Accion para visualizar modelo Tipo de Documento Bancarizacion -->
+
+        <record id="banking_document_type_action" model="ir.actions.act_window">
+            <field name="name">Tipo de Documento Bancarizacion</field>
+            <field name="res_model">banking.document.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crear un nuevo tipo de documento de bancarizacion
+                </p>
+            </field>
+        </record>
+
+        <!--Menu de Tipo de Documento de Bancarizacion-->
+        <menuitem id="banking_root_menu" name="Bancarizacion" parent="account.menu_finance_configuration" sequence="10">
+            <menuitem id="banking_document_type_menu" action="banking_document_type_action"/>
+        </menuitem>
+
+    </data>
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="sequence_request_form" model="ir.sequence">
+            <field name="name">Secuencia Formulario de Requerimientos</field>
+            <field name="code">request.form</field>
+            <field name="prefix">REQ/</field>
+            <field name="padding">5</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field name="implementation">no_gap</field>
+        </record>
+        <!--Beneficios-->
+        <record id="request_form_benefit_1" model="request.form.benefit">
+            <field name="name">Ahorro de gastos/ Incremento de ingresos</field>
+        </record>
+        <record id="request_form_benefit_2" model="request.form.benefit">
+            <field name="name">Reducción de tiempo en procesos</field>
+        </record>
+        <record id="request_form_benefit_3" model="request.form.benefit">
+            <field name="name">Mitigar algún riesgo identificado o Producto nuevo</field>
+        </record>
+        <record id="request_form_benefit_4" model="request.form.benefit">
+            <field name="name">Cumplimiento regulatorio/normativo</field>
+        </record>
+
+        <!--Tipos de Origen-->
+        <record id="request_form_origin_1" model="request.form.origin">
+            <field name="name">Introducción Regulatoria</field>
+            <field name="description">Cuando surja de una de las entidades reguladoras</field>
+        </record>
+        <record id="request_form_origin_2" model="request.form.origin">
+            <field name="name">Oportunidad de Negocio</field>
+            <field name="description">Cuando el proyecto, además de estas alineado con la planificación estratégica de cada empresa, surja de la identificación de una oportunidad de negocio</field>
+        </record>
+        <record id="request_form_origin_3" model="request.form.origin">
+            <field name="name">Oportunidad de Mejora</field>
+            <field name="description">Cuando esté orientado a modificar el alcance de un proceso, sin modificar, significativamente su estructura incluyendo la optimización de operaciones continuas</field>
+        </record>
+    </data>
+</odoo>

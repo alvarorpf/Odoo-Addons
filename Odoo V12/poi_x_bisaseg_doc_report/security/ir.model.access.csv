@@ -1,0 +1,14 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+
+analysis_requirements_user,analysis_requirements_user,model_analysis_requirements,muk_quality_docs.group_muk_quality_docs_user,1,0,0,0
+analysis_requirements_report,analysis_requirements_report,model_analysis_requirements,poi_x_bisaseg_doc.group_report_documents,1,0,0,0
+
+analysis_documents_user,analysis_documents_user,model_analysis_documents,muk_quality_docs.group_muk_quality_docs_user,1,0,0,0
+analysis_documents_report,analysis_documents_report,model_analysis_documents,poi_x_bisaseg_doc.group_report_documents,1,0,0,0
+
+reader_comparison_user,reader_comparison_user,model_reader_comparison,muk_quality_docs.group_muk_quality_docs_user,1,0,0,0
+reader_comparison_report,reader_comparison_report,model_reader_comparison,poi_x_bisaseg_doc.group_report_documents,1,0,0,0
+
+
+
+

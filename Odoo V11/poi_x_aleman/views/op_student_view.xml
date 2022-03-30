@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="op_student_change_status_action_form" model="ir.actions.act_window">
+            <field name="name">Cambio de Estado</field>
+            <field name="res_model">op.student.change.status</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="op_student_force_level_action_form" model="ir.actions.act_window">
+            <field name="name">Forzar Nivel</field>
+            <field name="res_model">op.student.force.level</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="op_student_form_view_inherit" model="ir.ui.view">
+            <field name="name">op.student.form.view.inherit</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form" position="replace">
+                        <form>
+                            <header>
+                                <button name="%(op_student_change_status_action_form)d"
+                                        string="Cambio de Estado"
+                                        class="oe_highlight" type="action"
+                                        context="{'default_student_id':id,'default_state':state}"/>
+                                <field name="state" widget="statusbar" statusbar_visible="activo,inactivo"/>
+                            </header>
+                            <sheet>
+                                <div class="col-xs-offset-10 col-xs-2">
+                                    <h4>
+                                        <span class="fa fa-check"/>
+                                        <field name="case_id" readonly="1"/>
+                                    </h4>
+                                </div>
+                                <!-- Botones de Estudiante-->
+                                <div class="oe_title oe_button_box" name="button_box">
+                                    <button class="cargos" string="Cargos" name="action_view_charges" type="object"
+                                            icon="fa-money"/>
+                                    <button class="historial" string="Historial de Cursos" name="action_view_courses"
+                                            type="object"
+                                            icon="fa-graduation-cap"/>
+                                </div>
+                                <field name="image" widget="image" class="oe_left oe_avatar"/>
+                                <div class="oe_title">
+                                    <h5>
+                                        <table>
+                                            <tr>
+                                                <td style="padding-right:10px;">
+                                                    <label string="Codigo de Estudiante"/>
+                                                </td>
+                                                <td style="padding-right:10px;">
+                                                    <field name="student_code"/>
+                                                </td>
+                                                <td style="padding-right:10px;">
+                                                    <label string="Codigo de Familia"/>
+                                                </td>
+                                                <td style="padding-right:10px;">
+                                                    <field name="family_code"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </h5>
+                                    <h3>
+                                        <table>
+                                            <tr>
+                                                <td style="padding-right:10px;">
+                                                    <field name="last_name" placeholder="Primer Apellido" class="oe_edit_only"/>
+                                                </td>
+                                                <td style="padding-right:10px">
+                                                    <field name="last_name2" placeholder="Segundo Apellido" class="oe_edit_only"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right:10px;">
+                                                    <field name="first_name" placeholder="Primer Nombre" class="oe_edit_only"/>
+                                                </td>
+                                                <td style="padding-right:10px;">
+                                                    <field name="middle_name" placeholder="Segundo Nombre" class="oe_edit_only"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <field name="name" invisible="1"/>
+                                        <field name="full_name" class="oe_read_only"/>
+                                    </h3>
+                                </div>
+                                <notebook>
+                                    <page string="Informacion Personal">
+                                        <group>
+                                            <group string="Datos Generales">
+                                                <field name="gender"/>
+                                                <field name="country_birth"/>
+                                                <field name="city_birth"/>
+                                                <field name="first_nationality"/>
+                                                <field name="second_nationality"/>
+                                                <field name="third_nationality"/>
+                                                <field name="lang" string="Idioma Materno" required="True"/>
+                                                <field name="religion"/>
+                                            </group>
+                                            <group string="Datos de Identificación">
+                                                <label for="ci" string="CI"/>
+                                                <div class="o_address_format">
+                                                    <field name="ci" placeholder="CI" class="o_address_city"/>
+                                                    <field name="issued_ci" placeholder="Exp" class="o_address_city"/>
+                                                    <field name="extension_ci" class="o_address_city"
+                                                           placeholder="Ext"/>
+                                                </div>
+                                                <field name="passport"/>
+                                                <field name="foreign_id"/>
+                                            </group>
+                                            <group string="Datos de Edad">
+                                                <field name="birth_date"/>
+                                                <field name="age"/>
+                                            </group>
+                                            <group string="Datos de Contacto">
+                                                <field name="phone"/>
+                                                <field name="cellphone"/>
+                                                <field name="email"/>
+                                            </group>
+                                        </group>
+                                        <group>
+                                            <field name="notes"/>
+                                        </group>
+                                    </page>
+                                    <page string="Familia">
+                                        <group>
+                                            <group>
+                                                <field name="payment_responsable" domain="[('family_id','=',family_code)]"/>
+                                            </group>
+                                        </group>
+                                        <group>
+                                            <div>
+                                                <field name="parent_ids" context="{'default_student_id': id, 'family_id': family_code }">
+                                                    <tree editable="bottom">
+                                                        <field name="student_id" invisible="True"/>
+                                                        <field name="family_id" invisible="True"/>
+                                                        <field name="parent_id" domain="[('family_id','=', family_id)]"/>
+                                                        <field name="relationship_id"/>
+                                                    </tree>
+                                                </field>
+                                            </div>
+                                        </group>
+                                    </page>
+                                    <page string="Educacion">
+                                        <group>
+                                            <group>
+                                                <field name="class_id"/>
+                                                <field name="course_id"/>
+                                                <field name="level_id"/>
+                                                <field name="rude"/>
+                                                <field name="year_id"/>
+                                            </group>
+                                            <group>
+                                                <label for="son_level_id" string="Nivel de Hijo"/>
+                                                <div class="o_address_format">
+                                                    <field name="son_level_id" class="o_address_city"/>
+                                                    <button class="btn btn-primary o_address_city pull-right oe_edit_only"
+                                                            name="%(op_student_force_level_action_form)d"
+                                                            string="Forzar Nivel" type="action"
+                                                            context="{'default_student_id':id}"/>
+                                                </div>
+                                                <field name="forced_level_id" readonly="1"/>
+                                                <field name="high_date"/>
+                                                <field name="low_date"/>
+                                                <field name="kinder"/>
+                                            </group>
+                                        </group>
+                                    </page>
+                                    <page string="Pagos y Descuentos">
+                                        <group>
+                                            <group string="Detalle de beca/descuentos">
+                                                <field name="scholarship_id"/>
+                                                <field name="discount" string="Descuento (%)"/>
+                                                <field name="discount_total"/>
+                                                <field name="apply_first"/>
+                                                <field name="apply_regular"/>
+                                            </group>
+                                            <group string="Detalles de Pago">
+                                                <label for="first_pension" string="Primera Pension"/>
+                                                <div class="o_address_format">
+                                                    <field name="first_pension" class="o_address_city"/>
+                                                    <small class="form-text text-muted">$us.</small>
+                                                </div>
+                                                <label for="regular_pension" string="Pension Regular"/>
+                                                <div class="o_address_format">
+                                                    <field name="regular_pension" class="o_address_city"/>
+                                                    <small class="form-text text-muted">$us.</small>
+                                                </div>
+                                            </group>
+                                        </group>
+                                    </page>
+                                </notebook>
+                            </sheet>
+                            <div class="oe_chatter">
+                                <field name="message_follower_ids" widget="mail_followers"/>
+                                <field name="activity_ids" widget="mail_activity"/>
+                                <field name="message_ids" widget="mail_thread"
+                                       options="{'post_refresh': 'recipients'}"/>
+                            </div>
+                        </form>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <!--Tree View-->
+        <record id="op_student_tree_view_inherit" model="ir.ui.view">
+            <field name="name">op.student.form.view.inherit</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_student_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="replace">
+                    <tree string="op Student">
+                        <field name="last_name"/>
+                        <field name="last_name2"/>
+                        <field name="first_name"/>
+                        <field name="middle_name"/>
+                        <field name="student_code"/>
+                        <field name="family_code"/>
+                        <field name="lang"/>
+                        <field name="first_nationality"/>
+                        <field name="second_nationality"/>
+                    </tree>
+                </xpath>
+            </field>
+        </record>
+        <!--Search View-->
+        <record id="op_student_search_view_inherit" model="ir.ui.view">
+            <field name="name">op.student.search.view.inherit</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="openeducat_core.view_op_student_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="replace">
+                    <search string="Alumno">
+                        <field name="name"/>
+                        <field name="student_code"/>
+                        <field name="family_code"/>
+                        <field name="class_id"/>
+                        <field name="course_id"/>
+                        <field name="gender"/>
+                        <field name="first_nationality"/>
+                        <field name="second_nationality"/>
+                        <field name="lang"/>
+                        <field name="religion"/>
+                        <newline/>
+                        <filter name="oficial_level" string="Nivel de Hijo Oficial"
+                                domain="[]" context="{'group_by':'oficial_level'}"/>
+                        <filter name="gender" string="Genero"
+                                domain="[]" context="{'group_by':'gender'}"/>
+                        <filter name="first_nationality" string="1ra Nacionalidad"
+                                domain="[]" context="{'group_by':'first_nationality'}"/>
+                        <filter name="second_nationality" string="2da Nacionalidad"
+                                domain="[]" context="{'group_by':'second_nationality'}"/>
+                        <filter name="lang" string="Idioma Materno"
+                                domain="[]" context="{'group_by':'lang'}"/>
+                        <filter name="religion" string="Religion"
+                                domain="[]" context="{'group_by':'religion'}"/>
+                    </search>
+                </xpath>
+            </field>
+        </record>
+        <!--Kanban View-->
+        <record id="kanban_view_student_inherit" model="ir.ui.view">
+            <field name="name">Alumno Kanban</field>
+            <field name="model">op.student</field>
+            <field name="inherit_id" ref="openeducat_core.kanban_view_student"/>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban" position="replace">
+                    <kanban>
+                        <field name="id"/>
+                        <field name="name"/>
+                        <field name="image"/>
+                        <templates>
+                            <t t-name="kanban-box">
+                                <div t-attf-class="oe_kanban_global_click o_res_partner_kanban">
+                                    <div class="o_kanban_image">
+                                        <t t-if="record.image.raw_value">
+                                            <field name="image" widget="image" class="oe_left oe_avatar"/>
+                                        </t>
+                                        <t t-if="!record.image.value">
+                                            <img t-att-src="_s + &quot;/base/static/src/img/avatar.png&quot;"/>
+                                        </t>
+                                    </div>
+                                    <div class="oe_kanban_details">
+                                        <h4>
+                                            <a type="open">
+                                                <field name="name"/>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li t-if="record.course_id.raw_value">
+                                                <span>
+                                                    <strong>Curso:</strong>
+                                                </span>
+                                                <field name="course_id"/>
+                                            </li>
+                                            <li t-if="record.student_code.raw_value">
+                                                <span>
+                                                    <strong>Codigo:</strong>
+                                                </span>
+                                                <field name="student_code"/>
+                                            </li>
+                                            <li t-if="record.rude.raw_value">
+                                                <span>
+                                                    <strong>Rude:</strong>
+                                                </span>
+                                                <field name="rude"/>
+                                            </li>
+                                            <li t-if="record.first_nationality.raw_value">
+                                                <span>
+                                                    <strong>Nacionalidad:</strong>
+                                                </span>
+                                                <field name="first_nationality"/>
+                                            </li>
+                                            <li t-if="record.birth_date.raw_value">
+                                                <span>
+                                                    <strong>Fecha Nac.:</strong>
+                                                </span>
+                                                <field name="birth_date"/>
+                                            </li>
+                                            <li t-if="record.age.raw_value">
+                                                <span>
+                                                    <strong>Edad:</strong>
+                                                </span>
+                                                <field name="age"/>
+                                            </li>
+                                            <li t-if="record.son_level_id.raw_value">
+                                                <span>
+                                                    <strong>Nivel:</strong>
+                                                </span>
+                                                <field name="son_level_id"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </t>
+                        </templates>
+                    </kanban>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

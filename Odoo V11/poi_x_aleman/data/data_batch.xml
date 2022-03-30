@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="True">
+        <record id="batch_k1a" model="op.batch">
+            <field name="name">K1A</field>
+            <field name="grade_id" ref="batch_grade_k1"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_i"/>
+        </record>
+        <record id="batch_k1b" model="op.batch">
+            <field name="name">K1B</field>
+            <field name="grade_id" ref="batch_grade_k1"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_i"/>
+        </record>
+        <record id="batch_k1c" model="op.batch">
+            <field name="name">K1C</field>
+            <field name="grade_id" ref="batch_grade_k1"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_i"/>
+        </record>
+        <record id="batch_k1d" model="op.batch">
+            <field name="name">K1D</field>
+            <field name="grade_id" ref="batch_grade_k1"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_i"/>
+        </record>
+        <record id="batch_k1e" model="op.batch">
+            <field name="name">K1E</field>
+            <field name="grade_id" ref="batch_grade_k1"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_i"/>
+        </record>
+        <record id="batch_k1f" model="op.batch">
+            <field name="name">K1F</field>
+            <field name="grade_id" ref="batch_grade_k1"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_i"/>
+        </record>
+        <record id="batch_k2a" model="op.batch">
+            <field name="name">K2A</field>
+            <field name="grade_id" ref="batch_grade_k2"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_i"/>
+        </record>
+        <record id="batch_k2b" model="op.batch">
+            <field name="name">K2B</field>
+            <field name="grade_id" ref="batch_grade_k2"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_i"/>
+        </record>
+        <record id="batch_k2c" model="op.batch">
+            <field name="name">K2C</field>
+            <field name="grade_id" ref="batch_grade_k2"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_i"/>
+        </record>
+        <record id="batch_k2d" model="op.batch">
+            <field name="name">K2D</field>
+            <field name="grade_id" ref="batch_grade_k2"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_i"/>
+        </record>
+        <record id="batch_k2e" model="op.batch">
+            <field name="name">K2E</field>
+            <field name="grade_id" ref="batch_grade_k2"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_i"/>
+        </record>
+        <record id="batch_k2f" model="op.batch">
+            <field name="name">K2F</field>
+            <field name="grade_id" ref="batch_grade_k2"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_i"/>
+        </record>
+        <record id="batch_p1a" model="op.batch">
+            <field name="name">P1A</field>
+            <field name="grade_id" ref="batch_grade_p1"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p1b" model="op.batch">
+            <field name="name">P1B</field>
+            <field name="grade_id" ref="batch_grade_p1"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p1c" model="op.batch">
+            <field name="name">P1C</field>
+            <field name="grade_id" ref="batch_grade_p1"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p1d" model="op.batch">
+            <field name="name">P1D</field>
+            <field name="grade_id" ref="batch_grade_p1"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p1e" model="op.batch">
+            <field name="name">P1E</field>
+            <field name="grade_id" ref="batch_grade_p1"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p1f" model="op.batch">
+            <field name="name">P1F</field>
+            <field name="grade_id" ref="batch_grade_p1"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p2a" model="op.batch">
+            <field name="name">P2A</field>
+            <field name="grade_id" ref="batch_grade_p2"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p2b" model="op.batch">
+            <field name="name">P2B</field>
+            <field name="grade_id" ref="batch_grade_p2"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p2c" model="op.batch">
+            <field name="name">P2C</field>
+            <field name="grade_id" ref="batch_grade_p2"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p2d" model="op.batch">
+            <field name="name">P2D</field>
+            <field name="grade_id" ref="batch_grade_p2"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p2e" model="op.batch">
+            <field name="name">P2E</field>
+            <field name="grade_id" ref="batch_grade_p2"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p2f" model="op.batch">
+            <field name="name">P2F</field>
+            <field name="grade_id" ref="batch_grade_p2"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p3a" model="op.batch">
+            <field name="name">P3A</field>
+            <field name="grade_id" ref="batch_grade_p3"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p3b" model="op.batch">
+            <field name="name">P3B</field>
+            <field name="grade_id" ref="batch_grade_p3"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p3c" model="op.batch">
+            <field name="name">P3C</field>
+            <field name="grade_id" ref="batch_grade_p3"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p3d" model="op.batch">
+            <field name="name">P3D</field>
+            <field name="grade_id" ref="batch_grade_p3"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p3e" model="op.batch">
+            <field name="name">P3E</field>
+            <field name="grade_id" ref="batch_grade_p3"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p3f" model="op.batch">
+            <field name="name">P3F</field>
+            <field name="grade_id" ref="batch_grade_p3"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p4a" model="op.batch">
+            <field name="name">P4A</field>
+            <field name="grade_id" ref="batch_grade_p4"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p4b" model="op.batch">
+            <field name="name">P4B</field>
+            <field name="grade_id" ref="batch_grade_p4"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p4c" model="op.batch">
+            <field name="name">P4C</field>
+            <field name="grade_id" ref="batch_grade_p4"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p4d" model="op.batch">
+            <field name="name">P4D</field>
+            <field name="grade_id" ref="batch_grade_p4"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p4e" model="op.batch">
+            <field name="name">P4E</field>
+            <field name="grade_id" ref="batch_grade_p4"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p4f" model="op.batch">
+            <field name="name">P4F</field>
+            <field name="grade_id" ref="batch_grade_p4"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p5a" model="op.batch">
+            <field name="name">P5A</field>
+            <field name="grade_id" ref="batch_grade_p5"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p5b" model="op.batch">
+            <field name="name">P5B</field>
+            <field name="grade_id" ref="batch_grade_p5"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p5c" model="op.batch">
+            <field name="name">P5C</field>
+            <field name="grade_id" ref="batch_grade_p5"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p5d" model="op.batch">
+            <field name="name">P5D</field>
+            <field name="grade_id" ref="batch_grade_p5"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p5e" model="op.batch">
+            <field name="name">P5E</field>
+            <field name="grade_id" ref="batch_grade_p5"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p5f" model="op.batch">
+            <field name="name">P5F</field>
+            <field name="grade_id" ref="batch_grade_p5"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p6a" model="op.batch">
+            <field name="name">P6A</field>
+            <field name="grade_id" ref="batch_grade_p6"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p6b" model="op.batch">
+            <field name="name">P6B</field>
+            <field name="grade_id" ref="batch_grade_p6"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p6c" model="op.batch">
+            <field name="name">P6C</field>
+            <field name="grade_id" ref="batch_grade_p6"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p6d" model="op.batch">
+            <field name="name">P6D</field>
+            <field name="grade_id" ref="batch_grade_p6"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p6e" model="op.batch">
+            <field name="name">P6E</field>
+            <field name="grade_id" ref="batch_grade_p6"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_p6f" model="op.batch">
+            <field name="name">P6F</field>
+            <field name="grade_id" ref="batch_grade_p6"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_p"/>
+        </record>
+        <record id="batch_s1a" model="op.batch">
+            <field name="name">S1A</field>
+            <field name="grade_id" ref="batch_grade_s1"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s1b" model="op.batch">
+            <field name="name">S1B</field>
+            <field name="grade_id" ref="batch_grade_s1"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s1c" model="op.batch">
+            <field name="name">S1C</field>
+            <field name="grade_id" ref="batch_grade_s1"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s1d" model="op.batch">
+            <field name="name">S1D</field>
+            <field name="grade_id" ref="batch_grade_s1"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s1e" model="op.batch">
+            <field name="name">S1E</field>
+            <field name="grade_id" ref="batch_grade_s1"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s1f" model="op.batch">
+            <field name="name">S1F</field>
+            <field name="grade_id" ref="batch_grade_s1"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s2a" model="op.batch">
+            <field name="name">S2A</field>
+            <field name="grade_id" ref="batch_grade_s2"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s2b" model="op.batch">
+            <field name="name">S2B</field>
+            <field name="grade_id" ref="batch_grade_s2"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s2c" model="op.batch">
+            <field name="name">S2C</field>
+            <field name="grade_id" ref="batch_grade_s2"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s2d" model="op.batch">
+            <field name="name">S2D</field>
+            <field name="grade_id" ref="batch_grade_s2"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s2e" model="op.batch">
+            <field name="name">S2E</field>
+            <field name="grade_id" ref="batch_grade_s2"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s2f" model="op.batch">
+            <field name="name">S2F</field>
+            <field name="grade_id" ref="batch_grade_s2"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s3a" model="op.batch">
+            <field name="name">S3A</field>
+            <field name="grade_id" ref="batch_grade_s3"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s3b" model="op.batch">
+            <field name="name">S3B</field>
+            <field name="grade_id" ref="batch_grade_s3"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s3c" model="op.batch">
+            <field name="name">S3C</field>
+            <field name="grade_id" ref="batch_grade_s3"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s3d" model="op.batch">
+            <field name="name">S3D</field>
+            <field name="grade_id" ref="batch_grade_s3"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s3e" model="op.batch">
+            <field name="name">S3E</field>
+            <field name="grade_id" ref="batch_grade_s3"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s3f" model="op.batch">
+            <field name="name">S3F</field>
+            <field name="grade_id" ref="batch_grade_s3"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+
+        <record id="batch_s4a" model="op.batch">
+            <field name="name">S4A</field>
+            <field name="grade_id" ref="batch_grade_s4"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s2b" model="op.batch">
+            <field name="name">S4B</field>
+            <field name="grade_id" ref="batch_grade_s4"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s4c" model="op.batch">
+            <field name="name">S4C</field>
+            <field name="grade_id" ref="batch_grade_s4"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s4d" model="op.batch">
+            <field name="name">S4D</field>
+            <field name="grade_id" ref="batch_grade_s4"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s4e" model="op.batch">
+            <field name="name">S4E</field>
+            <field name="grade_id" ref="batch_grade_s4"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s4f" model="op.batch">
+            <field name="name">S4F</field>
+            <field name="grade_id" ref="batch_grade_s4"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+
+        <record id="batch_s5a" model="op.batch">
+            <field name="name">S5A</field>
+            <field name="grade_id" ref="batch_grade_s5"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s5b" model="op.batch">
+            <field name="name">S5B</field>
+            <field name="grade_id" ref="batch_grade_s5"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s5c" model="op.batch">
+            <field name="name">S5C</field>
+            <field name="grade_id" ref="batch_grade_s5"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s5d" model="op.batch">
+            <field name="name">S5D</field>
+            <field name="grade_id" ref="batch_grade_s5"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s5e" model="op.batch">
+            <field name="name">S5E</field>
+            <field name="grade_id" ref="batch_grade_s5"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s5f" model="op.batch">
+            <field name="name">S5F</field>
+            <field name="grade_id" ref="batch_grade_s5"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s6a" model="op.batch">
+            <field name="name">S6A</field>
+            <field name="grade_id" ref="batch_grade_s6"/>
+            <field name="parallel_id" ref="batch_parallel_A"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s6b" model="op.batch">
+            <field name="name">S6B</field>
+            <field name="grade_id" ref="batch_grade_s6"/>
+            <field name="parallel_id" ref="batch_parallel_B"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s6c" model="op.batch">
+            <field name="name">S6C</field>
+            <field name="grade_id" ref="batch_grade_s6"/>
+            <field name="parallel_id" ref="batch_parallel_C"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s6d" model="op.batch">
+            <field name="name">S6D</field>
+            <field name="grade_id" ref="batch_grade_s6"/>
+            <field name="parallel_id" ref="batch_parallel_D"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s6e" model="op.batch">
+            <field name="name">S6E</field>
+            <field name="grade_id" ref="batch_grade_s6"/>
+            <field name="parallel_id" ref="batch_parallel_E"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+        <record id="batch_s6f" model="op.batch">
+            <field name="name">S6F</field>
+            <field name="grade_id" ref="batch_grade_s6"/>
+            <field name="parallel_id" ref="batch_parallel_F"/>
+            <field name="level_id" ref="batch_course_level_s"/>
+        </record>
+    </data>
+</odoo>

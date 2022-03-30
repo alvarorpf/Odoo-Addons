@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <template id="products_add_to_cart" inherit_id="website_sale.products_add_to_cart" priority="9999">
+        <xpath expr="//t[@t-if='product_variant_id']" position="attributes">
+            <attribute name="t-if">product_variant_id and product.website_published</attribute>
+        </xpath>
+    </template>
+
+    <template id="product" inherit_id="website_sale.product" priority="9999">
+        <xpath expr="//a[@id='add_to_cart']" position="attributes">
+            <attribute name="t-if">product.website_published</attribute>
+        </xpath>
+    </template>
+    <!-- -->
+    <template id="cea_assets" name="CEA Assets" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/poi_x_karlovy_web/static/src/css/kv_style.css"/>
+        </xpath>
+    </template>
+
+
+    <template id="navbar_mega" inherit_id="website.layout">
+
+        <xpath expr="//a[hasclass('navbar-brand')]" position="replace">
+            <a href="/">
+                <img src="/poi_x_karlovy_web/static/src/img/logo_kv.png" class="img img-responsive" alt="Karlovy Vary" title="Karlovy Vary"
+                        style="height: 130px;"/>
+            </a>
+        </xpath>
+    </template>
+
+<!--    -->
+<!--    <template id="fav_ico" name="CEA Icon" inherit_id="web.layout">-->
+<!--        <xpath expr="//html/head/link[1]" position="replace">-->
+<!--            <link rel="shortcut icon"-->
+<!--                href="/poi_x_aleman/static/src/img/favicon.ico"-->
+<!--                type="image/x-icon" />-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+
+    <template id="website_login_poi" inherit_id="website.login_layout" name="KV Login">
+        <xpath expr="//div[@class='oe_website_login_container']" position="before">
+            <t t-set="background_login" t-value="'/poi_x_karlovy_web/static/src/img/login.jpg'"/>
+            <style type="text/css">
+                main {
+                    background: url(<t t-esc="background_login" />);
+                    background-color: #f7f7f7;
+                    background-repeat: no-repeat;
+                }
+                main > div > form {
+                    background-color: #c9cac591;
+                    padding:20px; width:450px;
+                    border-radius:5px;
+                }
+            </style>
+
+        </xpath>
+    </template>
+
+    <!-- Bottom to top button -->
+    <template id="top_header" inherit_id="website.layout" name="top_header">
+
+        <xpath expr="//footer" position="attributes">
+            <attribute name="style">
+                background: rgba(23, 47, 100, 1);
+            </attribute>
+        </xpath>
+    </template>
+
+    <!--Reemplazar footer nativo-->
+    <record id="website.layout_footer_copyright" model="ir.ui.view">
+        <field name="active" eval="False"/>
+    </record>
+
+    <template id="layout_footer_info" inherit_id="website.layout" name="Footer Copyright">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div class="oe_structure" id="footer" t-if="not no_footer">
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <a href="/">
+                                    <img src="/poi_x_karlovy_web/static/src/img/logo_kv.png" class="img img-responsive"
+                                         alt="Karlovy Vary"
+                                         title="Karlovy Vary"
+                                         style="height: 130px;"/>
+                                </a>
+                            </div>
+                            <div class="col-md-3" style="color: rgba(208, 200, 225, 1);">
+                                <h5 class="mt16">GALERÍA LA PAZ</h5>
+                                <p>
+                                    Av. Claudio Aliaga #1182 Bloque J-47
+                                    <br/>
+                                    San Miguel Zona Sur
+                                    <br/>
+                                    (591) 2-279 9838
+                                    <br/>
+                                    788 88402
+                                    <br/>
+                                    galeriakarlovyvary@gmail.com
+                                </p>
+                            </div>
+                            <div class="col-md-3" style="color: rgba(208, 200, 225, 1);">
+                                <h5 class="mt16">GALERÍA SANTA CRUZ</h5>
+                                <p>
+                                    Calle Los Gomeros #111 Barrio Sirari
+                                    <br/>
+                                    (frente al restaurant La Suisse)
+                                    <br/>
+                                    (591) 3-344 4111
+                                    <br/>
+                                    789 82999
+                                    <br/>
+                                    galeriakarlovyvary@gmail.com
+                                </p>
+                            </div>
+                            <div class="col-md-3">
+                                <img class="img img-responsive"
+                                     src="/poi_x_karlovy_web/static/src/img/website/karlovy_nit.png"
+                                     style="margin: 0 auto; max-width:100px;"/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="layout_footer_copyright" inherit_id="poi_x_karlovy_web.layout_footer_info" name="Footer Copyright">
+        <xpath expr="//div[@id='footer']" position="inside">
+            <div class="container mt16 mb8">
+                <div class="pull-right" t-ignore="true" t-if="not editable" style="font-size: smaller; color: #e6e6e6;">
+                    Desarrollado por
+                    <a target="_blank" class="label" style="font-size: 85%;" href="http://www.poiesisconsulting.com">
+                        <img src="/poi_x_karlovy_web/static/src/img/poiesis.png"/>
+                    </a>
+                </div>
+                <div class="pull-left text-muted" itemscope="itemscope" itemtype="http://schema.org/Organization">
+                    Copyright &amp;copy; <span t-field="res_company.name" itemprop="name">Company name</span>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

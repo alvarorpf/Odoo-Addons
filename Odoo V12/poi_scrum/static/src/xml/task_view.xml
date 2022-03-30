@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="poi_scrum.task_view">
+<div class="col-sm-12">
+    <div class="card bg-light">
+      <div class="card-body" style="padding: 2px;">
+        <dl class="row">
+            <dt class="col-sm-4">Tarea</dt>
+            <dd class="col-sm-8"><span t-esc="widget.task.name"></span></dd>
+            <dt class="col-sm-4">Prioridad</dt>
+            <dd class="col-sm-8"><span t-esc="widget.task.priority_id[1]"></span></dd>
+            <dt class="col-sm-4">Fecha de Asignación</dt>
+            <dd class="col-sm-8"><span t-esc="widget.task.date_assign or 'Sin Fecha de Asignación'"></span></dd>
+            <dt class="col-sm-4">Fecha Inicio</dt>
+            <dd class="col-sm-8"><span t-esc="widget.task.date_start"></span></dd>
+            <dt class="col-sm-4">Fecha Limite</dt>
+            <dd class="col-sm-8"><span t-esc="widget.task.date_deadline or 'Sin Fecha limite aun'"></span></dd>
+            <dt class="col-sm-4">Etapa</dt>
+            <dd class="col-sm-8"><span t-esc="(widget.task.stage_id and widget.task.stage_id[1]) or ''"></span></dd>
+            <dt class="col-sm-4">Sprint</dt>
+            <dd class="col-sm-8"><span t-esc="(widget.task.sprint_id and widget.task.sprint_id[1]) or 'Aun no se coloco a un Sprint'"></span></dd>
+            <dt class="col-sm-4">Estado Sprint</dt>
+            <dd class="col-sm-8"><span t-esc="widget.task.sprint_state or 'Sin Estado'"></span></dd>
+            <!-- <dt class="col-sm-4">Lenguajes</dt>
+            <dd class="col-sm-8"><span t-esc="widget.task.name"></span></dd> -->
+            <dt class="col-sm-4">Horas Planeadas</dt>
+            <dd class="col-sm-8"><span t-esc="widget.task.planned_hours"></span></dd>
+            <dt class="col-sm-4">History Points</dt>
+            <dd class="col-sm-8"><span t-esc="widget.task.story_points"></span></dd>
+            <dt class="col-sm-4">Progreso</dt>
+            <dd class="col-sm-8"><div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" t-attf-aria-valuenow="{{widget.task.progress}}" aria-valuemin="0" aria-valuemax="100" t-attf-style="width: {{widget.task.progress}}%"></div>
+              </div></dd>
+
+            <dt class="col-sm-4">Descripción</dt>
+            <dd class="col-sm-8"><span t-raw="widget.task.description or 'Sin descripción'"></span></dd>
+            <dt class="col-sm-4">Ver En Sistema</dt>
+            <dd class="col-sm-8"><a class="btn btn-dark" t-attf-href="/mail/view/task/{{widget.task.id}}" role="button"><span class="fa fa-edit"></span></a></dd>
+        </dl>
+      </div>
+    </div>
+   
+</div>
+</t>
+</templates>

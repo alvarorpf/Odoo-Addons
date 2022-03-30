@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="report_mora_2_view" model="ir.ui.view">
+            <field name="name">report.mora.2</field>
+            <field name="model">report.mora.2</field>
+            <field name="arch" type="xml">
+                <tree string="Reporte de Mora" create="false">
+                    <field name="code"/>
+                    <field name="student"/>
+                    <field name="parent"/>
+                    <field name="phone"/>
+                    <field name="cellphone"/>
+                    <field name="concept"/>
+                    <field name="total"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="report_mora_2_pivot">
+            <field name="name">report.mora.2.pivot</field>
+            <field name="model">report.mora.2</field>
+            <field name="arch" type="xml">
+                <pivot string="Reporte de Mora">
+                    <field name="parent" type="row"/>
+                    <field name="student" type="row"/>
+                    <field name="concept" type="col"/>
+                    <field name="total" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+    </data>
+</odoo>

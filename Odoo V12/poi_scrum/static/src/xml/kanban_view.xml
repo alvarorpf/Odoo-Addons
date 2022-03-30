@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="poi_scrum.kanban_view">
+    <div class="card border-dark kanban-card">
+        <div class="card-header">
+               <span t-esc="widget.type.name"/>
+        </div>
+        <div class="card-body card-sort card-drag" t-attf-data-id="{{widget.type.id}}">
+            <t t-foreach="widget.tasks.task_ids" t-as="t">
+                <t t-if="t.stage_id and t.stage_id[0] == widget.type.id and t.sprint_state == 'active' and t.assigned_to_me">
+                <div class="card bg-light task-card" t-attf-data-id="{{t.id}}">
+                    <div t-attf-class="card-body {{(t.color == 0  and 'task-nocolor') or (t.color == 1 and 'task-red') or (t.color == 3 and 'task-yellow') or (t.color == 10 and 'task-green')}}" style="padding: 1px;font-size:10px;">
+                        <dl class="row">
+                            <dt class="col-sm-4">Tarea</dt>
+                            <dd class="col-sm-8 dd-task">
+                                <a class="btn btn-dark btn-sm" t-attf-href="/mail/view/task/{{t.id}}" role="button"><span t-esc="t.name"></span></a>
+                            </dd>
+                            <dt class="col-sm-4">Prioridad</dt>
+                            <dd class="col-sm-8 dd-task"><span t-esc="t.priority_id[1]"></span></dd>
+                            <dt class="col-sm-4">Fecha Limite</dt>
+                            <dd class="col-sm-8 dd-task"><span t-esc="t.date_deadline or 'Sin Fecha'"></span></dd>
+                            <dt class="col-sm-4">Sprint</dt>
+                            <dd class="col-sm-8 dd-task"><span t-esc="(t.sprint_id and t.sprint_id[1]) or 'Sin Sprint'"></span></dd>
+                            <dt class="col-sm-4">Horas Planeadas</dt>
+                            <dd class="col-sm-8 dd-task"><span t-esc="t.planned_hours"></span></dd>
+                            <dt class="col-sm-4">Progreso</dt>
+                            <dd class="col-sm-8 dd-task"><div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" t-attf-aria-valuenow="{{t.progress}}" aria-valuemin="0" aria-valuemax="100" t-attf-style="width: {{t.progress}}%"></div>
+                            </div></dd>
+                        </dl>
+                    </div>
+                </div>
+                </t>
+            </t>
+        </div>
+    </div>
+    
+    
+</t>
+<t t-name="poi_scrum.alert">
+<div class="col-sm-12">
+    <p><t t-esc="data.data.message"></t></p>
+</div>
+</t>
+</templates>

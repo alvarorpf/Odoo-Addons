@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="op_potential_income_wiz_form" model="ir.ui.view">
+            <field name="name">op.potential.income.form</field>
+            <field name="model">op.potential.income.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Ingreso Potencial">
+                    <group>
+                        <group>
+                            <field name="date" required="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="generate_report" string="Imprimir PDF" type="object"
+                                class="btn-primary"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="op_potential_income_wiz_action_form" model="ir.actions.act_window">
+            <field name="name">Ingreso Potencial</field>
+            <field name="res_model">op.potential.income.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_account_op_potential_income" name="Ingreso Potencial" parent="menu_account_op_root"
+                  action="op_potential_income_wiz_action_form" sequence="11"/>
+    </data>
+</odoo>

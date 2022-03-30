@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="document_log_tree">
+        <field name="name">document.log.tree</field>
+        <field name="model">document.log</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="document_id"/>
+                <field name="user_id"/>
+                <field name="date"/>
+                <field name="activity"/>
+                <field name="state"/>
+                <field name="stage_id"/>
+                <field name="comment"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

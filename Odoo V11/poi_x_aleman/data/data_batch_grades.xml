@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="True">
+        <record id="batch_grade_k1" model="op.batch.grade">
+            <field name="name">K1</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="batch_grade_k2" model="op.batch.grade">
+            <field name="name">K2</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="batch_grade_p1" model="op.batch.grade">
+            <field name="name">P1</field>
+            <field name="sequence">3</field>
+        </record>
+        <record id="batch_grade_p2" model="op.batch.grade">
+            <field name="name">P2</field>
+            <field name="sequence">4</field>
+        </record>
+        <record id="batch_grade_p3" model="op.batch.grade">
+            <field name="name">P3</field>
+            <field name="sequence">5</field>
+        </record>
+        <record id="batch_grade_p4" model="op.batch.grade">
+            <field name="name">P4</field>
+            <field name="sequence">6</field>
+        </record>
+        <record id="batch_grade_p5" model="op.batch.grade">
+            <field name="name">P5</field>
+            <field name="sequence">7</field>
+        </record>
+        <record id="batch_grade_p6" model="op.batch.grade">
+            <field name="name">P6</field>
+            <field name="sequence">8</field>
+        </record>
+        <record id="batch_grade_s1" model="op.batch.grade">
+            <field name="name">S1</field>
+            <field name="sequence">9</field>
+        </record>
+        <record id="batch_grade_s2" model="op.batch.grade">
+            <field name="name">S2</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="batch_grade_s3" model="op.batch.grade">
+            <field name="name">S3</field>
+            <field name="sequence">11</field>
+        </record>
+        <record id="batch_grade_s4" model="op.batch.grade">
+            <field name="name">S4</field>
+            <field name="sequence">12</field>
+        </record>
+        <record id="batch_grade_s5" model="op.batch.grade">
+            <field name="name">S5</field>
+            <field name="sequence">13</field>
+        </record>
+        <record id="batch_grade_s6" model="op.batch.grade">
+            <field name="name">S6</field>
+            <field name="sequence">14</field>
+        </record>
+    </data>
+</odoo>

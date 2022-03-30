@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_category_property_form_inherit_delta" model="ir.ui.view">
+            <field name="name">product.category.property.form.inherit.delta</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="account.view_category_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='property_account_income_categ_id']/.." position="replace">
+                    <group string="Cuentas Transitorias">
+                        <field name="property_account_income_categ_id" string="Cuenta de ingresos transitoria"/>
+                        <field name="property_account_expense_categ_id" string="Cuenta de gastos transitoria"/>
+                    </group>
+                </xpath>
+                <xpath expr="//group[@name='account_property']" position="inside">
+                    <group string="Cuentas Principales">
+                        <field name="property_account_transient_income_categ_id" string="Cuenta de ingresos"/>
+                        <field name="property_account_transient_expense_categ_id" string="Cuenta de gastos"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

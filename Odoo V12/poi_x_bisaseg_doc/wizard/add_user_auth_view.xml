@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="add_user_auth" model="ir.ui.view">
+            <field name="name">add.user.auth.form</field>
+            <field name="model">add.user.auth</field>
+            <field name="arch" type="xml">
+                <form string="Agregar Usuario Autorizador">
+                    <group>
+                        <field name="document_id" invisible="1"/>
+                        <field name="user_id" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    </group>
+                    <footer>
+                        <button name="action_continue" string="Continuar" type="object"
+                                class="btn-primary" confirm="¿Está seguro de añadir este usuario al circuito de autorización?"/>
+                        <button string="Salir" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

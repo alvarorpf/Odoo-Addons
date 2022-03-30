@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="view_poi_bizagi_import" model="ir.ui.view">
+    <field name="name">poi.bizagi.import.form</field>
+    <field name="model">poi.bizagi.import</field>
+    <field name="arch" type="xml">
+        <form string="Configuración de Reportes">
+        <sheet>
+          <group>
+            <field name="ruta"/>
+            <field name="url" widget="url"/>
+          </group>
+          <group>
+            <field name="code"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+</record>
+
+<record id="view_poi_bizagi_import_tree" model="ir.ui.view">
+    <field name="name">poi.bizagi.import.tree</field>
+    <field name="model">poi.bizagi.import</field>
+    <field name="arch" type="xml">
+      <tree string="Importado Bizagi">
+        <field name="ruta"/>
+        <field name="url" widget="url"/>
+        <field name="code"/>
+      </tree>
+    </field>
+ </record>
+
+<record id="action_view_poi_bizagi_import" model="ir.actions.act_window">
+    <field name="name">Paginas Web</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">poi.bizagi.import</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+
+
+</odoo>
+

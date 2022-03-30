@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+        <!-- Vista Árbol de Modelo Log de Factura -->
+
+        <record model="ir.ui.view" id="account_move_log_tree">
+            <field name="name">account.move.log.tree</field>
+            <field name="model">account.move.log</field>
+            <field name="arch" type="xml">
+                <tree create="0" edit="0">
+                    <field name="invoice_id"/>
+                    <field name="user_id"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Formulario de Modelo Log de Factura -->
+
+        <record model="ir.ui.view" id="account_move_log_form">
+            <field name="name">account.move.log.form</field>
+            <field name="model">account.move.log</field>
+            <field name="arch" type="xml">
+                <form string="Log de Factura" duplicate="0">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="user_id" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="date" readonly="1"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista Busqueda de Modelo Log de Facturas -->
+
+        <record model="ir.ui.view" id="account_move_log_search">
+            <field name="name">account.move.log.search</field>
+            <field name="model">account.move.log</field>
+            <field name="arch" type="xml">
+                <search string="Log de Factura Busqueda">
+                    <field name="invoice_id"/>
+                    <field name="user_id"/>
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Factura" name="invoice" domain="[]" context="{'group_by':'invoice_id'}"/>
+                        <filter string="Usuario" name="user" context="{'group_by':'user_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Accion para visualizar modelo Log de Facturas -->
+
+        <record id="account_move_log_action" model="ir.actions.act_window">
+            <field name="name">Log de Impresion de Facturas</field>
+            <field name="res_model">account.move.log</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="account_move_log_search"/>
+        </record>
+
+        <!--Menu de Log de Facturas-->
+
+        <menuitem id="account_move_log_menu" parent="account.account_account_menu" action="account_move_log_action"/>
+
+    </data>
+</odoo>

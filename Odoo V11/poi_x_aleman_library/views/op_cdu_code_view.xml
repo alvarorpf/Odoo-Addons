@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="op_cdu_code_form_view" model="ir.ui.view">
+            <field name="name">op.cdu.code.form.view</field>
+            <field name="model">op.cdu.code</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="op_cdu_code_tree_view" model="ir.ui.view">
+            <field name="name">op.cdu.code.tree.view</field>
+            <field name="model">op.cdu.code</field>
+            <field name="arch" type="xml">
+                <tree string="Op CDU Code">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <!--Actions-->
+        <record id="action_op_cdu_code" model="ir.actions.act_window">
+            <field name="name">Código CDU</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">op.cdu.code</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menu-->
+        <menuitem id="action_op_cdu_code_menu_configuration" name="Código CDU" sequence="1"
+                  parent="op_school_library_config" action="action_op_cdu_code"/>
+    </data>
+</odoo>

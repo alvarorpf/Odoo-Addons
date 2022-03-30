@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_analysis_requirements_tree" model="ir.ui.view">
+         <field name="name">analysis.requirements.report.tree</field>
+         <field name="model">analysis.requirements</field>
+         <field name="arch" type="xml">
+             <tree string="Month Report" decoration-muted="state=='concluded'" decoration-danger="days_close&lt;0 and state not in ['concluded','cancelled']" decoration-warning="0&lt;days_close&lt;=2 and state not in ['concluded','cancelled']" decoration-success="days_close&gt;=3 and state not in ['concluded','cancelled']">
+                 <field name="request_id"/>
+                 <field name="title"/>
+                 <field name="type_id"/>
+                 <field name="type2_id" invisible="1"/>
+                 <field name="user_id"/>
+                 <field name="department_id"/>
+                 <field name="responsible_id"/>
+                 <field name="complexity_id"/>
+                 <field name="priority_id"/>
+                 <field name="date_create"/>
+                 <field name="diff_days_cr"/>
+                 <field name="date_request"/>
+                 <field name="diff_days_rm"/>
+                 <field name="date_management"/>
+                 <field name="diff_days_ma"/>
+                 <field name="date_approved"/>
+                 <field name="diff_days_ac"/>
+                 <field name="date_close"/>
+                 <field name="days_close" invisible="1"/>
+                 <field name="state"/>
+                 <field name="instance"/>
+             </tree>
+         </field>
+    </record>
+    <record id="view_analysis_requirements_pivot" model="ir.ui.view">
+         <field name="name">analysis.requirements.pivot</field>
+         <field name="model">analysis.requirements</field>
+         <field name="arch" type="xml">
+             <pivot string="Análisis Requerimientos" disable_linking="True">
+                 <field name="date_create" type="col"/>
+                 <field name="total" type="measure"/>
+             </pivot>
+         </field>
+    </record>
+
+    <record id="view_analysis_requirements_graph" model="ir.ui.view">
+         <field name="name">analysis.requirements.graph</field>
+         <field name="model">analysis.requirements</field>
+         <field name="arch" type="xml">
+             <graph string="Sales Analysis">
+                 <field name="department_id" type="row"/>
+                 <field name="total" type="measure"/>
+             </graph>
+         </field>
+    </record>
+
+    <record id="view_analysis_requirements_search" model="ir.ui.view">
+        <field name="name">analysis.requirements.search</field>
+        <field name="model">analysis.requirements</field>
+        <field name="arch" type="xml">
+            <search string="Analysis Requirements">
+                <separator/>
+                <group expand="0" string="Agrupado por">
+                    <filter string="Tipo Requerimiento" name="project_id" context="{'group_by':'type_id'}"/>
+                    <filter string="Tipo" name="stage_id" context="{'group_by':'type2_id'}"/>
+                    <filter string="Solicitante" name="project_id" context="{'group_by':'user_id'}"/>
+                    <filter string="Responsable O&amp;M" name="stage_id" context="{'group_by':'responsible_id'}"/>
+                    <filter string="Complejidad" name="project_id" context="{'group_by':'complexity_id'}"/>
+                    <filter string="Prioridad" name="stage_id" context="{'group_by':'priority_id'}"/>
+                    <filter string="Estado" name="project_id" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_analysis_requirements" model="ir.actions.act_window">
+        <field name="name">Análisis de Requerimientos</field>
+        <field name="res_model">analysis.requirements</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,pivot,graph</field>
+    </record>
+
+</odoo>
